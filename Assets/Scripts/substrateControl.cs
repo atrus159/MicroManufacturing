@@ -6,12 +6,14 @@ public class substrateControl : MonoBehaviour
 {
     public GameObject mainCam;
     public GameObject subCam;
+    public GameObject viewCam;
     public GameObject topCamPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        mainCam = GameObject.Find("Main Camera");
-        subCam = Instantiate(topCamPrefab, transform.position + new Vector3(0, 1001, 0), transform.rotation);
+        viewCam.transform.SetPositionAndRotation(transform.position + new Vector3(0, 10, 0), transform.rotation);
+        viewCam.GetComponent<Transform>().Rotate(90, 0, 0);
+        subCam = Instantiate(topCamPrefab, transform.position + new Vector3(0, 2000, 0), transform.rotation);
         subCam.GetComponent<Transform>().Rotate(90, 0, 0);
         mainCam.SetActive(true);
         subCam.SetActive(false);
