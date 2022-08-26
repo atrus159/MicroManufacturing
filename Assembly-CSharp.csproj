@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Processes\ProcessGen.cs" />
     <Compile Include="Assets\Scripts\tools\bucketTool.cs" />
     <Compile Include="Assets\Scripts\button behaviors\rect_button.cs" />
+    <Compile Include="Assets\Scripts\Processes\ProcessIonEtch.cs" />
     <Compile Include="Assets\Scripts\button behaviors\line_button.cs" />
     <Compile Include="Assets\Scripts\LayerStackHolder.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />

@@ -12,6 +12,7 @@ public class LayerStackHolder : MonoBehaviour
     public GameObject layerStackPrefab;
     public GameObject processGenPrefab;
     public GameObject processEtchPrefab;
+    public GameObject processIonEtchPrefab;
     public float layerHeight;
     public control.materialType curMaterial;
     public bool deletedFlag;
@@ -67,6 +68,10 @@ public class LayerStackHolder : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Instantiate(processGenPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Instantiate(processIonEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
         }
     }
 
@@ -157,6 +162,8 @@ public class LayerStackHolder : MonoBehaviour
         addDeposit(0, grid, layerMaterial, newTimeOffset);
     }
 
+    //if: spray removal 
+    //then: remove lotsa things
     public void etchLayer(control.materialType etchMaterial, int newTimeOffset = 0)
     {
         int[,] grid = new int[control.gridWidth, control.gridHeight];
@@ -170,7 +177,7 @@ public class LayerStackHolder : MonoBehaviour
             System.Array.Copy(zeros(), etchedSpots, control.gridWidth * control.gridHeight);
             foreach (GameObject curDeposit in dep_layers[curLayer - 1])
             {
-                if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0){
+                if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0 || (curDeposit.GetComponent<meshMaterial>().timeOffset < 0 && curDeposit.GetComponent<meshMaterial>().timeOffset >= newTimeOffset && curDeposit.GetComponent<meshMaterial>().myMaterial != etchMaterial)){
                     emptySpots = union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid);
                 }
             }
@@ -185,11 +192,12 @@ public class LayerStackHolder : MonoBehaviour
                             anyFlag = true;
                         }
                         updateDeposit(emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer-1);
+
                     }
                 }
             }
-            
-            if(anyFlag && !isEmpty(etchedSpots)){
+
+            if (anyFlag && !isEmpty(etchedSpots)){
                 addDeposit(curLayer -1 , etchedSpots, etchMaterial, newTimeOffset);
             }
             System.Array.Copy(emptyIntersect(grid, emptySpots), grid, control.gridWidth * control.gridHeight);
