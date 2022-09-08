@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class tutorialParent : MonoBehaviour
 {
-    public bool paused;
     public int tutorialStep;
     public bool stepFlag;
     public delegate void tutorialCheck();
@@ -13,19 +12,18 @@ public class tutorialParent : MonoBehaviour
     GameObject tutorialCanvas;
 
     // Start is called before the first frame update
-    void Start()
+    virtual public void Start()
     {
         tutorialStep = 0;
-        paused = false;
         stepFlag = true;
         tutorialChecks = new List<tutorialCheck>();
         initializeChecks();
-        tutorialCanvas = GameObject.Find("Canvas - Tutorial");
-    }
+        tutorialCanvas = GameObject.Find("Canvas - Tutorial Text");
+}
 
     virtual public void initializeChecks()
     {
-        tutorialChecks.Add(delegate { displayText("Testing Testing 1 2 3", new Vector2(400, 400));});
+
     }
 
     // Update is called once per frame
@@ -34,17 +32,28 @@ public class tutorialParent : MonoBehaviour
         if (stepFlag)
         {
             stepFlag = false;
-            paused = false;
+            control.setPaused(control.pauseStates.unPaused);
             tutorialChecks[tutorialStep]();
             tutorialStep++;
         }
         
     }
 
-    void displayText(string text, Vector2 pos)
+    public void displayText(string text, Vector2 pos)
     {
-        paused = true;
+        control.setPaused(control.pauseStates.tutorialPaused);
+        GameObject.Find("Control").GetComponent<control>().tutorialBlockerVisible = true;
         GameObject newText = Instantiate(textBoxPrefab, pos, Quaternion.identity, tutorialCanvas.transform);
+        newText.GetComponent<tutorialText>().myTutorial = this;
+        newText.GetComponent<tutorialText>().updateText(text);
+    }
+
+    public void displayTextFree(string text, Vector2 pos)
+    {
+        control.setPaused(control.pauseStates.unPaused);
+        GameObject.Find("Control").GetComponent<control>().tutorialBlockerVisible = false;
+        GameObject newText = Instantiate(textBoxPrefab, pos, Quaternion.identity, tutorialCanvas.transform);
+        newText.GetComponent<tutorialText>().myTutorial = this;
         newText.GetComponent<tutorialText>().updateText(text);
     }
 }

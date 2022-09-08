@@ -11,6 +11,8 @@ public class ProcessParent : MonoBehaviour
     public LayerStackHolder layerStackHold;
     public GameObject slider;
     public GameObject sliderPrefab;
+    public GameObject button;
+    public GameObject buttonPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,10 @@ public class ProcessParent : MonoBehaviour
         slider.transform.SetParent(canvTrans, false);
         slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 250, canvTrans.position.y - 100), transform.rotation);
 
+        button = Instantiate(buttonPrefab, transform.position, transform.rotation);
+        button.transform.SetParent(canvTrans, false);
+        button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 350, canvTrans.position.y - 150), transform.rotation);
+
     }
 
     virtual public void CallStep(int i)
@@ -45,19 +51,20 @@ public class ProcessParent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            layerStackHold.cullDeposits(curStep + 1);
-            Destroy(slider);
-            Destroy(gameObject);
-        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             layerStackHold.cullDeposits(0);
             Destroy(slider);
+            Destroy(button);
             Destroy(gameObject);
         }
+    }
 
+    public void onFinishedButton()
+    {
+        layerStackHold.cullDeposits(curStep + 1);
+        Destroy(slider);
+        Destroy(button);
+        Destroy(gameObject);
     }
 }

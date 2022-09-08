@@ -10,7 +10,6 @@ public class paint : MonoBehaviour
     Image image;
     public Texture2D texture;
     public Texture2D oldTexture;
-    public bool visible = false;
     public int scaleFactor;
     public int xOffset;
     public int yOffset;
@@ -136,26 +135,8 @@ public class paint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            visible = !visible;
-            if (!visible)
-            {
-                GameObject.Find("Canvas - Main").GetComponent<CanvasGroup>().alpha = 1;
-                GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha = 0;
-                GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(true);
-                GameObject.Find("Substrate").GetComponent<substrateControl>().subCam.SetActive(false);
-            }
-            else
-            {
-                GameObject.Find("Canvas - Main").GetComponent<CanvasGroup>().alpha = 0;
-                GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha = 1;
-                GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(false);
-                GameObject.Find("Substrate").GetComponent<substrateControl>().subCam.SetActive(true);
-            }
-        }
 
-        if (visible)
+        if (GameObject.Find("Control").GetComponent<control>().hudVisible)
         {
             Vector2 mouseVec = getMousePos();
             if(mouseVec.x != -1)

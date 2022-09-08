@@ -59,20 +59,36 @@ public class LayerStackHolder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            depositLayer(control.materialType.photoresist, GameObject.Find("drawing_panel").GetComponent<paint>().grid);
+            makePhotoResist();
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-             Instantiate(processEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+            startEtchProcess();
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Instantiate(processGenPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+            startDepositProcess();
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
             Instantiate(processIonEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
         }
+    }
+
+
+    public void makePhotoResist()
+    {
+        depositLayer(control.materialType.photoresist, GameObject.Find("drawing_panel").GetComponent<paint>().grid);
+    }
+
+    public void startDepositProcess()
+    {
+        Instantiate(processGenPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+    }
+
+    public void startEtchProcess()
+    {
+        Instantiate(processEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
     }
 
     void LateUpdate()

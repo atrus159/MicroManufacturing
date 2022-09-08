@@ -49,5 +49,8 @@ MonoBehaviour:
   layerStackPrefab: {fileID: 7154173091511205322}
   processGenPrefab: {fileID: 8290430112663803850, guid: 561f7d6cd541ff24c99ad5148897f3d5, type: 3}
   processEtchPrefab: {fileID: 8290430112663803850, guid: 519a474675194c24ebc51b884b3cff8f, type: 3}
+  processIonEtchPrefab: {fileID: 8290430112663803850, guid: 80aa2054fac5fa74388307a44796988a, type: 3}
   layerHeight: 0.1
   curMaterial: 0
+  deletedFlag: 0
+  deletedLayers: 

@@ -6,6 +6,7 @@ using TMPro;
 
 public class tutorialText : MonoBehaviour
 {
+    public tutorialParent myTutorial;
     TextMeshProUGUI textBox;
     GameObject myText;
     GameObject myImage;
@@ -13,23 +14,27 @@ public class tutorialText : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        myText = transform.GetChild(2).gameObject;
-        myImage = transform.GetChild(1).gameObject;
         myImage = transform.GetChild(0).gameObject;
+        myText = myImage.transform.GetChild(0).gameObject;
         textBox = myText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            myTutorial.stepFlag = true;
+            GameObject.Find("Control").GetComponent<control>().tutorialBlockerVisible = false;
+            Destroy(gameObject);
+
+        }
+
     }
 
     public void updateText(string newText)
     {
         textBox.SetText(newText);
-        Vector3 newSize = new Vector3(2.0f, 2.0f, 0.0f);//textBox.GetRenderedValues(true);
-        myImage.transform.localScale += newSize;
 
     }
 }

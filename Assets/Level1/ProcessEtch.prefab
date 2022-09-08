@@ -51,3 +51,5 @@ MonoBehaviour:
   layerStackHold: {fileID: 0}
   slider: {fileID: 0}
   sliderPrefab: {fileID: 90038943961938758, guid: 58e11220b723a8e4da2338225a8a3c18, type: 3}
+  button: {fileID: 0}
+  buttonPrefab: {fileID: 3677695250772991500, guid: f40bb3ae0567e5f408e56597422089f5, type: 3}

@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,5 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1569d6b5faad041bab2c92eb9d300a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nSteps: 50
   curStep: 1
+  prevStep: 0
+  layerStack: {fileID: 0}
+  layerStackHold: {fileID: 0}
+  slider: {fileID: 0}
   sliderPrefab: {fileID: 90038943961938758, guid: 981adb82e3651e447bbfcc4be7e48fa5, type: 3}
+  button: {fileID: 0}
+  buttonPrefab: {fileID: 3677695250772991500, guid: f40bb3ae0567e5f408e56597422089f5, type: 3}

@@ -18,7 +18,7 @@ public class OrbitCamera : MonoBehaviour
 	{
 		Vector2 input = new Vector2(
 			Input.GetAxis("Vertical"),
-			Input.GetAxis("Horizontal")
+			-Input.GetAxis("Horizontal")
 		);
 		const float e = 0.001f;
 		if (input.x < -e || input.x > e || input.y < -e || input.y > e)
@@ -29,7 +29,10 @@ public class OrbitCamera : MonoBehaviour
 
 	void LateUpdate()
 	{
-		ManualRotation();
+        if (control.isPaused() == control.pauseStates.unPaused)
+        {
+            ManualRotation();
+        }
 		Vector3 focusPoint = focus.position;
 		Quaternion lookRotation = Quaternion.Euler(orbitAngles);
 		Vector3 lookDirection = lookRotation * Vector3.forward;
