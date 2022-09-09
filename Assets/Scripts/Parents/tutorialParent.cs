@@ -56,4 +56,13 @@ public class tutorialParent : MonoBehaviour
         newText.GetComponent<tutorialText>().myTutorial = this;
         newText.GetComponent<tutorialText>().updateText(text);
     }
+
+    public void checkSpacer(string checkName)
+    {
+        if (!GameObject.Find(checkName))
+        {
+            stepFlag = true;
+            Destroy(GameObject.Find("TutorialTextBox(Clone)"));
+        }
+    }
 }

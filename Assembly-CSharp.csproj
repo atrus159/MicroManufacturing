@@ -56,7 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\toolParent.cs" />
+    <Compile Include="Assets\Scripts\Parents\toolParent.cs" />
     <Compile Include="Assets\Scripts\button behaviors\color_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\meshGenerator.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\button behaviors\fill_button.cs" />
     <Compile Include="Assets\Scripts\button behaviors\elipse_button.cs" />
-    <Compile Include="Assets\Scripts\tutorialParent.cs" />
+    <Compile Include="Assets\Scripts\Parents\tutorialParent.cs" />
     <Compile Include="Assets\Scripts\tools\lineTool.cs" />
     <Compile Include="Assets\Scripts\meshMaterial.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -80,7 +80,7 @@
     <Compile Include="Assets\Scripts\Processes\ProcessEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
-    <Compile Include="Assets\Scripts\ProcessParent.cs" />
+    <Compile Include="Assets\Scripts\Parents\ProcessParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
     <Compile Include="Assets\Scripts\ButtonEvents.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Processes\ProcessGen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\tools\bucketTool.cs" />
+    <Compile Include="Assets\Scripts\Tutorials\LV1\Level1Tutorial.cs" />
     <Compile Include="Assets\Scripts\button behaviors\rect_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -116,10 +117,11 @@
     <Compile Include="Assets\Scripts\button behaviors\draw_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Scripts\checkParent.cs" />
+    <Compile Include="Assets\Scripts\Parents\checkParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\Level1Tutorial.cs" />
+    <Compile Include="Assets\Scripts\Tutorials\LV1\cameraPanCheck.cs" />
+    <Compile Include="Assets\Scripts\Tutorials\LV1\dropdownSelectCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
