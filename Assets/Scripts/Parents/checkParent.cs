@@ -5,7 +5,7 @@ using UnityEngine;
 public class checkParent : MonoBehaviour
 {
     public tutorialParent myTutorial;
-    LayerStackHolder layers;
+    public LayerStackHolder layers;
     // Start is called before the first frame update
     virtual public void Start()
     {

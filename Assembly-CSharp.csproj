@@ -67,7 +67,9 @@
     <Compile Include="Assets\Scripts\substrateControl.cs" />
     <Compile Include="Assets\Scripts\button behaviors\swap_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\Tutorials\LV1\dropdownSelectCheck.cs" />
     <Compile Include="Assets\Scripts\button behaviors\fill_button.cs" />
+    <Compile Include="Assets\Scripts\Tutorials\LV1\cameraPanCheck.cs" />
     <Compile Include="Assets\Scripts\button behaviors\elipse_button.cs" />
     <Compile Include="Assets\Scripts\Parents\tutorialParent.cs" />
     <Compile Include="Assets\Scripts\tools\lineTool.cs" />
@@ -120,8 +122,7 @@
     <Compile Include="Assets\Scripts\Parents\checkParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\LV1\cameraPanCheck.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\LV1\dropdownSelectCheck.cs" />
+    <Compile Include="Assets\Scripts\Tutorials\LV1\depositButtonCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

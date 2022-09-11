@@ -49,29 +49,12 @@ public class LayerStackHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (control.isPaused() == control.pauseStates.unPaused)
         {
-            depositLayer(curMaterial,ones());
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            liftOff();
-        }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            makePhotoResist();
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            startEtchProcess();
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            startDepositProcess();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Instantiate(processIonEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                liftOff();
+            }
         }
     }
 

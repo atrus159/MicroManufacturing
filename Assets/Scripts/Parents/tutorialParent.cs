@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,5 +65,14 @@ public class tutorialParent : MonoBehaviour
             stepFlag = true;
             Destroy(GameObject.Find("TutorialTextBox(Clone)"));
         }
+    }
+
+    public GameObject initializeCheck<T>(string name) where T : UnityEngine.Component
+    {
+        GameObject toReturn = new GameObject(name);
+        toReturn.AddComponent<T>();
+        toReturn.GetComponent<checkParent>().myTutorial = this;
+        toReturn.SetActive(false);
+        return toReturn;
     }
 }
