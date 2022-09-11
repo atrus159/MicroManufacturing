@@ -14,6 +14,11 @@ public class ProcessParent : MonoBehaviour
     public GameObject button;
     public GameObject buttonPrefab;
 
+    GameObject Dropdown;
+    GameObject DepositButton;
+    GameObject EtchButton;
+    GameObject PhotoresistButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +42,15 @@ public class ProcessParent : MonoBehaviour
         button.transform.SetParent(canvTrans, false);
         button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 350, canvTrans.position.y - 150), transform.rotation);
 
+        Dropdown = GameObject.Find("Dropdown");
+        DepositButton = GameObject.Find("Deposit Button");
+        EtchButton = GameObject.Find("Etch Button");
+        PhotoresistButton = GameObject.Find("Photoresist Button");
+
+        Dropdown.SetActive(false);
+        DepositButton.SetActive(false);
+        EtchButton.SetActive(false);
+        PhotoresistButton.SetActive(false);
     }
 
     virtual public void CallStep(int i)
@@ -56,6 +70,10 @@ public class ProcessParent : MonoBehaviour
             layerStackHold.cullDeposits(0);
             Destroy(slider);
             Destroy(button);
+            Dropdown.SetActive(true);
+            DepositButton.SetActive(true);
+            EtchButton.SetActive(true);
+            PhotoresistButton.SetActive(true);
             Destroy(gameObject);
         }
     }
@@ -65,6 +83,10 @@ public class ProcessParent : MonoBehaviour
         layerStackHold.cullDeposits(curStep + 1);
         Destroy(slider);
         Destroy(button);
+        Dropdown.SetActive(true);
+        DepositButton.SetActive(true);
+        EtchButton.SetActive(true);
+        PhotoresistButton.SetActive(true);
         Destroy(gameObject);
     }
 }
