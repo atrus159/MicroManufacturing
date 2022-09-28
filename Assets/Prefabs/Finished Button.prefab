@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5269727024082750283, guid: 27e95bd0e39111840b11cfa8367e6230, type: 3}
+      - m_Target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
         m_TargetAssemblyTypeName: control, Assembly-CSharp
         m_MethodName: onFinishedButton
         m_Mode: 1

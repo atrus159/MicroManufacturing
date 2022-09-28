@@ -56,7 +56,8 @@ public class Level1Tutorial : tutorialParent
             DepoButton.SetActive(true);
         });
         tutorialChecks.Add(delegate { checkSpacer("deposit button check"); });
-        tutorialChecks.Add(delegate { displayText("Well done!", new Vector2(500, 300)); });
+        tutorialChecks.Add(delegate { displayText("Welcome to the deposition chamber. Your machine is about to sputter <b><color=#717171>aluminum</color></b> on\nthe substrate and create a thin layer. The longer you run the process for,\nthe thicker the layer you create will be.", new Vector2(500, 400)); });
+        tutorialChecks.Add(delegate { displayText("The <b><color=#f2971f>slider</color></b> in the bottom right controls how long you will run the sputtering process for.\nYou can see a preview of how much it <b><color=#717171>aluminum</color></b> it will deposit in green.", new Vector2(500, 400)); });
     }
 
 }

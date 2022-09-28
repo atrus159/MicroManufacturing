@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class control : MonoBehaviour
 {
@@ -62,6 +63,11 @@ public class control : MonoBehaviour
         {
             tutorialBlockerVisible = true;
             displayDelayTime = 10;
+        }
+        if (!control.tutorialExists())
+        {
+            GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = 0;
+            GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
     }
 
@@ -133,8 +139,9 @@ public class control : MonoBehaviour
         GameObject proc = GameObject.Find("New Process");
         proc.GetComponent<ProcessParent>().OnValueChanged(newValue);
     }
-    public void onValueChange(int num)
+    public void onDropDownChanged()
     {
+        int num = GameObject.Find("Dropdown").GetComponent<Dropdown>().value;
         GameObject layer = GameObject.Find("LayerStack");
         layer.GetComponent<LayerStackHolder>().onValueChange(num);
     }
