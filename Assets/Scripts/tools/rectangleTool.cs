@@ -6,7 +6,7 @@ public class rectangleTool : toolParent
 {
     public rectangleTool() : base()
     {
-
+        callOffCanvasFlag = true;
     }
 
     public override void onMouseDown(int i, int j)

@@ -6,6 +6,7 @@ public class lineTool : toolParent
 {
     public lineTool() : base()
     {
+        callOffCanvasFlag = true;
 
     }
 

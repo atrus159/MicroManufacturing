@@ -6,7 +6,7 @@ public class elipseTool : toolParent
 {
     public elipseTool() : base()
     {
-
+        callOffCanvasFlag = true;
     }
 
     public override void onMouseDown(int i, int j)

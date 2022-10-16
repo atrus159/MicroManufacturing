@@ -21,6 +21,8 @@ public class paint : MonoBehaviour
 
     RectTransform trans;
 
+    bool successfulClick;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,7 @@ public class paint : MonoBehaviour
         tools[4] = new elipseTool();
         curTool = 0;
         fillMode = 0;
+        successfulClick = false;
     }
 
 
@@ -70,7 +73,7 @@ public class paint : MonoBehaviour
 
     }
 
-    Vector2 getMousePos()
+    Vector3 getMousePos()
     {
         float mx = Input.mousePosition.x;
         float my = Input.mousePosition.y;
@@ -78,7 +81,7 @@ public class paint : MonoBehaviour
         float height = trans.sizeDelta.y;
         float centerX = Screen.width * 0.5f;
         float centerY = Screen.height * 0.5f;
-        Vector2 toReturn = new Vector2(-1, -1);
+        Vector3 toReturn = new Vector3(-2, -2, -2);
 
 
         float onCanvasX = mx - (centerX - width * 0.5f + xOffset) ;
@@ -86,10 +89,25 @@ public class paint : MonoBehaviour
 
         toReturn.x = Mathf.Round(onCanvasX / scaleFactor);
         toReturn.y = Mathf.Round(onCanvasY / scaleFactor);
-        if(toReturn.x >= control.gridWidth || toReturn.y >= control.gridHeight || toReturn.x < 0 || toReturn.y < 0)
+        if(toReturn.x >= control.gridWidth)
         {
-            toReturn.x = -1;
-            toReturn.y = -1;
+            toReturn.x = control.gridWidth-1;
+            toReturn.z = -1;
+        }
+        if(toReturn.y >= control.gridHeight)
+        {
+            toReturn.y = control.gridHeight-1;
+            toReturn.z = -1;
+        }
+        if(toReturn.x < 0)
+        {
+            toReturn.x = 0;
+            toReturn.z = -1;
+        }
+        if(toReturn.y < 0)
+        {
+            toReturn.y = 0;
+            toReturn.z = -1;
         }
         return toReturn;
     }
@@ -138,22 +156,28 @@ public class paint : MonoBehaviour
 
         if (GameObject.Find("Control").GetComponent<control>().hudVisible)
         {
-            Vector2 mouseVec = getMousePos();
-            if(mouseVec.x != -1)
+            Vector3 mouseVec = getMousePos();
+            if (mouseVec.z != -1)
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && !tools[curTool].callOffCanvasFlag)
                 {
-                    tools[curTool].onClick((int) mouseVec.x, (int) mouseVec.y);
+                    tools[curTool].onClick((int)mouseVec.x, (int)mouseVec.y);
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
                     tools[curTool].onMouseDown((int)mouseVec.x, (int)mouseVec.y);
-                }
-                if (Input.GetMouseButtonUp(0))
-                {
-                    tools[curTool].onRelease((int)mouseVec.x, (int)mouseVec.y);
+                    successfulClick = true;
                 }
             }
+            if (Input.GetMouseButtonUp(0) && successfulClick)
+            {
+                tools[curTool].onRelease((int)mouseVec.x, (int)mouseVec.y);
+            }
+            if (Input.GetMouseButton(0) && tools[curTool].callOffCanvasFlag)
+            {
+                tools[curTool].onClick((int)mouseVec.x, (int)mouseVec.y);
+            }
+
         }
     }
 }
