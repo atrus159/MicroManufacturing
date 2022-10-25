@@ -10,7 +10,7 @@ public class LayerStackHolder : MonoBehaviour
     public static int layerCount;
 
     //an array of all of the layers. each index is a list of deposits at that layer
-    public List<GameObject>[] dep_layers;
+    public List<GameObject>[] depLayers;
 
     //the current highest layer reached by anything in the design. Deposits will start one above here
     public int topLayer;
@@ -36,7 +36,7 @@ public class LayerStackHolder : MonoBehaviour
     void Start()
     {
         layerCount = 100;
-        dep_layers = new List<GameObject>[layerCount].Select(item => new List<GameObject>()).ToArray();
+        depLayers = new List<GameObject>[layerCount].Select(item => new List<GameObject>()).ToArray();
         topLayer = -1;
         layerHeight = 0.1f;
         curMaterial = control.materialType.chromium;
@@ -101,7 +101,7 @@ public class LayerStackHolder : MonoBehaviour
         {
             foreach(int i in deletedLayers)
             {
-                List<GameObject> curList = dep_layers[i];
+                List<GameObject> curList = depLayers[i];
                 for (int j = 0; j < curList.Count; j++)
                 {
                     if (!curList[j] || curList[j].GetComponent<meshGenerator>().toBeDestroyed)
@@ -140,7 +140,7 @@ public class LayerStackHolder : MonoBehaviour
         newMesh.GetComponent<meshGenerator>().initialize();
         newMesh.GetComponent<meshMaterial>().myMaterial = layerMaterial;
         newMesh.GetComponent<meshMaterial>().initialize(newTimeOffset);
-        dep_layers[curlayer].Add(newMesh);
+        depLayers[curlayer].Add(newMesh);
 
         return true;
     }
@@ -176,7 +176,7 @@ public class LayerStackHolder : MonoBehaviour
             bitMap tempDeposit = new bitMap();
             tempDeposit.set(bitMap.zeros());
 
-            foreach (GameObject curDeposit in dep_layers[curLayer-1])
+            foreach (GameObject curDeposit in depLayers[curLayer-1])
             {
                 tempDeposit.set(bitMap.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
             }
@@ -185,7 +185,7 @@ public class LayerStackHolder : MonoBehaviour
             {
                 addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset);
             }
-            foreach (GameObject curDeposit in dep_layers[curLayer-1])
+            foreach (GameObject curDeposit in depLayers[curLayer-1])
             {
                 grid.set(bitMap.emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid));
                 if (grid.isEmpty())
@@ -210,14 +210,14 @@ public class LayerStackHolder : MonoBehaviour
             bitMap etchedSpots = new bitMap();
             emptySpots.set(bitMap.zeros());
             etchedSpots.set(bitMap.zeros());
-            foreach (GameObject curDeposit in dep_layers[curLayer - 1])
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0 || (curDeposit.GetComponent<meshMaterial>().timeOffset < 0 && curDeposit.GetComponent<meshMaterial>().timeOffset >= newTimeOffset && curDeposit.GetComponent<meshMaterial>().myMaterial != etchMaterial)){
                     emptySpots.set(bitMap.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
                 }
             }
             bool anyFlag = false;
-            foreach (GameObject curDeposit in dep_layers[curLayer - 1])
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 if(curDeposit.GetComponent<meshMaterial>().myMaterial == etchMaterial)
                 {
@@ -251,14 +251,14 @@ public class LayerStackHolder : MonoBehaviour
         grid.set(bitMap.zeros()); ;
         for (int i = 0; i<=topLayer; i++)
         {
-            foreach (GameObject curDeposit in dep_layers[i])
+            foreach (GameObject curDeposit in depLayers[i])
             {
                 if (curDeposit.GetComponent<meshMaterial>().myMaterial != control.materialType.photoresist)
                 {
                     updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, i);
                 }
             }
-            foreach (GameObject curDeposit in dep_layers[i])
+            foreach (GameObject curDeposit in depLayers[i])
             {
                 if(curDeposit.GetComponent<meshMaterial>().myMaterial == control.materialType.photoresist)
                 {
@@ -276,7 +276,7 @@ public class LayerStackHolder : MonoBehaviour
         int curLayer = 1;
         while (curLayer <= layerCount)
         {
-            foreach (GameObject curDeposit in dep_layers[curLayer - 1])
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 meshMaterial mat = curDeposit.GetComponent<meshMaterial>();
                 if(mat.timeOffset > 0)
@@ -314,7 +314,7 @@ public class LayerStackHolder : MonoBehaviour
         int curLayer = 1;
         while (curLayer <= layerCount)
         {
-            foreach (GameObject curDeposit in dep_layers[curLayer - 1])
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 curDeposit.SetActive(true);
                 meshMaterial mat = curDeposit.GetComponent<meshMaterial>();
