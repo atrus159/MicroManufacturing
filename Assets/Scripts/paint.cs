@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class paint : MonoBehaviour
 {
-    public int[,] grid = new int[control.gridWidth, control.gridHeight];
-    public int[,] gridOld = new int[control.gridWidth, control.gridHeight];
+    public bitMap grid;
+    public bitMap gridOld;
     Image image;
     public Texture2D texture;
     public Texture2D oldTexture;
@@ -27,6 +27,9 @@ public class paint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        grid = new bitMap();
+        gridOld = new bitMap();
+
         image = GetComponent<Image>();
         trans = GetComponent<RectTransform>();
         texture = new Texture2D((int) trans.sizeDelta.x, (int)trans.sizeDelta.y);
@@ -34,9 +37,9 @@ public class paint : MonoBehaviour
         clickCoords = new Vector2Int(-1, -1);
         image.material.mainTexture = texture;
         updateScale();
-        for(int i = 0; i < control.gridWidth; i++)
+        for(int i = 0; i < bitMap.gridWidth; i++)
         {
-            for(int j = 0; j< control.gridHeight; j++)
+            for(int j = 0; j< bitMap.gridHeight; j++)
             {
                 setPixel(i, j, 0);
             }
@@ -57,7 +60,7 @@ public class paint : MonoBehaviour
 
     public void setPixel(int i, int j, int val)
     {
-        grid[i, j] = val;
+        grid.setPoint(i,j,val);
         Color toSet = Color.black;
         if(val == 0)
         {
@@ -89,14 +92,14 @@ public class paint : MonoBehaviour
 
         toReturn.x = Mathf.Round(onCanvasX / scaleFactor);
         toReturn.y = Mathf.Round(onCanvasY / scaleFactor);
-        if(toReturn.x >= control.gridWidth)
+        if(toReturn.x >= bitMap.gridWidth)
         {
-            toReturn.x = control.gridWidth-1;
+            toReturn.x = bitMap.gridWidth-1;
             toReturn.z = -1;
         }
-        if(toReturn.y >= control.gridHeight)
+        if(toReturn.y >= bitMap.gridHeight)
         {
-            toReturn.y = control.gridHeight-1;
+            toReturn.y = bitMap.gridHeight-1;
             toReturn.z = -1;
         }
         if(toReturn.x < 0)
@@ -121,7 +124,7 @@ public class paint : MonoBehaviour
         {
             minDist = height;
         }
-        scaleFactor = (int) Mathf.Floor((float) minDist / control.gridWidth);
+        scaleFactor = (int) Mathf.Floor((float) minDist / bitMap.gridWidth);
         xOffset = (int)((width - (100 * scaleFactor)) * 0.5f);
         yOffset = (int)((height - (100 * scaleFactor)) * 0.5f);
     }
@@ -129,25 +132,13 @@ public class paint : MonoBehaviour
     public void saveGrid()
     {
         Graphics.CopyTexture(texture, oldTexture);
-        for (int i = 0; i< control.gridWidth; i++)
-        {
-            for(int j = 0; j< control.gridHeight; j++)
-            {
-                gridOld[i, j] = grid[i, j];
-            }
-        }
+        gridOld.set(grid);
     }
 
     public void loadGrid()
     {
         Graphics.CopyTexture(oldTexture, texture);
-        for (int i = 0; i < control.gridWidth; i++)
-        {
-            for (int j = 0; j < control.gridHeight; j++)
-            {
-                grid[i, j] = gridOld[i, j];
-            }
-        }
+        grid.set(gridOld);
     }
 
     // Update is called once per frame

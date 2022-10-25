@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Parents\ProcessParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Scripts\bitMap.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
     <Compile Include="Assets\Scripts\ButtonEvents.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />

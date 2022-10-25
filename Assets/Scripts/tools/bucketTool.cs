@@ -29,11 +29,11 @@ public class bucketTool : toolParent
 
     private void fill(int i, int j, int color, Queue<Vector2Int> queue)
     {
-        if(i < 0 || i >= control.gridWidth || j < 0 || j >= control.gridHeight)
+        if(i < 0 || i >= bitMap.gridWidth || j < 0 || j >= bitMap.gridHeight)
         {
             return;
         }
-        if (paintCanvas.grid[i,j] != color)
+        if (paintCanvas.grid.getPoint(i,j) != color)
         {
             paintCanvas.setPixel(i, j, color);
             queue.Enqueue(new Vector2Int(i,j));

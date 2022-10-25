@@ -18,8 +18,7 @@ public class control : MonoBehaviour
     public bool tutorialBlockerVisible;
     bool prevTutorialBlockerVisible;
     int displayDelayTime;
-    public static int gridWidth = 100;
-    public static int gridHeight = 100;
+
     public struct materialData
     {
         public materialData(Material m, int ef)

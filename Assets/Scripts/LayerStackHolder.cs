@@ -3,20 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//
 public class LayerStackHolder : MonoBehaviour
 {
+    
     public static int layerCount;
+
+    //an array of all of the layers. each index is a list of deposits at that layer
     public List<GameObject>[] dep_layers;
+
+    //the current highest layer reached by anything in the design. Deposits will start one above here
     public int topLayer;
+
+    //prefabs
     public GameObject meshGenPrefab;
     public GameObject layerStackPrefab;
     public GameObject processGenPrefab;
     public GameObject processEtchPrefab;
     public GameObject processIonEtchPrefab;
+
+    //constant, the height in pixels of a layer
     public float layerHeight;
+
+    //the current material to be etched or deposited. Selected with dropdown
     public control.materialType curMaterial;
+
+    //for deleting deposits
     public bool deletedFlag;
     public List<int> deletedLayers;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +45,7 @@ public class LayerStackHolder : MonoBehaviour
     }
 
 
-    public void onValueChange(int num)
+    public void onValueChange(int num) //Dropdown selection function
     {
         switch (num)
         {
@@ -58,7 +73,7 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
-
+    //external functions called by buttons
     public void makePhotoResist()
     {
         depositLayer(control.materialType.photoresist, GameObject.Find("drawing_panel").GetComponent<paint>().grid);
@@ -74,6 +89,8 @@ public class LayerStackHolder : MonoBehaviour
         Instantiate(processEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
     }
 
+
+    //deposits marked for deletion are only cleared at the end of each game step so they don't interfere with other functions
     void LateUpdate()
     {
         clearDeletes();
@@ -104,7 +121,9 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
-    public bool addDeposit(int curlayer, int[,] grid, control.materialType layerMaterial, int newTimeOffset = 0)
+
+    //insterts a deposit of a material into a particular layer
+    bool addDeposit(int curlayer, bitMap toDeposit, control.materialType layerMaterial, int newTimeOffset = 0)
     {
         if(curlayer >= layerCount)
         {
@@ -117,8 +136,7 @@ public class LayerStackHolder : MonoBehaviour
         }
         GameObject newMesh = Instantiate(meshGenPrefab ,transform.position + new Vector3(0, layerHeight * (float) curlayer,0) , transform.rotation);
         newMesh.GetComponent<meshGenerator>().layerHeight = layerHeight;
-        int[,] newgrid = newMesh.GetComponent<meshGenerator>().grid;
-        System.Array.Copy(grid, newgrid, control.gridWidth * control.gridHeight);
+        newMesh.GetComponent<meshGenerator>().grid.set(toDeposit);
         newMesh.GetComponent<meshGenerator>().initialize();
         newMesh.GetComponent<meshMaterial>().myMaterial = layerMaterial;
         newMesh.GetComponent<meshMaterial>().initialize(newTimeOffset);
@@ -127,31 +145,50 @@ public class LayerStackHolder : MonoBehaviour
         return true;
     }
 
-
-    public void depositLayer(control.materialType layerMaterial, int[,] inputGrid, int newTimeOffset = 0)
+    //sets the bitMap of a deposit to a new value, or destroys it if set to empty
+    void updateDeposit(bitMap grid, GameObject deposit, int depLayer)
     {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        System.Array.Copy(inputGrid, grid, control.gridWidth * control.gridHeight);
+        if (!grid.isEmpty())
+        {
+            deposit.GetComponent<meshGenerator>().grid.set(grid);
+            deposit.GetComponent<meshGenerator>().initialize();
+        }
+        else
+        {
+            deletedLayers.Add(depLayer);
+            deletedFlag = true;
+            deposit.GetComponent<meshGenerator>().toBeDestroyed = true;
+            Destroy(deposit);
+        }
+
+    }
+
+    //drops a 1 block layer of a material from the top, which cascades over any structures below
+    public void depositLayer(control.materialType layerMaterial, bitMap inputGrid, int newTimeOffset = 0)
+    {
+        bitMap grid = new bitMap();
+        grid.set(inputGrid);
         int curLayer = topLayer + 1;
         while(curLayer > 0)
         {
-            int[,] thisDeposit = new int[control.gridWidth, control.gridHeight];
-            System.Array.Copy(grid, thisDeposit, control.gridWidth * control.gridHeight);
-            int[,] tempDeposit = new int[control.gridWidth, control.gridHeight];
-            System.Array.Copy(zeros(), tempDeposit, control.gridWidth * control.gridHeight);
+            bitMap thisDeposit = new bitMap();
+            thisDeposit.set(grid);
+            bitMap tempDeposit = new bitMap();
+            tempDeposit.set(bitMap.zeros());
+
             foreach (GameObject curDeposit in dep_layers[curLayer-1])
             {
-                tempDeposit = union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid);
+                tempDeposit.set(bitMap.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
             }
-            thisDeposit = intersect(tempDeposit, thisDeposit);
-            if (!isEmpty(thisDeposit))
+            thisDeposit.set(bitMap.intersect(tempDeposit, thisDeposit));
+            if (!thisDeposit.isEmpty())
             {
                 addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset);
             }
             foreach (GameObject curDeposit in dep_layers[curLayer-1])
             {
-                grid = emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid);
-                if (isEmpty(grid))
+                grid.set(bitMap.emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid));
+                if (grid.isEmpty())
                 {
                     return;
                 }
@@ -161,23 +198,22 @@ public class LayerStackHolder : MonoBehaviour
         addDeposit(0, grid, layerMaterial, newTimeOffset);
     }
 
-    //if: spray removal 
-    //then: remove lotsa things
+    //removes the top-most layer of a particular material from the design
     public void etchLayer(control.materialType etchMaterial, int newTimeOffset = 0)
     {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        System.Array.Copy(ones(), grid, control.gridWidth * control.gridHeight);
+        bitMap grid = new bitMap() ;
+        grid.set(bitMap.ones());
         int curLayer = topLayer + 1;
         while (curLayer > 0)
         {
-            int[,] emptySpots = new int[control.gridWidth, control.gridHeight];
-            int[,] etchedSpots = new int[control.gridWidth, control.gridHeight];
-            System.Array.Copy(zeros(), emptySpots, control.gridWidth * control.gridHeight);
-            System.Array.Copy(zeros(), etchedSpots, control.gridWidth * control.gridHeight);
+            bitMap emptySpots = new bitMap();
+            bitMap etchedSpots = new bitMap();
+            emptySpots.set(bitMap.zeros());
+            etchedSpots.set(bitMap.zeros());
             foreach (GameObject curDeposit in dep_layers[curLayer - 1])
             {
                 if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0 || (curDeposit.GetComponent<meshMaterial>().timeOffset < 0 && curDeposit.GetComponent<meshMaterial>().timeOffset >= newTimeOffset && curDeposit.GetComponent<meshMaterial>().myMaterial != etchMaterial)){
-                    emptySpots = union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid);
+                    emptySpots.set(bitMap.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
                 }
             }
             bool anyFlag = false;
@@ -187,20 +223,20 @@ public class LayerStackHolder : MonoBehaviour
                 {
                     if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0){
                         if(newTimeOffset < 0){
-                            System.Array.Copy(union(intersect(curDeposit.GetComponent<meshGenerator>().grid,grid),etchedSpots), etchedSpots, control.gridWidth * control.gridHeight);
+                            etchedSpots.set(bitMap.union(bitMap.intersect(curDeposit.GetComponent<meshGenerator>().grid,grid),etchedSpots));
                             anyFlag = true;
                         }
-                        updateDeposit(emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer-1);
+                        updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer-1);
 
                     }
                 }
             }
 
-            if (anyFlag && !isEmpty(etchedSpots)){
+            if (anyFlag && !etchedSpots.isEmpty()){
                 addDeposit(curLayer -1 , etchedSpots, etchMaterial, newTimeOffset);
             }
-            System.Array.Copy(emptyIntersect(grid, emptySpots), grid, control.gridWidth * control.gridHeight);
-            if (isEmpty(grid))
+            grid.set(bitMap.emptyIntersect(grid, emptySpots));
+            if (grid.isEmpty())
             {
                 return;
             }
@@ -208,250 +244,33 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
+    //triggers a liftOff of the photomask, removing it and all deposits above it
     public void liftOff()
     {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        System.Array.Copy(zeros(), grid, control.gridWidth * control.gridHeight);
+        bitMap grid = new bitMap();
+        grid.set(bitMap.zeros()); ;
         for (int i = 0; i<=topLayer; i++)
         {
             foreach (GameObject curDeposit in dep_layers[i])
             {
                 if (curDeposit.GetComponent<meshMaterial>().myMaterial != control.materialType.photoresist)
                 {
-                    updateDeposit(emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, i);
+                    updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, i);
                 }
             }
             foreach (GameObject curDeposit in dep_layers[i])
             {
                 if(curDeposit.GetComponent<meshMaterial>().myMaterial == control.materialType.photoresist)
                 {
-                    grid = union(grid, curDeposit.GetComponent<meshGenerator>().grid);
-                    updateDeposit(zeros(), curDeposit, i);
+                    grid.set(bitMap.union(grid, curDeposit.GetComponent<meshGenerator>().grid));
+                    updateDeposit(bitMap.zeros(), curDeposit, i);
                 }
             }
         }
     }
 
 
-    int[,] union(int[,] ar1, int[,] ar2)
-    {
-        int[,] grid = new int[ar1.GetLength(0), ar1.GetLength(1)];
-
-        for (int i = 0; i < ar1.GetLength(0); i++)
-        {
-            for (int j = 0; j < ar1.GetLength(1); j++)
-            {
-                if(ar1[i,j] != 0 || ar2[i,j] != 0)
-                {
-                    grid[i, j] = 1;
-                }
-                else
-                {
-                    grid[i, j] = 0;
-                }
-            }
-        }
-        return grid;
-    }
-
-    int[,] intersect(int[,] ar1, int[,] ar2)
-    {
-        int[,] grid = new int[ar1.GetLength(0), ar1.GetLength(1)];
-
-        for (int i = 0; i < ar1.GetLength(0); i++)
-        {
-            for (int j = 0; j < ar1.GetLength(1); j++)
-            {
-                if (ar1[i, j] != 0 && ar2[i, j] != 0)
-                {
-                    grid[i, j] = 1;
-                }
-                else
-                {
-                    grid[i, j] = 0;
-                }
-            }
-        }
-        return grid;
-    }
-
-    int[,] emptyIntersect(int[,] ar1, int[,] ar2)
-    {
-        int[,] grid = new int[ar1.GetLength(0), ar1.GetLength(1)];
-
-        for (int i = 0; i < ar1.GetLength(0); i++)
-        {
-            for (int j = 0; j < ar1.GetLength(1); j++)
-            {
-                int a = ar1[i, j];
-                int b = ar2[i, j];
-                if (a != 0 && b == 0)
-                {
-                    grid[i, j] = 1;
-                }
-                else
-                {
-                    grid[i, j] = 0;
-                }
-            }
-        }
-        return grid;
-    }
-
-    public int[,] ones()
-    {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        for (int i = 0; i < control.gridWidth; i++)
-        {
-            for (int j = 0; j < control.gridHeight; j++)
-            {
-                grid[i, j] = 1;
-            }
-        }
-        return grid;
-    }
-
-    int[,] zeros()
-    {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        for (int i = 0; i < control.gridWidth; i++)
-        {
-            for (int j = 0; j < control.gridHeight; j++)
-            {
-                grid[i, j] = 0;
-            }
-        }
-        return grid;
-    }
-
-    int[,] line()
-    {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        for (int i = 0; i < control.gridWidth; i++)
-        {
-            for (int j = 0; j < control.gridHeight; j++)
-            {
-                if (i == j)
-                {
-                    grid[i, j] = 1;
-                }
-                else
-                {
-                    grid[i, j] = 0;
-                }
-            }
-        }
-        return grid;
-    }
-
-    int[,] circle()
-    {
-        int[,] grid = new int[control.gridWidth, control.gridHeight];
-        for (int i = 0; i < control.gridWidth; i++)
-        {
-            for (int j = 0; j < control.gridHeight; j++)
-            {
-                if (Mathf.Sqrt(Mathf.Pow(i - control.gridWidth * 0.5f, 2f) + Mathf.Pow(j - control.gridHeight * 0.5f, 2f)) < control.gridWidth * 0.25f)
-                {
-                    grid[i, j] = 1;
-                }
-                else
-                {
-                    grid[i, j] = 0;
-                }
-            }
-        }
-        return grid;
-    }
-
-
-    bool isEmpty(int[,] grid)
-    {
-        for (int i = 0; i < grid.GetLength(0); i++)
-        {
-            for (int j = 0; j < grid.GetLength(1); j++)
-            {
-                if (grid[i, j] != 0)
-                {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public GameObject clone()
-    {
-        GameObject newLayerStack = Instantiate(layerStackPrefab, transform.position, transform.rotation);
-        for(int i = 0; i<=topLayer; i++)
-        {
-            foreach(GameObject curDeposit in dep_layers[i])
-            {
-                newLayerStack.GetComponent<LayerStackHolder>().dep_layers[i].Add(curDeposit.GetComponent<meshGenerator>().clone());
-            }
-        }
-        newLayerStack.GetComponent<LayerStackHolder>().topLayer = topLayer;
-
-        return newLayerStack;
-    }
-
-    public void copy(GameObject toCopy)
-    {
-        contentDestroy();
-        dep_layers = new List<GameObject>[layerCount].Select(item => new List<GameObject>()).ToArray();
-        LayerStackHolder copyLayers = toCopy.GetComponent<LayerStackHolder>();
-        for (int i = 0; i <= copyLayers.topLayer; i++)
-        {
-            foreach (GameObject curDeposit in copyLayers.dep_layers[i])
-            {
-                dep_layers[i].Add(curDeposit.GetComponent<meshGenerator>().clone());
-            }
-        }
-        topLayer = copyLayers.topLayer;
-    }
-
-    public void contentSetActive(bool act)
-    {
-        for (int i = 0; i <=topLayer; i++)
-        {
-            foreach (GameObject curDeposit in dep_layers[i])
-            {
-                curDeposit.SetActive(act);
-            }
-        }
-        gameObject.SetActive(act);
-    }
-
-    public void contentDestroy()
-    {
-        for(int i = 0; i<=topLayer; i++)
-        {
-            foreach(GameObject curDeposit in dep_layers[i])
-            {
-                Destroy(curDeposit);
-            }
-        }
-    }
-
-    void updateDeposit(int[,] grid, GameObject deposit, int depLayer)
-    {
-        if (!isEmpty(grid))
-        {
-            System.Array.Copy(grid, deposit.GetComponent<meshGenerator>().grid, control.gridWidth * control.gridHeight);
-            deposit.GetComponent<meshGenerator>().initialize();
-        }
-        else
-        {
-            //dep_layers[depLayer].Remove(deposit);
-            deletedLayers.Add(depLayer);
-            deletedFlag = true;
-            deposit.GetComponent<meshGenerator>().toBeDestroyed = true;
-            Destroy(deposit);
-        }
-        
-    }
-
-
+    //when running a process, this function lets you select a particular time-step to show all the layers before. Called by the process slider
     public void sliceDeposits(int n)
     {
         int curLayer = 1;
@@ -488,6 +307,8 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
+
+    //when finishing a process, this function lets deletes all the deposits after the selected time step. Called when you click finish on a process
     public void cullDeposits(int n)
     {
         int curLayer = 1;
@@ -505,7 +326,7 @@ public class LayerStackHolder : MonoBehaviour
                     }
                     else
                     {
-                        updateDeposit(zeros(), curDeposit, curLayer-1);
+                        updateDeposit(bitMap.zeros(), curDeposit, curLayer-1);
                     }
 
                 }
@@ -517,7 +338,7 @@ public class LayerStackHolder : MonoBehaviour
                     }
                     else
                     {
-                        updateDeposit(zeros(), curDeposit, curLayer-1);
+                        updateDeposit(bitMap.zeros(), curDeposit, curLayer-1);
                     }
                 }
             }
