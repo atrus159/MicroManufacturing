@@ -112,6 +112,102 @@ public class bitMap
         return toReturn;
     }
 
+    //returns a bitmap with the contiguous regions of ones in InterTo reachable by any contiguous regions of ones in interFrom
+    public static bitMap getIntersectedRegions(bitMap interFrom, bitMap interTo)
+    {
+        bitMap toReturn = new bitMap();
+        toReturn.set(interTo);
+
+        for(int i = 0; i< bitMap.gridWidth; i++)
+        {
+            for(int j = 0; j< bitMap.gridHeight; j++)
+            {
+                if(interFrom.getPoint(i,j) != 0)
+                {
+                    fill(toReturn, i, j);
+                }
+            }
+        }
+
+
+        for (int i = 0; i < bitMap.gridWidth; i++)
+        {
+            for (int j = 0; j < bitMap.gridHeight; j++)
+            {
+                if (toReturn.getPoint(i, j) == 33)
+                {
+                    toReturn.setPoint(i, j, 1);
+                }
+                else
+                {
+                    toReturn.setPoint(i, j, 0);
+                }
+            }
+        }
+        return toReturn;
+    }
+
+    //helper function for getIntersectedRegions, performs a ms paint style fill bucket at the point i,j, filling all 1s with 3s
+    static void fill(bitMap toFill, int i, int j)
+    {
+        if(toFill.getPoint(i,j) == 0 || toFill.getPoint(i,j) == 3)
+        {
+            return;
+        }
+
+        toFill.setPoint(i, j, 3);
+
+        for(int iInd = i-1; iInd < i + 1; iInd++)
+        {
+            for(int jInd = j-1; jInd < j+1; jInd++)
+            {
+                if(iInd < 0 || iInd >= bitMap.gridWidth || jInd <0 || jInd >= bitMap.gridHeight)
+                {
+                    continue;
+                }
+                fill(toFill, iInd, jInd);
+            }
+        }
+    }
+
+    //returns a bitmap with a line of 1s around every spot that had 1s in map
+    public static bitMap getBorderRegion(bitMap map)
+    {
+        bitMap toReturn = bitMap.zeros();
+        for(int i = 0; i< bitMap.gridWidth; i++)
+        {
+            for(int j = 0; j<bitMap.gridHeight; j++)
+            {
+                if (map.getPoint(i, j) == 0)
+                {
+                    bool breakLoop = false;
+                    for (int iInd = i - 1; iInd < i + 1; iInd++)
+                    {
+                        for (int jInd = j - 1; jInd < j + 1; jInd++)
+                        {
+                            if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
+                            {
+                                continue;
+                            }
+                            if (map.getPoint(iInd, jInd) == 0)
+                            {
+                                continue;
+                            }
+                            toReturn.setPoint(i, j, 1);
+                            breakLoop = true;
+                            break;
+                        }
+                        if (breakLoop)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return toReturn;
+    }
+
     //returns a new bitMap that is all ones
     public static bitMap ones()
     {

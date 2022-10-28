@@ -244,6 +244,9 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
+  
+
+
     //triggers a liftOff of the photomask, removing it and all deposits above it
     public void liftOff()
     {
