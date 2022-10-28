@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
-
+using System.Diagnostics;
 
 
 //a class for handling and combining bitmaps. 
@@ -134,7 +136,7 @@ public class bitMap
         {
             for (int j = 0; j < bitMap.gridHeight; j++)
             {
-                if (toReturn.getPoint(i, j) == 33)
+                if (toReturn.getPoint(i, j) == 3)
                 {
                     toReturn.setPoint(i, j, 1);
                 }
@@ -148,24 +150,36 @@ public class bitMap
     }
 
     //helper function for getIntersectedRegions, performs a ms paint style fill bucket at the point i,j, filling all 1s with 3s
-    static void fill(bitMap toFill, int i, int j)
+    static void fill(bitMap toFill, int iInput, int jInput)
     {
-        if(toFill.getPoint(i,j) == 0 || toFill.getPoint(i,j) == 3)
-        {
-            return;
-        }
+        Stack<Vector2> indexes = new Stack<Vector2>();
 
-        toFill.setPoint(i, j, 3);
+        indexes.Push(new Vector2(iInput, jInput));
 
-        for(int iInd = i-1; iInd < i + 1; iInd++)
+
+        while(indexes.Count > 0)
         {
-            for(int jInd = j-1; jInd < j+1; jInd++)
+
+            Vector2 curInd = indexes.Pop();
+            int i = (int)curInd.x;
+            int j = (int)curInd.y;
+            if (toFill.getPoint(i, j) == 0 || toFill.getPoint(i, j) == 3)
             {
-                if(iInd < 0 || iInd >= bitMap.gridWidth || jInd <0 || jInd >= bitMap.gridHeight)
+                continue;
+            }
+
+            toFill.setPoint(i, j, 3);
+
+            for (int iInd = i - 1; iInd <= i + 1; iInd++)
+            {
+                for (int jInd = j - 1; jInd <= j + 1; jInd++)
                 {
-                    continue;
+                    if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
+                    {
+                        continue;
+                    }
+                    indexes.Push(new Vector2(iInd, jInd));
                 }
-                fill(toFill, iInd, jInd);
             }
         }
     }
@@ -181,9 +195,9 @@ public class bitMap
                 if (map.getPoint(i, j) == 0)
                 {
                     bool breakLoop = false;
-                    for (int iInd = i - 1; iInd < i + 1; iInd++)
+                    for (int iInd = i - 1; iInd <= i + 1; iInd++)
                     {
-                        for (int jInd = j - 1; jInd < j + 1; jInd++)
+                        for (int jInd = j - 1; jInd <= j + 1; jInd++)
                         {
                             if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
                             {
@@ -202,6 +216,27 @@ public class bitMap
                             break;
                         }
                     }
+                }
+            }
+        }
+        return toReturn;
+    }
+
+    //returns a bitmap which is the inversion of input
+    public static bitMap invert(bitMap input)
+    {
+        bitMap toReturn = new bitMap();
+        for (int i = 0; i < bitMap.gridWidth; i++)
+        {
+            for(int j = 0; j<bitMap.gridHeight; j++)
+            {
+                if(input.getPoint(i,j) == 0)
+                {
+                    toReturn.setPoint(i, j, 1);
+                }
+                else
+                {
+                    toReturn.setPoint(i, j, 0);
                 }
             }
         }
@@ -295,5 +330,18 @@ public class bitMap
             }
         }
         return true;
+    }
+
+    public void printGrid()
+    {
+        for (int i = 0; i < bitMap.gridWidth; i++)
+        {
+            System.Diagnostics.Debug.Write("[ ");
+            for (int j = 0; j < bitMap.gridHeight; i++)
+            {
+                System.Diagnostics.Debug.Write(grid[i, j] + ", ");
+            }
+            System.Diagnostics.Debug.WriteLine("]");
+        }
     }
 }
