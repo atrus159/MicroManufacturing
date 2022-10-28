@@ -20,6 +20,7 @@ public class LayerStackHolder : MonoBehaviour
     public GameObject layerStackPrefab;
     public GameObject processGenPrefab;
     public GameObject processEtchPrefab;
+    public GameObject processAluminumEtchPrefab;
     public GameObject processIonEtchPrefab;
 
     //constant, the height in pixels of a layer
@@ -76,6 +77,11 @@ public class LayerStackHolder : MonoBehaviour
             {
                 liftOff();
             }
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                etchLayerAround(curMaterial);
+            }
         }
     }
 
@@ -92,7 +98,15 @@ public class LayerStackHolder : MonoBehaviour
 
     public void startEtchProcess()
     {
-        Instantiate(processEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+        if(curMaterial == control.materialType.aluminum)
+        {
+            Instantiate(processAluminumEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+        }
+        else
+        {
+            Instantiate(processEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+        }
+
     }
 
 
@@ -250,7 +264,63 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
-  
+
+    //removes the material from exposed sides of a particular material from the design
+    public void etchLayerAround(control.materialType etchMaterial, int newTimeOffset = 0)
+    {
+        bitMap grid = new bitMap();
+        grid.set(bitMap.ones());
+        int curLayer = topLayer + 1;
+        while (curLayer > 0)
+        {
+            bitMap emptySpots = new bitMap();
+            bitMap etchedSpots = new bitMap();
+            emptySpots.set(bitMap.zeros());
+            etchedSpots.set(bitMap.zeros());
+
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
+            {
+                if (curDeposit.GetComponent<meshMaterial>().timeOffset >= 0)
+                {
+                    emptySpots.set(bitMap.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
+                }
+            }
+
+            bitMap emptyContinuation = bitMap.getIntersectedRegions(grid, bitMap.invert(emptySpots));
+            bitMap emptyBorder = bitMap.getBorderRegion(emptyContinuation);
+
+            bool anyFlag = false;
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
+            {
+                if (curDeposit.GetComponent<meshMaterial>().myMaterial == etchMaterial)
+                {
+                    if (curDeposit.GetComponent<meshMaterial>().timeOffset >= 0)
+                    {
+                        if (newTimeOffset < 0)
+                        {
+                            etchedSpots.set(bitMap.union(bitMap.intersect(curDeposit.GetComponent<meshGenerator>().grid, emptyBorder), etchedSpots));
+                            anyFlag = true;
+                        }
+                        updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, emptyBorder), curDeposit, curLayer - 1);
+
+                    }
+                }
+            }
+
+            if (anyFlag && !etchedSpots.isEmpty())
+            {
+                addDeposit(curLayer - 1, etchedSpots, etchMaterial, newTimeOffset);
+            }
+
+            grid.set(bitMap.emptyIntersect(grid, emptySpots));
+            if (grid.isEmpty())
+            {
+                return;
+            }
+            curLayer--;
+        }
+    }
+
 
 
     //triggers a liftOff of the photomask, removing it and all deposits above it
