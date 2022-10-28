@@ -58,6 +58,12 @@ public class LayerStackHolder : MonoBehaviour
             case 2:
                 curMaterial = control.materialType.aluminum;
                 break;
+            case 3:
+                curMaterial = control.materialType.silicon;
+                break;
+            case 4:
+                curMaterial = control.materialType.silicondioxide;
+                break;
         }
     }
 

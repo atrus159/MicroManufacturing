@@ -3287,6 +3287,10 @@ MonoBehaviour:
       m_Image: {fileID: 1191152991885666531, guid: e504c7261d2c8274c90f106790404ee0, type: 3}
     - m_Text: Aluminum
       m_Image: {fileID: 6919605389798175060, guid: e504c7261d2c8274c90f106790404ee0, type: 3}
+    - m_Text: Silicon
+      m_Image: {fileID: 6919605389798175060, guid: e504c7261d2c8274c90f106790404ee0, type: 3}
+    - m_Text: Silicon dioxide
+      m_Image: {fileID: 6919605389798175060, guid: e504c7261d2c8274c90f106790404ee0, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4607,6 +4611,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+      propertyPath: m_silicon
+      value: 
+      objectReference: {fileID: 2100000, guid: 22e13efa08d5d294982cb17618b6a931, type: 2}
+    - target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+      propertyPath: m_silicondioxide
+      value: 
+      objectReference: {fileID: 2100000, guid: 9125acffc32cac844be1857f0b831b4a, type: 2}
     - target: {fileID: 8137871936237008219, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
       propertyPath: m_Name
       value: Control

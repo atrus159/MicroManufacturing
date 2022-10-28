@@ -36,13 +36,17 @@ public class control : MonoBehaviour
     public Material m_chromium;
     public Material m_aluminum;
     public Material m_photoresist;
+    public Material m_silicon;
+    public Material m_silicondioxide;
 
     public enum materialType
     {
         gold,
         chromium,
         aluminum,
-        photoresist
+        photoresist,
+        silicon,
+        silicondioxide
     }
 
     public static Dictionary<materialType, materialData> materialsList = new Dictionary<materialType, materialData>();
@@ -54,6 +58,8 @@ public class control : MonoBehaviour
         materialsList.Add(materialType.chromium, new materialData(m_chromium, 0));
         materialsList.Add(materialType.aluminum, new materialData(m_aluminum, 0));
         materialsList.Add(materialType.photoresist, new materialData(m_photoresist, 0));
+        materialsList.Add(materialType.silicon, new materialData(m_silicon, 0));
+        materialsList.Add(materialType.silicondioxide, new materialData(m_silicondioxide, 0));
         hudVisible = false;
         tutorialBlockerVisible = false;
         prevTutorialBlockerVisible = false;
