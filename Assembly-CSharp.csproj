@@ -123,8 +123,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Parents\checkParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\tools\brushTool.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
+    <Compile Include="Assets\Scripts\tools\brushTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
