@@ -119,6 +119,7 @@ public class LayerStackHolder : MonoBehaviour
     public void clearDeletes(){
         if (deletedFlag)
         {
+            bool topResetFlag = false;
             foreach(int i in deletedLayers)
             {
                 List<GameObject> curList = depLayers[i];
@@ -129,12 +130,33 @@ public class LayerStackHolder : MonoBehaviour
                         curList.RemoveAt(j);
                     }
                 }
-                if(curList.Count() == 0 && i >= topLayer)
+                if(i == topLayer)
                 {
-                    topLayer--;
+                    topResetFlag = true;
                 }
 
             }
+            if (topResetFlag)
+            {
+                int i = topLayer;
+                while (true)
+                {
+                    if (i < 0)
+                    {
+                        break;
+                    }
+                    if (depLayers[i].Count == 0)
+                    {
+                        topLayer--;
+                        i--;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
             deletedFlag = false;
             deletedLayers.Clear();
 
@@ -422,6 +444,7 @@ public class LayerStackHolder : MonoBehaviour
                 }
             }
             curLayer++;
+
         }
     }
 

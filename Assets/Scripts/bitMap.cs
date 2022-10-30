@@ -170,7 +170,24 @@ public class bitMap
 
             toFill.setPoint(i, j, 3);
 
-            for (int iInd = i - 1; iInd <= i + 1; iInd++)
+            if (i-1 >= 0)
+            {
+                indexes.Push(new Vector2(i-1, j));
+            }
+            if (i + 1 < bitMap.gridWidth)
+            {
+                indexes.Push(new Vector2(i + 1, j));
+            }
+            if (j - 1 >= 0)
+            {
+                indexes.Push(new Vector2(i, j - 1));
+            }
+            if (j + 1 < bitMap.gridHeight)
+            {
+                indexes.Push(new Vector2(i, j + 1));
+            }
+
+            /*for (int iInd = i - 1; iInd <= i + 1; iInd++)
             {
                 for (int jInd = j - 1; jInd <= j + 1; jInd++)
                 {
@@ -180,7 +197,7 @@ public class bitMap
                     }
                     indexes.Push(new Vector2(iInd, jInd));
                 }
-            }
+            }*/
         }
     }
 
