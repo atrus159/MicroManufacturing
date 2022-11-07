@@ -40,9 +40,11 @@ public class LayerStackHolder : MonoBehaviour
         depLayers = new List<GameObject>[layerCount].Select(item => new List<GameObject>()).ToArray();
         topLayer = -1;
         layerHeight = 0.1f;
-        curMaterial = control.materialType.chromium;
         deletedLayers = new List<int>();
         deletedFlag = false;
+
+        //initially sets the curMaterial to whatever the top option on the materials dropdown is
+        onValueChange(GameObject.Find("Dropdown").GetComponent<DropdownCustom>().value);
     }
 
 
