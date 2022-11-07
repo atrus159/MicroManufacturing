@@ -146,7 +146,7 @@ public class control : MonoBehaviour
     }
     public void onDropDownChanged()
     {
-        int num = GameObject.Find("Dropdown").GetComponent<Dropdown>().value;
+        int num = GameObject.Find("Dropdown").GetComponent<DropdownCustom>().value;
         GameObject layer = GameObject.Find("LayerStack");
         layer.GetComponent<LayerStackHolder>().onValueChange(num);
     }
