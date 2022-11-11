@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class control : MonoBehaviour
 {
-    public enum pauseStates
+    public enum pauseStates 
     {
         unPaused,
-        tutorialPaused
+        tutorialPaused,
+        menuPaused
+
     }
 
     public pauseStates paused;
@@ -79,27 +81,98 @@ public class control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && paused == pauseStates.unPaused) // prevents overlapping tab menu and pause menu
         {
             hudVisible = !hudVisible;
             if (!hudVisible)
             {
-                GameObject.Find("Canvas - Main").GetComponent<CanvasGroup>().alpha = 1;
-                GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().blocksRaycasts = false;
-                GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha = 0;
-                GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(true);
-                GameObject.Find("Substrate").GetComponent<substrateControl>().subCam.SetActive(false);
+                setMainActive(true);
+                setHudActive(false);
             }
             else
             {
-                GameObject.Find("Canvas - Main").GetComponent<CanvasGroup>().alpha = 0;
-                GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().blocksRaycasts = true;
-                GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha = 1;
-                GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(false);
-                GameObject.Find("Substrate").GetComponent<substrateControl>().subCam.SetActive(true);
+               setMainActive(false);
+               setHudActive(true);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) // if the escape is pressed
+
+        {
+            if(paused != pauseStates.menuPaused) // if it is not paused, paused the game
+            {
+                setHudActive(false);
+                setMainActive(false);
+                setPauseMenuActive(true);
+                GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(true); // sets main camera
+            }
+            else // if it is paused, unpause the game
+            {
+                if (!hudVisible)
+                {
+                    setMainActive(true);
+                    setHudActive(false);
+                }
+                else
+                {
+                    setMainActive(false);
+                    setHudActive(true);
+                }
+                setPauseMenuActive(false);
+            }
+            
+
+        }
+
     }
+
+    private void setHudActive(bool status)
+    {
+        if (status) 
+        {
+            GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().blocksRaycasts = true;
+            GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha = 1;
+            GameObject.Find("Substrate").GetComponent<substrateControl>().subCam.SetActive(true);
+        }
+        else 
+        {
+            GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().blocksRaycasts = false;
+            GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha = 0;
+            GameObject.Find("Substrate").GetComponent<substrateControl>().subCam.SetActive(false);
+        }
+    }
+
+    private void setMainActive(bool status)
+    {
+        if (status)
+        {
+            GameObject.Find("Canvas - Main").GetComponent<CanvasGroup>().alpha = 1;
+            GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(true);
+        }
+        else 
+        {
+            GameObject.Find("Canvas - Main").GetComponent<CanvasGroup>().alpha = 0;
+            GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(false);
+        }
+    }
+
+    private void setPauseMenuActive(bool status)
+    {
+        if (status)
+        {
+            GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().alpha = 1; // make it appear
+            GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().blocksRaycasts = true; // when you click on it, it will click on the first it touches
+            setPaused(pauseStates.menuPaused);
+        }
+        else
+        {
+            GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().alpha = 0; // make it disappear 
+            GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().blocksRaycasts = false; // cannot click on it
+
+            setPaused(pauseStates.unPaused);
+        }
+    }
+
 
     private void LateUpdate()
     {
