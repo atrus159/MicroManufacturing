@@ -48,7 +48,8 @@ public class control : MonoBehaviour
         aluminum,
         photoresist,
         silicon,
-        silicondioxide
+        silicondioxide,
+        empty
     }
 
     public static Dictionary<materialType, materialData> materialsList = new Dictionary<materialType, materialData>();

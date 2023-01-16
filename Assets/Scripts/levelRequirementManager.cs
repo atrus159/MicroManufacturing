@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
-using UnityEditor;
+using UnityEditor; //THE PROBLEM
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -61,7 +60,7 @@ public class levelRequirementManager : MonoBehaviour
     void Update()
     {
         //temporarily checking when spacebar is pressed, until we decide when the correct time to call the checks is
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             checkRequirements();
         }
