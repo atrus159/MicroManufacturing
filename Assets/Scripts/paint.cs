@@ -73,7 +73,6 @@ public class paint : MonoBehaviour
                 texture.SetPixel(xOffset + scaleFactor * i + indI, yOffset + scaleFactor * j + indJ, toSet);
             }
         }
-
     }
 
     Vector3 getMousePos()
