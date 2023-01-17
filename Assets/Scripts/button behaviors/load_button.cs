@@ -10,7 +10,7 @@ public class load_button : MonoBehaviour
     public paint paintCanvas;
     void Start()
     {
-        Debug.Log("Start!");
+        // Debug.Log("Start!");
         Button loadButton = GetComponent<Button>();
         loadButton.onClick.AddListener(TaskOnClick);
 
@@ -19,7 +19,7 @@ public class load_button : MonoBehaviour
     }
     void TaskOnClick()
     {
-        Debug.Log("You have clicked the button!");
+        // Debug.Log("You have clicked the button!");
         string path = EditorUtility.OpenFilePanel("Overwrite with .txt", "", ".txt");
 
         if (path.Length == 0)
