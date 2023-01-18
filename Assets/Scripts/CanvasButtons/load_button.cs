@@ -1,19 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
-using UnityEngine;
-using System.IO;
 
-public class save_button : MonoBehaviour
+public class load_button : MonoBehaviour
 {
     public Button loadButton;
     public paint paintCanvas;
-
     void Start()
     {
-        Debug.Log("Start!");
         Button loadButton = GetComponent<Button>();
         loadButton.onClick.AddListener(TaskOnClick);
 
@@ -22,25 +18,26 @@ public class save_button : MonoBehaviour
     }
     void TaskOnClick()
     {
-        Debug.Log("You have clicked the button!");
-
-        string path = EditorUtility.SaveFilePanel("Save bitmap as .txt", "", "bitmap.txt", "txt");
+        string path = EditorUtility.OpenFilePanel("Overwrite with .txt", "", ".txt");
 
         if (path.Length == 0)
             return;
 
-        string[] lines = new string[bitMap.gridHeight];
+        string[] lines = System.IO.File.ReadAllLines(path);
 
-        for (int j = 0; j < bitMap.gridHeight ; j++)
+        if (lines.Length < bitMap.gridHeight || lines[0].Length < bitMap.gridWidth)
+        {
+            Debug.Log("Improper file size!");
+            return;
+        }
+
+        for (int j = 0; j < bitMap.gridHeight; j++)
         {
             for (int i = bitMap.gridWidth - 1; i >= 0; i--)
             {
-                lines[bitMap.gridHeight - j - 1] = paintCanvas.grid.getPoint(i, j) + lines[bitMap.gridHeight - j - 1];
+                paintCanvas.setPixel(i, j, lines[bitMap.gridHeight - j - 1][i] - '0');
             }
         }
-
-        File.WriteAllLines(path, lines);
-
+        paintCanvas.texture.Apply();
     }
-
 }
