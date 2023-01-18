@@ -41,7 +41,7 @@ public class load_button : MonoBehaviour
                 paintCanvas.setPixel(i, j, lines[bitMap.gridHeight - j - 1][i] - '0');
             }
         }
-
+        paintCanvas.texture.Apply();
         bitMap myBitmap = new bitMap();
 
     }
