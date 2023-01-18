@@ -2604,6 +2604,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325371104}
   m_CullTransparentMesh: 1
+--- !u!1 &1338332388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8704429806831974274, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
+  m_PrefabInstance: {fileID: 441465484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1338332390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8704429806831974276, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
+  m_PrefabInstance: {fileID: 441465484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338332388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1338332393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338332388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26683c3dae5a4f9f8b93b9f4d725eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearButton: {fileID: 1338332390}
 --- !u!1 &1342111430
 GameObject:
   m_ObjectHideFlags: 0
