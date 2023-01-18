@@ -5,28 +5,21 @@ using UnityEngine;
 
 public class checkTwoRectangles : levelRequirementParent
 {
-    RectangleStructure rectangles;
+    CheckStruct ChromeGoldAlum;
     public checkTwoRectangles(LayerStackHolder layers) : base(layers) {
         name = "Create two boxes from gold";
         description = "A box must be between 10 and 20 cells on a side, and no taller than 30 layers.";
-        rectangles = new RectangleStructure(control.materialType.gold, new Vector3Int(10, 0, 10), new Vector3Int(20, 30, 20), 2, new[] { true, true }, control.materialType.empty);
+        ChromeGoldAlum = new CheckStruct(0, 1);
+        RectangleStructure chromePart = new RectangleStructure(control.materialType.chromium, 1, new Vector3Int(50, 10, 50), new Vector3Int(90, 20, 90), 1, new[] { true, true }, control.materialType.empty);
+        RectangleStructure goldPart = new RectangleStructure(control.materialType.gold, 1, new Vector3Int(20, 10, 20), new Vector3Int(30, 20, 30), 1, new[] { true, true }, control.materialType.empty);
+        RectangleStructure alumPart = new RectangleStructure(control.materialType.aluminum, 1, new Vector3Int(10, 10, 10), new Vector3Int(20, 20, 20), 1, new[] { true, true }, control.materialType.empty);
+        ChromeGoldAlum.appendAllEnds(chromePart);
+        ChromeGoldAlum.appendAllEnds(goldPart);
+        ChromeGoldAlum.appendAllEnds(alumPart);
     }
 
     public override void check()
     {
-        CheckStructComponent.satisfyResult initial = new CheckStructComponent.satisfyResult();
-        initial.layer = 0;
-        initial.direction = 1;
-        initial.satisfied = false;
-        CheckStructComponent.satisfyResult result = rectangles.satisfy(initial);
-
-        if (result.satisfied)
-        {
-            met = true;
-        }
-        else
-        {
-            met = false;
-        }
+        met = ChromeGoldAlum.satisfy();
     }
 }

@@ -11,7 +11,7 @@ public class RectangleStructure : CheckStructComponent
     Vector3Int maxDims;
     bool[] flagVector;
     int numRectangles;
-    control.materialType suroundingMaterial;
+    control.materialType surroundingMaterial;
 
 
     class rectangle
@@ -31,21 +31,25 @@ public class RectangleStructure : CheckStructComponent
         public void setCurState(int state) { curState = state; }
     }
 
-    public RectangleStructure(control.materialType materialType, Vector3Int minDims, Vector3Int maxDims, int numRectangles, bool[] flagVector, control.materialType surroundingMaterial) : base(materialType){
+    public RectangleStructure(control.materialType materialType, int direction, Vector3Int minDims, Vector3Int maxDims, int numRectangles, bool[] flagVector, control.materialType surroundingMaterial = control.materialType.empty) : base(materialType, direction){
         this.minDims= minDims;
         this.maxDims= maxDims;
         this.flagVector= flagVector;
         this.numRectangles= numRectangles;
         //0: are the dimensions absolute (as opposed to general)?
         //1: should the surrounding material matter?
-        this.suroundingMaterial= surroundingMaterial;
+        this.surroundingMaterial= surroundingMaterial;
      }
 
 
 
-    override public satisfyResult satisfy(satisfyResult starting)
+    override public satisfyResult satisfy(satisfyResult starting, int layerIndex = 0)
     {
-        int index = starting.layer;
+        int startingLayer = starting.startingLayers[layerIndex];
+        int index = startingLayer;
+        satisfyResult toReturn = new satisfyResult();
+        toReturn.startingLayers = new List<int>();
+        toReturn.direction = this.direction;
 
         bitMap thisLayer;
         if (this.materialType != control.materialType.empty)
@@ -75,7 +79,7 @@ public class RectangleStructure : CheckStructComponent
  
         while (index >= 0 && index <= this.layers.topLayer +1 )
         {
-            if (Mathf.Abs(index - starting.layer) >= maxDims.y)
+            if (Mathf.Abs(index - startingLayer) >= maxDims.y)
             {
                 break;
             }
@@ -117,9 +121,10 @@ public class RectangleStructure : CheckStructComponent
                 }
                 if(!anyFound)
                 {
-                    if (Mathf.Abs(index - starting.layer) >= minDims.y)
+                    if (Mathf.Abs(index - startingLayer) >= minDims.y)
                     {
                         result.Add(features[i]);
+                        toReturn.startingLayers.Add(index);
                     }
                     features.RemoveAt(i);
                     continue;
@@ -130,8 +135,6 @@ public class RectangleStructure : CheckStructComponent
             index += starting.direction;
         }
 
-        satisfyResult toReturn = new satisfyResult();
-        toReturn.layer = index;
         if(result.Count >= numRectangles)
         {
             toReturn.satisfied = true;
@@ -183,7 +186,7 @@ public class RectangleStructure : CheckStructComponent
 
 
                         bool anyFailed = false;
-                        if (suroundingMaterial == control.materialType.empty)
+                        if (surroundingMaterial == control.materialType.empty)
                         {
                             foreach (GameObject curDeposit in layers.depLayers[layerIndex])
                             {
@@ -200,7 +203,7 @@ public class RectangleStructure : CheckStructComponent
                             {
                                 if (curDeposit.GetComponent<meshGenerator>().grid.getPoint(iInd, jInd) != 0)
                                 {
-                                    if(curDeposit.GetComponent<meshMaterial>().myMaterial != suroundingMaterial)
+                                    if(curDeposit.GetComponent<meshMaterial>().myMaterial != surroundingMaterial)
                                     {
                                         anyFailed = true;
                                         break;
@@ -291,6 +294,12 @@ public class RectangleStructure : CheckStructComponent
         }
 
         return toReturn;
+    }
+
+
+    override public CheckStructComponent clone()
+    {
+        return new RectangleStructure(materialType, direction, minDims, maxDims, numRectangles, flagVector, surroundingMaterial);
     }
 
 }

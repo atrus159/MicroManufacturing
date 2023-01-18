@@ -6,28 +6,45 @@ public class CheckStructComponent
 {
     public List<CheckStructComponent> adjacents;
     public control.materialType materialType;
-    public Vector2Int facing;
-    public bool isAnchor;
     public LayerStackHolder layers;
+    public int direction;
+    bool endState;
+
+
 
     public struct satisfyResult {
-        public int layer;
+        public List<int> startingLayers;
         public int direction;
         public bool satisfied;
     }
 
-    public CheckStructComponent(control.materialType materialType)
+    public CheckStructComponent(control.materialType materialType, int direction)
     {
         adjacents = new List<CheckStructComponent>();
         this.materialType = materialType;
-        this.facing = Vector2Int.down;
-        this.isAnchor = false;
         this.layers = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
+        this.direction = direction;
+        endState = false;
     }
 
 
-    virtual public satisfyResult satisfy(satisfyResult starting)
+    public bool isEnd()
     {
-        return new satisfyResult { layer = 0, direction = 1, satisfied = true };
+        return endState;
+    }
+
+    public void setEndState(bool newEndState)
+    {
+        endState = newEndState; 
+    }
+
+    virtual public satisfyResult satisfy(satisfyResult starting, int layerIndex = 0)
+    {
+        return starting;
+    }
+
+    virtual public CheckStructComponent clone()
+    {
+        return new CheckStructComponent(materialType, direction);
     }
 }
