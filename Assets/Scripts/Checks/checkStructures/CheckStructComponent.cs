@@ -10,6 +10,8 @@ public class CheckStructComponent
     public int direction;
     bool endState;
 
+    public List<string> errors;
+
 
 
     public struct satisfyResult {
@@ -25,6 +27,7 @@ public class CheckStructComponent
         this.layers = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
         this.direction = direction;
         endState = false;
+        errors = new List<string>();
     }
 
 
@@ -40,6 +43,7 @@ public class CheckStructComponent
 
     virtual public satisfyResult satisfy(satisfyResult starting, int layerIndex = 0)
     {
+        errors = new List<string>();
         return starting;
     }
 

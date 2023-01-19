@@ -38,6 +38,7 @@ public class RectangleStructure : CheckStructComponent
         this.numRectangles= numRectangles;
         //0: are the dimensions absolute (as opposed to general)?
         //1: should the surrounding material matter?
+        //2: should the max height be disregarded?
         this.surroundingMaterial= surroundingMaterial;
      }
 
@@ -45,6 +46,7 @@ public class RectangleStructure : CheckStructComponent
 
     override public satisfyResult satisfy(satisfyResult starting, int layerIndex = 0)
     {
+        errors = new List<string>();
         int startingLayer = starting.startingLayers[layerIndex];
         int index = startingLayer;
         satisfyResult toReturn = new satisfyResult();
@@ -74,10 +76,23 @@ public class RectangleStructure : CheckStructComponent
         }
 
         List<rectangle> features = getRectangles(thisLayer);
+        if(features.Count < numRectangles)
+        {
+            toReturn.satisfied = false;
+            errors.Add("Too few boxes found");
+            return toReturn;
+        }
         features = cullRectangles(features, thisLayer, index);
+        if(features.Count < numRectangles)
+        {
+            toReturn.satisfied = false;
+            errors.Add("Not enough boxes with correct size + border.");
+            return toReturn;
+
+        }
         List<rectangle> result = new List<rectangle>();
  
-        while (index >= 0 && index <= this.layers.topLayer +1 )
+        while (index >= 0 && (index <= this.layers.topLayer +1 || (materialType == control.materialType.empty && index < 100)) )
         {
             if (Mathf.Abs(index - startingLayer) >= maxDims.y)
             {
@@ -126,21 +141,30 @@ public class RectangleStructure : CheckStructComponent
                         result.Add(features[i]);
                         toReturn.startingLayers.Add(index);
                     }
+                    else
+                    {
+                        errors.Add("Found box too short.");
+                    }
                     features.RemoveAt(i);
                     continue;
                 }
             }
 
-            //if features are terminating in the right range, don't put them on the naughty list
+            if (flagVector[2] && Mathf.Abs(index - startingLayer) >= minDims.y)
+            {
+                break;
+            }
+
             index += starting.direction;
         }
 
-        if(result.Count >= numRectangles)
+        if(result.Count >= numRectangles || (flagVector[2] && features.Count >= numRectangles))
         {
             toReturn.satisfied = true;
         }
         else
         {
+            errors.Add("Not enough boxes with correct height.");
             toReturn.satisfied = false;
         }
         return toReturn;
@@ -160,9 +184,11 @@ public class RectangleStructure : CheckStructComponent
                 if (flagVector[0])
                 {
                     curRects.RemoveAt(i);
+                    errors.Add("Found rectangle wrong size:" + "(" + width + ", " + height + ")");
                     break;
                 }else if(height < minDims.x || height > maxDims.x || width < minDims.z || width > maxDims.z)
                 {
+                    errors.Add("Found rectangle wrong size:" + "(" + width + ", " + height + ")");
                     curRects.RemoveAt(i);
                     break;
 
@@ -215,6 +241,7 @@ public class RectangleStructure : CheckStructComponent
 
                         if (anyFailed)
                         {
+                            errors.Add("Found rectangle wrong border.");
                             curRects.RemoveAt(i);
                             goto NextRectangle;
                         }
