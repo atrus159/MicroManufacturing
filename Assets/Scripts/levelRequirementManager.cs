@@ -21,6 +21,7 @@ public class levelRequirementManager : MonoBehaviour
 
     void Start()
     {
+        
         //instantiates all of the classes in requirementScripts and puts them in requirements
         foreach(MonoScript curScript in requirementScripts)
         {
