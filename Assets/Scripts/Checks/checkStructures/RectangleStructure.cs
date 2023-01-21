@@ -185,12 +185,13 @@ public class RectangleStructure : CheckStructComponent
                 {
                     curRects.RemoveAt(i);
                     errors.Add("Found rectangle wrong size:" + "(" + width + ", " + height + ")");
-                    break;
-                }else if(height < minDims.x || height > maxDims.x || width < minDims.z || width > maxDims.z)
+                    goto NextRectangle;
+                }
+                else if(height < minDims.x || height > maxDims.x || width < minDims.z || width > maxDims.z)
                 {
                     errors.Add("Found rectangle wrong size:" + "(" + width + ", " + height + ")");
                     curRects.RemoveAt(i);
-                    break;
+                    goto NextRectangle;
 
                 }
             }
@@ -260,18 +261,19 @@ public class RectangleStructure : CheckStructComponent
         int state = 0;
         for(int i = 0; i< bitMap.gridWidth; i++)
         {
-            for(int j = 0; j<bitMap.gridHeight; j++)
+            for(int j = 0; j<=bitMap.gridHeight; j++)
             {
                 switch (state)
                 {
                     case 0:
-                        if(grid.getPoint(i,j) == 1)
+                        if(j != bitMap.gridHeight && grid.getPoint(i,j) == 1)
                         {
                             bool anyFound = false;
                             foreach(rectangle curRectangle in toReturn)
                             {
                                 if(curRectangle.getCurState() == 1 && j <= curRectangle.getUpRight().y && j >= curRectangle.getLowLeft().y )
                                 {
+                                    curRectangle.setCurState(2);
                                     anyFound = true;
                                     break;
                                 }
@@ -279,7 +281,7 @@ public class RectangleStructure : CheckStructComponent
                             if (!anyFound)
                             {
                                 rectangle newRect = new rectangle();
-                                newRect.setCurState(1);
+                                newRect.setCurState(2);
                                 newRect.setLowLeft(new Vector2Int(i, j));
                                 newRect.setUpRight(new Vector2Int(-1, -1));
                                 toReturn.Add(newRect);
@@ -288,12 +290,12 @@ public class RectangleStructure : CheckStructComponent
                         }
                         break;
                    case 1:
-                        if (grid.getPoint(i, j) == 0 || j == bitMap.gridHeight-1)
+                        if (j == bitMap.gridHeight || grid.getPoint(i, j) == 0 )
                         {
                             rectangle activeRect = new rectangle();
                             foreach(rectangle curRectangle in toReturn)
                             {
-                                if (curRectangle.getCurState() == 1)
+                                if (curRectangle.getCurState() == 2)
                                 {
                                     activeRect = curRectangle;
                                     break;
@@ -302,11 +304,16 @@ public class RectangleStructure : CheckStructComponent
                             if(activeRect.getUpRight().y == -1)
                             {
                                 activeRect.setUpRight(new Vector2Int(i, j-1));
+                                activeRect.setCurState(1);
                             }else if(activeRect.getUpRight().y == j-1)
                             {
                                 if(i +1 >= bitMap.gridWidth || grid.getPoint(i+1,j-1) == 0)
                                 {
                                     activeRect.setCurState(0);
+                                }
+                                else
+                                {
+                                    activeRect.setCurState(1);
                                 }
                                 activeRect.setUpRight(new Vector2Int(i, j-1));
                             }else
