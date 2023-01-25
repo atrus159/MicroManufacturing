@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class RectangleStructure : CheckStructComponent
+public class AmorphousStructure : CheckStructComponent
 {
 
     Vector3Int minDims;
@@ -14,11 +14,12 @@ public class RectangleStructure : CheckStructComponent
     control.materialType surroundingMaterial;
 
 
-    class rectangle
+    class amorphous
     {
         Vector2Int lowLeft;
         Vector2Int upRight;
         int curState;
+        public bitMap grid;
 
         public Vector2Int getLowLeft() { return lowLeft; }
         public Vector2Int getUpRight() { return upRight; }
@@ -31,7 +32,7 @@ public class RectangleStructure : CheckStructComponent
         public void setCurState(int state) { curState = state; }
     }
 
-    public RectangleStructure(control.materialType materialType, int direction, Vector3Int minDims, Vector3Int maxDims, int numRectangles, bool[] flagVector, control.materialType surroundingMaterial = control.materialType.empty) : base(materialType, direction){
+    public AmorphousStructure(control.materialType materialType, int direction, Vector3Int minDims, Vector3Int maxDims, int numRectangles, bool[] flagVector, control.materialType surroundingMaterial = control.materialType.empty) : base(materialType, direction){
         this.minDims= minDims;
         this.maxDims= maxDims;
         this.flagVector= flagVector;
@@ -44,7 +45,7 @@ public class RectangleStructure : CheckStructComponent
 
 
 
-    override public satisfyResult satisfy(satisfyResult starting, int layerIndex = 0)
+    /*override public satisfyResult satisfy(satisfyResult starting, int layerIndex = 0)
     {
         errors = new List<string>();
         int startingLayer = starting.startingLayers[layerIndex];
@@ -139,15 +140,7 @@ public class RectangleStructure : CheckStructComponent
                     if (Mathf.Abs(index - startingLayer) >= minDims.y)
                     {
                         result.Add(features[i]);
-                        if(direction == 1)
-                        {
-                            toReturn.startingLayers.Add(index);
-                        }
-                        else
-                        {
-                            toReturn.startingLayers.Add(startingLayer - 1);
-                        }
-
+                        toReturn.startingLayers.Add(index);
                     }
                     else
                     {
@@ -342,6 +335,6 @@ public class RectangleStructure : CheckStructComponent
     override public CheckStructComponent clone()
     {
         return new RectangleStructure(materialType, direction, minDims, maxDims, numRectangles, flagVector, surroundingMaterial);
-    }
+    }*/
 
 }
