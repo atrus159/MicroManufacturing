@@ -257,7 +257,7 @@ public class RectangleStructure : CheckStructComponent
                     }
                 }
             }
-        NextRectangle: int placeHolder = 0;
+        NextRectangle:;
         }
         return curRects;
     }
