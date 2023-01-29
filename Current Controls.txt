@@ -1,0 +1,5 @@
+Controls:
+
+-Space Bar: Photomask liftoff
+-L: Check level requirements
+-P: Create a spin caster animation

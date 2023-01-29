@@ -1,4 +1,4 @@
-Shader "Custom/RainbowShader"
+Shader "Custom/RainbowShaderSubstrate"
 {
     Properties
     {
@@ -90,7 +90,7 @@ Shader "Custom/RainbowShader"
             color = saturate(color);
 
             //adds the reflection to the material color
-            pbr.rgb += color*0.2;
+            pbr.rgb += color*0.05;
             return pbr;
         }
 
@@ -119,7 +119,7 @@ Shader "Custom/RainbowShader"
 
             fixed2 uv = IN.uv_MainTex * 2 - 1;
             fixed2 uv_orthogonal = normalize(uv);
-            fixed3 uv_tangent = fixed3(uv_orthogonal.y, 0, -uv_orthogonal.x);
+            fixed3 uv_tangent = fixed3(uv_orthogonal.x, 0, -uv_orthogonal.x);
 
             worldTangent = normalize(mul(unity_ObjectToWorld, float4(uv_tangent, 0)));
         }
