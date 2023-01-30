@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Tutorials\LV1\dropdownSelectCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\clear_button.cs" />
     <Compile Include="Assets\Scripts\levelRequirementManager.cs" />
+    <Compile Include="Assets\Scripts\animation\SpinCastAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\fill_button.cs" />
     <Compile Include="Assets\Scripts\Tutorials\LV1\cameraPanCheck.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\RectangleStructure.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Processes\ProcessGen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\tools\bucketTool.cs" />
+    <Compile Include="Assets\Scripts\animation\AnimationCreator.cs" />
     <Compile Include="Assets\Scripts\Tutorials\LV1\Level1Tutorial.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\rect_button.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\sceneManager.cs" />
@@ -141,8 +143,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\animation_creator.cs" />
-    <Compile Include="Assets\Scripts\animationDestroy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

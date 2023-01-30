@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class animation_creator : MonoBehaviour
+public class AnimationCreator : MonoBehaviour
 {
 
     public GameObject SpinCaster;
@@ -15,10 +15,7 @@ public class animation_creator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            makeSpinCaster();
-        }
+
     }
 
 
@@ -28,4 +25,5 @@ public class animation_creator : MonoBehaviour
         newSpin.transform.position = new Vector3(-9, -27, 19);
         newSpin.transform.rotation = Quaternion.Euler(-90, 0, -90);
     }
+
 }

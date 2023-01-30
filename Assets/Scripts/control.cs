@@ -239,8 +239,8 @@ public class control : MonoBehaviour
 
     public void onPhotoResistButton()
     {
-        GameObject layer = GameObject.Find("LayerStack");
-        layer.GetComponent<LayerStackHolder>().makePhotoResist();
+        GameObject layer = GameObject.Find("AnimationCreator");
+        layer.GetComponent<AnimationCreator>().makeSpinCaster();
     }
 
     public void onFinishedButton()
