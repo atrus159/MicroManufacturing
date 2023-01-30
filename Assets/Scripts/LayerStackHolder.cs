@@ -184,6 +184,7 @@ public class LayerStackHolder : MonoBehaviour
         newMesh.GetComponent<meshGenerator>().initialize();
         newMesh.GetComponent<meshMaterial>().myMaterial = layerMaterial;
         newMesh.GetComponent<meshMaterial>().initialize(newTimeOffset);
+        newMesh.transform.parent = gameObject.transform;
         depLayers[curlayer].Add(newMesh);
 
         return true;

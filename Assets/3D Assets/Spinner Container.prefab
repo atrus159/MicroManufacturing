@@ -340,7 +340,6 @@ GameObject:
   - component: {fileID: 1930439154672786456}
   - component: {fileID: 1930439154672786455}
   - component: {fileID: 6567075736868793744}
-  - component: {fileID: 3009655843727785718}
   m_Layer: 0
   m_Name: spinner_v1
   m_TagString: Untagged
@@ -470,18 +469,6 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bc410381017ee47aa532ccce91830c, type: 3}
 --- !u!114 &6567075736868793744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930439154672786454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d57ea2444ab444d928615d126762d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3009655843727785718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
