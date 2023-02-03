@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst;
@@ -349,16 +349,24 @@ public class BitGrid
         return true;
     }
 
-    public void printGrid()
+    public String printGrid()
     {
+        string output = "";
         for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            System.Diagnostics.Debug.Write("[ ");
-            for (int j = 0; j < BitGrid.gridHeight; i++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
-                System.Diagnostics.Debug.Write(grid[i, j] + ", ");
+                if (grid[i,j] != 0)
+                {
+                    output += "█";
+                }
+                else
+                {
+                    output += "⠀";
+                }
             }
-            System.Diagnostics.Debug.WriteLine("]");
+            output += "\n";
         }
+        return output;
     }
 }
