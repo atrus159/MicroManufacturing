@@ -17,24 +17,24 @@ public class AmorphousStructure : CheckStructComponent
 
     class amorphous
     {
-        public bitMap grid;
+        public BitGrid grid;
         public Vector2Int lowLeft;
         public Vector2Int upRight;
         public amorphous()
         {
-            grid = bitMap.zeros();
+            grid = BitGrid.zeros();
             lowLeft = new Vector2Int();
             upRight = new Vector2Int();
         }
         public void updateBounds()
         {
-            int minX = bitMap.gridWidth;
-            int minY = bitMap.gridHeight;
+            int minX = BitGrid.gridWidth;
+            int minY = BitGrid.gridHeight;
             int maxX = 0;
             int maxY = 0;
-            for(int i = 0; i< bitMap.gridWidth; i++)
+            for(int i = 0; i< BitGrid.gridWidth; i++)
             {
-                for(int j = 0; j< bitMap.gridHeight; j++)
+                for(int j = 0; j< BitGrid.gridHeight; j++)
                 {
                     if(grid.getPoint(i,j) != 0)
                     {
@@ -64,25 +64,25 @@ public class AmorphousStructure : CheckStructComponent
         this.surroundingMaterial = surroundingMaterial;
     }
 
-    List<amorphous> getAmorphs(bitMap grid)
+    List<amorphous> getAmorphs(BitGrid grid)
     {
         List<amorphous> toReturn = new List<amorphous>();
-        bitMap curGrid = new bitMap();
+        BitGrid curGrid = new BitGrid();
         curGrid.set(grid);
-        for(int i = 0; i< bitMap.gridWidth; i++)
+        for(int i = 0; i< BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j< bitMap.gridHeight; j++)
+            for(int j = 0; j< BitGrid.gridHeight; j++)
             {
                 if(curGrid.getPoint(i,j) == 1)
                 {
-                    bitMap newGrid = bitMap.zeros();
+                    BitGrid newGrid = BitGrid.zeros();
                     newGrid.setPoint(i, j, 1);
-                    newGrid = bitMap.getIntersectedRegions(newGrid, curGrid);
+                    newGrid = BitGrid.getIntersectedRegions(newGrid, curGrid);
                     amorphous newAmorph = new amorphous();
                     newAmorph.grid.set(newGrid);
                     newAmorph.updateBounds();
                     toReturn.Add(newAmorph);
-                    curGrid = bitMap.emptyIntersect(curGrid, newGrid);
+                    curGrid = BitGrid.emptyIntersect(curGrid, newGrid);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class AmorphousStructure : CheckStructComponent
         return toReturn;
     }
 
-    List<amorphous> cullAmorphs(List<amorphous> curAmorphs, bitMap grid, int layerIndex)
+    List<amorphous> cullAmorphs(List<amorphous> curAmorphs, BitGrid grid, int layerIndex)
     {
 
         for (int i = curAmorphs.Count - 1; i >= 0; i--)
@@ -129,25 +129,25 @@ public class AmorphousStructure : CheckStructComponent
             toReturn.startingLayers = new List<int>();
             toReturn.direction = this.direction;
 
-            bitMap thisLayer;
+            BitGrid thisLayer;
             if (this.materialType != control.materialType.empty)
             {
-                thisLayer = bitMap.zeros();
+                thisLayer = BitGrid.zeros();
                 foreach (GameObject curDeposit in layers.depLayers[index])
                 {
 
                     if (curDeposit.GetComponent<meshMaterial>().myMaterial == materialType)
                     {
-                        thisLayer = bitMap.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                        thisLayer = BitGrid.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                     }
                 }
             }
             else
             {
-                thisLayer = bitMap.ones();
+                thisLayer = BitGrid.ones();
                 foreach (GameObject curDeposit in layers.depLayers[index])
                 {
-                    thisLayer = bitMap.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                    thisLayer = BitGrid.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                 }
             }
 
@@ -177,22 +177,22 @@ public class AmorphousStructure : CheckStructComponent
 
                 if (this.materialType != control.materialType.empty)
                 {
-                    thisLayer = bitMap.zeros();
+                    thisLayer = BitGrid.zeros();
                     foreach (GameObject curDeposit in layers.depLayers[index])
                     {
 
                         if (curDeposit.GetComponent<meshMaterial>().myMaterial == materialType)
                         {
-                            thisLayer = bitMap.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                            thisLayer = BitGrid.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                         }
                     }
                 }
                 else
                 {
-                    thisLayer = bitMap.ones();
+                    thisLayer = BitGrid.ones();
                     foreach (GameObject curDeposit in layers.depLayers[index])
                     {
-                        thisLayer = bitMap.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                        thisLayer = BitGrid.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                     }
                 }
 
@@ -255,7 +255,7 @@ public class AmorphousStructure : CheckStructComponent
         }
 
 
-        List<rectangle> cullRectangles(List<rectangle> curRects, bitMap grid, int layerIndex)
+        List<rectangle> cullRectangles(List<rectangle> curRects, BitGrid grid, int layerIndex)
         {
 
             for (int i = curRects.Count - 1; i >= 0; i--)
@@ -286,7 +286,7 @@ public class AmorphousStructure : CheckStructComponent
                     {
                         for (int jInd = rect.getLowLeft().y - 1; jInd <= rect.getUpRight().y + 1; jInd++)
                         {
-                            if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
+                            if (iInd < 0 || iInd >= BitGrid.gridWidth || jInd < 0 || jInd >= BitGrid.gridHeight)
                             {
                                 break;
                             }
@@ -340,18 +340,18 @@ public class AmorphousStructure : CheckStructComponent
         }
 
 
-        List<rectangle> getRectangles(bitMap grid)
+        List<rectangle> getRectangles(BitGrid grid)
         {
             List<rectangle> toReturn = new List<rectangle>();
             int state = 0;
-            for (int i = 0; i < bitMap.gridWidth; i++)
+            for (int i = 0; i < BitGrid.gridWidth; i++)
             {
-                for (int j = 0; j <= bitMap.gridHeight; j++)
+                for (int j = 0; j <= BitGrid.gridHeight; j++)
                 {
                     switch (state)
                     {
                         case 0:
-                            if (j != bitMap.gridHeight && grid.getPoint(i, j) == 1)
+                            if (j != BitGrid.gridHeight && grid.getPoint(i, j) == 1)
                             {
                                 bool anyFound = false;
                                 foreach (rectangle curRectangle in toReturn)
@@ -375,7 +375,7 @@ public class AmorphousStructure : CheckStructComponent
                             }
                             break;
                         case 1:
-                            if (j == bitMap.gridHeight || grid.getPoint(i, j) == 0)
+                            if (j == BitGrid.gridHeight || grid.getPoint(i, j) == 0)
                             {
                                 rectangle activeRect = new rectangle();
                                 foreach (rectangle curRectangle in toReturn)
@@ -393,7 +393,7 @@ public class AmorphousStructure : CheckStructComponent
                                 }
                                 else if (activeRect.getUpRight().y == j - 1)
                                 {
-                                    if (i + 1 >= bitMap.gridWidth || grid.getPoint(i + 1, j - 1) == 0)
+                                    if (i + 1 >= BitGrid.gridWidth || grid.getPoint(i + 1, j - 1) == 0)
                                     {
                                         activeRect.setCurState(0);
                                     }

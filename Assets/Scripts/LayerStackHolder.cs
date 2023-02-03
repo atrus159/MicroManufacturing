@@ -167,7 +167,7 @@ public class LayerStackHolder : MonoBehaviour
 
 
     //insterts a deposit of a material into a particular layer
-    bool addDeposit(int curlayer, bitMap toDeposit, control.materialType layerMaterial, int newTimeOffset = 0)
+    bool addDeposit(int curlayer, BitGrid toDeposit, control.materialType layerMaterial, int newTimeOffset = 0)
     {
         if(curlayer >= layerCount)
         {
@@ -190,8 +190,8 @@ public class LayerStackHolder : MonoBehaviour
         return true;
     }
 
-    //sets the bitMap of a deposit to a new value, or destroys it if set to empty
-    void updateDeposit(bitMap grid, GameObject deposit, int depLayer)
+    //sets the BitGrid of a deposit to a new value, or destroys it if set to empty
+    void updateDeposit(BitGrid grid, GameObject deposit, int depLayer)
     {
         if (!grid.isEmpty())
         {
@@ -209,30 +209,30 @@ public class LayerStackHolder : MonoBehaviour
     }
 
     //drops a 1 block layer of a material from the top, which cascades over any structures below
-    public void depositLayer(control.materialType layerMaterial, bitMap inputGrid, int newTimeOffset = 0)
+    public void depositLayer(control.materialType layerMaterial, BitGrid inputGrid, int newTimeOffset = 0)
     {
-        bitMap grid = new bitMap();
+        BitGrid grid = new BitGrid();
         grid.set(inputGrid);
         int curLayer = topLayer + 1;
         while(curLayer > 0)
         {
-            bitMap thisDeposit = new bitMap();
+            BitGrid thisDeposit = new BitGrid();
             thisDeposit.set(grid);
-            bitMap tempDeposit = new bitMap();
-            tempDeposit.set(bitMap.zeros());
+            BitGrid tempDeposit = new BitGrid();
+            tempDeposit.set(BitGrid.zeros());
 
             foreach (GameObject curDeposit in depLayers[curLayer-1])
             {
-                tempDeposit.set(bitMap.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
+                tempDeposit.set(BitGrid.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
             }
-            thisDeposit.set(bitMap.intersect(tempDeposit, thisDeposit));
+            thisDeposit.set(BitGrid.intersect(tempDeposit, thisDeposit));
             if (!thisDeposit.isEmpty())
             {
                 addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset);
             }
             foreach (GameObject curDeposit in depLayers[curLayer-1])
             {
-                grid.set(bitMap.emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid));
+                grid.set(BitGrid.emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid));
                 if (grid.isEmpty())
                 {
                     return;
@@ -246,19 +246,19 @@ public class LayerStackHolder : MonoBehaviour
     //removes the top-most layer of a particular material from the design
     public void etchLayer(control.materialType etchMaterial, int newTimeOffset = 0)
     {
-        bitMap grid = new bitMap() ;
-        grid.set(bitMap.ones());
+        BitGrid grid = new BitGrid() ;
+        grid.set(BitGrid.ones());
         int curLayer = topLayer + 1;
         while (curLayer > 0)
         {
-            bitMap emptySpots = new bitMap();
-            bitMap etchedSpots = new bitMap();
-            emptySpots.set(bitMap.zeros());
-            etchedSpots.set(bitMap.zeros());
+            BitGrid emptySpots = new BitGrid();
+            BitGrid etchedSpots = new BitGrid();
+            emptySpots.set(BitGrid.zeros());
+            etchedSpots.set(BitGrid.zeros());
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0 || (curDeposit.GetComponent<meshMaterial>().timeOffset < 0 && curDeposit.GetComponent<meshMaterial>().timeOffset >= newTimeOffset && curDeposit.GetComponent<meshMaterial>().myMaterial != etchMaterial)){
-                    emptySpots.set(bitMap.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
+                    emptySpots.set(BitGrid.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
                 }
             }
             bool anyFlag = false;
@@ -268,10 +268,10 @@ public class LayerStackHolder : MonoBehaviour
                 {
                     if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0){
                         if(newTimeOffset < 0){
-                            etchedSpots.set(bitMap.union(bitMap.intersect(curDeposit.GetComponent<meshGenerator>().grid,grid),etchedSpots));
+                            etchedSpots.set(BitGrid.union(BitGrid.intersect(curDeposit.GetComponent<meshGenerator>().grid,grid),etchedSpots));
                             anyFlag = true;
                         }
-                        updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer-1);
+                        updateDeposit(BitGrid.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer-1);
 
                     }
                 }
@@ -280,7 +280,7 @@ public class LayerStackHolder : MonoBehaviour
             if (anyFlag && !etchedSpots.isEmpty()){
                 addDeposit(curLayer -1 , etchedSpots, etchMaterial, newTimeOffset);
             }
-            grid.set(bitMap.emptyIntersect(grid, emptySpots));
+            grid.set(BitGrid.emptyIntersect(grid, emptySpots));
             if (grid.isEmpty())
             {
                 return;
@@ -293,26 +293,26 @@ public class LayerStackHolder : MonoBehaviour
     //removes the material from exposed sides of a particular material from the design
     public void etchLayerAround(control.materialType etchMaterial, int newTimeOffset = 0)
     {
-        bitMap grid = new bitMap();
-        grid.set(bitMap.ones());
+        BitGrid grid = new BitGrid();
+        grid.set(BitGrid.ones());
         int curLayer = topLayer + 1;
         while (curLayer > 0)
         {
-            bitMap emptySpots = new bitMap();
-            bitMap etchedSpots = new bitMap();
-            emptySpots.set(bitMap.zeros());
-            etchedSpots.set(bitMap.zeros());
+            BitGrid emptySpots = new BitGrid();
+            BitGrid etchedSpots = new BitGrid();
+            emptySpots.set(BitGrid.zeros());
+            etchedSpots.set(BitGrid.zeros());
 
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 if (curDeposit.GetComponent<meshMaterial>().timeOffset >= 0)
                 {
-                    emptySpots.set(bitMap.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
+                    emptySpots.set(BitGrid.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
                 }
             }
 
-            bitMap emptyContinuation = bitMap.getIntersectedRegions(grid, bitMap.invert(emptySpots));
-            bitMap emptyBorder = bitMap.getBorderRegion(emptyContinuation);
+            BitGrid emptyContinuation = BitGrid.getIntersectedRegions(grid, BitGrid.invert(emptySpots));
+            BitGrid emptyBorder = BitGrid.getBorderRegion(emptyContinuation);
 
             bool anyFlag = false;
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
@@ -323,10 +323,10 @@ public class LayerStackHolder : MonoBehaviour
                     {
                         if (newTimeOffset < 0)
                         {
-                            etchedSpots.set(bitMap.union(bitMap.intersect(curDeposit.GetComponent<meshGenerator>().grid, emptyBorder), etchedSpots));
+                            etchedSpots.set(BitGrid.union(BitGrid.intersect(curDeposit.GetComponent<meshGenerator>().grid, emptyBorder), etchedSpots));
                             anyFlag = true;
                         }
-                        updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, emptyBorder), curDeposit, curLayer - 1);
+                        updateDeposit(BitGrid.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, emptyBorder), curDeposit, curLayer - 1);
 
                     }
                 }
@@ -337,7 +337,7 @@ public class LayerStackHolder : MonoBehaviour
                 addDeposit(curLayer - 1, etchedSpots, etchMaterial, newTimeOffset);
             }
 
-            grid.set(bitMap.emptyIntersect(grid, emptySpots));
+            grid.set(BitGrid.emptyIntersect(grid, emptySpots));
             if (grid.isEmpty())
             {
                 return;
@@ -351,23 +351,23 @@ public class LayerStackHolder : MonoBehaviour
     //triggers a liftOff of the photomask, removing it and all deposits above it
     public void liftOff()
     {
-        bitMap grid = new bitMap();
-        grid.set(bitMap.zeros()); ;
+        BitGrid grid = new BitGrid();
+        grid.set(BitGrid.zeros()); ;
         for (int i = 0; i<=topLayer; i++)
         {
             foreach (GameObject curDeposit in depLayers[i])
             {
                 if (curDeposit.GetComponent<meshMaterial>().myMaterial != control.materialType.photoresist)
                 {
-                    updateDeposit(bitMap.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, i);
+                    updateDeposit(BitGrid.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, i);
                 }
             }
             foreach (GameObject curDeposit in depLayers[i])
             {
                 if(curDeposit.GetComponent<meshMaterial>().myMaterial == control.materialType.photoresist)
                 {
-                    grid.set(bitMap.union(grid, curDeposit.GetComponent<meshGenerator>().grid));
-                    updateDeposit(bitMap.zeros(), curDeposit, i);
+                    grid.set(BitGrid.union(grid, curDeposit.GetComponent<meshGenerator>().grid));
+                    updateDeposit(BitGrid.zeros(), curDeposit, i);
                 }
             }
         }
@@ -430,7 +430,7 @@ public class LayerStackHolder : MonoBehaviour
                     }
                     else
                     {
-                        updateDeposit(bitMap.zeros(), curDeposit, curLayer-1);
+                        updateDeposit(BitGrid.zeros(), curDeposit, curLayer-1);
                     }
 
                 }
@@ -442,7 +442,7 @@ public class LayerStackHolder : MonoBehaviour
                     }
                     else
                     {
-                        updateDeposit(bitMap.zeros(), curDeposit, curLayer-1);
+                        updateDeposit(BitGrid.zeros(), curDeposit, curLayer-1);
                     }
                 }
             }

@@ -19,9 +19,9 @@ public class clear_button : MonoBehaviour
     // Update is called once per frame
     void TaskOnClick()
     {
-        for (int j = 0; j < bitMap.gridHeight; j++)
+        for (int j = 0; j < BitGrid.gridHeight; j++)
         {
-            for (int i = bitMap.gridWidth - 1; i >= 0; i--)
+            for (int i = BitGrid.gridWidth - 1; i >= 0; i--)
             {
                 paintCanvas.setPixel(i, j, 0);
             }

@@ -53,25 +53,25 @@ public class RectangleStructure : CheckStructComponent
         toReturn.startingLayers = new List<int>();
         toReturn.direction = this.direction;
 
-        bitMap thisLayer;
+        BitGrid thisLayer;
         if (this.materialType != control.materialType.empty)
         {
-            thisLayer = bitMap.zeros();
+            thisLayer = BitGrid.zeros();
             foreach (GameObject curDeposit in layers.depLayers[index])
             {
 
                 if (curDeposit.GetComponent<meshMaterial>().myMaterial == materialType)
                 {
-                    thisLayer = bitMap.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                    thisLayer = BitGrid.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                 }
             }
         }
         else
         {
-            thisLayer = bitMap.ones();
+            thisLayer = BitGrid.ones();
             foreach (GameObject curDeposit in layers.depLayers[index])
             {
-                thisLayer = bitMap.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                thisLayer = BitGrid.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
             }
         }
 
@@ -101,22 +101,22 @@ public class RectangleStructure : CheckStructComponent
 
             if (this.materialType != control.materialType.empty)
             {
-                thisLayer = bitMap.zeros();
+                thisLayer = BitGrid.zeros();
                 foreach (GameObject curDeposit in layers.depLayers[index])
                 {
 
                     if (curDeposit.GetComponent<meshMaterial>().myMaterial == materialType)
                     {
-                        thisLayer = bitMap.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                        thisLayer = BitGrid.union(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                     }
                 }
             }
             else
             {
-                thisLayer = bitMap.ones();
+                thisLayer = BitGrid.ones();
                 foreach (GameObject curDeposit in layers.depLayers[index])
                 {
-                    thisLayer = bitMap.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
+                    thisLayer = BitGrid.emptyIntersect(thisLayer, curDeposit.GetComponent<meshGenerator>().grid);
                 }
             }
 
@@ -179,7 +179,7 @@ public class RectangleStructure : CheckStructComponent
     }
 
 
-    List<rectangle> cullRectangles(List<rectangle> curRects, bitMap grid, int layerIndex)
+    List<rectangle> cullRectangles(List<rectangle> curRects, BitGrid grid, int layerIndex)
     {
         
         for(int i = curRects.Count-1; i >= 0; i--)
@@ -209,7 +209,7 @@ public class RectangleStructure : CheckStructComponent
                 for(int iInd = rect.getLowLeft().x -1; iInd <= rect.getUpRight().x + 1; iInd++) { 
                     for(int jInd = rect.getLowLeft().y-1; jInd <= rect.getUpRight().y+1; jInd++)
                     {
-                        if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
+                        if (iInd < 0 || iInd >= BitGrid.gridWidth || jInd < 0 || jInd >= BitGrid.gridHeight)
                         {
                             break;
                         }
@@ -263,18 +263,18 @@ public class RectangleStructure : CheckStructComponent
     }
 
 
-    List<rectangle> getRectangles(bitMap grid)
+    List<rectangle> getRectangles(BitGrid grid)
     {
         List<rectangle> toReturn = new List<rectangle>();
         int state = 0;
-        for(int i = 0; i< bitMap.gridWidth; i++)
+        for(int i = 0; i< BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j<=bitMap.gridHeight; j++)
+            for(int j = 0; j<=BitGrid.gridHeight; j++)
             {
                 switch (state)
                 {
                     case 0:
-                        if(j != bitMap.gridHeight && grid.getPoint(i,j) == 1)
+                        if(j != BitGrid.gridHeight && grid.getPoint(i,j) == 1)
                         {
                             bool anyFound = false;
                             foreach(rectangle curRectangle in toReturn)
@@ -298,7 +298,7 @@ public class RectangleStructure : CheckStructComponent
                         }
                         break;
                    case 1:
-                        if (j == bitMap.gridHeight || grid.getPoint(i, j) == 0 )
+                        if (j == BitGrid.gridHeight || grid.getPoint(i, j) == 0 )
                         {
                             rectangle activeRect = new rectangle();
                             foreach(rectangle curRectangle in toReturn)
@@ -315,7 +315,7 @@ public class RectangleStructure : CheckStructComponent
                                 activeRect.setCurState(1);
                             }else if(activeRect.getUpRight().y == j-1)
                             {
-                                if(i +1 >= bitMap.gridWidth || grid.getPoint(i+1,j-1) == 0)
+                                if(i +1 >= BitGrid.gridWidth || grid.getPoint(i+1,j-1) == 0)
                                 {
                                     activeRect.setCurState(0);
                                 }

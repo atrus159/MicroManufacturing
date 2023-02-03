@@ -8,7 +8,7 @@ public class ProcessGen : ProcessParent
 
     public override void CallStep(int i)
     {
-        layerStackHold.depositLayer(layerStackHold.curMaterial, bitMap.ones(), i + 1);
+        layerStackHold.depositLayer(layerStackHold.curMaterial, BitGrid.ones(), i + 1);
     }
 
     public override void OnValueChanged(float newValue)

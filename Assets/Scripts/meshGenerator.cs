@@ -13,7 +13,7 @@ public class meshGenerator : MonoBehaviour
     public float cellSize = 0.1f;
     public bool toBeDestroyed = false;
 
-    public bitMap grid;
+    public BitGrid grid;
 
     enum faces
     {
@@ -28,7 +28,7 @@ public class meshGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        grid = new bitMap();
+        grid = new BitGrid();
     }
 
     public void initialize()
@@ -48,10 +48,10 @@ public class meshGenerator : MonoBehaviour
             int startJ = 0;
             int i = 0;
             int j = 0;
-            for(i = 0; i < bitMap.gridWidth; i++)
+            for(i = 0; i < BitGrid.gridWidth; i++)
             {
                 int breakflag = 0;
-                for(j = 0; j < bitMap.gridHeight; j++)
+                for(j = 0; j < BitGrid.gridHeight; j++)
                 {
                     if(grid.getPoint(i,j) == 1)
                     {
@@ -68,12 +68,12 @@ public class meshGenerator : MonoBehaviour
             startJ = j;
 
 
-            if(startI >= bitMap.gridWidth-1 && startJ >= bitMap.gridHeight -1)
+            if(startI >= BitGrid.gridWidth-1 && startJ >= BitGrid.gridHeight -1)
             {
                 break;
             }
 
-            for(j = startJ; j< bitMap.gridHeight; j++)
+            for(j = startJ; j< BitGrid.gridHeight; j++)
              {
                  if(grid.getPoint(i,j) != 1)
                  {
@@ -84,7 +84,7 @@ public class meshGenerator : MonoBehaviour
              int endJ = j - 1;
 
 
-             for (i = startI; i < bitMap.gridWidth; i++)
+             for (i = startI; i < BitGrid.gridWidth; i++)
              {
                  int breakFlag = 0;
                  for(j = startJ; j<= endJ; j++)

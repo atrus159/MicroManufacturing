@@ -26,13 +26,13 @@ public class save_button : MonoBehaviour
         if (path.Length == 0)
             return;
 
-        string[] lines = new string[bitMap.gridHeight];
+        string[] lines = new string[BitGrid.gridHeight];
 
-        for (int j = 0; j < bitMap.gridHeight ; j++)
+        for (int j = 0; j < BitGrid.gridHeight ; j++)
         {
-            for (int i = bitMap.gridWidth - 1; i >= 0; i--)
+            for (int i = BitGrid.gridWidth - 1; i >= 0; i--)
             {
-                lines[bitMap.gridHeight - j - 1] = paintCanvas.grid.getPoint(i, j) + lines[bitMap.gridHeight - j - 1];
+                lines[BitGrid.gridHeight - j - 1] = paintCanvas.grid.getPoint(i, j) + lines[BitGrid.gridHeight - j - 1];
             }
         }
 

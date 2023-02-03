@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class paint : MonoBehaviour
 {
-    public bitMap grid;
-    public bitMap gridOld;
+    public BitGrid grid;
+    public BitGrid gridOld;
     Image image;
     public Texture2D texture;
     public Texture2D oldTexture;
@@ -27,8 +27,8 @@ public class paint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grid = new bitMap();
-        gridOld = new bitMap();
+        grid = new BitGrid();
+        gridOld = new BitGrid();
 
         image = GetComponent<Image>();
         trans = GetComponent<RectTransform>();
@@ -37,9 +37,9 @@ public class paint : MonoBehaviour
         clickCoords = new Vector2Int(-1, -1);
         image.material.mainTexture = texture;
         updateScale();
-        for(int i = 0; i < bitMap.gridWidth; i++)
+        for(int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j< bitMap.gridHeight; j++)
+            for(int j = 0; j< BitGrid.gridHeight; j++)
             {
                 setPixel(i, j, 0);
             }
@@ -79,6 +79,8 @@ public class paint : MonoBehaviour
     {
         float mx = Input.mousePosition.x;
         float my = Input.mousePosition.y;
+        Debug.Log(mx + " " + my);
+        Debug.Log(scaleFactor);
         float width = trans.sizeDelta.x;
         float height = trans.sizeDelta.y;
         float centerX = Screen.width * 0.5f;
@@ -91,14 +93,14 @@ public class paint : MonoBehaviour
 
         toReturn.x = Mathf.Round(onCanvasX / scaleFactor);
         toReturn.y = Mathf.Round(onCanvasY / scaleFactor);
-        if(toReturn.x >= bitMap.gridWidth)
+        if(toReturn.x >= BitGrid.gridWidth)
         {
-            toReturn.x = bitMap.gridWidth-1;
+            toReturn.x = BitGrid.gridWidth-1;
             toReturn.z = -1;
         }
-        if(toReturn.y >= bitMap.gridHeight)
+        if(toReturn.y >= BitGrid.gridHeight)
         {
-            toReturn.y = bitMap.gridHeight-1;
+            toReturn.y = BitGrid.gridHeight-1;
             toReturn.z = -1;
         }
         if(toReturn.x < 0)
@@ -123,7 +125,7 @@ public class paint : MonoBehaviour
         {
             minDist = height;
         }
-        scaleFactor = (int) Mathf.Floor((float) minDist / bitMap.gridWidth);
+        scaleFactor = (int) Mathf.Floor((float) minDist / BitGrid.gridWidth);
         xOffset = (int)((width - (100 * scaleFactor)) * 0.5f);
         yOffset = (int)((height - (100 * scaleFactor)) * 0.5f);
     }

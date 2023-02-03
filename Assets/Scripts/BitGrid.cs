@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 
 //a class for handling and combining bitmaps. 
-public class bitMap
+public class BitGrid
 {
     public static int gridWidth = 100;
     public static int gridHeight = 100;
@@ -18,9 +18,9 @@ public class bitMap
 
 
     //constructor
-    public bitMap()
+    public BitGrid()
     {
-        grid = new int[bitMap.gridWidth, bitMap.gridHeight];
+        grid = new int[BitGrid.gridWidth, BitGrid.gridHeight];
 
     }
 
@@ -35,26 +35,26 @@ public class bitMap
         return grid[i, j];
     }
 
-    //sets the grid to that of another bitMap
-    public void set(bitMap toSet)
+    //sets the grid to that of another BitGrid
+    public void set(BitGrid toSet)
     {
-        for(int i = 0; i< bitMap.gridWidth; i++)
+        for(int i = 0; i< BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j< bitMap.gridHeight; j++)
+            for(int j = 0; j< BitGrid.gridHeight; j++)
             {
                 grid[i, j] = toSet.getPoint(i,j);
             }
         }
     }
 
-    //returns a bitMap which is the union of two other bitMaps
-    public static bitMap union(bitMap ar1, bitMap ar2)
+    //returns a BitGrid which is the union of two other BitGrids
+    public static BitGrid union(BitGrid ar1, BitGrid ar2)
     {
-        bitMap toReturn = new bitMap();
+        BitGrid toReturn = new BitGrid();
 
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 if (ar1.getPoint(i,j) != 0 || ar2.getPoint(i, j) != 0)
                 {
@@ -69,14 +69,14 @@ public class bitMap
         return toReturn;
     }
 
-    //returns a bitMap which is the intersection of two other bitMaps
-    public static bitMap intersect(bitMap ar1, bitMap ar2)
+    //returns a BitGrid which is the intersection of two other BitGrids
+    public static BitGrid intersect(BitGrid ar1, BitGrid ar2)
     {
-        bitMap toReturn = new bitMap();
+        BitGrid toReturn = new BitGrid();
 
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 if (ar1.getPoint(i, j) != 0 && ar2.getPoint(i, j) != 0)
                 {
@@ -91,14 +91,14 @@ public class bitMap
         return toReturn;
     }
 
-    //returns a bitMap which is the intersect of ar1 and the compliment of ar2: in otherwords, the places where ar1 is 1 and ar2 is 0
-    public static bitMap emptyIntersect(bitMap ar1, bitMap ar2)
+    //returns a BitGrid which is the intersect of ar1 and the compliment of ar2: in otherwords, the places where ar1 is 1 and ar2 is 0
+    public static BitGrid emptyIntersect(BitGrid ar1, BitGrid ar2)
     {
-        bitMap toReturn = new bitMap();
+        BitGrid toReturn = new BitGrid();
 
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
   
                 if (ar1.getPoint(i, j) != 0 && ar2.getPoint(i, j) == 0)
@@ -115,14 +115,14 @@ public class bitMap
     }
 
     //returns a bitmap with the contiguous regions of ones in InterTo reachable by any contiguous regions of ones in interFrom
-    public static bitMap getIntersectedRegions(bitMap interFrom, bitMap interTo)
+    public static BitGrid getIntersectedRegions(BitGrid interFrom, BitGrid interTo)
     {
-        bitMap toReturn = new bitMap();
+        BitGrid toReturn = new BitGrid();
         toReturn.set(interTo);
 
-        for(int i = 0; i< bitMap.gridWidth; i++)
+        for(int i = 0; i< BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j< bitMap.gridHeight; j++)
+            for(int j = 0; j< BitGrid.gridHeight; j++)
             {
                 if(interFrom.getPoint(i,j) != 0)
                 {
@@ -132,9 +132,9 @@ public class bitMap
         }
 
 
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 if (toReturn.getPoint(i, j) == 3)
                 {
@@ -150,7 +150,7 @@ public class bitMap
     }
 
     //helper function for getIntersectedRegions, performs a ms paint style fill bucket at the point i,j, filling all 1s with 3s
-    static void fill(bitMap toFill, int iInput, int jInput)
+    static void fill(BitGrid toFill, int iInput, int jInput)
     {
         Stack<Vector2> indexes = new Stack<Vector2>();
 
@@ -174,7 +174,7 @@ public class bitMap
             {
                 indexes.Push(new Vector2(i-1, j));
             }
-            if (i + 1 < bitMap.gridWidth)
+            if (i + 1 < BitGrid.gridWidth)
             {
                 indexes.Push(new Vector2(i + 1, j));
             }
@@ -182,7 +182,7 @@ public class bitMap
             {
                 indexes.Push(new Vector2(i, j - 1));
             }
-            if (j + 1 < bitMap.gridHeight)
+            if (j + 1 < BitGrid.gridHeight)
             {
                 indexes.Push(new Vector2(i, j + 1));
             }
@@ -191,7 +191,7 @@ public class bitMap
             {
                 for (int jInd = j - 1; jInd <= j + 1; jInd++)
                 {
-                    if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
+                    if (iInd < 0 || iInd >= BitGrid.gridWidth || jInd < 0 || jInd >= BitGrid.gridHeight)
                     {
                         continue;
                     }
@@ -202,12 +202,12 @@ public class bitMap
     }
 
     //returns a bitmap with a line of 1s around every spot that had 1s in map
-    public static bitMap getBorderRegion(bitMap map)
+    public static BitGrid getBorderRegion(BitGrid map)
     {
-        bitMap toReturn = bitMap.zeros();
-        for(int i = 0; i< bitMap.gridWidth; i++)
+        BitGrid toReturn = BitGrid.zeros();
+        for(int i = 0; i< BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j<bitMap.gridHeight; j++)
+            for(int j = 0; j<BitGrid.gridHeight; j++)
             {
                 if (map.getPoint(i, j) == 0)
                 {
@@ -216,7 +216,7 @@ public class bitMap
                     {
                         for (int jInd = j - 1; jInd <= j + 1; jInd++)
                         {
-                            if (iInd < 0 || iInd >= bitMap.gridWidth || jInd < 0 || jInd >= bitMap.gridHeight)
+                            if (iInd < 0 || iInd >= BitGrid.gridWidth || jInd < 0 || jInd >= BitGrid.gridHeight)
                             {
                                 continue;
                             }
@@ -240,12 +240,12 @@ public class bitMap
     }
 
     //returns a bitmap which is the inversion of input
-    public static bitMap invert(bitMap input)
+    public static BitGrid invert(BitGrid input)
     {
-        bitMap toReturn = new bitMap();
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        BitGrid toReturn = new BitGrid();
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j<bitMap.gridHeight; j++)
+            for(int j = 0; j<BitGrid.gridHeight; j++)
             {
                 if(input.getPoint(i,j) == 0)
                 {
@@ -260,14 +260,14 @@ public class bitMap
         return toReturn;
     }
 
-    //returns a new bitMap that is all ones
-    public static bitMap ones()
+    //returns a new BitGrid that is all ones
+    public static BitGrid ones()
     {
 
-        bitMap toReturn = new bitMap();
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        BitGrid toReturn = new BitGrid();
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 toReturn.setPoint(i, j, 1);
             }
@@ -275,14 +275,14 @@ public class bitMap
         return toReturn;
     }
 
-    //returns a new bitMap that is all zeros
-    public static bitMap zeros()
+    //returns a new BitGrid that is all zeros
+    public static BitGrid zeros()
     {
 
-        bitMap toReturn = new bitMap();
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        BitGrid toReturn = new BitGrid();
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 toReturn.setPoint(i, j, 0);
             }
@@ -291,13 +291,13 @@ public class bitMap
     }
 
 
-    //returns a new bitMap that is all zeros with a diagonal line of ones
-    public static bitMap line()
+    //returns a new BitGrid that is all zeros with a diagonal line of ones
+    public static BitGrid line()
     {
-        bitMap toReturn = new bitMap();
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        BitGrid toReturn = new BitGrid();
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 if (i == j)
                 {
@@ -312,15 +312,15 @@ public class bitMap
         return toReturn;
     }
 
-    //returns a new bitMap that is all zeros with a circle of ones
-    public static bitMap circle()
+    //returns a new BitGrid that is all zeros with a circle of ones
+    public static BitGrid circle()
     {
-        bitMap toReturn = new bitMap();
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        BitGrid toReturn = new BitGrid();
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
-                if (Mathf.Sqrt(Mathf.Pow(i - bitMap.gridWidth * 0.5f, 2f) + Mathf.Pow(j - bitMap.gridHeight * 0.5f, 2f)) < bitMap.gridWidth * 0.25f)
+                if (Mathf.Sqrt(Mathf.Pow(i - BitGrid.gridWidth * 0.5f, 2f) + Mathf.Pow(j - BitGrid.gridHeight * 0.5f, 2f)) < BitGrid.gridWidth * 0.25f)
                 {
                     toReturn.setPoint(i, j, 1);
                 }
@@ -333,12 +333,12 @@ public class bitMap
         return toReturn;
     }
 
-    //returns if the bitMap is all zeros
+    //returns if the BitGrid is all zeros
     public bool isEmpty()
     {
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for (int j = 0; j < bitMap.gridHeight; j++)
+            for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 if (grid[i, j] != 0)
                 {
@@ -351,10 +351,10 @@ public class bitMap
 
     public void printGrid()
     {
-        for (int i = 0; i < bitMap.gridWidth; i++)
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
             System.Diagnostics.Debug.Write("[ ");
-            for (int j = 0; j < bitMap.gridHeight; i++)
+            for (int j = 0; j < BitGrid.gridHeight; i++)
             {
                 System.Diagnostics.Debug.Write(grid[i, j] + ", ");
             }
