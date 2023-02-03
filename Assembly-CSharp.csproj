@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Parents\toolParent.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\color_button.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueCanvas.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\load_button.cs" />
     <Compile Include="Assets\Scripts\meshGenerator.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\levelRequirementManager.cs" />
     <Compile Include="Assets\Scripts\animation\SpinCastAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\fill_button.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\BasicText.cs" />
     <Compile Include="Assets\Scripts\Tutorials\LV1\cameraPanCheck.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\RectangleStructure.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\elipse_button.cs" />
@@ -89,7 +91,7 @@
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Parents\ProcessParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\Scripts\bitMap.cs" />
+    <Compile Include="Assets\Scripts\BitGrid.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
     <Compile Include="Assets\Scripts\ButtonEvents.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\Scripts\Tutorials\LV1\depositButtonCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessIonEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\TextManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\save_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\line_button.cs" />
