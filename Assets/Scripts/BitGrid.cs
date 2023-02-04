@@ -354,6 +354,7 @@ public class BitGrid
         string output = "";
         for (int i = 0; i < BitGrid.gridWidth; i++)
         {
+            output += "|";
             for (int j = 0; j < BitGrid.gridHeight; j++)
             {
                 if (grid[i,j] != 0)
@@ -365,7 +366,7 @@ public class BitGrid
                     output += "⠀";
                 }
             }
-            output += "\n";
+            output += "|\n";
         }
         return output;
     }
