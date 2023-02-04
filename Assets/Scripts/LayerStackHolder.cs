@@ -79,11 +79,11 @@ public class LayerStackHolder : MonoBehaviour
             {
                 liftOff();
             }
+        }
 
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                etchLayerAround(curMaterial);
-            }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            depositGoldLayer(control.materialType.gold, BitGrid.ones());
         }
     }
 
@@ -211,37 +211,83 @@ public class LayerStackHolder : MonoBehaviour
     //drops a 1 block layer of a material from the top, which cascades over any structures below
     public void depositLayer(control.materialType layerMaterial, BitGrid inputGrid, int newTimeOffset = 0)
     {
+        //start with the input grid at the top layer
         BitGrid grid = new BitGrid();
+        //grid = the snow that's still falling
         grid.set(inputGrid);
         int curLayer = topLayer + 1;
+
+        //keep going down the layers until you hit the bottom
         while(curLayer > 0)
         {
+            //in each layer get the BitGrid of everything in the layer below
+
             BitGrid thisDeposit = new BitGrid();
             thisDeposit.set(grid);
+
+            //Find all of the surfaces that snow can fall on one layer below me, and union them together and put it in temp deposit(
+            //start with an empty grid
             BitGrid tempDeposit = new BitGrid();
             tempDeposit.set(BitGrid.zeros());
 
+            //go through each meshGenerator in the layer below, and add together all of their grids
             foreach (GameObject curDeposit in depLayers[curLayer-1])
             {
                 tempDeposit.set(BitGrid.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
             }
+            //)
+
+            //get all of the snow that's still falling, that can land on the surfaces we just collected, and store it in thisDeposit
             thisDeposit.set(BitGrid.intersect(tempDeposit, thisDeposit));
+
+            //if there is any intersection between the falling snow and the surfaces, make some snow with that pattern
             if (!thisDeposit.isEmpty())
             {
                 addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset);
             }
-            foreach (GameObject curDeposit in depLayers[curLayer-1])
+
+    
+            //subtract the snow that just fell from the snow that's still falling
+            grid.set(BitGrid.emptyIntersect(grid, thisDeposit));
+
+
+            /*foreach (GameObject curDeposit in depLayers[curLayer-1])
             {
+                //empty intersect (a,b) = the places where a = 1 and b = 0
+                //intersect (a,b) = the places where a = 1 and b = 1
+                //union (a,b) = the places where a = 1 or b = 1
                 grid.set(BitGrid.emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid));
                 if (grid.isEmpty())
                 {
                     return;
                 }
-            }
+            }*/
             curLayer--;
         }
         addDeposit(0, grid, layerMaterial, newTimeOffset);
     }
+
+    public void depositGoldLayer(control.materialType layerMaterial, BitGrid inputGrid, int newTimeOffset = 0)
+    {
+
+
+        control.materialType gold = control.materialType.gold;
+        control.materialType chromium = control.materialType.chromium;
+
+        foreach(GameObject curDeposit in depLayers[0])
+        {
+            control.materialType depositMaterialType = curDeposit.GetComponent<meshMaterial>().myMaterial;
+            if (depositMaterialType == chromium)
+            {
+
+            }
+        }
+
+
+
+
+    }
+
 
     //removes the top-most layer of a particular material from the design
     public void etchLayer(control.materialType etchMaterial, int newTimeOffset = 0)

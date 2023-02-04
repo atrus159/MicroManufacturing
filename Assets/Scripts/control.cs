@@ -124,6 +124,11 @@ public class control : MonoBehaviour
             
 
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            BitGrid test = BitGrid.circle();
+            string output = test.printGrid();
+        }
 
     }
 
