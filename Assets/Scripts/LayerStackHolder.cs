@@ -279,10 +279,65 @@ public class LayerStackHolder : MonoBehaviour
         foreach(GameObject curDeposit in depLayers[0])
         {
             control.materialType depositMaterialType = curDeposit.GetComponent<meshMaterial>().myMaterial;
+
+                    //start with the input grid at the top layer
+        BitGrid grid = new BitGrid();
+        //grid = the snow that's still falling
+        grid.set(inputGrid);
+        int curLayer = topLayer + 1;
+
+        //keep going down the layers until you hit the bottom
+        while(curLayer > 0)
+        {
+            //in each layer get the BitGrid of everything in the layer below
+
+            BitGrid thisDeposit = new BitGrid();
+            thisDeposit.set(grid);
+
+            //Find all of the surfaces that snow can fall on one layer below me, and union them together and put it in temp deposit(
+            //start with an empty grid
+            BitGrid tempDeposit = new BitGrid();
+            tempDeposit.set(BitGrid.zeros());
+
+            //go through each meshGenerator in the layer below, and add together all of their grids
+            foreach (GameObject curDeposit in depLayers[curLayer-1])
+            {
+                // if (curDeposit == chromium)
+                // {
+                    //get the same of all the places the gold will deposit, where is the gold allowed to go, take only the things that are either chromium or gold
+                    // tempDeposit.set(BitGrid.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
+                //}
+            }
+                
+            // foreach (GameObject curDeposit in depLayers[curLayer-1])
+                // start with 1s and take away the grids until you dont have anything
+                // BitGrid.ones()
+       
+            
+            
+            //get all of the snow that's still falling, that can land on the surfaces we just collected, and store it in thisDeposit
+            thisDeposit.set(BitGrid.intersect(tempDeposit, thisDeposit));
+
+            //if there is any intersection between the falling snow and the surfaces, make some snow with that pattern
+            if (!thisDeposit.isEmpty())
+            {
+                addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset);
+            }
+
+    
+            //subtract the snow that just fell from the snow that's still falling
+            grid.set(BitGrid.emptyIntersect(grid, thisDeposit));
+
+            curLayer--;
+        }
+        addDeposit(0, grid, layerMaterial, newTimeOffset);
+
             if (depositMaterialType == chromium)
             {
+                
 
             }
+
         }
 
 
