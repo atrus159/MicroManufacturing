@@ -35,4 +35,8 @@ public class SpinCastAnimationHandler : MonoBehaviour
         layer.GetComponent<LayerStackHolder>().makePhotoResist();
     }
 
+    public void triggerBeams()
+    {
+        GameObject.Find("Animation Creator").GetComponent<AnimationCreator>().startBeams();
+    }
 }
