@@ -91,6 +91,8 @@ public class LayerStackHolder : MonoBehaviour
     public void makePhotoResist()
     {
         depositLayer(control.materialType.photoresist, GameObject.Find("drawing_panel").GetComponent<paint>().grid);
+        depositLayer(control.materialType.photoresistComplement, BitGrid.emptyIntersect(BitGrid.ones(), GameObject.Find("drawing_panel").GetComponent<paint>().grid));
+        GameObject.Find("Control").GetComponent<control>().PhotoResistEdge.SetActive(true);
     }
 
     public void startDepositProcess()

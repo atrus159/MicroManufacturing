@@ -49,8 +49,11 @@ public class control : MonoBehaviour
         photoresist,
         silicon,
         silicondioxide,
-        empty
+        empty,
+        photoresistComplement
     }
+
+    public GameObject PhotoResistEdge;
 
     public static Dictionary<materialType, materialData> materialsList = new Dictionary<materialType, materialData>();
     // Start is called before the first frame update
@@ -63,6 +66,7 @@ public class control : MonoBehaviour
         materialsList.Add(materialType.photoresist, new materialData(m_photoresist, 0));
         materialsList.Add(materialType.silicon, new materialData(m_silicon, 0));
         materialsList.Add(materialType.silicondioxide, new materialData(m_silicondioxide, 0));
+        materialsList.Add(materialType.photoresistComplement, new materialData(m_photoresist, 0));
         hudVisible = false;
         tutorialBlockerVisible = false;
         prevTutorialBlockerVisible = false;
@@ -123,11 +127,6 @@ public class control : MonoBehaviour
             }
             
 
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            BitGrid test = BitGrid.circle();
-            string output = test.printGrid();
         }
 
     }
@@ -244,7 +243,7 @@ public class control : MonoBehaviour
 
     public void onPhotoResistButton()
     {
-        GameObject layer = GameObject.Find("AnimationCreator");
+        GameObject layer = GameObject.Find("Animation Creator");
         layer.GetComponent<AnimationCreator>().makeSpinCaster();
     }
 
