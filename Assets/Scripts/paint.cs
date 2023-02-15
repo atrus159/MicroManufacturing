@@ -79,8 +79,8 @@ public class paint : MonoBehaviour
     {
         float mx = Input.mousePosition.x;
         float my = Input.mousePosition.y;
-        Debug.Log(mx + " " + my);
-        Debug.Log(scaleFactor);
+        //Debug.Log(mx + " " + my);
+        //Debug.Log(scaleFactor);
         float width = trans.sizeDelta.x;
         float height = trans.sizeDelta.y;
         float centerX = Screen.width * 0.5f;
