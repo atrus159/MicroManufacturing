@@ -1309,6 +1309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
   text: Welcome to the game!
   location: {x: 300, y: 300}
 --- !u!1001 &622036390
@@ -3403,6 +3405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
   text: This is a text. I am going to type so many words here. So so many. There
     are going to be a lot and a lot and lot of words and hopefully they will encompass
     multiple lines. :D
@@ -3766,6 +3770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
   text: Good Luck!
   location: {x: 400, y: 300}
 --- !u!1 &1641189288
