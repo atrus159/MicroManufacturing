@@ -80,11 +80,6 @@ public class LayerStackHolder : MonoBehaviour
                 liftOff();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            depositGoldLayer(control.materialType.gold, BitGrid.ones());
-        }
     }
 
     //external functions called by buttons
@@ -271,7 +266,51 @@ public class LayerStackHolder : MonoBehaviour
 
     public void depositGoldLayer(control.materialType layerMaterial, BitGrid inputGrid, int newTimeOffset = 0)
     {
+        control.materialType gold = control.materialType.gold;
+        control.materialType chromium = control.materialType.chromium;
 
+        BitGrid grid = new BitGrid();
+        //grid = the snow that's still falling
+        grid.set(inputGrid);
+        int curLayer = topLayer + 1;
+
+        while (curLayer > 0)
+        {
+
+            BitGrid thisDeposit = new BitGrid();
+            thisDeposit.set(grid);
+
+            BitGrid tempDeposit = BitGrid.zeros();
+
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
+            {
+                control.materialType depositMaterialType = curDeposit.GetComponent<meshMaterial>().myMaterial;
+                if (depositMaterialType == chromium || depositMaterialType == gold)
+                {
+                    tempDeposit.set(BitGrid.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
+                }
+            }
+
+            thisDeposit.set(BitGrid.intersect(tempDeposit, thisDeposit));
+
+            BitGrid allDeposits = BitGrid.zeros();
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
+            {
+                control.materialType depositMaterialType = curDeposit.GetComponent<meshMaterial>().myMaterial;
+
+                allDeposits = BitGrid.union(allDeposits, curDeposit.GetComponent<meshGenerator>().grid);
+
+            }
+
+            if (!thisDeposit.isEmpty())
+            {
+                addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset); // this would be with mask 1
+            }
+
+            grid.set(BitGrid.emptyIntersect(grid, allDeposits)); // mask 2 
+
+            curLayer--;
+        }
 
     }
 

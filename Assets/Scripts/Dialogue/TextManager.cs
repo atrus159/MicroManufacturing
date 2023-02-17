@@ -6,6 +6,7 @@ public class TextManager : MonoBehaviour
 {
     //Singleton
     public static TextManager instance {get; private set;}
+    GameObject TextBox;
     
     private void Awake() {
         if (instance != null && instance != this)
@@ -15,30 +16,36 @@ public class TextManager : MonoBehaviour
         else
         {
             instance = this;
+            TextBox = GameObject.Find("TextBox");
         }
     }
     private bool isPlayingText = false;
     private KeyCode advanceTextKeycode = KeyCode.U;
 
-    public void EvokeText(BasicText[] _basicText)
+    public void EvokeText(TextParent[] _Text)
     {
         if (!isPlayingText)
         {
             isPlayingText = true;
-            StartCoroutine(PlayText(_basicText));
+            StartCoroutine(PlayText(_Text));
         }
         isPlayingText = false;
     }
 
-    private IEnumerator PlayText(BasicText[] _basicText)
+    private IEnumerator PlayText(TextParent[] _Text)
     {
-        foreach (BasicText _text in _basicText)
+        foreach (TextParent _text in _Text)
         {
             _text.Display();
             yield return new WaitForSeconds(1.0f);
             yield return StartCoroutine(WaitForPlayerInput(advanceTextKeycode));
         }
         yield return null;
+    }
+
+    public GameObject GetTextBox()
+    {
+        return TextBox;
     }
 
     private IEnumerator WaitForPlayerInput(KeyCode _keycode)

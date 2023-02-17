@@ -1,21 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-public class BasicText : MonoBehaviour
+public class BasicText : TextParent
 {
     [SerializeField] private string text;
     [SerializeField] private Vector2 location;
-    TextMeshProUGUI textBoxText;
-    RectTransform textBoxPosition;
-    TextGenerationSettings settings;
-    TextGenerator generator;
-    bool initialFlag = false;
 
-    public void Initialize()
+    override public void Initialize()
     {
-        textBoxText = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
-        textBoxPosition = GameObject.Find("Textbox").GetComponent<RectTransform>();
-        initialFlag = true;
+        base.Initialize();
+
         string newText = "";
         int charPerLine = 50;
         int charCount = 0;
@@ -37,12 +31,9 @@ public class BasicText : MonoBehaviour
 
 
     }
-    public void Display()
+    override public void Display()
     {
-        if (!initialFlag)
-        {
-            Initialize();
-        }
+        base.Display();
         textBoxText.text = text;
         textBoxPosition.SetPositionAndRotation(location, Quaternion.Euler(0,0,0));
     }
