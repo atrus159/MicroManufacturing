@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueCanvas : MonoBehaviour
 {
     
-    [SerializeField] BasicText[] listOfTexts;
+    [SerializeField] TextParent[] listOfTexts;
     //private TextManager textManager;
 
     // Update is called once per frame
