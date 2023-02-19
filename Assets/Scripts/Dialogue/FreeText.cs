@@ -5,6 +5,7 @@ using static UnityEditor.FilePathAttribute;
 
 public class FreeText : TextParent
 {
+    public bool advanceRequirements;
     override public void Initialize()
     {
         base.Initialize();
@@ -14,10 +15,17 @@ public class FreeText : TextParent
         base.Display();
         TextManager.instance.holdFlag = true;
         TextManager.instance.GetTextBox().SetActive(false);
+
+        if (advanceRequirements)
+        {
+            GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().addReserve();
+        }
+
     }
 
     public void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             TextManager.instance.holdFlag = false;

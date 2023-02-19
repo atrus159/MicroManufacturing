@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -10,18 +11,29 @@ public class levelRequirementManager : MonoBehaviour
 {
     //A list of scripts for each of the level requirements
     public List<MonoScript> requirementScripts = new List<MonoScript>();
+    public List<MonoScript> requirementReserveScripts = new List<MonoScript>();
+    public List<int> requirementReserveBlocks;
+    int reserveIndex;
+
+
 
     //A list of instances of the classes in the scripts provided in requirementScripts. This will be filled out in start
     public List<levelRequirementParent> requirements = new List<levelRequirementParent>();
+
+    List<GameObject> requirementDisplayInstances;
 
     //the requirement display, where all the requirements and their completion status can be viewed in game
     public GameObject display;
     //the prefab for one index in the requirement display
     public GameObject requirementPrefab;
 
+
+    float displayOffset = 70.0f;
+
     void Start()
     {
-        
+        requirementDisplayInstances = new List<GameObject>();
+        reserveIndex = 0;
         //instantiates all of the classes in requirementScripts and puts them in requirements
         foreach(MonoScript curScript in requirementScripts)
         {
@@ -33,29 +45,71 @@ public class levelRequirementManager : MonoBehaviour
             requirements.Add((levelRequirementParent) newRequirement);
         }
 
-        //fills out the requirement display with an instance of requirementPrefab for each requirement. Gives them the correct display name, discription and color signifying their completion status.
-        //will update this once we have the correct assets for the display tab
-        int index = 0;
-        float offset = 70.0f;
-        foreach(levelRequirementParent curRequirement in requirements)
+        updateDisplay();
+        
+    }
+
+
+    //fills out the requirement display with an instance of requirementPrefab for each requirement. Gives them the correct display name, discription and color signifying their completion status.
+    void updateDisplay()
+    {
+        foreach (GameObject curDisplayObj in requirementDisplayInstances)
         {
-            GameObject newDisplayObj = Instantiate(requirementPrefab);
-            newDisplayObj.transform.SetParent(display.transform);
-            newDisplayObj.transform.SetPositionAndRotation(display.transform.position + new Vector3(0,-index*offset,0), Quaternion.identity);
-            newDisplayObj.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = curRequirement.name;
-            newDisplayObj.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = curRequirement.description;
-            if (curRequirement.met)
-            {
-                newDisplayObj.GetComponent<Image>().color = Color.green;
-            }
-            else
-            {
-                newDisplayObj.GetComponent<Image>().color = Color.red;
-            }
+            Destroy(curDisplayObj);
+        }
+        requirementDisplayInstances.Clear();
+
+        int index = 0;
+
+        foreach (levelRequirementParent curRequirement in requirements)
+        {
+            makePrefab(-index * displayOffset, curRequirement.name, curRequirement.description);
             index++;
         }
     }
 
+    void makePrefab(float height, string name, string description)
+    {
+        GameObject newDisplayObj = Instantiate(requirementPrefab);
+        newDisplayObj.transform.SetParent(display.transform);
+        newDisplayObj.transform.SetPositionAndRotation(display.transform.position + new Vector3(0, height, 0), Quaternion.identity);
+        newDisplayObj.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = name;
+        newDisplayObj.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = description;
+        newDisplayObj.GetComponent<Image>().color = Color.red;
+        requirementDisplayInstances.Add(newDisplayObj);
+
+    }
+
+
+    public void addReserve()
+    {
+        if(reserveIndex >= requirementReserveBlocks.Count)
+        {
+            return;
+        }
+        int amount = requirementReserveBlocks[reserveIndex];
+
+        for(int i = 0; i<amount; i++)
+        {   
+            if(requirementReserveScripts.Count == 0)
+            {
+                break;
+            }
+            MonoScript curScript = requirementReserveScripts[0];
+            System.Type[] lsType = { typeof(LayerStackHolder) };
+            System.Type curType = curScript.GetClass();
+            ConstructorInfo curConstructor = curType.GetConstructor(lsType);
+            object[] constructorArguments = { GameObject.Find("LayerStack").GetComponent<LayerStackHolder>() };
+            object newRequirement = curConstructor.Invoke(constructorArguments);
+            requirements.Add((levelRequirementParent)newRequirement);
+            requirementReserveScripts.RemoveAt(0);
+
+        }
+        reserveIndex++;
+
+        updateDisplay();
+
+    }
 
     // Update is called once per frame
     void Update()

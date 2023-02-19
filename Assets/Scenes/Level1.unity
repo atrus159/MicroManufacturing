@@ -970,6 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
+  advanceRequirements: 1
 --- !u!4 &479801478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7154173091511205324, guid: 833f40f43b9da414eb53bd19e10dcc7b, type: 3}
@@ -4642,7 +4643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementScripts:
+  - {fileID: 11500000, guid: f4ebe31250e16c7498007c8ab1e36913, type: 3}
+  requirementReserveScripts:
+  - {fileID: 11500000, guid: e6ccd80301d033141b930c3af0ed5c0d, type: 3}
+  - {fileID: 11500000, guid: 024a84ca57fa6d94dbefd2d941ca8bdf, type: 3}
   - {fileID: 11500000, guid: 5b2d2a35c48e6bf45883faff67382db7, type: 3}
+  requirementReserveBlocks: 0200000001000000
   display: {fileID: 729504599}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
 --- !u!4 &1762499994
