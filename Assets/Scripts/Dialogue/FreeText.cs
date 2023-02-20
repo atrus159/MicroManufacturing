@@ -22,16 +22,4 @@ public class FreeText : TextParent
         }
 
     }
-
-    public void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            TextManager.instance.holdFlag = false;
-            TextManager.instance.GetTextBox().SetActive(true);
-        }
-    }
-
-
 }

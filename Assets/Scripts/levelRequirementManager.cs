@@ -127,6 +127,7 @@ public class levelRequirementManager : MonoBehaviour
     public void checkRequirements()
     {
         int index = 0;
+        bool allMet = true;
         foreach(levelRequirementParent curRequirement in requirements)
         {
             curRequirement.check();
@@ -137,10 +138,20 @@ public class levelRequirementManager : MonoBehaviour
             }
             else
             {
+                allMet = false;
                 curDisplayObj.GetComponent<Image>().color = Color.red;
             }
             index++;
         }
+
+        if (allMet)
+        {
+            TextManager.instance.holdFlag = false;
+            TextManager.instance.GetTextBox().SetActive(true);
+            requirements.Clear();
+            updateDisplay();
+        }
+
     }
 
 }

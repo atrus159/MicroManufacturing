@@ -87,6 +87,7 @@ public class ProcessParent : MonoBehaviour
         DepositButton.SetActive(true);
         EtchButton.SetActive(true);
         PhotoresistButton.SetActive(true);
+        GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
         Destroy(gameObject);
     }
 }

@@ -40,7 +40,7 @@ public class TextManager : MonoBehaviour
         {
             _text.Display();
             yield return new WaitUntil(() => holdFlag == false);
-            //yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.1f);
             yield return StartCoroutine(WaitForPlayerInput(advanceTextKeycode));
         }
         yield return null;
