@@ -443,6 +443,7 @@ public class LayerStackHolder : MonoBehaviour
                 }
             }
         }
+                GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
     }
 
 
