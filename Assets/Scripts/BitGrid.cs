@@ -349,6 +349,21 @@ public class BitGrid
         return true;
     }
 
+    public bool isEqual(BitGrid other)
+    {
+        for(int i = 0; i< BitGrid.gridWidth; i++)
+        {
+            for(int j = 0; j< BitGrid.gridHeight; j++)
+            {
+                if(other.getPoint(i,j) != getPoint(i, j))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public String printGrid()
     {
         string output = "";
