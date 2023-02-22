@@ -33,6 +33,8 @@ public class LayerStackHolder : MonoBehaviour
     public bool deletedFlag;
     public List<int> deletedLayers;
 
+    bool liftOffCheckFlag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,7 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
+  
     // Update is called once per frame
     void Update()
     {
@@ -159,6 +162,11 @@ public class LayerStackHolder : MonoBehaviour
             deletedFlag = false;
             deletedLayers.Clear();
 
+        }
+        if (liftOffCheckFlag)
+        {
+            GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
+            liftOffCheckFlag = false;
         }
     }
 
@@ -443,8 +451,11 @@ public class LayerStackHolder : MonoBehaviour
                 }
             }
         }
-                GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
+        //GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
+        liftOffCheckFlag = true;
     }
+
+
 
 
     //when running a process, this function lets you select a particular time-step to show all the layers before. Called by the process slider
