@@ -11,8 +11,10 @@ public class ProcessParent : MonoBehaviour
     public LayerStackHolder layerStackHold;
     public GameObject slider;
     public GameObject sliderPrefab;
-    public GameObject button;
-    public GameObject buttonPrefab;
+    public GameObject finishButton;
+    public GameObject finishButtonPrefab;
+    public GameObject cancelButton;
+    public GameObject cancelButtonPrefab;
 
     GameObject Dropdown;
     GameObject DepositButton;
@@ -37,12 +39,16 @@ public class ProcessParent : MonoBehaviour
         Transform canvTrans = GameObject.Find("Canvas - Main").transform;
         slider.transform.SetParent(canvTrans, false);
         slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 0, canvTrans.position.y - 400), transform.rotation);
-        //slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 250, canvTrans.position.y - 100), transform.rotation);
 
-        button = Instantiate(buttonPrefab, transform.position, transform.rotation);
-        button.transform.SetParent(canvTrans, false);
-        button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 0, canvTrans.position.y - 350), transform.rotation);
-        //button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 350, canvTrans.position.y - 150), transform.rotation);
+
+        finishButton = Instantiate(finishButtonPrefab, transform.position, transform.rotation);
+        finishButton.transform.SetParent(canvTrans, false);
+        finishButton.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 400, canvTrans.position.y - 350), transform.rotation);
+
+        cancelButton = Instantiate(cancelButtonPrefab, transform.position, transform.rotation);
+        cancelButton.transform.SetParent(canvTrans, false);
+        cancelButton.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 400, canvTrans.position.y - 400), transform.rotation);
+
 
         Dropdown = GameObject.Find("Dropdown");
         DepositButton = GameObject.Find("Deposit Button");
@@ -69,22 +75,28 @@ public class ProcessParent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            layerStackHold.cullDeposits(0);
-            Destroy(slider);
-            Destroy(button);
-            Dropdown.SetActive(true);
-            DepositButton.SetActive(true);
-            EtchButton.SetActive(true);
-            PhotoresistButton.SetActive(true);
-            Destroy(gameObject);
+            onCancelButton();
         }
     }
 
+    public void onCancelButton()
+    {
+        layerStackHold.cullDeposits(0);
+        Destroy(slider);
+        Destroy(finishButton);
+        Destroy(cancelButton);
+        Dropdown.SetActive(true);
+        DepositButton.SetActive(true);
+        EtchButton.SetActive(true);
+        PhotoresistButton.SetActive(true);
+        Destroy(gameObject);
+    }
     public void onFinishedButton()
     {
         layerStackHold.cullDeposits(curStep + 1);
         Destroy(slider);
-        Destroy(button);
+        Destroy(finishButton);
+        Destroy(cancelButton);
         Dropdown.SetActive(true);
         DepositButton.SetActive(true);
         EtchButton.SetActive(true);

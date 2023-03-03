@@ -253,6 +253,12 @@ public class control : MonoBehaviour
         proc.GetComponent<ProcessParent>().onFinishedButton();
     }
 
+    public void onCancelButton()
+    {
+        GameObject proc = GameObject.Find("New Process");
+        proc.GetComponent<ProcessParent>().onCancelButton();
+    }
+
     public static bool tutorialExists()
     {
         return GameObject.Find("Tutorial");
