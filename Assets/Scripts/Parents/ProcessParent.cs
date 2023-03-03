@@ -36,11 +36,13 @@ public class ProcessParent : MonoBehaviour
         slider = Instantiate(sliderPrefab, transform.position, transform.rotation);
         Transform canvTrans = GameObject.Find("Canvas - Main").transform;
         slider.transform.SetParent(canvTrans, false);
-        slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 250, canvTrans.position.y - 100), transform.rotation);
+        slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 0, canvTrans.position.y - 400), transform.rotation);
+        //slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 250, canvTrans.position.y - 100), transform.rotation);
 
         button = Instantiate(buttonPrefab, transform.position, transform.rotation);
         button.transform.SetParent(canvTrans, false);
-        button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 350, canvTrans.position.y - 150), transform.rotation);
+        button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 0, canvTrans.position.y - 350), transform.rotation);
+        //button.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 350, canvTrans.position.y - 150), transform.rotation);
 
         Dropdown = GameObject.Find("Dropdown");
         DepositButton = GameObject.Find("Deposit Button");
