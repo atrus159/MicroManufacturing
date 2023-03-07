@@ -842,6 +842,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7154173091511205324, guid: 833f40f43b9da414eb53bd19e10dcc7b, type: 3}
   m_PrefabInstance: {fileID: 1514452344}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &481518914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481518915}
+  - component: {fileID: 481518916}
+  m_Layer: 0
+  m_Name: SeventhText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481518915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481518914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481518916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481518914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  text: Nice job!
+  location: {x: 750, y: 500}
 --- !u!1 &497341973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,8 +1273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
-  text: Welcome to the game!
-  location: {x: 300, y: 300}
+  text: Welcome to your work station! You'll be doing all your research here, so
+    lets take a tour around.
+  location: {x: 750, y: 400}
 --- !u!1001 &622036390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,6 +1826,55 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7470342146353921630, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
   m_PrefabInstance: {fileID: 7470342147084093963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &752324476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752324477}
+  - component: {fileID: 752324478}
+  m_Layer: 0
+  m_Name: SixthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752324477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752324476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752324478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752324476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  text: Try to deposit one micrometer of material on the waifer. When you think you're
+    done, click the "Finished" button.
+  location: {x: 750, y: 500}
 --- !u!1 &879438999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2421,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1017861273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017861274}
+  - component: {fileID: 1017861275}
+  m_Layer: 0
+  m_Name: FourthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017861274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017861273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017861275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017861273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  text: The first devices on your work station is the Sputtering System. This will
+    spray your waifer with a thin film of material, which will slowly build up a
+    deposit on the surface. Click the "Deposit" button to try it out.
+  location: {x: 750, y: 500}
 --- !u!1 &1025669954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2972,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132620668}
   m_CullTransparentMesh: 1
+--- !u!1 &1202891348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1202891349}
+  - component: {fileID: 1202891350}
+  m_Layer: 0
+  m_Name: FifthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1202891349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202891348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1202891350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202891348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  text: The slider at the bottom of the screen controls how long you run the sputtering
+    system for. The longer you let it run, the more material you'll deposit!
+  location: {x: 750, y: 500}
 --- !u!1 &1218733186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,6 +3142,10 @@ Transform:
   - {fileID: 619403016}
   - {fileID: 1417027434}
   - {fileID: 1595617519}
+  - {fileID: 1017861274}
+  - {fileID: 1202891349}
+  - {fileID: 752324477}
+  - {fileID: 481518915}
   m_Father: {fileID: 369531228}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3550,12 +3751,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
-  text: This is a text. I am going to type so many words here. So so many. There
-    are going to be a lot and a lot and lot of words and hopefully they will encompass
-    multiple lines. :D But we actually need even more words to see the scailing properties
-    of the enclosing text-box, since currently the text box contains a large vertical
-    margine.
-  location: {x: 500, y: 300}
+  text: In front of you is a silicone waifer. All the fun micro devices you design
+    will be built on here! Take a look around it with the arrow keys.
+  location: {x: 750, y: 150}
 --- !u!1001 &1514452344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3917,8 +4115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
-  text: Good Luck!
-  location: {x: 400, y: 500}
+  text: Pretty isn't it? Anyway lets get to building.
+  location: {x: 750, y: 500}
 --- !u!1 &1641189288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4604,13 +4802,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5feb5d657a36499df3a5f0923d5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirementScripts:
-  - {fileID: 11500000, guid: f4ebe31250e16c7498007c8ab1e36913, type: 3}
+  requirementScripts: []
   requirementReserveScripts:
-  - {fileID: 11500000, guid: e6ccd80301d033141b930c3af0ed5c0d, type: 3}
-  - {fileID: 11500000, guid: 024a84ca57fa6d94dbefd2d941ca8bdf, type: 3}
-  - {fileID: 11500000, guid: 5b2d2a35c48e6bf45883faff67382db7, type: 3}
-  requirementReserveBlocks: 0300000001000000
+  - {fileID: 11500000, guid: 68e337773946d094c9fff2345cc96ad6, type: 3}
+  - {fileID: 11500000, guid: 48603bc5f01f6d048b5fe182f315eaec, type: 3}
+  - {fileID: 11500000, guid: 060a86b866ef7974d92d1bca0b6d0b5f, type: 3}
+  requirementReserveBlocks: 010000000100000001000000
   display: {fileID: 729504599}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
 --- !u!4 &1762499994
@@ -5146,8 +5343,8 @@ RectTransform:
   m_Father: {fileID: 397362486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5227,9 +5424,14 @@ MonoBehaviour:
   listOfTexts:
   - {fileID: 619403017}
   - {fileID: 1417027435}
-  - {fileID: 1595617520}
   - {fileID: 456745330}
-  - {fileID: 619403017}
+  - {fileID: 1595617520}
+  - {fileID: 1017861275}
+  - {fileID: 456745330}
+  - {fileID: 1202891350}
+  - {fileID: 752324478}
+  - {fileID: 456745330}
+  - {fileID: 481518916}
 --- !u!222 &2053329043
 CanvasRenderer:
   m_ObjectHideFlags: 0

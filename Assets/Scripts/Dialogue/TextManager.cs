@@ -39,9 +39,10 @@ public class TextManager : MonoBehaviour
         foreach (TextParent _text in _Text)
         {
             _text.Display();
-            yield return new WaitUntil(() => holdFlag == false);
             yield return new WaitForSeconds(0.1f);
             yield return StartCoroutine(WaitForPlayerInput(advanceTextKeycode));
+            yield return new WaitUntil(() => holdFlag == false);
+
         }
         yield return null;
     }
@@ -53,7 +54,7 @@ public class TextManager : MonoBehaviour
 
     private IEnumerator WaitForPlayerInput(KeyCode _keycode)
     {
-        while (!Input.GetKeyDown(_keycode))
+        while (!Input.GetKeyDown(_keycode) && holdFlag == false)
         {
             yield return null;
         }
