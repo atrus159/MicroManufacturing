@@ -255,18 +255,10 @@ public class LayerStackHolder : MonoBehaviour
             //subtract the snow that just fell from the snow that's still falling
             grid.set(BitGrid.emptyIntersect(grid, thisDeposit));
 
-
-            /*foreach (GameObject curDeposit in depLayers[curLayer-1])
+            if (grid.isEmpty())
             {
-                //empty intersect (a,b) = the places where a = 1 and b = 0
-                //intersect (a,b) = the places where a = 1 and b = 1
-                //union (a,b) = the places where a = 1 or b = 1
-                grid.set(BitGrid.emptyIntersect(grid, curDeposit.GetComponent<meshGenerator>().grid));
-                if (grid.isEmpty())
-                {
-                    return;
-                }
-            }*/
+                return;
+            }
             curLayer--;
         }
         addDeposit(0, grid, layerMaterial, newTimeOffset);
@@ -316,6 +308,11 @@ public class LayerStackHolder : MonoBehaviour
             }
 
             grid.set(BitGrid.emptyIntersect(grid, allDeposits)); // mask 2 
+
+            if (grid.isEmpty())
+            {
+                return;
+            }
 
             curLayer--;
         }

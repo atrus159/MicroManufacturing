@@ -114,26 +114,31 @@ public class levelRequirementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //temporarily checking when spacebar is pressed, until we decide when the correct time to call the checks is
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            checkRequirements();
-        }
-        
+        checkRequirements(true);
     }
 
     //checks all of the requirements for completion and updates the display accordingly. This should be called whenever a new change occures to the level
     //will update this once we have the correct assets for the display tab
-    public void checkRequirements()
+
+
+    
+    public void checkRequirements(bool outsideEdits = false)
     {
         int index = 0;
         bool allMet = true;
+        bool anyMet = false;
         foreach(levelRequirementParent curRequirement in requirements)
         {
+            if(outsideEdits == true && !curRequirement.checkOutsideEdits)
+            {
+                continue;
+            }
+
             curRequirement.check();
             GameObject curDisplayObj = display.transform.GetChild(index).gameObject;
             if (curRequirement.met)
             {
+                anyMet = true;
                 curDisplayObj.GetComponent<Image>().color = Color.green;
             }
             else
@@ -144,7 +149,7 @@ public class levelRequirementManager : MonoBehaviour
             index++;
         }
 
-        if (allMet)
+        if (allMet && anyMet)
         {
             TextManager.instance.holdFlag = false;
             TextManager.instance.GetTextBox().SetActive(true);

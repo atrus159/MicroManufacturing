@@ -16,13 +16,14 @@ public class levelRequirementParent
     //stores whether the requirement has been met or not
     public bool met;
 
-
+    public bool checkOutsideEdits;
 
     //set the name and description of your check in the constructor when you implement this class
     public levelRequirementParent(LayerStackHolder layers)
     {
         this.layers = layers;
         met = false;
+        checkOutsideEdits = false;
     }
 
 
