@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Parents\toolParent.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\color_button.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueCanvas.cs" />
+    <Compile Include="Assets\Scripts\Activatable.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\load_button.cs" />
     <Compile Include="Assets\Scripts\meshGenerator.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\Dialogue\FreeText.cs" />
     <Compile Include="Assets\Scripts\paint.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkPatternWindow.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Checks\checkTwoRectangles.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositButtonPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Checks\checkWPressed.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessGen.cs" />
@@ -104,7 +107,7 @@
     <Compile Include="Assets\Scripts\CanvasButtons\rect_button.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\sceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\Scripts\Checks\checkSiliconSlab.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkSiliconSlab.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessIonEtch.cs" />
@@ -121,11 +124,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\AmorphousStructure.cs" />
+    <Compile Include="Assets\Scripts\animation\clickMeDestroy.cs" />
     <Compile Include="Assets\Scripts\Checks\checkQPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\DropdownCustom.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\CheckStructComponent.cs" />
-    <Compile Include="Assets\Scripts\Checks\checkCameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkCameraMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -143,7 +147,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Checks\checkDepositButtonPressed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

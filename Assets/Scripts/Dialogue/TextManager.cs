@@ -54,7 +54,7 @@ public class TextManager : MonoBehaviour
 
     private IEnumerator WaitForPlayerInput(KeyCode _keycode)
     {
-        while (!Input.GetKeyDown(_keycode) && holdFlag == false)
+        while ((!Input.GetKeyDown(_keycode) && holdFlag == false) || control.isPaused() == control.pauseStates.menuPaused)
         {
             yield return null;
         }

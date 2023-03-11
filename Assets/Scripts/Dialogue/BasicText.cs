@@ -28,13 +28,12 @@ public class BasicText : TextParent
             charCount++;
         }
         text = newText;
-
-
     }
     override public void Display()
     {
         base.Display();
         textBoxText.text = text;
         textBoxPosition.SetPositionAndRotation(location, Quaternion.Euler(0,0,0));
+        control.setPaused(control.pauseStates.tutorialPaused);
     }
 }

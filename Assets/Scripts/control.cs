@@ -21,6 +21,7 @@ public class control : MonoBehaviour
     bool prevTutorialBlockerVisible;
     int displayDelayTime;
 
+    public GameObject measureStick;
     public struct materialData
     {
         public materialData(Material m, int ef)
@@ -54,6 +55,7 @@ public class control : MonoBehaviour
     }
 
     public GameObject PhotoResistEdge;
+    pauseStates prevPaused;
 
     public static Dictionary<materialType, materialData> materialsList = new Dictionary<materialType, materialData>();
     // Start is called before the first frame update
@@ -81,6 +83,8 @@ public class control : MonoBehaviour
             GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = 0;
             GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
+        measureStick = GameObject.Find("Measure Stick Holder");
+        measureStick.SetActive(false);
     }
 
     // Update is called once per frame
@@ -167,6 +171,7 @@ public class control : MonoBehaviour
         {
             GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().alpha = 1; // make it appear
             GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().blocksRaycasts = true; // when you click on it, it will click on the first it touches
+            prevPaused = paused;
             setPaused(pauseStates.menuPaused);
         }
         else
@@ -174,7 +179,7 @@ public class control : MonoBehaviour
             GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().alpha = 0; // make it disappear 
             GameObject.Find("Canvas - Pause Menu").GetComponent<CanvasGroup>().blocksRaycasts = false; // cannot click on it
 
-            setPaused(pauseStates.unPaused);
+            setPaused(prevPaused);
         }
     }
 
