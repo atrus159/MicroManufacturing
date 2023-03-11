@@ -55,10 +55,25 @@ public class ProcessParent : MonoBehaviour
         EtchButton = GameObject.Find("Etch Button");
         PhotoresistButton = GameObject.Find("Photoresist Button");
 
-        Dropdown.SetActive(false);
-        DepositButton.SetActive(false);
-        EtchButton.SetActive(false);
-        PhotoresistButton.SetActive(false);
+
+        if (Dropdown)
+        {
+            Dropdown.SetActive(false);
+        }
+        if(DepositButton)
+        {
+            DepositButton.SetActive(false);
+        }
+        if (EtchButton)
+        {
+            EtchButton.SetActive(false);
+        }
+        if (PhotoresistButton)
+        {
+            PhotoresistButton.SetActive(false);
+        }
+        GameObject.Find("Control").GetComponent<control>().measureStick.SetActive(true);
+
     }
 
     virtual public void CallStep(int i)
@@ -85,10 +100,23 @@ public class ProcessParent : MonoBehaviour
         Destroy(slider);
         Destroy(finishButton);
         Destroy(cancelButton);
-        Dropdown.SetActive(true);
-        DepositButton.SetActive(true);
-        EtchButton.SetActive(true);
-        PhotoresistButton.SetActive(true);
+        if (Dropdown)
+        {
+            Dropdown.SetActive(true);
+        }
+        if (DepositButton)
+        {
+            DepositButton.SetActive(true);
+        }
+        if (EtchButton)
+        {
+            EtchButton.SetActive(true);
+        }
+        if (PhotoresistButton)
+        {
+            PhotoresistButton.SetActive(true);
+        }
+        GameObject.Find("Control").GetComponent<control>().measureStick.SetActive(false);
         Destroy(gameObject);
     }
     public void onFinishedButton()
@@ -97,11 +125,24 @@ public class ProcessParent : MonoBehaviour
         Destroy(slider);
         Destroy(finishButton);
         Destroy(cancelButton);
-        Dropdown.SetActive(true);
-        DepositButton.SetActive(true);
-        EtchButton.SetActive(true);
-        PhotoresistButton.SetActive(true);
+        if (Dropdown)
+        {
+            Dropdown.SetActive(true);
+        }
+        if (DepositButton)
+        {
+            DepositButton.SetActive(true);
+        }
+        if (EtchButton)
+        {
+            EtchButton.SetActive(true);
+        }
+        if (PhotoresistButton)
+        {
+            PhotoresistButton.SetActive(true);
+        }
         GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
+        GameObject.Find("Control").GetComponent<control>().measureStick.SetActive(false);
         Destroy(gameObject);
     }
 }

@@ -20,6 +20,7 @@ public class FreeText : TextParent
         {
             GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().addReserve();
         }
+        control.setPaused(control.pauseStates.unPaused);
 
     }
 }
