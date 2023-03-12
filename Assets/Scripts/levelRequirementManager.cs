@@ -3,22 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
-using UnityEditor; //THE PROBLEM
 using UnityEngine;
 using UnityEngine.UI;
 
 public class levelRequirementManager : MonoBehaviour
 {
     //A list of scripts for each of the level requirements
-    public List<MonoScript> requirementScripts = new List<MonoScript>();
-    public List<MonoScript> requirementReserveScripts = new List<MonoScript>();
+    //public List<MonoScript> requirementScripts = new List<MonoScript>();
+    //public List<MonoScript> requirementReserveScripts = new List<MonoScript>();
     public List<int> requirementReserveBlocks;
     int reserveIndex;
 
-
-
     //A list of instances of the classes in the scripts provided in requirementScripts. This will be filled out in start
     public List<levelRequirementParent> requirements = new List<levelRequirementParent>();
+    public List<levelRequirementParent> requirementReserves = new List<levelRequirementParent>();
 
     List<GameObject> requirementDisplayInstances;
 
@@ -35,7 +33,7 @@ public class levelRequirementManager : MonoBehaviour
         requirementDisplayInstances = new List<GameObject>();
         reserveIndex = 0;
         //instantiates all of the classes in requirementScripts and puts them in requirements
-        foreach(MonoScript curScript in requirementScripts)
+        /*foreach(MonoScript curScript in requirementScripts)
         {
             System.Type[] lsType = { typeof(LayerStackHolder) };
             System.Type curType = curScript.GetClass();
@@ -43,7 +41,7 @@ public class levelRequirementManager : MonoBehaviour
             object[] constructorArguments = { GameObject.Find("LayerStack").GetComponent<LayerStackHolder>() };
             object newRequirement = curConstructor.Invoke(constructorArguments);
             requirements.Add((levelRequirementParent) newRequirement);
-        }
+        }*/
 
         updateDisplay();
         
@@ -91,18 +89,13 @@ public class levelRequirementManager : MonoBehaviour
 
         for(int i = 0; i<amount; i++)
         {   
-            if(requirementReserveScripts.Count == 0)
+            if(requirementReserves.Count == 0)
             {
                 break;
             }
-            MonoScript curScript = requirementReserveScripts[0];
-            System.Type[] lsType = { typeof(LayerStackHolder) };
-            System.Type curType = curScript.GetClass();
-            ConstructorInfo curConstructor = curType.GetConstructor(lsType);
-            object[] constructorArguments = { GameObject.Find("LayerStack").GetComponent<LayerStackHolder>() };
-            object newRequirement = curConstructor.Invoke(constructorArguments);
-            requirements.Add((levelRequirementParent)newRequirement);
-            requirementReserveScripts.RemoveAt(0);
+            levelRequirementParent newRequirement = requirementReserves[0];
+            requirements.Add(newRequirement);
+            requirementReserves.RemoveAt(0);
 
         }
         reserveIndex++;

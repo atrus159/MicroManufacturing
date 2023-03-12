@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
 //the parent class for a level requirement. Implement this to make a new level requirement
-public class levelRequirementParent
+public class levelRequirementParent : MonoBehaviour
 {
     //contains the layerStackHolder so your check can see what deposits there are
     LayerStackHolder layers;
@@ -19,9 +19,14 @@ public class levelRequirementParent
     public bool checkOutsideEdits;
 
     //set the name and description of your check in the constructor when you implement this class
-    public levelRequirementParent(LayerStackHolder layers)
+
+    private void Start()
     {
-        this.layers = layers;
+        onStart();
+    }
+    virtual public void onStart()
+    {
+        this.layers = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
         met = false;
         checkOutsideEdits = false;
     }

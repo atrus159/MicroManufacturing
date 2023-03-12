@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class checkEPressed : levelRequirementParent
 {
-    public checkEPressed(LayerStackHolder layers) : base(layers) {
+
+
+    public override void onStart()
+    {
+        base.onStart();
         name = "Press the E button";
         description = "At the top left corner of your keyboard is a button with 'E' on it. Press that button";
     }
+
 
     public override void check()
     {

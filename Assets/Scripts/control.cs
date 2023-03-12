@@ -237,6 +237,10 @@ public class control : MonoBehaviour
         else
         {
             showMeasureSticks = false;
+            ms1.SetActive(false);
+            ms2.SetActive(false);
+            ms3.SetActive(false);
+            ms4.SetActive(false);
         }
     }
     private void setHudActive(bool status)

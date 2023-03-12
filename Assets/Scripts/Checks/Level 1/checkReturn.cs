@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class checkDepositButtonPressed : levelRequirementParent
+public class checkReturn : levelRequirementParent
 {
+    CanvasGroup cGroup;
 
     public override void onStart()
     {
         base.onStart();
-        name = "Press the Deposit button to start sputtering";
-        description = "The Deposit button is in the bottom right.";
+        name = "Draw something for your lab partner, then return to the work bench.";
+        description = "You can use the tools on the left to draw whatever you want.";
         checkOutsideEdits = true;
+        cGroup = GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>();
     }
 
     public override void check()
     {
-        if (GameObject.Find("New Process"))
+        if (cGroup.alpha == 0)
         {
             met = true;
         }
