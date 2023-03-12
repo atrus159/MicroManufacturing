@@ -72,7 +72,7 @@ public class ProcessParent : MonoBehaviour
         {
             PhotoresistButton.SetActive(false);
         }
-        GameObject.Find("Control").GetComponent<control>().measureStick.SetActive(true);
+        GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(true);
 
     }
 
@@ -116,7 +116,7 @@ public class ProcessParent : MonoBehaviour
         {
             PhotoresistButton.SetActive(true);
         }
-        GameObject.Find("Control").GetComponent<control>().measureStick.SetActive(false);
+        GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
         Destroy(gameObject);
     }
     public void onFinishedButton()
@@ -141,8 +141,8 @@ public class ProcessParent : MonoBehaviour
         {
             PhotoresistButton.SetActive(true);
         }
-        GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
-        GameObject.Find("Control").GetComponent<control>().measureStick.SetActive(false);
+        layerStackHold.postDeleteCheckFlag = true;
+        GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
         Destroy(gameObject);
     }
 }

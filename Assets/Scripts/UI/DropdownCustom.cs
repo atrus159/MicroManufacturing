@@ -41,7 +41,7 @@ public class DropdownCustom : MonoBehaviour
         tab.SetActive(false);
         returnElements = new List<int>();
         toggled = false;
-        curElement = 0;
+        curElement = 3;
         numElements = 0;
         if (hasAluminum)
         {
@@ -68,7 +68,7 @@ public class DropdownCustom : MonoBehaviour
             numElements++;
             returnElements.Add(4);
         }
-        value = returnElements[0];
+        value = returnElements[curElement];
     }
 
     // Update is called once per frame

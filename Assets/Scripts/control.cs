@@ -21,7 +21,13 @@ public class control : MonoBehaviour
     bool prevTutorialBlockerVisible;
     int displayDelayTime;
 
-    public GameObject measureStick;
+    bool showMeasureSticks;
+    GameObject ms1;
+    GameObject ms2;
+    GameObject ms3;
+    GameObject ms4;
+    int curRegion;
+    int offset;
     public struct materialData
     {
         public materialData(Material m, int ef)
@@ -83,8 +89,16 @@ public class control : MonoBehaviour
             GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = 0;
             GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
-        measureStick = GameObject.Find("Measure Stick Holder");
-        measureStick.SetActive(false);
+        showMeasureSticks = false;
+        ms1 = GameObject.Find("measure stick 1");
+        ms2 = GameObject.Find("measure stick 2");
+        ms3 = GameObject.Find("measure stick 3");
+        ms4 = GameObject.Find("measure stick 4");
+        ms1.SetActive(false);
+        ms2.SetActive(false);
+        ms3.SetActive(false);
+        ms4.SetActive(false);
+        curRegion = 0;
     }
 
     // Update is called once per frame
@@ -129,12 +143,102 @@ public class control : MonoBehaviour
                 }
                 setPauseMenuActive(false);
             }
-            
+      
 
         }
 
+
+        if (showMeasureSticks)
+        {
+
+            float cameraAngle = GameObject.Find("Main Camera").transform.rotation.eulerAngles.y;
+
+            switch (curRegion)
+            {
+                case 0:
+                    checkRegion(1, cameraAngle);
+                    checkRegion(3, cameraAngle);
+                    break;
+                case 1:
+                    checkRegion(0, cameraAngle);
+                    checkRegion(2, cameraAngle);
+                    break;
+                case 2:
+                    checkRegion(1, cameraAngle);
+                    checkRegion(3, cameraAngle);
+                    break;
+                case 3:
+                    checkRegion(0, cameraAngle);
+                    checkRegion(2, cameraAngle);
+                    break;
+            }
+        }
     }
 
+    void checkRegion(int region, float cameraAngle)
+    {
+        switch (region)
+        {
+            case 0:
+                if (cameraAngle < offset || cameraAngle > 270 + offset)
+                {
+                    ms1.SetActive(true);
+                    ms2.SetActive(false);
+                    ms3.SetActive(false);
+                    ms4.SetActive(false);
+                    curRegion = 0;
+                }
+            break;
+            case 1:
+                if (cameraAngle < 270 + offset && cameraAngle > 180 + offset)
+                {
+                    ms1.SetActive(false);
+                    ms2.SetActive(true);
+                    ms3.SetActive(false);
+                    ms4.SetActive(false);
+                    curRegion = 1;
+                }
+            break;
+            case 2:
+                if (cameraAngle < 180 + offset && cameraAngle > 90 + offset)
+                {
+                    ms1.SetActive(false);
+                    ms2.SetActive(false);
+                    ms3.SetActive(false);
+                    ms4.SetActive(true);
+                    curRegion = 2;
+                }
+            break;
+            case 3:
+                if (cameraAngle < 90 + offset && cameraAngle > offset)
+                {
+                    ms1.SetActive(false);
+                    ms2.SetActive(false);
+                    ms3.SetActive(true);
+                    ms4.SetActive(false);
+                    curRegion = 3;
+                }
+            break;
+        }
+    }
+
+
+    public void setShowMeasureStick(bool val)
+    {
+        if (val)
+        {
+            showMeasureSticks = true;
+            float cameraAngle = GameObject.Find("Main Camera").transform.rotation.eulerAngles.y;
+            checkRegion(1, cameraAngle);
+            checkRegion(2, cameraAngle);
+            checkRegion(3, cameraAngle);
+            checkRegion(4, cameraAngle);
+        }
+        else
+        {
+            showMeasureSticks = false;
+        }
+    }
     private void setHudActive(bool status)
     {
         if (status) 
