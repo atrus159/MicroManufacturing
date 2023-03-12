@@ -33,7 +33,7 @@ public class LayerStackHolder : MonoBehaviour
     public bool deletedFlag;
     public List<int> deletedLayers;
 
-    bool liftOffCheckFlag = false;
+    public bool postDeleteCheckFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -163,10 +163,10 @@ public class LayerStackHolder : MonoBehaviour
             deletedLayers.Clear();
 
         }
-        if (liftOffCheckFlag)
+        if (postDeleteCheckFlag)
         {
             GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
-            liftOffCheckFlag = false;
+            postDeleteCheckFlag = false;
         }
     }
 
@@ -449,7 +449,7 @@ public class LayerStackHolder : MonoBehaviour
             }
         }
         //GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
-        liftOffCheckFlag = true;
+        postDeleteCheckFlag = true;
     }
 
 
