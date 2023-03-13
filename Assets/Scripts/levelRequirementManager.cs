@@ -28,6 +28,8 @@ public class levelRequirementManager : MonoBehaviour
 
     float displayOffset = 70.0f;
 
+    int count;
+
     void Start()
     {
         requirementDisplayInstances = new List<GameObject>();
@@ -42,7 +44,6 @@ public class levelRequirementManager : MonoBehaviour
             object newRequirement = curConstructor.Invoke(constructorArguments);
             requirements.Add((levelRequirementParent) newRequirement);
         }*/
-
         updateDisplay();
         
     }
@@ -56,6 +57,7 @@ public class levelRequirementManager : MonoBehaviour
             Destroy(curDisplayObj);
         }
         requirementDisplayInstances.Clear();
+        count = 0;
 
         int index = 0;
 
@@ -68,12 +70,14 @@ public class levelRequirementManager : MonoBehaviour
 
     void makePrefab(float height, string name, string description)
     {
+        count++;
         GameObject newDisplayObj = Instantiate(requirementPrefab);
         newDisplayObj.transform.SetParent(display.transform);
         newDisplayObj.transform.SetPositionAndRotation(display.transform.position + new Vector3(0, height, 0), Quaternion.identity);
         newDisplayObj.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = name;
         newDisplayObj.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = description;
-        newDisplayObj.GetComponent<Image>().color = Color.red;
+        newDisplayObj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = count.ToString();
+        newDisplayObj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().color = Color.red;
         requirementDisplayInstances.Add(newDisplayObj);
 
     }
@@ -132,12 +136,12 @@ public class levelRequirementManager : MonoBehaviour
             if (curRequirement.met)
             {
                 anyMet = true;
-                curDisplayObj.GetComponent<Image>().color = Color.green;
+                curDisplayObj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().color = Color.green;
             }
             else
             {
                 allMet = false;
-                curDisplayObj.GetComponent<Image>().color = Color.red;
+                curDisplayObj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().color = Color.red;
             }
             index++;
         }

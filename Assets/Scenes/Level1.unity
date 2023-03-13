@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &457468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457470}
+  - component: {fileID: 457469}
+  m_Layer: 0
+  m_Name: checkPhotoresistPressed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &457469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb034a450fb06041be987bbd19a81f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
+--- !u!224 &457470
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.0193324}
+  m_LocalScale: {x: 1.1796296, y: 1.1796296, z: 1.1796296}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1762499994}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 517.9263, y: 470.90796}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &29296833
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +321,56 @@ Transform:
   m_Father: {fileID: 397362486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &131434176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 131434177}
+  - component: {fileID: 131434178}
+  m_Layer: 0
+  m_Name: clickStensilText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &131434177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131434176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131434178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131434176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates:
+  - {fileID: 1700792201}
+  text: Click the photoresist button to create your stensil.
+  location: {x: 750, y: 500}
 --- !u!1 &138101932
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,8 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
-  activates:
-  - {fileID: 1700792201}
+  activates: []
   text: Now it's time to transfer your pattern onto your waifer. To do this we will
     need to make a photomask.
   location: {x: 750, y: 500}
@@ -2306,7 +2408,6 @@ GameObject:
   m_Component:
   - component: {fileID: 729504600}
   - component: {fileID: 729504602}
-  - component: {fileID: 729504601}
   m_Layer: 0
   m_Name: RequirementDisplay
   m_TagString: Untagged
@@ -2334,36 +2435,6 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: -100}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &729504601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729504599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &729504602
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2426,6 +2497,56 @@ MonoBehaviour:
   activates: []
   text: Try to deposit atleast twenty micrometers of material on the waifer (It's
     okay to overshoot!) When you think you're done, click the "Finished" button.
+  location: {x: 750, y: 500}
+--- !u!1 &759430622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759430623}
+  - component: {fileID: 759430624}
+  m_Layer: 0
+  m_Name: nowHaveStensilText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759430623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759430622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &759430624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759430622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: We now have a stensil of your pattern, and can use it to make your pattern
+    out of silicon.
   location: {x: 750, y: 500}
 --- !u!1 &763787996
 GameObject:
@@ -4346,6 +4467,10 @@ Transform:
   - {fileID: 1094329336}
   - {fileID: 1325327627}
   - {fileID: 138101933}
+  - {fileID: 1730906974}
+  - {fileID: 1600001597}
+  - {fileID: 131434177}
+  - {fileID: 759430623}
   m_Father: {fileID: 2053329037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5672,6 +5797,56 @@ MonoBehaviour:
   activates: []
   text: Pretty isn't it? Anyway lets get to building.
   location: {x: 750, y: 500}
+--- !u!1 &1600001596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600001597}
+  - component: {fileID: 1600001598}
+  m_Layer: 0
+  m_Name: thisWillText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1600001597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600001596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600001598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600001596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: This will leave us with a stencil of photoresist that we can use to make
+    your patern.
+  location: {x: 750, y: 500}
 --- !u!1 &1628140450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6330,6 +6505,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: {fileID: 0}
+--- !u!1 &1730906973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730906974}
+  - component: {fileID: 1730906975}
+  m_Layer: 0
+  m_Name: hardenText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1730906974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730906973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730906975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730906973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: Photoresist is a material that reacts to light to harden and become solid.
+    We will lay down some photoresist amd use your pattern as a mask to harden some
+    of the photoresist.
+  location: {x: 750, y: 500}
 --- !u!1001 &1735975618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6501,7 +6727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5feb5d657a36499df3a5f0923d5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirementReserveBlocks: 0100000001000000010000000100000001000000
+  requirementReserveBlocks: 010000000100000001000000010000000100000001000000
   requirements: []
   requirementReserves:
   - {fileID: 1383199034}
@@ -6509,6 +6735,7 @@ MonoBehaviour:
   - {fileID: 1178598058}
   - {fileID: 971333443}
   - {fileID: 1628140451}
+  - {fileID: 457469}
   display: {fileID: 729504599}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
 --- !u!4 &1762499994
@@ -6528,6 +6755,7 @@ Transform:
   - {fileID: 1178598057}
   - {fileID: 971333442}
   - {fileID: 1628140452}
+  - {fileID: 457470}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7222,7 +7450,11 @@ MonoBehaviour:
   - {fileID: 1325327628}
   - {fileID: 1325327628}
   - {fileID: 138101934}
+  - {fileID: 1730906975}
+  - {fileID: 1600001598}
+  - {fileID: 131434178}
   - {fileID: 456745330}
+  - {fileID: 759430624}
 --- !u!222 &2053329043
 CanvasRenderer:
   m_ObjectHideFlags: 0
