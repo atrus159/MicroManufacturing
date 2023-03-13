@@ -93,9 +93,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\BitGrid.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkReturn.cs" />
     <Compile Include="Assets\Scripts\ButtonEvents.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Checks\checkTwoRectangles.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkPhotoResistOnSlab.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositButtonPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />

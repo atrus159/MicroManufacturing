@@ -6,10 +6,13 @@ using UnityEngine;
 public class checkPatternWindow : levelRequirementParent
 {
     CanvasGroup cGroup;
-    public checkPatternWindow(LayerStackHolder layers) : base(layers) {
+
+    public override void onStart()
+    {
+        base.onStart();
         name = "Click the pattern button, or press TAB";
         description = "The pattern button is on the left side.";
-        checkOutsideEdits= true;
+        checkOutsideEdits = true;
         cGroup = GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>();
     }
 
