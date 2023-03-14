@@ -20,6 +20,7 @@ public class ProcessParent : MonoBehaviour
     GameObject DepositButton;
     GameObject EtchButton;
     GameObject PhotoresistButton;
+    GameObject LiftoffButton;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,7 @@ public class ProcessParent : MonoBehaviour
         DepositButton = GameObject.Find("Deposit Button");
         EtchButton = GameObject.Find("Etch Button");
         PhotoresistButton = GameObject.Find("Photoresist Button");
+        LiftoffButton = GameObject.Find("Liftoff Button");
 
 
         if (Dropdown)
@@ -71,6 +73,10 @@ public class ProcessParent : MonoBehaviour
         if (PhotoresistButton)
         {
             PhotoresistButton.SetActive(false);
+        }
+        if (LiftoffButton)
+        {
+            LiftoffButton.SetActive(false);
         }
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(true);
 
@@ -116,6 +122,10 @@ public class ProcessParent : MonoBehaviour
         {
             PhotoresistButton.SetActive(true);
         }
+        if (LiftoffButton)
+        {
+            LiftoffButton.SetActive(true);
+        }
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
         Destroy(gameObject);
     }
@@ -140,6 +150,10 @@ public class ProcessParent : MonoBehaviour
         if (PhotoresistButton)
         {
             PhotoresistButton.SetActive(true);
+        }
+        if (LiftoffButton)
+        {
+            LiftoffButton.SetActive(true);
         }
         layerStackHold.postDeleteCheckFlag = true;
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);

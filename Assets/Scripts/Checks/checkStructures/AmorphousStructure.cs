@@ -114,6 +114,35 @@ public class AmorphousStructure : CheckStructComponent
 
                 }
             }
+
+            if (flagVector[1])
+            {
+                BitGrid surounding = BitGrid.getBorderRegion(amorph.grid);
+                BitGrid suroundingFill = BitGrid.zeros();
+                foreach (GameObject curDeposit in layers.depLayers[layerIndex])
+                {
+                    BitGrid intersection = BitGrid.intersect(curDeposit.GetComponent<meshGenerator>().grid, surounding);
+                    if (curDeposit.GetComponent<meshMaterial>().myMaterial == surroundingMaterial)
+                    {
+                        suroundingFill = BitGrid.union(suroundingFill, intersection);
+                        continue;
+                    }
+                    if(!intersection.isEmpty()){
+                        errors.Add("Found amorph wrong border");
+                        curAmorphs.RemoveAt(i);
+                        goto NextAmorph;
+                    }
+                }
+                if(surroundingMaterial != control.materialType.empty)
+                {
+                    if (!surounding.isEqual(suroundingFill))
+                    {
+                        errors.Add("Found amorph insufficient border");
+                        curAmorphs.RemoveAt(i);
+                        goto NextAmorph;
+                    }
+                }
+            }
             NextAmorph:;
         }
         return curAmorphs;

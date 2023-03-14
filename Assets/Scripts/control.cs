@@ -99,6 +99,7 @@ public class control : MonoBehaviour
         ms3.SetActive(false);
         ms4.SetActive(false);
         curRegion = 0;
+        offset = 15;
     }
 
     // Update is called once per frame
@@ -354,10 +355,22 @@ public class control : MonoBehaviour
         layer.GetComponent<LayerStackHolder>().startEtchProcess();
     }
 
+    public void onLiftoffButton()
+    {
+        GameObject layer = GameObject.Find("LayerStack");
+        layer.GetComponent<LayerStackHolder>().liftOff();
+        GameObject holder = GameObject.Find("PhotoButtonToggleHolder");
+        holder.transform.Find("Liftoff Button").gameObject.SetActive(false);
+        holder.transform.Find("Photoresist Button").gameObject.SetActive(true);
+    }
+
     public void onPhotoResistButton()
     {
         GameObject layer = GameObject.Find("Animation Creator");
         layer.GetComponent<AnimationCreator>().makeSpinCaster();
+        GameObject holder = GameObject.Find("PhotoButtonToggleHolder");
+        holder.transform.Find("Liftoff Button").gameObject.SetActive(true);
+        holder.transform.Find("Photoresist Button").gameObject.SetActive(false);
     }
 
     public void onFinishedButton()

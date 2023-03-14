@@ -76,13 +76,7 @@ public class LayerStackHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (control.isPaused() == control.pauseStates.unPaused)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                liftOff();
-            }
-        }
+
     }
 
     //external functions called by buttons

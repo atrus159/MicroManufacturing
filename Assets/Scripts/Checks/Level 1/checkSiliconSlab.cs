@@ -10,8 +10,8 @@ public class checkSiliconSlab : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Create deposit that's atleast 20um thick.";
-        description = "You can use the measuring stick on the side of the waifer.";
+        name = "Create a deposit that's at least 20µm thick.";
+        description = "You can use the measuring stick on the side of the wafer to see how much that is. Click the “Finished” button when you’re done.";
         slab = new CheckStruct(0, 1);
         RectangleStructure slabStruct = new RectangleStructure(control.materialType.silicon, 1, new Vector3Int(99, 20, 99), new Vector3Int(99, 100, 99), 1, new[] { true, false, false });
 
