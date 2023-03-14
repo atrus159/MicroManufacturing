@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine.UI;
-using UnityEditor;
+using AnotherFileBrowser.Windows;
 using UnityEngine;
 using System.IO;
 
@@ -21,7 +21,13 @@ public class save_button : MonoBehaviour
     }
     void TaskOnClick()
     {
-        string path = EditorUtility.SaveFilePanel("Save bitmap as .txt", "", "bitmap.txt", "txt");
+        BrowserProperties bp = new BrowserProperties();
+        bp.filter = "txt files (*.txt) | *.txt";
+        bp.filterIndex = 0;
+
+        string path = "";
+
+        new FileBrowser().OpenFileBrowser(bp, filePath => { path = filePath; });
 
         if (path.Length == 0)
             return;

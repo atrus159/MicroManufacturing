@@ -69,6 +69,7 @@ public class DropdownCustom : MonoBehaviour
             returnElements.Add(4);
         }
         value = returnElements[curElement];
+        GameObject.Find("LayerStack").GetComponent<LayerStackHolder>().onValueChange(value);
     }
 
     // Update is called once per frame
