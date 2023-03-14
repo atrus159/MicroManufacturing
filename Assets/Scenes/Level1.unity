@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 457470}
-  - component: {fileID: 457469}
+  - component: {fileID: 457471}
   m_Layer: 0
   m_Name: checkPhotoresistPressed
   m_TagString: Untagged
@@ -140,22 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &457469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb034a450fb06041be987bbd19a81f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
 --- !u!224 &457470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -176,6 +160,22 @@ RectTransform:
   m_AnchoredPosition: {x: 517.9263, y: 470.90796}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &457471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0e8b3440ed0c342b5415bf3e286017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
 --- !u!1 &29296833
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Welcome to the photomask table!
+  text: Welcome to the Masking Table!
   location: {x: 750, y: 400}
 --- !u!1 &127651681
 GameObject:
@@ -369,7 +369,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1700792201}
-  text: Click the photoresist button to create your stensil.
+  text: Click the Photoresist button to create your stencil.
   location: {x: 750, y: 500}
 --- !u!1 &138101932
 GameObject:
@@ -418,8 +418,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Now it's time to transfer your pattern onto your waifer. To do this we will
-    need to make a photomask.
+  text: "Now it's time to transfer your pattern onto your wafer. To do this we\u2019ll
+    use something called photoresist."
   location: {x: 750, y: 500}
 --- !u!1 &146416567
 GameObject:
@@ -537,6 +537,141 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &163329518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163329519}
+  - component: {fileID: 163329521}
+  - component: {fileID: 163329520}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &163329519
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163329518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1897706266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &163329520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163329518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &163329521
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163329518}
+  m_CullTransparentMesh: 1
 --- !u!1 &215013708
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +1015,7 @@ RectTransform:
   - {fileID: 1342111431}
   - {fileID: 731804757}
   - {fileID: 1325371105}
-  - {fileID: 1700792202}
+  - {fileID: 2059458290}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1194,7 +1329,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1735975620}
   - {fileID: 1008801158}
-  text: Draw a rectangle or circle (you can click to toggle between outline and solid)
+  text: Rectangles and Circles (you can click to toggle between outline and soli
   location: {x: 750, y: 100}
 --- !u!1 &456745328
 GameObject:
@@ -1513,6 +1648,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: {fileID: 0}
+--- !u!1 &521851300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521851302}
+  - component: {fileID: 521851301}
+  m_Layer: 0
+  m_Name: checkLiftOff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &521851301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521851300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bfac311f28dc1e4788bfd6977494879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
+--- !u!224 &521851302
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521851300}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.0193324}
+  m_LocalScale: {x: 1.1796296, y: 1.1796296, z: 1.1796296}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1762499994}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 517.9263, y: 470.90796}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &567020931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,8 +2051,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Welcome to your work station! You'll be doing all your research here, so
-    lets take a tour around.
+  text: Welcome to your workbench! You'll be doing most of your research here, so
+    let's take a tour around.
   location: {x: 750, y: 400}
 --- !u!1001 &622036390
 PrefabInstance:
@@ -2161,8 +2349,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: For this we will need the masking table. Press the TAB button or click the
-    photomask button to head over!
+  text: "For this, we\u2019ll need to make a Photomask. Press TAB or click the Photomask
+    button to head over to the Masking Table. There we\u2019ll see what masking is
+    all about!"
   location: {x: 750, y: 400}
 --- !u!1 &678136223
 GameObject:
@@ -2495,7 +2684,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Try to deposit atleast twenty micrometers of material on the waifer (It's
+  text: Try to deposit at least twenty micrometers of material on the wafer (It's
     okay to overshoot!) When you think you're done, click the "Finished" button.
   location: {x: 750, y: 500}
 --- !u!1 &759430622
@@ -2545,8 +2734,59 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: We now have a stensil of your pattern, and can use it to make your pattern
-    out of silicon.
+  text: We now have your pattern made out of photoresist, but how do we get it to
+    be made out of anything useful?
+  location: {x: 750, y: 400}
+--- !u!1 &760634637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760634638}
+  - component: {fileID: 760634639}
+  m_Layer: 0
+  m_Name: tryNowText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &760634638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760634637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &760634639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760634637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates:
+  - {fileID: 1897706265}
+  text: After you lay down a photoresist, you can perform this lift-off with the
+    "lift-off" button in the bottom right. Try making a cut-out of your pattern!
   location: {x: 750, y: 500}
 --- !u!1 &763787996
 GameObject:
@@ -2710,7 +2950,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: We can then transfer this pattern to your waifer when you're done.
+  text: "Once you\u2019re done, I\u2019ll show you how to transfer your pattern onto
+    the wafer."
   location: {x: 750, y: 100}
 --- !u!1 &879438999
 GameObject:
@@ -3011,6 +3252,59 @@ MonoBehaviour:
   subCam: {fileID: 0}
   viewCam: {fileID: 1218733186}
   topCamPrefab: {fileID: 3783323157430346640, guid: d3fb68e9706a2b443b74c1d5fcbf4280, type: 3}
+--- !u!1 &941594364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941594365}
+  - component: {fileID: 941594366}
+  m_Layer: 0
+  m_Name: checkPhotoresistDeposit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &941594365
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941594364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.0193324}
+  m_LocalScale: {x: 1.1796296, y: 1.1796296, z: 1.1796296}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1762499994}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 517.9263, y: 470.90796}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &941594366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941594364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb034a450fb06041be987bbd19a81f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,9 +3716,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1342111430}
-  text: The first devices on your work station is the Sputtering System. This will
-    spray your waifer with a thin film of material, which will slowly build up a
-    deposit on the surface. Click the "Deposit" button to try it out.
+  text: "The first device on your work station is the Sputtering System. This will
+    spray your wafer with a thin film of material, which will slowly build up a deposit
+    on the surface. This is called \u201CSputtering\u201D Click the \"Deposit\" button
+    to try it out."
   location: {x: 750, y: 500}
 --- !u!1 &1025669954
 GameObject:
@@ -3852,7 +4147,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: When you're finished drawing, press TAB to return to your work desk.
+  text: When you're finished drawing, press TAB to return to your workbench.
   location: {x: 750, y: 400}
 --- !u!1 &1111456389
 GameObject:
@@ -4222,8 +4517,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: The slider at the bottom of the screen controls how long you run the sputtering
-    system for. The longer you let it run, the more material you'll deposit!
+  text: "The slider at the bottom of the screen controls how long you\u2019ll run
+    the Sputtering System for. The longer you let it run, the more material you'll
+    deposit!"
   location: {x: 750, y: 500}
 --- !u!1 &1208905531
 GameObject:
@@ -4414,6 +4710,55 @@ MonoBehaviour:
   - {fileID: 622036392}
   text: Fill bucket
   location: {x: 750, y: 100}
+--- !u!1 &1263892657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263892658}
+  - component: {fileID: 1263892659}
+  m_Layer: 0
+  m_Name: labPartnerText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263892658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263892657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263892659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263892657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: "But we\u2019ll get to all of that later, here comes your lab partner!"
+  location: {x: 750, y: 400}
 --- !u!1 &1302498628
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,9 +4816,65 @@ Transform:
   - {fileID: 1600001597}
   - {fileID: 131434177}
   - {fileID: 759430623}
+  - {fileID: 1309366251}
+  - {fileID: 760634638}
+  - {fileID: 1664246144}
+  - {fileID: 1371793666}
+  - {fileID: 1263892658}
   m_Father: {fileID: 2053329037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1309366250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1309366251}
+  - component: {fileID: 1309366252}
+  m_Layer: 0
+  m_Name: makeDepositText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1309366251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309366250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1309366252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309366250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: If we deposit material on top of the pattern, we can then "lift-off" the
+    photoresist, peeling it and the material on top of it away. This will leave behind
+    a cut-out of your patter, made of whatever material you want!
+  location: {x: 750, y: 500}
 --- !u!1001 &1312003950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5133,6 +5534,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343092641}
   m_CullTransparentMesh: 1
+--- !u!1 &1371793665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371793666}
+  - component: {fileID: 1371793667}
+  m_Layer: 0
+  m_Name: hangOfThingsText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1371793666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371793665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1371793667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371793665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: "With your Sputtering System and Photomasks, you can make almost any shape
+    on your wafer; From printed circuit boards to micromechanical systems, you\u2019re
+    well on your way to becoming a Microengeneering master!"
+  location: {x: 750, y: 400}
 --- !u!1 &1383199033
 GameObject:
   m_ObjectHideFlags: 0
@@ -5233,8 +5685,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: In front of you is a silicone waifer. All the fun micro devices you design
-    will be built on here! Take a look around it with the arrow keys.
+  text: "In front of you is a silicon wafer. All the fun micro devices you\u2019ll
+    design will be built on here! You can move around the wafer with the arrow keys."
   location: {x: 750, y: 150}
 --- !u!1 &1444046668
 GameObject:
@@ -5283,8 +5735,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Using these tools, draw whatever pattern you want. Your lab partner is gonna
-    come check it out later, so make it something cool!
+  text: "Using these tools, draw whatever pattern you want. Your lab partner will
+    come check out your work later, so make sure it\u2019s something cool!"
   location: {x: 750, y: 400}
 --- !u!1001 &1514452344
 PrefabInstance:
@@ -5795,7 +6247,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Pretty isn't it? Anyway lets get to building.
+  text: Pretty isn't it? Anyway, let's get to building.
   location: {x: 750, y: 500}
 --- !u!1 &1600001596
 GameObject:
@@ -5844,8 +6296,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: This will leave us with a stencil of photoresist that we can use to make
-    your patern.
+  text: This will leave us with a cut-out of your pattern made out of photoresist.
+    A little microscopic stencil!
   location: {x: 750, y: 500}
 --- !u!1 &1628140450
 GameObject:
@@ -6052,6 +6504,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f91a2bc40677e34cb65febc402b9d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1664246143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664246144}
+  - component: {fileID: 1664246145}
+  m_Layer: 0
+  m_Name: excelentText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1664246144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664246143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664246145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664246143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  text: "Excellent! You\u2019re really getting the hang of this!"
+  location: {x: 750, y: 200}
 --- !u!1 &1667303952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6129,18 +6630,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700792201}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969828228}
-  m_Father: {fileID: 369531228}
-  m_RootOrder: 3
+  m_Father: {fileID: 2059458290}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150, y: 90}
+  m_AnchoredPosition: {x: 340, y: -235.72174}
   m_SizeDelta: {x: 272, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700792203
@@ -6552,9 +7053,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Photoresist is a material that reacts to light to harden and become solid.
-    We will lay down some photoresist amd use your pattern as a mask to harden some
-    of the photoresist.
+  text: Photoresist is a material that reacts with light to harden and become solid.
+    We can shine light through the pattern you just made to harden some of the photoresist
+    into a particular shape.
   location: {x: 750, y: 500}
 --- !u!1001 &1735975618
 PrefabInstance:
@@ -6727,7 +7228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5feb5d657a36499df3a5f0923d5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirementReserveBlocks: 010000000100000001000000010000000100000001000000
+  requirementReserveBlocks: 01000000010000000100000001000000010000000100000002000000
   requirements: []
   requirementReserves:
   - {fileID: 1383199034}
@@ -6735,7 +7236,9 @@ MonoBehaviour:
   - {fileID: 1178598058}
   - {fileID: 971333443}
   - {fileID: 1628140451}
-  - {fileID: 457469}
+  - {fileID: 457471}
+  - {fileID: 941594366}
+  - {fileID: 521851301}
   display: {fileID: 729504599}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
 --- !u!4 &1762499994
@@ -6756,6 +7259,8 @@ Transform:
   - {fileID: 971333442}
   - {fileID: 1628140452}
   - {fileID: 457470}
+  - {fileID: 941594365}
+  - {fileID: 521851302}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6806,9 +7311,157 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: With the sputtering system, we can make a uniform deposit of silicon, but
-    if we want to make a more complicated pattern we will need a photomask.
+  text: With the Sputtering System, we can make a uniform deposit of material, but
+    what if we want something a little more complicated?
   location: {x: 750, y: 400}
+--- !u!1 &1897706265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897706266}
+  - component: {fileID: 1897706270}
+  - component: {fileID: 1897706269}
+  - component: {fileID: 1897706268}
+  - component: {fileID: 1897706267}
+  m_Layer: 5
+  m_Name: Liftoff Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1897706266
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897706265}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 163329519}
+  m_Father: {fileID: 2059458290}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 340, y: -235.72174}
+  m_SizeDelta: {x: 272, y: 86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1897706267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897706265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
+--- !u!114 &1897706268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897706265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: c820f5f49207538489baa597c673b1b7, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: da20ad260316add48b3af43e753356db, type: 3}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1897706269}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+        m_TargetAssemblyTypeName: control, Assembly-CSharp
+        m_MethodName: onLiftoffButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1897706269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897706265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e3019fe55f7080e42858dbc88e289455, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1897706270
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897706265}
+  m_CullTransparentMesh: 1
 --- !u!1 &1927960799
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,6 +8108,12 @@ MonoBehaviour:
   - {fileID: 131434178}
   - {fileID: 456745330}
   - {fileID: 759430624}
+  - {fileID: 1309366252}
+  - {fileID: 760634639}
+  - {fileID: 456745330}
+  - {fileID: 1664246145}
+  - {fileID: 1371793667}
+  - {fileID: 1263892659}
 --- !u!222 &2053329043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7589,6 +8248,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 22e13efa08d5d294982cb17618b6a931, type: 2}
     - target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+      propertyPath: PhotoButton
+      value: 
+      objectReference: {fileID: 1700792201}
+    - target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+      propertyPath: LiftoffButton
+      value: 
+      objectReference: {fileID: 1897706265}
+    - target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
       propertyPath: PhotoResistEdge
       value: 
       objectReference: {fileID: 1025669954}
@@ -7602,6 +8269,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+--- !u!1 &2059458289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059458290}
+  m_Layer: 5
+  m_Name: PhotoButtonToggleHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2059458290
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059458289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1897706266}
+  - {fileID: 1700792202}
+  m_Father: {fileID: 369531228}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7470342147084093963
 PrefabInstance:
   m_ObjectHideFlags: 0
