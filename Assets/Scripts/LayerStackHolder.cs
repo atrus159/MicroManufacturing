@@ -44,9 +44,6 @@ public class LayerStackHolder : MonoBehaviour
         layerHeight = 0.1f;
         deletedLayers = new List<int>();
         deletedFlag = false;
-
-        //initially sets the curMaterial to whatever the top option on the materials dropdown is
-        onValueChange(GameObject.Find("Dropdown").GetComponent<DropdownCustom>().value);
     }
 
 

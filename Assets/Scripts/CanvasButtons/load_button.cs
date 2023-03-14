@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+using AnotherFileBrowser.Windows;
 
 public class load_button : MonoBehaviour
 {
@@ -18,7 +18,15 @@ public class load_button : MonoBehaviour
     }
     void TaskOnClick()
     {
-        string path = EditorUtility.OpenFilePanel("Overwrite with .txt", "", ".txt");
+
+        BrowserProperties bp = new BrowserProperties();
+        bp.filter = "txt files (*.txt) | *.txt";
+        bp.filterIndex = 0;
+
+        string path = "";
+
+        new FileBrowser().OpenFileBrowser(bp, filePath => { path = filePath; });
+
 
         if (path.Length == 0)
             return;
