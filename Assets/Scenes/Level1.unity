@@ -206,7 +206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &29296835
 MonoBehaviour:
@@ -351,7 +351,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &131434178
 MonoBehaviour:
@@ -401,7 +401,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &138101934
 MonoBehaviour:
@@ -1013,9 +1013,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1342111431}
-  - {fileID: 731804757}
   - {fileID: 1325371105}
   - {fileID: 2059458290}
+  - {fileID: 731804757}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1154,7 +1154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &423182210
 MonoBehaviour:
@@ -1647,7 +1647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &521851300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &629768021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,7 +2719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &759430624
 MonoBehaviour:
@@ -2767,7 +2769,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &760634639
 MonoBehaviour:
@@ -3599,7 +3601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1008913597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,7 +3962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1092265018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,7 +4134,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1094329337
 MonoBehaviour:
@@ -4551,7 +4555,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1208905533
 MonoBehaviour:
@@ -4740,7 +4744,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1263892659
 MonoBehaviour:
@@ -4804,6 +4808,7 @@ Transform:
   - {fileID: 879859747}
   - {fileID: 1257510479}
   - {fileID: 442625982}
+  - {fileID: 1528240981}
   - {fileID: 1667303953}
   - {fileID: 1208905532}
   - {fileID: 423182209}
@@ -4854,7 +4859,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1309366252
 MonoBehaviour:
@@ -5011,7 +5016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1325327626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5048,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1325327628
 MonoBehaviour:
@@ -5095,7 +5101,7 @@ RectTransform:
   m_Children:
   - {fileID: 1343092642}
   m_Father: {fileID: 369531228}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -5208,6 +5214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonType: 0
   highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
 --- !u!1 &1338332388 stripped
 GameObject:
@@ -5250,7 +5257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1342111430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5270,7 +5278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1342111431
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5398,6 +5406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonType: 0
   highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
 --- !u!1 &1343092641
 GameObject:
@@ -5564,7 +5573,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1371793667
 MonoBehaviour:
@@ -5718,7 +5727,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1444046670
 MonoBehaviour:
@@ -5895,6 +5904,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1528240980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528240981}
+  - component: {fileID: 1528240982}
+  m_Layer: 0
+  m_Name: LineText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1528240981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528240980}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1528240982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528240980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates:
+  - {fileID: 1550251433}
+  text: Straight lines
+  location: {x: 750, y: 100}
 --- !u!1001 &1550251431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6035,7 +6094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1580194231
 GameObject:
   m_ObjectHideFlags: 0
@@ -6279,7 +6339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1600001598
 MonoBehaviour:
@@ -6534,7 +6594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1664246145
 MonoBehaviour:
@@ -6583,7 +6643,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1667303954
 MonoBehaviour:
@@ -6750,6 +6810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonType: 0
   highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
 --- !u!1001 &1719715059
 PrefabInstance:
@@ -7005,7 +7066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1730906973
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,7 +7098,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1730906975
 MonoBehaviour:
@@ -7198,7 +7260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1762499992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7367,6 +7430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonType: 0
   highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
 --- !u!114 &1897706268
 MonoBehaviour:
@@ -7691,7 +7755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  buttonType: 1
+  highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
 --- !u!1 &1969828227
 GameObject:
   m_ObjectHideFlags: 0
@@ -8093,6 +8158,7 @@ MonoBehaviour:
   - {fileID: 879859748}
   - {fileID: 1257510480}
   - {fileID: 442625983}
+  - {fileID: 1528240982}
   - {fileID: 1667303954}
   - {fileID: 1208905533}
   - {fileID: 423182210}
@@ -8300,7 +8366,7 @@ RectTransform:
   - {fileID: 1897706266}
   - {fileID: 1700792202}
   m_Father: {fileID: 369531228}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8328,7 +8394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7470342146353921630, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7470342146353921630, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
       propertyPath: m_AnchorMax.x
