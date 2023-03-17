@@ -16,10 +16,6 @@ public class control : MonoBehaviour
     public pauseStates paused;
 
     public bool hudVisible;
-    public bool tutorialBlockerVisible;
-    bool prevTutorialBlockerVisible;
-    int displayDelayTime;
-
     bool showMeasureSticks;
     GameObject ms1;
     GameObject ms2;
@@ -75,19 +71,6 @@ public class control : MonoBehaviour
         materialsList.Add(materialType.silicondioxide, new materialData(m_silicondioxide, 0));
         materialsList.Add(materialType.photoresistComplement, new materialData(m_photoresist, 0));
         hudVisible = false;
-        tutorialBlockerVisible = false;
-        prevTutorialBlockerVisible = false;
-        displayDelayTime = 0;
-        if (control.tutorialExists())
-        {
-            tutorialBlockerVisible = true;
-            displayDelayTime = 10;
-        }
-        if (!control.tutorialExists())
-        {
-            GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = 0;
-            GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = false;
-        }
         showMeasureSticks = false;
         ms1 = GameObject.Find("measure stick 1");
         ms2 = GameObject.Find("measure stick 2");
@@ -115,7 +98,7 @@ public class control : MonoBehaviour
         }
 
 
-        if (showMeasureSticks)
+        if (showMeasureSticks && GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>().alpha == 0)
         {
 
             float cameraAngle = GameObject.Find("Main Camera").transform.rotation.eulerAngles.y;
@@ -260,45 +243,6 @@ public class control : MonoBehaviour
     }
 
 
-    private void LateUpdate()
-    {
-        if (prevTutorialBlockerVisible != tutorialBlockerVisible)
-        {
-            displayDelayTime++;
-            if(displayDelayTime >= 5)
-            {
-                if(displayDelayTime < 10)
-                {
-                    if (tutorialBlockerVisible)
-                    {
-                        GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = (displayDelayTime - 5.0f)/10.0f;
-                    }
-                    else
-                    {
-                        GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = (10.0f - displayDelayTime) / 10.0f;
-                    }
-
-                }
-                else
-                {
-                    if (tutorialBlockerVisible)
-                    {
-                        GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = 0.5f;
-                        GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = true;
-                    }
-                    else
-                    {
-                        GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().alpha = 0;
-                        GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = false;
-                    }
-                    displayDelayTime = 0;
-                    prevTutorialBlockerVisible = tutorialBlockerVisible;
-                }
-            }
-        }
-    }
-
-
     public void onExitPauseMenu()
     {
         if (paused != pauseStates.menuPaused) // if it is not paused, paused the game
@@ -394,11 +338,6 @@ public class control : MonoBehaviour
         proc.GetComponent<ProcessParent>().onCancelButton();
     }
 
-    public static bool tutorialExists()
-    {
-        return GameObject.Find("Tutorial");
-    }
-    
     public static pauseStates isPaused()
     {
         GameObject myself = GameObject.Find("Control");
@@ -409,6 +348,14 @@ public class control : MonoBehaviour
     {
         GameObject myself = GameObject.Find("Control");
         myself.GetComponent<control>().paused = newPaused;
+        if(newPaused == control.pauseStates.tutorialPaused)
+        {
+            GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
+        else
+        {
+            GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
     }
 
 }
