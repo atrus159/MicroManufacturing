@@ -91,6 +91,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Parents\ProcessParent.cs" />
+    <Compile Include="Assets\Scripts\AnchorPresetTest\RectTransformPresetApplyUtils.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\BitGrid.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />

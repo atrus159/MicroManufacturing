@@ -33,7 +33,7 @@ public class BasicText : TextParent
     {
         base.Display();
         textBoxText.text = text;
-        textBoxPosition.SetPositionAndRotation(location, Quaternion.Euler(0,0,0));
+        textBoxPosition.GetComponent<RectTransform>().anchoredPosition = location;
         control.setPaused(control.pauseStates.tutorialPaused);
     }
 }

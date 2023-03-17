@@ -9,11 +9,10 @@ public class DialogueCanvas : MonoBehaviour
     //private TextManager textManager;
 
     // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            TextManager.instance.EvokeText(listOfTexts);
-        }
+        TextManager.instance.EvokeText(listOfTexts);
     }
+
 }

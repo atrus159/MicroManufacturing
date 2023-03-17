@@ -26,7 +26,7 @@ public class levelRequirementManager : MonoBehaviour
     public GameObject requirementPrefab;
 
 
-    float displayOffset = 70.0f;
+    float displayOffset = 147.0f;
 
     int count;
 
