@@ -22,7 +22,7 @@ public class TextManager : MonoBehaviour
         }
     }
     private bool isPlayingText = false;
-    private KeyCode advanceTextKeycode = KeyCode.U;
+    private KeyCode advanceTextKeycode = KeyCode.Space;
 
     public void EvokeText(TextParent[] _Text)
     {

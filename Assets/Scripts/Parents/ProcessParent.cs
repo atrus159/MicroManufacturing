@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using CGTespy.UI;
 public class ProcessParent : MonoBehaviour
 {
     public int nSteps = 50;
@@ -39,16 +39,16 @@ public class ProcessParent : MonoBehaviour
         slider = Instantiate(sliderPrefab, transform.position, transform.rotation);
         Transform canvTrans = GameObject.Find("Canvas - Main").transform;
         slider.transform.SetParent(canvTrans, false);
-        slider.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 0, canvTrans.position.y - 400), transform.rotation);
+        slider.GetComponent<RectTransform>().anchoredPosition = new Vector3(0,50,0);
 
 
         finishButton = Instantiate(finishButtonPrefab, transform.position, transform.rotation);
         finishButton.transform.SetParent(canvTrans, false);
-        finishButton.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 400, canvTrans.position.y - 350), transform.rotation);
+        finishButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-100, 100, 0);
 
         cancelButton = Instantiate(cancelButtonPrefab, transform.position, transform.rotation);
         cancelButton.transform.SetParent(canvTrans, false);
-        cancelButton.transform.SetPositionAndRotation(new Vector2(canvTrans.position.x + 400, canvTrans.position.y - 400), transform.rotation);
+        cancelButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-100, 50, 0);
 
 
         Dropdown = GameObject.Find("Dropdown");

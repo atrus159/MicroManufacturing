@@ -15,7 +15,6 @@ public class control : MonoBehaviour
 
     public pauseStates paused;
 
-
     public bool hudVisible;
     public bool tutorialBlockerVisible;
     bool prevTutorialBlockerVisible;
@@ -107,45 +106,12 @@ public class control : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && paused == pauseStates.unPaused) // prevents overlapping tab menu and pause menu
         {
-            hudVisible = !hudVisible;
-            if (!hudVisible)
-            {
-                setMainActive(true);
-                setHudActive(false);
-            }
-            else
-            {
-               setMainActive(false);
-               setHudActive(true);
-            }
+            onDrawMenuButton();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) // if the escape is pressed
-
         {
-            if(paused != pauseStates.menuPaused) // if it is not paused, paused the game
-            {
-                setHudActive(false);
-                setMainActive(false);
-                setPauseMenuActive(true);
-                GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(true); // sets main camera
-            }
-            else // if it is paused, unpause the game
-            {
-                if (!hudVisible)
-                {
-                    setMainActive(true);
-                    setHudActive(false);
-                }
-                else
-                {
-                    setMainActive(false);
-                    setHudActive(true);
-                }
-                setPauseMenuActive(false);
-            }
-      
-
+            onExitPauseMenu();
         }
 
 
@@ -175,6 +141,7 @@ public class control : MonoBehaviour
             }
         }
     }
+
 
     void checkRegion(int region, float cameraAngle)
     {
@@ -230,10 +197,10 @@ public class control : MonoBehaviour
         {
             showMeasureSticks = true;
             float cameraAngle = GameObject.Find("Main Camera").transform.rotation.eulerAngles.y;
+            checkRegion(0, cameraAngle);
             checkRegion(1, cameraAngle);
             checkRegion(2, cameraAngle);
             checkRegion(3, cameraAngle);
-            checkRegion(4, cameraAngle);
         }
         else
         {
@@ -331,11 +298,53 @@ public class control : MonoBehaviour
         }
     }
 
+
+    public void onExitPauseMenu()
+    {
+        if (paused != pauseStates.menuPaused) // if it is not paused, paused the game
+        {
+            setHudActive(false);
+            setMainActive(false);
+            setPauseMenuActive(true);
+            GameObject.Find("Substrate").GetComponent<substrateControl>().mainCam.SetActive(true); // sets main camera
+        }
+        else // if it is paused, unpause the game
+        {
+            if (!hudVisible)
+            {
+                setMainActive(true);
+                setHudActive(false);
+            }
+            else
+            {
+                setMainActive(false);
+                setHudActive(true);
+            }
+            setPauseMenuActive(false);
+        }
+    }
+
+    public void onDrawMenuButton()
+    {
+        hudVisible = !hudVisible;
+        if (!hudVisible)
+        {
+            setMainActive(true);
+            setHudActive(false);
+        }
+        else
+        {
+            setMainActive(false);
+            setHudActive(true);
+        }
+    }
+
     public void OnValueChanged(float newValue)
     {
         GameObject proc = GameObject.Find("New Process");
         proc.GetComponent<ProcessParent>().OnValueChanged(newValue);
     }
+
     public void onDropDownChanged()
     {
         int num = GameObject.Find("Dropdown").GetComponent<DropdownCustom>().value;

@@ -226,7 +226,7 @@ MonoBehaviour:
   - {fileID: 1963404299}
   - {fileID: 1725063351}
   text: And finally, save and load your pattern so you can use it later!
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &57054390
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: Welcome to the Masking Table!
-  location: {x: 750, y: 400}
+  location: {x: 0, y: -100}
 --- !u!1 &127651681
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1700792201}
   text: Click the Photoresist button to create your stencil.
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 100}
 --- !u!1 &138101932
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   activates: []
   text: "Now it's time to transfer your pattern onto your wafer. To do this we\u2019ll
     use something called photoresist."
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 0}
 --- !u!1 &146416567
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 540}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 540}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 540}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1016,6 +1016,7 @@ RectTransform:
   - {fileID: 1325371105}
   - {fileID: 2059458290}
   - {fileID: 731804757}
+  - {fileID: 2139247532}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1173,7 +1174,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1338332388}
   text: Clear your pattern
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1001 &441465484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1330,7 +1331,7 @@ MonoBehaviour:
   - {fileID: 1735975620}
   - {fileID: 1008801158}
   text: Rectangles and Circles (you can click to toggle between outline and soli
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &456745328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1380,152 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   advanceRequirements: 1
+--- !u!1 &464380906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464380907}
+  - component: {fileID: 464380909}
+  - component: {fileID: 464380908}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &464380907
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464380906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1917572492}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &464380908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464380906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &464380909
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464380906}
+  m_CullTransparentMesh: 1
+--- !u!114 &467376459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+  m_PrefabInstance: {fileID: 2055874073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23733b9c1ef34114d8be94c6d40403cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &479801478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7154173091511205324, guid: 833f40f43b9da414eb53bd19e10dcc7b, type: 3}
@@ -1432,7 +1579,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: Nice job!
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 0}
 --- !u!1 &497341973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,7 +2201,7 @@ MonoBehaviour:
   activates: []
   text: Welcome to your workbench! You'll be doing most of your research here, so
     let's take a tour around.
-  location: {x: 750, y: 400}
+  location: {x: 0, y: 0}
 --- !u!1001 &622036390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2350,11 +2497,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
-  activates: []
+  activates:
+  - {fileID: 2139247531}
   text: "For this, we\u2019ll need to make a Photomask. Press TAB or click the Photomask
     button to head over to the Masking Table. There we\u2019ll see what masking is
     all about!"
-  location: {x: 750, y: 400}
+  location: {x: 0, y: 0}
 --- !u!1 &678136223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,8 +2771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200, y: -100}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -158, y: -73}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &729504602
 CanvasRenderer:
@@ -2688,7 +2836,7 @@ MonoBehaviour:
   activates: []
   text: Try to deposit at least twenty micrometers of material on the wafer (It's
     okay to overshoot!) When you think you're done, click the "Finished" button.
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 100}
 --- !u!1 &759430622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,7 +2886,7 @@ MonoBehaviour:
   activates: []
   text: We now have your pattern made out of photoresist, but how do we get it to
     be made out of anything useful?
-  location: {x: 750, y: 400}
+  location: {x: 0, y: 100}
 --- !u!1 &760634637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,7 +2937,7 @@ MonoBehaviour:
   - {fileID: 1897706265}
   text: After you lay down a photoresist, you can perform this lift-off with the
     "lift-off" button in the bottom right. Try making a cut-out of your pattern!
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 100}
 --- !u!1 &763787996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2954,7 +3102,7 @@ MonoBehaviour:
   activates: []
   text: "Once you\u2019re done, I\u2019ll show you how to transfer your pattern onto
     the wafer."
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &879438999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3287,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1312003952}
   text: Paint brush
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &935613849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3723,7 +3871,7 @@ MonoBehaviour:
     spray your wafer with a thin film of material, which will slowly build up a deposit
     on the surface. This is called \u201CSputtering\u201D Click the \"Deposit\" button
     to try it out."
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 100}
 --- !u!1 &1025669954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,9 +4298,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
-  activates: []
-  text: When you're finished drawing, press TAB to return to your workbench.
-  location: {x: 750, y: 400}
+  activates:
+  - {fileID: 1917572491}
+  text: When you're finished drawing, press TAB or click the back button to return
+    to your workbench.
+  location: {x: 0, y: -100}
 --- !u!1 &1111456389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,7 +4351,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: Using the tools on the left, you can draw a pattern in black and white.
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &1132620668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4336,6 +4486,141 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132620668}
+  m_CullTransparentMesh: 1
+--- !u!1 &1134202402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134202403}
+  - component: {fileID: 1134202405}
+  - component: {fileID: 1134202404}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1134202403
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134202402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2139247532}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1134202404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134202402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1134202405
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134202402}
   m_CullTransparentMesh: 1
 --- !u!1 &1178598056
 GameObject:
@@ -4524,7 +4809,7 @@ MonoBehaviour:
   text: "The slider at the bottom of the screen controls how long you\u2019ll run
     the Sputtering System for. The longer you let it run, the more material you'll
     deposit!"
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 100}
 --- !u!1 &1208905531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4574,7 +4859,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1083404850}
   text: Toggle whether you're drawing in white or black
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &1218733186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4713,7 +4998,7 @@ MonoBehaviour:
   activates:
   - {fileID: 622036392}
   text: Fill bucket
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &1263892657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4762,7 +5047,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: "But we\u2019ll get to all of that later, here comes your lab partner!"
-  location: {x: 750, y: 400}
+  location: {x: 0, y: 0}
 --- !u!1 &1302498628
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,7 +5164,7 @@ MonoBehaviour:
   text: If we deposit material on top of the pattern, we can then "lift-off" the
     photoresist, peeling it and the material on top of it away. This will leave behind
     a cut-out of your patter, made of whatever material you want!
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 100}
 --- !u!1001 &1312003950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5066,7 +5351,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: Ooh, that looks cool!
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 0}
 --- !u!1 &1325371104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5278,7 +5563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1342111431
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5593,7 +5878,7 @@ MonoBehaviour:
   text: "With your Sputtering System and Photomasks, you can make almost any shape
     on your wafer; From printed circuit boards to micromechanical systems, you\u2019re
     well on your way to becoming a Microengeneering master!"
-  location: {x: 750, y: 400}
+  location: {x: 0, y: 0}
 --- !u!1 &1383199033
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,7 +5981,7 @@ MonoBehaviour:
   activates: []
   text: "In front of you is a silicon wafer. All the fun micro devices you\u2019ll
     design will be built on here! You can move around the wafer with the arrow keys."
-  location: {x: 750, y: 150}
+  location: {x: 0, y: -250}
 --- !u!1 &1444046668
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,7 +6031,7 @@ MonoBehaviour:
   activates: []
   text: "Using these tools, draw whatever pattern you want. Your lab partner will
     come check out your work later, so make sure it\u2019s something cool!"
-  location: {x: 750, y: 400}
+  location: {x: 0, y: -100}
 --- !u!1001 &1514452344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5953,7 +6238,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1550251433}
   text: Straight lines
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1001 &1550251431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6145,7 +6430,7 @@ MonoBehaviour:
   activates: []
   text: 'You have a bunch of drawing tools to help you make whatever pattern you
     want:'
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &1593011515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,7 +6496,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 540}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -6308,7 +6593,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: Pretty isn't it? Anyway, let's get to building.
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 0}
 --- !u!1 &1600001596
 GameObject:
   m_ObjectHideFlags: 0
@@ -6358,7 +6643,7 @@ MonoBehaviour:
   activates: []
   text: This will leave us with a cut-out of your pattern made out of photoresist.
     A little microscopic stencil!
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 0}
 --- !u!1 &1628140450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,7 +6897,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: "Excellent! You\u2019re really getting the hang of this!"
-  location: {x: 750, y: 200}
+  location: {x: 0, y: -100}
 --- !u!1 &1667303952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6662,7 +6947,7 @@ MonoBehaviour:
   activates:
   - {fileID: 519801419}
   text: Swap black and white in the pattern
-  location: {x: 750, y: 100}
+  location: {x: 0, y: -250}
 --- !u!1 &1700792201
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,7 +7403,7 @@ MonoBehaviour:
   text: Photoresist is a material that reacts with light to harden and become solid.
     We can shine light through the pattern you just made to harden some of the photoresist
     into a particular shape.
-  location: {x: 750, y: 500}
+  location: {x: 0, y: 0}
 --- !u!1001 &1735975618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7376,7 +7661,7 @@ MonoBehaviour:
   activates: []
   text: With the Sputtering System, we can make a uniform deposit of material, but
     what if we want something a little more complicated?
-  location: {x: 750, y: 400}
+  location: {x: 0, y: 0}
 --- !u!1 &1897706265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7526,6 +7811,155 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897706265}
   m_CullTransparentMesh: 1
+--- !u!1 &1917572491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1917572492}
+  - component: {fileID: 1917572496}
+  - component: {fileID: 1917572495}
+  - component: {fileID: 1917572494}
+  - component: {fileID: 1917572493}
+  m_Layer: 5
+  m_Name: DrawButtonBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1917572492
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917572491}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 464380907}
+  m_Father: {fileID: 2015154151}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -100}
+  m_SizeDelta: {x: 272, y: 86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1917572493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917572491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 0
+  highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
+--- !u!114 &1917572494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917572491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: 67eb6a0b6e6e45e46a3b6b61f1c7b123, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: a88169e78db199e4dac9fb785e03f8be, type: 3}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1917572495}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 467376459}
+        m_TargetAssemblyTypeName: control, Assembly-CSharp
+        m_MethodName: onDrawMenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1917572495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917572491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 16f22e9fc45e5fb49b0c8e6bc94f68dd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1917572496
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917572491}
+  m_CullTransparentMesh: 1
 --- !u!1 &1927960799
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,7 +8098,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
     m_PressedColor: {r: 0, g: 0.627451, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -7685,7 +8119,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1938388336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 467376459}
+        m_TargetAssemblyTypeName: control, Assembly-CSharp
+        m_MethodName: onExitPauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1938388336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7941,11 +8387,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 540}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -7998,6 +8444,7 @@ RectTransform:
   - {fileID: 1719715060}
   - {fileID: 1725063350}
   - {fileID: 441465485}
+  - {fileID: 1917572492}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8368,11 +8815,160 @@ RectTransform:
   m_Father: {fileID: 369531228}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -540, y: 374}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2139247531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139247532}
+  - component: {fileID: 2139247536}
+  - component: {fileID: 2139247535}
+  - component: {fileID: 2139247534}
+  - component: {fileID: 2139247533}
+  m_Layer: 5
+  m_Name: DrawButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2139247532
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139247531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1134202403}
+  m_Father: {fileID: 369531228}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -100}
+  m_SizeDelta: {x: 272, y: 86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2139247533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139247531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 0
+  highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
+--- !u!114 &2139247534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139247531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: 67eb6a0b6e6e45e46a3b6b61f1c7b123, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: a88169e78db199e4dac9fb785e03f8be, type: 3}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2139247535}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 467376459}
+        m_TargetAssemblyTypeName: control, Assembly-CSharp
+        m_MethodName: onDrawMenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2139247535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139247531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 16f22e9fc45e5fb49b0c8e6bc94f68dd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2139247536
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139247531}
+  m_CullTransparentMesh: 1
 --- !u!1001 &7470342147084093963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8383,6 +8979,10 @@ PrefabInstance:
     - target: {fileID: 7470342146353921626, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
       propertyPath: m_Name
       value: Dropdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470342146353921626, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7470342146353921630, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
       propertyPath: m_Pivot.x
