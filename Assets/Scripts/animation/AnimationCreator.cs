@@ -23,7 +23,7 @@ public class AnimationCreator : MonoBehaviour
     GameObject beam1;
     GameObject beam2;
     bool middleFlag;
-    float beamSpeed = 0.1f;
+    float beamSpeed = 10.0f;
     int beamCrossHeight = 20;
 
     states curLightBeamState;
@@ -48,8 +48,8 @@ public class AnimationCreator : MonoBehaviour
 
         if (curLightBeamState == states.traveling)
         {
-            beam1.transform.position += new Vector3(beamSpeed, 0, -beamSpeed);
-            beam2.transform.position += new Vector3(-beamSpeed, 0, -beamSpeed);
+            beam1.transform.position += new Vector3(beamSpeed * Time.deltaTime, 0, -beamSpeed * Time.deltaTime);
+            beam2.transform.position += new Vector3(-beamSpeed * Time.deltaTime, 0, -beamSpeed * Time.deltaTime);
             float yPos = beam1.transform.position.z - bottomLeft.y - (topRight.y - bottomLeft.y) / 2;
             float xPos = beam1.transform.position.x - bottomLeft.x - (topRight.x - bottomLeft.x) / 2;
             float angle1 = Mathf.Rad2Deg * Mathf.Atan2(beamCrossHeight, yPos) - 90;
