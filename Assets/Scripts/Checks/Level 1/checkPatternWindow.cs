@@ -10,7 +10,7 @@ public class checkPatternWindow : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Head to the Masking Table.";
+        name = "Head to the Photolithography Bench.";
         description = "You can press TAB, or click on the Photomask button to switch to the Masking Table.";
         checkOutsideEdits = true;
         cGroup = GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>();

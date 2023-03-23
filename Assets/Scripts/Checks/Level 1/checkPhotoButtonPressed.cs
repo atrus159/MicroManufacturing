@@ -10,7 +10,7 @@ public class checkPhotoButtonPressed : levelRequirementParent
     {
         base.onStart();
         name = "Create your photoresist stencil.";
-        description = "Click the Photoresist button in the bottom right to activate the process.";
+        description = "Click the Photoresist button in the bottom right to complete the process.";
         checkOutsideEdits = true;
     }
 

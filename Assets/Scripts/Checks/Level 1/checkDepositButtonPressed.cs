@@ -9,7 +9,7 @@ public class checkDepositButtonPressed : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Click the Deposit button to start sputtering";
+        name = "Click the Deposit button to start coating the wafer.";
         description = "The Deposit button is in the bottom right.";
         checkOutsideEdits = true;
     }

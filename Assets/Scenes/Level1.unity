@@ -225,7 +225,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1963404299}
   - {fileID: 1725063351}
-  text: And finally, save and load your pattern so you can use it later!
+  text: And finally, save and load your photomask pattern so you can use it later!
   location: {x: 0, y: -250}
 --- !u!1 &36520037
 GameObject:
@@ -296,8 +296,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294817609
-  m_fontColor: {r: 0.2865788, g: 0.717405, b: 0.990566, a: 1}
+    rgba: 4294947843
+  m_fontColor: {r: 0.011764707, g: 0.7058824, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -411,7 +411,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Welcome to the Masking Table!
+  text: Welcome to the Photolithography Bench!
   location: {x: 0, y: -100}
 --- !u!1 &127651681
 GameObject:
@@ -506,7 +506,8 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1700792201}
-  text: Click the Photoresist button to create your stencil.
+  text: "Fortunately for you, we\u2019ve made a single button to do all of this!
+    Click the Photoresist button to create your stencil."
   location: {x: 0, y: 100}
 --- !u!1 &138101932
 GameObject:
@@ -1466,7 +1467,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1735975620}
   - {fileID: 1008801158}
-  text: Rectangles and Circles (you can click to toggle between outline and soli
+  text: Rectangles and Circles (you can click to toggle between outline and solid)
   location: {x: 0, y: -250}
 --- !u!1 &456745328
 GameObject:
@@ -2635,9 +2636,9 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 2139247531}
-  text: "For this, we\u2019ll need to make a Photomask. Press TAB or click the Photomask
-    button to head over to the Masking Table. There we\u2019ll see what masking is
-    all about!"
+  text: "For this, we\u2019ll need to make a *photomask*. Press TAB or click the
+    Photomask button to head over to the Photolithography Bench. There we\u2019ll
+    see what photolithography is all about!"
   location: {x: 0, y: 0}
 --- !u!1 &678136223
 GameObject:
@@ -2970,8 +2971,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Try to deposit at least twenty micrometers of material on the wafer (It's
-    okay to overshoot!) When you think you're done, click the "Finished" button.
+  text: "Try to deposit at least twenty micrometers (\xB5m) of material on the wafer
+    (It's okay to overshoot!) When you think you're done, click the \"Finished\"
+    button."
   location: {x: 0, y: 100}
 --- !u!1 &759430622
 GameObject:
@@ -3020,8 +3022,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: We now have your pattern made out of photoresist, but how do we get it to
-    be made out of anything useful?
+  text: We now have your pattern made out of photoresist, but how do we use it to
+    actually pattern the material coating to build something useful?
   location: {x: 0, y: 100}
 --- !u!1 &760634637
 GameObject:
@@ -3072,7 +3074,8 @@ MonoBehaviour:
   activates:
   - {fileID: 1897706265}
   text: After you lay down a photoresist, you can perform this lift-off with the
-    "lift-off" button in the bottom right. Try making a cut-out of your pattern!
+    "lift-off" button in the bottom right. Try making an inverse replica of your
+    pattern!
   location: {x: 0, y: 100}
 --- !u!1 &763787996
 GameObject:
@@ -3236,8 +3239,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: "Once you\u2019re done, I\u2019ll show you how to transfer your pattern onto
-    the wafer."
+  text: "Once you\u2019re done, I\u2019ll show you how to transfer your pattern to
+    the coating that you deposited."
   location: {x: 0, y: -250}
 --- !u!1 &879438999
 GameObject:
@@ -4003,10 +4006,9 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1342111430}
-  text: "The first device on your work station is the Sputtering System. This will
-    spray your wafer with a thin film of material, which will slowly build up a deposit
-    on the surface. This is called \u201CSputtering\u201D Click the \"Deposit\" button
-    to try it out."
+  text: The first processing essential step we will use is *deposition*. This will
+    coat your wafer with a thin film of material, which will grow thicker the longer
+    you run the process. Click the "Deposit" button to try it out.
   location: {x: 0, y: 100}
 --- !u!1 &1025669954
 GameObject:
@@ -4436,8 +4438,7 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1917572491}
-  text: When you're finished drawing, press TAB or click the back button to return
-    to your workbench.
+  text: When you're finished drawing, press TAB to return to your workbench.
   location: {x: 0, y: -100}
 --- !u!1 &1111456389
 GameObject:
@@ -4488,6 +4489,53 @@ MonoBehaviour:
   activates: []
   text: Using the tools on the left, you can draw a pattern in black and white.
   location: {x: 0, y: -250}
+--- !u!1 &1122045747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122045748}
+  - component: {fileID: 1122045749}
+  m_Layer: 0
+  m_Name: LevelEndText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1122045748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122045747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122045749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122045747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87e7e580026cc04d8482f30c9deacc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
 --- !u!1 &1132620668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,8 +4991,8 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates: []
   text: "The slider at the bottom of the screen controls how long you\u2019ll run
-    the Sputtering System for. The longer you let it run, the more material you'll
-    deposit!"
+    the deposition. As you deposit for longer, there will be a thicker coating on
+    the wafer."
   location: {x: 0, y: 100}
 --- !u!1 &1208905531
 GameObject:
@@ -5247,6 +5295,7 @@ Transform:
   - {fileID: 1664246144}
   - {fileID: 1371793666}
   - {fileID: 1263892658}
+  - {fileID: 1122045748}
   m_Father: {fileID: 2053329037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5297,9 +5346,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: If we deposit material on top of the pattern, we can then "lift-off" the
-    photoresist, peeling it and the material on top of it away. This will leave behind
-    a cut-out of your patter, made of whatever material you want!
+  text: One way to do this is called *lift-off*. If we deposit material on top of
+    the photoresist stencil, we can then remove the photoresist, *lifting off* the
+    coating sitting on top. This will only leave the coating on regions that were
+    not protected by the photoresist stencil. Using this simple stencil printing-like
+    process to create any shape you want!
   location: {x: 0, y: 100}
 --- !u!1001 &1312003950
 PrefabInstance:
@@ -6011,9 +6062,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: "With your Sputtering System and Photomasks, you can make almost any shape
-    on your wafer; From printed circuit boards to micromechanical systems, you\u2019re
-    well on your way to becoming a Microengeneering master!"
+  text: "By using photomasks with different patterns and depositing different materials,
+    you can make many complicated devices such as transistors or micromechanical
+    systems. You\u2019re well on your way to becoming a microengineering master!"
   location: {x: 0, y: 0}
 --- !u!1 &1383199033
 GameObject:
@@ -6115,8 +6166,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: "In front of you is a silicon wafer. All the fun micro devices you\u2019ll
-    design will be built on here! You can move around the wafer with the arrow keys."
+  text: "In front of you is a silicon wafer. All the fun device components you\u2019ll
+    microfabricate will be built on here! You can look around the wafer with the
+    arrow keys."
   location: {x: 0, y: -250}
 --- !u!1 &1444046668
 GameObject:
@@ -6865,7 +6917,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Pretty isn't it? Anyway, let's get to building.
+  text: Pretty cool, isn't it? Anyway, let's get to microfabricating!
   location: {x: 0, y: 0}
 --- !u!1 &1600001596
 GameObject:
@@ -6914,8 +6966,9 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: This will leave us with a cut-out of your pattern made out of photoresist.
-    A little microscopic stencil!
+  text: 'Once the selectively exposed photoresist is immersed in a solution (developer),
+    the exposed regions will dissolve away. This will leave us with a copy of your
+    designed pattern made out of the photoresist. A little microscopic stencil! '
   location: {x: 0, y: 0}
 --- !u!1 &1628140450
 GameObject:
@@ -7673,9 +7726,12 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: Photoresist is a material that reacts with light to harden and become solid.
-    We can shine light through the pattern you just made to harden some of the photoresist
-    into a particular shape.
+  text: "Photoresist is a material that reacts with light to become soluble or less
+    soluble. The one we\u2019re using is called positive photoresist, which means
+    it becomes more soluble when exposed to light. We can shine light through the
+    photomask pattern you just made to expose some of the photoresist into a particular
+    shape. Just like photography - not the digital but the old-school photography
+    where you use a photosensitive film!"
   location: {x: 0, y: 0}
 --- !u!1001 &1735975618
 PrefabInstance:
@@ -7932,8 +7988,8 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  text: With the Sputtering System, we can make a uniform deposit of material, but
-    what if we want something a little more complicated?
+  text: We now can uniformly coat the wafer , but what if we want to pattern this
+    coating?
   location: {x: 0, y: 0}
 --- !u!1 &1897706265
 GameObject:
@@ -8901,6 +8957,7 @@ MonoBehaviour:
   - {fileID: 1664246145}
   - {fileID: 1371793667}
   - {fileID: 1263892659}
+  - {fileID: 1122045749}
 --- !u!222 &2053329043
 CanvasRenderer:
   m_ObjectHideFlags: 0

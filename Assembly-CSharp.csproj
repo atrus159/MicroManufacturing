@@ -96,7 +96,6 @@
     <Compile Include="Assets\Scripts\BitGrid.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkReturn.cs" />
-    <Compile Include="Assets\Scripts\ButtonEvents.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Checks\checkTwoRectangles.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkPhotoButtonPressed.cs" />
@@ -146,13 +145,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\Checks\checkEPressed.cs" />
-    <Compile Include="Assets\Scripts\MenuButtons\StartButton.cs" />
+    <Compile Include="Assets\Scripts\MenuButtons\MenuButtonManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\draw_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\LevelEndText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
