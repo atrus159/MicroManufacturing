@@ -11,7 +11,7 @@ public class checkDepositOnPhotoResist : levelRequirementParent
     {
         base.onStart();
         name = "Deposit material on top of the photoresist.";
-        description = "You can use the Deposit button, the same as you did before.";
+        description = "You can use the Deposit button, just like how you did it before.";
         slab = new CheckStruct(0, 1);
         RectangleStructure slabStruct = new RectangleStructure(control.materialType.silicon, 1, new Vector3Int(99, 20, 99), new Vector3Int(99, 100, 99), 1, new[] { true, false, false });
         AmorphousStructure photoresist = new AmorphousStructure(control.materialType.photoresist, 1, new Vector3Int(1, 1, 1), new Vector3Int(99, 100, 99), 1, new[] { true, true, false }, control.materialType.silicon);
