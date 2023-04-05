@@ -1,3 +1,4 @@
+using CGTespy.UI;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class BasicText : TextParent
 {
     [SerializeField] private string text;
     [SerializeField] private Vector2 location;
+    [SerializeField] private TextAnchor anchor;
 
     override public void Initialize()
     {
@@ -57,7 +59,11 @@ public class BasicText : TextParent
     {
         base.Display();
         textBoxText.text = text;
+        RectTransform dialogueSystem = GameObject.Find("DialogueSystem").GetComponent<RectTransform>();
+        CGTespy.UI.RectTransformPresetApplyUtils.ApplyAnchorPreset(textBoxPosition.GetComponent<RectTransform>(), anchor);
+        CGTespy.UI.RectTransformPresetApplyUtils.ApplyAnchorPreset(dialogueSystem, anchor);
+        dialogueSystem.anchoredPosition = new Vector3(0, 0, 0);
         textBoxPosition.GetComponent<RectTransform>().anchoredPosition = location;
-        control.setPaused(control.pauseStates.tutorialPaused);
+        //control.setPaused(control.pauseStates.tutorialPaused);
     }
 }
