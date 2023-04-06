@@ -1,3 +1,4 @@
+using CGTespy.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,8 @@ using UnityEngine.UI;
 
 public class paint : MonoBehaviour
 {
-    public bitMap grid;
-    public bitMap gridOld;
+    public BitGrid grid;
+    public BitGrid gridOld;
     Image image;
     public Texture2D texture;
     public Texture2D oldTexture;
@@ -23,12 +24,12 @@ public class paint : MonoBehaviour
 
     bool successfulClick;
 
-
+    Resolution res;
     // Start is called before the first frame update
     void Start()
     {
-        grid = new bitMap();
-        gridOld = new bitMap();
+        grid = new BitGrid();
+        gridOld = new BitGrid();
 
         image = GetComponent<Image>();
         trans = GetComponent<RectTransform>();
@@ -37,9 +38,9 @@ public class paint : MonoBehaviour
         clickCoords = new Vector2Int(-1, -1);
         image.material.mainTexture = texture;
         updateScale();
-        for(int i = 0; i < bitMap.gridWidth; i++)
+        for(int i = 0; i < BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j< bitMap.gridHeight; j++)
+            for(int j = 0; j< BitGrid.gridHeight; j++)
             {
                 setPixel(i, j, 0);
             }
@@ -55,8 +56,9 @@ public class paint : MonoBehaviour
         curTool = 0;
         fillMode = 0;
         successfulClick = false;
+        scaleFactor = 3;
+        res = Screen.currentResolution;
     }
-
 
     public void setPixel(int i, int j, int val)
     {
@@ -79,26 +81,29 @@ public class paint : MonoBehaviour
     {
         float mx = Input.mousePosition.x;
         float my = Input.mousePosition.y;
-        float width = trans.sizeDelta.x;
-        float height = trans.sizeDelta.y;
         float centerX = Screen.width * 0.5f;
         float centerY = Screen.height * 0.5f;
         Vector3 toReturn = new Vector3(-2, -2, -2);
+        float width = scaleFactor * BitGrid.gridWidth;
+        float height = scaleFactor * BitGrid.gridHeight;
 
 
-        float onCanvasX = mx - (centerX - width * 0.5f + xOffset) ;
-        float onCanvasY = my - (centerY - height * 0.5f + yOffset);
+        float onCanvasX = mx - (centerX - width * 0.5f);
+        float onCanvasY = my - (centerY - height * 0.5f);
+
+
+
 
         toReturn.x = Mathf.Round(onCanvasX / scaleFactor);
         toReturn.y = Mathf.Round(onCanvasY / scaleFactor);
-        if(toReturn.x >= bitMap.gridWidth)
+        if(toReturn.x >= BitGrid.gridWidth)
         {
-            toReturn.x = bitMap.gridWidth-1;
+            toReturn.x = BitGrid.gridWidth-1;
             toReturn.z = -1;
         }
-        if(toReturn.y >= bitMap.gridHeight)
+        if(toReturn.y >= BitGrid.gridHeight)
         {
-            toReturn.y = bitMap.gridHeight-1;
+            toReturn.y = BitGrid.gridHeight-1;
             toReturn.z = -1;
         }
         if(toReturn.x < 0)
@@ -111,21 +116,26 @@ public class paint : MonoBehaviour
             toReturn.y = 0;
             toReturn.z = -1;
         }
+
+        //Debug.Log(toReturn.x + ", " + toReturn.y);
         return toReturn;
     }
 
     void updateScale()
     {
-        int width = (int)trans.sizeDelta.x;
-        int height = (int)trans.sizeDelta.y;
-        int minDist = width;
+        /*float width = trans.lossyScale.x*300;
+        float height = trans.lossyScale.y*300;
+        //Debug.Log(width + ", " + height);
+        float minDist = width;
         if(height < width)
         {
             minDist = height;
         }
-        scaleFactor = (int) Mathf.Floor((float) minDist / bitMap.gridWidth);
-        xOffset = (int)((width - (100 * scaleFactor)) * 0.5f);
-        yOffset = (int)((height - (100 * scaleFactor)) * 0.5f);
+        scaleFactor = (int) Mathf.Floor((float) minDist / BitGrid.gridWidth);*/
+        trans.sizeDelta = new Vector2(scaleFactor*BitGrid.gridWidth / trans.lossyScale.x, scaleFactor * BitGrid.gridHeight / trans.lossyScale.y);
+        GameObject.Find("camera_panel").GetComponent<RectTransform>().sizeDelta= trans.sizeDelta;
+        //Debug.Log(scaleFactor);
+
     }
 
     public void saveGrid()
@@ -167,6 +177,16 @@ public class paint : MonoBehaviour
             {
                 tools[curTool].onClick((int)mouseVec.x, (int)mouseVec.y);
             }
+
+        }
+
+        
+        if (res.Equals(Screen.currentResolution))
+        {
+
+            updateScale();
+
+            res = Screen.currentResolution;
 
         }
     }

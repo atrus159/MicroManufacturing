@@ -29,7 +29,7 @@ public class bucketTool : toolParent
 
     private void fill(int i, int j, int color, Queue<Vector2Int> queue)
     {
-        if(i < 0 || i >= bitMap.gridWidth || j < 0 || j >= bitMap.gridHeight)
+        if(i < 0 || i >= BitGrid.gridWidth || j < 0 || j >= BitGrid.gridHeight)
         {
             return;
         }

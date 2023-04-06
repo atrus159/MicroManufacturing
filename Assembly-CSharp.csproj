@@ -57,57 +57,69 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Parents\TextParent.cs" />
     <Compile Include="Assets\Scripts\Parents\toolParent.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\color_button.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueCanvas.cs" />
+    <Compile Include="Assets\Scripts\Activatable.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\load_button.cs" />
     <Compile Include="Assets\Scripts\meshGenerator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\Scripts\tutorialText.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkLiftOff.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\substrateControl.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\swap_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\LV1\dropdownSelectCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\clear_button.cs" />
     <Compile Include="Assets\Scripts\levelRequirementManager.cs" />
+    <Compile Include="Assets\Scripts\animation\SpinCastAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\fill_button.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\LV1\cameraPanCheck.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\BasicText.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\RectangleStructure.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\elipse_button.cs" />
-    <Compile Include="Assets\Scripts\Parents\tutorialParent.cs" />
     <Compile Include="Assets\Scripts\tools\lineTool.cs" />
     <Compile Include="Assets\Scripts\meshMaterial.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\control.cs" />
     <Compile Include="Assets\Scripts\tools\rectangleTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\FreeText.cs" />
     <Compile Include="Assets\Scripts\paint.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkPatternWindow.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Parents\ProcessParent.cs" />
+    <Compile Include="Assets\Scripts\AnchorPresetTest\RectTransformPresetApplyUtils.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\Scripts\bitMap.cs" />
+    <Compile Include="Assets\Scripts\BitGrid.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
-    <Compile Include="Assets\Scripts\ButtonEvents.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkReturn.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Checks\checkTwoRectangles.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkPhotoButtonPressed.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositOnPhotoResist.cs" />
+    <Compile Include="Assets\Scripts\altText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositButtonPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Checks\checkWPressed.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessGen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\tools\bucketTool.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\LV1\Level1Tutorial.cs" />
+    <Compile Include="Assets\Scripts\animation\AnimationCreator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\rect_button.cs" />
+    <Compile Include="Assets\Scripts\SceneManagement\sceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkSiliconSlab.cs" />
+    <Compile Include="Assets\FileBrowserUpdate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\Scripts\Tutorials\LV1\depositButtonCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessIonEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\TextManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\save_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\line_button.cs" />
@@ -116,12 +128,17 @@
     <Compile Include="Assets\Scripts\Checks\checkStructures\CheckStruct.cs" />
     <Compile Include="Assets\Scripts\Parents\levelRequirementParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkDonePressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
+    <Compile Include="Assets\Scripts\Checks\checkStructures\AmorphousStructure.cs" />
+    <Compile Include="Assets\Scripts\animation\clickMeDestroy.cs" />
     <Compile Include="Assets\Scripts\Checks\checkQPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\DropdownCustom.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\CheckStructComponent.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkCameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\LevelEndText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -132,11 +149,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\Checks\checkEPressed.cs" />
-    <Compile Include="Assets\Scripts\MenuButtons\StartButton.cs" />
+    <Compile Include="Assets\Scripts\MenuButtons\MenuButtonManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\draw_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Scripts\Parents\checkParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
@@ -146,9 +162,11 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\Shaders\RainbowShaderSubstrate.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Shaders\RainbowShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -414,11 +432,17 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>Assets\Plugins\AnotherFileBrowser\Plugins\System.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs">
+      <HintPath>Assets\Plugins\AnotherFileBrowser\Plugins\Ookii.Dialogs.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -878,6 +902,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D9B72603-84DA-6BAB-F0CD-646AE8A2A7D2}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

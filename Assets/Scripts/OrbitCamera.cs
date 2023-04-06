@@ -6,8 +6,8 @@ public class OrbitCamera : MonoBehaviour
 	[SerializeField]
 	Transform focus = default;
 
-	[SerializeField, Range(1f, 20f)]
-	float distance = 5f;
+	[SerializeField, Range(1f, 100f)]
+	public float distance = 5f;
 
 	[SerializeField, Range(1f, 360f)]
 	float rotationSpeed = 90f;
@@ -29,7 +29,7 @@ public class OrbitCamera : MonoBehaviour
 
 	void LateUpdate()
 	{
-        if (control.isPaused() == control.pauseStates.unPaused)
+        if (control.isPaused() != control.pauseStates.menuPaused)
         {
             ManualRotation();
         }

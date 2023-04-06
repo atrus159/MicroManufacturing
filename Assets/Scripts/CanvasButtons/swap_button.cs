@@ -19,9 +19,9 @@ public class swap_button : MonoBehaviour
     }
     public void TaskOnClick()
     {
-        for(int i = 0; i< bitMap.gridWidth; i++)
+        for(int i = 0; i< BitGrid.gridWidth; i++)
         {
-            for(int j = 0; j< bitMap.gridHeight; j++)
+            for(int j = 0; j< BitGrid.gridHeight; j++)
             {
                 paintCavas.setPixel(i,j,1 - paintCavas.grid.getPoint(i,j));
             }

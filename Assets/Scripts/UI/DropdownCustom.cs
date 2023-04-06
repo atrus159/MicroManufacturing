@@ -26,12 +26,14 @@ public class DropdownCustom : MonoBehaviour
 
     public Sprite[] dropDownSprites = new Sprite[6];
 
+    public bool visible;
+
     bool toggled;
     int curElement;
     int numElements;
     List<int> returnElements;
     GameObject tab;
-
+    CanvasGroup blocker;
     public int value;
 
     // Start is called before the first frame update
@@ -41,7 +43,7 @@ public class DropdownCustom : MonoBehaviour
         tab.SetActive(false);
         returnElements = new List<int>();
         toggled = false;
-        curElement = 0;
+        curElement = 3;
         numElements = 0;
         if (hasAluminum)
         {
@@ -68,21 +70,31 @@ public class DropdownCustom : MonoBehaviour
             numElements++;
             returnElements.Add(4);
         }
-        value = returnElements[0];
+        value = returnElements[curElement];
+        GameObject.Find("LayerStack").GetComponent<LayerStackHolder>().onValueChange(value);
+        blocker = GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>();
+        if (!visible)
+        {
+            gameObject.GetComponent<Image>().enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(blocker.blocksRaycasts || !visible)
+        {
+            return;
+        }
         float mouseX = UnityEngine.Input.mousePosition.x;
         float mouseY = UnityEngine.Input.mousePosition.y;
+        RectTransform trans = gameObject.GetComponent<RectTransform>();
+        float width = trans.sizeDelta.x*trans.lossyScale.x;
+        float height = trans.sizeDelta.y * trans.lossyScale.y;
 
-        float width = gameObject.GetComponent<RectTransform>().sizeDelta.x;
-        float height = gameObject.GetComponent<RectTransform>().sizeDelta.y;
 
-
-        float x1 = gameObject.GetComponent<RectTransform>().position.x - width/2;
-        float y1 = gameObject.GetComponent<RectTransform>().position.y - height/2;
+        float x1 = trans.position.x - width/2;
+        float y1 = trans.position.y - height/2;
         float x2 = x1 + width;
         float y2 = y1 + height;
 
@@ -153,7 +165,7 @@ public class DropdownCustom : MonoBehaviour
             int index = 0;
             if (mouseX > x1 && mouseX < x2)
             {
-                float tabHeight = tab.GetComponent<RectTransform>().sizeDelta.y;
+                float tabHeight = tab.GetComponent<RectTransform>().sizeDelta.y* tab.GetComponent<RectTransform>().lossyScale.y;
                 float mouseRelY = y1 - mouseY;
                 float separation = tabHeight / numElements;
                 index = (int)Mathf.Floor(mouseRelY / separation) + 1;
