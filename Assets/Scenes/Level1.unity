@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140284, g: 0.50089616, b: 0.5723196, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,8 +225,10 @@ MonoBehaviour:
   activates:
   - {fileID: 1963404299}
   - {fileID: 1725063351}
+  advanceRequirements: 0
   text: And finally, save and load your photomask pattern so you can use it later!
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &36520037
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,8 +413,10 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: Welcome to the Photolithography Bench!
   location: {x: 0, y: -100}
+  anchor: 1
 --- !u!1 &127651681
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a089d27308712043919bc45c4dc66d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdFlag: 0
 --- !u!4 &127651683
 Transform:
   m_ObjectHideFlags: 0
@@ -506,9 +509,11 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1700792201}
+  advanceRequirements: 1
   text: "Fortunately for you, we\u2019ve made a single button to do all of this!
     Click the Photoresist button to create your stencil."
   location: {x: 0, y: 100}
+  anchor: 4
 --- !u!1 &138101932
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,9 +561,108 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "Now it's time to transfer your pattern onto your wafer. To do this we\u2019ll
     use something called photoresist."
   location: {x: 0, y: 0}
+  anchor: 4
+--- !u!1 &142799147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142799148}
+  - component: {fileID: 142799151}
+  - component: {fileID: 142799150}
+  - component: {fileID: 142799149}
+  m_Layer: 0
+  m_Name: FrameGlass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &142799148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142799147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: -0.01, z: 5}
+  m_LocalScale: {x: 10, y: 0.01, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985188512}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &142799149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142799147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &142799150
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142799147}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 446f159c018b7784ab6a652aee1ca5f8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &142799151
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142799147}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &146416567
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +959,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpinCaster: {fileID: 1930439153355916305, guid: 9f2287de9fd3459449da71e0f013b206, type: 3}
-  lightBeamPrefab: {fileID: 3416334795525427523, guid: 10b44b159270f784eb7171bec9abf5fb, type: 3}
+  photoresist_normal: {fileID: 2100000, guid: d52d436db8baeb7459ba7089d2b6995c, type: 2}
+  photoresist_comp: {fileID: 2100000, guid: 03c728e3bc4fd7e4bb6b0f76a8e2c8b8, type: 2}
+  mainCamera: {fileID: 963194225}
+  curLightBeamState: 0
+  Photomask: {fileID: 1985188511}
+  Lightblock: {fileID: 1288519803}
+  LightblockTop: {fileID: 1220727947}
 --- !u!1 &220912833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,8 +1306,8 @@ RectTransform:
   m_Father: {fileID: 281034622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1209,6 +1319,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397362485}
   m_CullTransparentMesh: 1
+--- !u!1 &400336325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400336326}
+  - component: {fileID: 400336327}
+  m_Layer: 0
+  m_Name: checkDonePressed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &400336326
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400336325}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.0193324}
+  m_LocalScale: {x: 1.1796296, y: 1.1796296, z: 1.1796296}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1762499994}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 517.9263, y: 470.90796}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &400336327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400336325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842ab44c7113d04449efd004e283b3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
+  donePrefab: {fileID: 2622929902477422708, guid: 05f9440004b295b48ac4b7fe33820f5f, type: 3}
 --- !u!1 &406827819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,8 +1474,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1338332388}
+  advanceRequirements: 0
   text: Clear your pattern
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1001 &441465484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1333,7 +1499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704429806831974275, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8704429806831974275, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1467,8 +1633,10 @@ MonoBehaviour:
   activates:
   - {fileID: 1735975620}
   - {fileID: 1008801158}
+  advanceRequirements: 0
   text: Rectangles and Circles (you can click to toggle between outline and solid)
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &456745328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1684,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
-  advanceRequirements: 1
+  advanceRequirements: 0
 --- !u!1 &464380906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,8 +1883,10 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: Nice job!
-  location: {x: 0, y: 0}
+  location: {x: 0, y: -100}
+  anchor: 1
 --- !u!1 &497341973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +2103,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &519801430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519801419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: swap colors
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &521851300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,9 +2522,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: Welcome to your workbench! You'll be doing most of your research here, so
     let's take a tour around.
-  location: {x: 0, y: 0}
+  location: {x: 0, y: -140}
+  anchor: 1
 --- !u!1001 &622036390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2434,6 +2622,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8704429806831974277, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6445512165946447982, guid: 9264aa4004ac58c4fa85c3aca61cfdc0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
 --- !u!224 &622036391 stripped
@@ -2477,6 +2669,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &622036403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622036392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Paint Bucket
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &629768021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,6 +2796,54 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &654177777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654177778}
+  - component: {fileID: 654177779}
+  m_Layer: 0
+  m_Name: EmptyRequirementText (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654177778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654177777}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00002575627, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &654177779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654177777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d62b32684a79040a1f385532166316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  advanceRequirements: 1
 --- !u!1 &658390509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,10 +2892,12 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 2139247531}
+  advanceRequirements: 1
   text: "For this, we\u2019ll need to make a *photomask*. Press TAB or click the
     Photomask button to head over to the Photolithography Bench. There we\u2019ll
     see what photolithography is all about!"
   location: {x: 0, y: 0}
+  anchor: 4
 --- !u!1 &678136223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,14 +3124,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.2120122, y: -0.55403227, z: 0.14845252, w: 0.79124016}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: -70, z: 0}
 --- !u!1 &729504599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,10 +3229,12 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 1
   text: "Try to deposit at least twenty micrometers (\xB5m) of material on the wafer
     (It's okay to overshoot!) When you think you're done, click the \"Finished\"
     button."
-  location: {x: 0, y: 100}
+  location: {x: 0, y: -150}
+  anchor: 1
 --- !u!1 &759430622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,9 +3282,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: We now have your pattern made out of photoresist, but how do we use it to
     actually pattern the material coating to build something useful?
-  location: {x: 0, y: 100}
+  location: {x: 0, y: -140}
+  anchor: 1
 --- !u!1 &760634637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,10 +3335,12 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1897706265}
+  advanceRequirements: 0
   text: After you lay down a photoresist, you can perform this lift-off with the
     "lift-off" button in the bottom right. Try making an inverse replica of your
     pattern!
-  location: {x: 0, y: 100}
+  location: {x: 0, y: 0}
+  anchor: 4
 --- !u!1 &763787996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,7 +3440,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763787996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.34}
+  m_LocalPosition: {x: 0, y: 0, z: -0.33999997}
   m_LocalScale: {x: 0.06896552, y: 5, z: 0.06896552}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3184,8 +3448,8 @@ RectTransform:
   - {fileID: 609660098}
   - {fileID: 1181518311}
   - {fileID: 1524403183}
-  m_Father: {fileID: 1641189292}
-  m_RootOrder: 3
+  m_Father: {fileID: 964424716}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3239,9 +3503,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "Once you\u2019re done, I\u2019ll show you how to transfer your pattern to
     the coating that you deposited."
-  location: {x: 0, y: -250}
+  location: {x: 0, y: -100}
+  anchor: 1
 --- !u!1 &879438999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,8 +3691,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1312003952}
+  advanceRequirements: 0
   text: Paint brush
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &935613849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,7 +3748,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71943a97c35ad9b47987b9bd02b3d0ed, type: 2}
+  - {fileID: 2100000, guid: 095b175a1cd71ba4586e3a239ee6cf0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3522,7 +3790,7 @@ Transform:
   m_LocalScale: {x: 0.6896552, y: 1.5, z: 0.6896552}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1641189292}
+  m_Father: {fileID: 964424716}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &935613854
@@ -3694,6 +3962,79 @@ MonoBehaviour:
   focus: {fileID: 935613853}
   distance: 20
   rotationSpeed: 90
+--- !u!1 &964424715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964424716}
+  - component: {fileID: 964424718}
+  - component: {fileID: 964424717}
+  m_Layer: 0
+  m_Name: Play Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &964424716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964424715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5, y: -0.05, z: 5}
+  m_LocalScale: {x: 14.5, y: 0.2, z: 14.5}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 479801478}
+  - {fileID: 935613853}
+  - {fileID: 1025669955}
+  - {fileID: 1641189292}
+  - {fileID: 763788002}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &964424717
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964424715}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9c4bd3dc086472d448a7deb038b601c7, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &964424718
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964424715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c004029a60fc9684bbc42282b1ebad20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &971333441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3890,6 +4231,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1008801169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008801158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Elipse Tool
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1008913597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4006,10 +4363,109 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1342111430}
+  advanceRequirements: 1
   text: The first processing essential step we will use is *deposition*. This will
     coat your wafer with a thin film of material, which will grow thicker the longer
     you run the process. Click the "Deposit" button to try it out.
-  location: {x: 0, y: 100}
+  location: {x: 0, y: -200}
+  anchor: 1
+--- !u!1 &1024511785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024511786}
+  - component: {fileID: 1024511789}
+  - component: {fileID: 1024511788}
+  - component: {fileID: 1024511787}
+  m_Layer: 0
+  m_Name: FrameRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024511786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024511785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 10.5}
+  m_LocalScale: {x: 12, y: 0.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985188512}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1024511787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024511785}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1024511788
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024511785}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d10fe75595c955948a0976622d3b3086, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1024511789
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024511785}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1025669954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,12 +4492,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025669954}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.54, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 0.20000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1641189292}
+  m_Father: {fileID: 964424716}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1025669956
@@ -4250,6 +4706,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1083404861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083404850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Toggle Drawing Color
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1092265018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4390,6 +4862,103 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1094301969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094301970}
+  - component: {fileID: 1094301973}
+  - component: {fileID: 1094301972}
+  - component: {fileID: 1094301971}
+  m_Layer: 0
+  m_Name: FrameTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094301970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094301969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.5, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 0.2, z: 12}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985188512}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1094301971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094301969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1094301972
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094301969}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d10fe75595c955948a0976622d3b3086, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1094301973
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094301969}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1094329335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,8 +5007,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1917572491}
+  advanceRequirements: 0
   text: When you're finished drawing, press TAB to return to your workbench.
   location: {x: 0, y: -100}
+  anchor: 4
 --- !u!1 &1111456389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,8 +5058,10 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: Using the tools on the left, you can draw a pattern in black and white.
-  location: {x: 0, y: -250}
+  location: {x: 0, y: -100}
+  anchor: 1
 --- !u!1 &1122045747
 GameObject:
   m_ObjectHideFlags: 0
@@ -4536,6 +5109,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
 --- !u!1 &1132620668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,6 +5380,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134202402}
   m_CullTransparentMesh: 1
+--- !u!1001 &1147436683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 479801478}
+    m_Modifications:
+    - target: {fileID: 8490492670952815444, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc4afaaa9e45a96498569d4dd9c196cd, type: 2}
+    - target: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_Name
+      value: LightblockTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7985955490155072780, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
 --- !u!1 &1178598056
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,10 +5642,12 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "The slider at the bottom of the screen controls how long you\u2019ll run
     the deposition. As you deposit for longer, there will be a thicker coating on
     the wafer."
-  location: {x: 0, y: 100}
+  location: {x: 0, y: -150}
+  anchor: 1
 --- !u!1 &1208905531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,8 +5696,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1083404850}
+  advanceRequirements: 0
   text: Toggle whether you're drawing in white or black
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &1218733186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,6 +5789,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1220727947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_PrefabInstance: {fileID: 1147436683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257510478
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,8 +5842,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 622036392}
+  advanceRequirements: 0
   text: Fill bucket
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &1263892657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,8 +5893,93 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "But we\u2019ll get to all of that later, here comes your lab partner!"
   location: {x: 0, y: 0}
+  anchor: 4
+--- !u!1001 &1288519802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 479801478}
+    m_Modifications:
+    - target: {fileID: 8490492670952815444, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc4afaaa9e45a96498569d4dd9c196cd, type: 2}
+    - target: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_Name
+      value: Lightblock
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7985955490155072780, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+--- !u!1 &1288519803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_PrefabInstance: {fileID: 1288519802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1302498628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5296,6 +6044,8 @@ Transform:
   - {fileID: 1371793666}
   - {fileID: 1263892658}
   - {fileID: 1122045748}
+  - {fileID: 2136735012}
+  - {fileID: 654177778}
   m_Father: {fileID: 2053329037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5346,12 +6096,14 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: One way to do this is called *lift-off*. If we deposit material on top of
     the photoresist stencil, we can then remove the photoresist, *lifting off* the
     coating sitting on top. This will only leave the coating on regions that were
     not protected by the photoresist stencil. Using this simple stencil printing-like
     process to create any shape you want!
-  location: {x: 0, y: 100}
+  location: {x: 0, y: 0}
+  anchor: 4
 --- !u!1001 &1312003950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5490,6 +6242,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1312003963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312003952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Paint Brush
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1325327626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5537,8 +6305,10 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: Ooh, that looks cool!
-  location: {x: 0, y: 0}
+  location: {x: 0, y: -100}
+  anchor: 1
 --- !u!1 &1325371104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5731,6 +6501,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1338332401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338332388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Clear
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1342111430
 GameObject:
   m_ObjectHideFlags: 0
@@ -6015,6 +6801,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343092641}
   m_CullTransparentMesh: 1
+--- !u!1 &1351719510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351719511}
+  - component: {fileID: 1351719514}
+  - component: {fileID: 1351719513}
+  - component: {fileID: 1351719512}
+  m_Layer: 0
+  m_Name: FrameLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351719511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351719510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0, z: -0.5}
+  m_LocalScale: {x: 12, y: 0.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985188512}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1351719512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351719510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1351719513
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351719510}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d10fe75595c955948a0976622d3b3086, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1351719514
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351719510}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1371793665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6062,10 +6945,12 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "By using photomasks with different patterns and depositing different materials,
     you can make many complicated devices such as transistors or micromechanical
     systems. You\u2019re well on your way to becoming a microengineering master!"
   location: {x: 0, y: 0}
+  anchor: 4
 --- !u!1 &1383199033
 GameObject:
   m_ObjectHideFlags: 0
@@ -6166,10 +7051,12 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "In front of you is a silicon wafer. All the fun device components you\u2019ll
     microfabricate will be built on here! You can look around the wafer with the
     arrow keys."
-  location: {x: 0, y: -250}
+  location: {x: 0, y: -140}
+  anchor: 1
 --- !u!1 &1444046668
 GameObject:
   m_ObjectHideFlags: 0
@@ -6217,9 +7104,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "Using these tools, draw whatever pattern you want. Your lab partner will
     come check out your work later, so make sure it\u2019s something cool!"
   location: {x: 0, y: -100}
+  anchor: 4
 --- !u!1 &1486100702
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,7 +7251,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1641189292}
+    m_TransformParent: {fileID: 964424716}
     m_Modifications:
     - target: {fileID: 4590784200215446306, guid: 833f40f43b9da414eb53bd19e10dcc7b, type: 3}
       propertyPath: processAluminumEtchPrefab
@@ -6562,8 +7451,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 1550251433}
+  advanceRequirements: 0
   text: Straight lines
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1001 &1550251431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6706,6 +7597,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1550251444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550251433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Line Tool
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1580194231
 GameObject:
   m_ObjectHideFlags: 0
@@ -6753,9 +7660,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: 'You have a bunch of drawing tools to help you make whatever pattern you
     want:'
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &1593011515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,8 +7826,10 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: Pretty cool, isn't it? Anyway, let's get to microfabricating!
-  location: {x: 0, y: 0}
+  location: {x: 0, y: -100}
+  anchor: 1
 --- !u!1 &1600001596
 GameObject:
   m_ObjectHideFlags: 0
@@ -6966,10 +7877,12 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: 'Once the selectively exposed photoresist is immersed in a solution (developer),
     the exposed regions will dissolve away. This will leave us with a copy of your
     designed pattern made out of the photoresist. A little microscopic stencil! '
   location: {x: 0, y: 0}
+  anchor: 4
 --- !u!1 &1628140450
 GameObject:
   m_ObjectHideFlags: 0
@@ -7035,16 +7948,14 @@ GameObject:
   - component: {fileID: 1641189291}
   - component: {fileID: 1641189290}
   - component: {fileID: 1641189289}
-  - component: {fileID: 1641189293}
-  - component: {fileID: 1641189294}
   - component: {fileID: 1641189295}
   m_Layer: 0
-  m_Name: Play Area
+  m_Name: Disk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1641189289
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7116,53 +8027,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641189288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -0.05, z: 5}
-  m_LocalScale: {x: 14.5, y: 0.2, z: 14.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 479801478}
-  - {fileID: 935613853}
-  - {fileID: 1025669955}
-  - {fileID: 763788002}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Children: []
+  m_Father: {fileID: 964424716}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1641189293
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641189288}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c004029a60fc9684bbc42282b1ebad20, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &1641189294
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641189288}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9c4bd3dc086472d448a7deb038b601c7, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &1641189295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7222,8 +8094,10 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "Excellent! You\u2019re really getting the hang of this!"
-  location: {x: 0, y: -100}
+  location: {x: 0, y: -140}
+  anchor: 4
 --- !u!1 &1667303952
 GameObject:
   m_ObjectHideFlags: 0
@@ -7272,8 +8146,10 @@ MonoBehaviour:
   textBoxPosition: {fileID: 0}
   activates:
   - {fileID: 519801419}
+  advanceRequirements: 0
   text: Swap black and white in the pattern
-  location: {x: 0, y: -250}
+  location: {x: 0, y: 100}
+  anchor: 7
 --- !u!1 &1700792201
 GameObject:
   m_ObjectHideFlags: 0
@@ -7423,6 +8299,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 0
   highlight: {fileID: 3683048509625473267, guid: 1ca930236d2b8414088385a25831e204, type: 3}
+--- !u!1 &1709997101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709997102}
+  - component: {fileID: 1709997105}
+  - component: {fileID: 1709997104}
+  - component: {fileID: 1709997103}
+  m_Layer: 0
+  m_Name: FrameBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709997102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709997101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 0.2, z: 12}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1985188512}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1709997103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709997101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1709997104
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709997101}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d10fe75595c955948a0976622d3b3086, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1709997105
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709997101}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1719715059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7444,7 +8417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704429806831974275, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8704429806831974275, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7550,7 +8523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704429806831974275, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8704429806831974275, guid: 87d044ad5ed9385448dedefc9272db9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7679,6 +8652,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1725063361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725063351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Load
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1730906973
 GameObject:
   m_ObjectHideFlags: 0
@@ -7726,6 +8715,7 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: "Photoresist is a material that reacts with light to become soluble or less
     soluble. The one we\u2019re using is called positive photoresist, which means
     it becomes more soluble when exposed to light. We can shine light through the
@@ -7733,6 +8723,7 @@ MonoBehaviour:
     shape. Just like photography - not the digital but the old-school photography
     where you use a photosensitive film!"
   location: {x: 0, y: 0}
+  anchor: 4
 --- !u!1001 &1735975618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7876,6 +8867,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1735975631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735975620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Rectangle Tool
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1762499992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7908,7 +8915,7 @@ MonoBehaviour:
   requirementReserveBlocks: 01000000010000000100000001000000010000000100000002000000
   requirements: []
   requirementReserves:
-  - {fileID: 1383199034}
+  - {fileID: 400336327}
   - {fileID: 406827821}
   - {fileID: 1178598058}
   - {fileID: 971333443}
@@ -7938,6 +8945,7 @@ Transform:
   - {fileID: 457470}
   - {fileID: 941594365}
   - {fileID: 521851302}
+  - {fileID: 400336326}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7988,9 +8996,11 @@ MonoBehaviour:
   textBoxText: {fileID: 0}
   textBoxPosition: {fileID: 0}
   activates: []
+  advanceRequirements: 0
   text: We now can uniformly coat the wafer , but what if we want to pattern this
     coating?
-  location: {x: 0, y: 0}
+  location: {x: 0, y: -200}
+  anchor: 1
 --- !u!1 &1897706265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8532,6 +9542,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonType: 1
   highlight: {fileID: 3683048509625473267, guid: 9609b407880b61846818d3bfb7915684, type: 3}
+--- !u!114 &1963404314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963404299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a3ab51566c5b4db8c707f34d28d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowLeft: {x: -20, y: -20}
+  upRight: {x: 20, y: 20}
+  text: Save
+  altTextPrefab: {fileID: 6590930457167058831, guid: 2a7476fa74aac2c44af139c19cd66e94, type: 3}
 --- !u!1 &1969828227
 GameObject:
   m_ObjectHideFlags: 0
@@ -8667,6 +9693,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969828227}
   m_CullTransparentMesh: 1
+--- !u!1 &1985188511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_PrefabInstance: {fileID: 2091007267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1985188512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_PrefabInstance: {fileID: 2091007267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015154147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8770,9 +9806,9 @@ RectTransform:
   - {fileID: 1550251432}
   - {fileID: 519801418}
   - {fileID: 1083404849}
+  - {fileID: 441465485}
   - {fileID: 1719715060}
   - {fileID: 1725063350}
-  - {fileID: 441465485}
   - {fileID: 1917572492}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -8837,8 +9873,8 @@ RectTransform:
   m_Father: {fileID: 397362486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8918,7 +9954,7 @@ MonoBehaviour:
   listOfTexts:
   - {fileID: 619403017}
   - {fileID: 1417027435}
-  - {fileID: 456745330}
+  - {fileID: 2136735013}
   - {fileID: 1595617520}
   - {fileID: 1017861275}
   - {fileID: 456745330}
@@ -8943,7 +9979,7 @@ MonoBehaviour:
   - {fileID: 29296835}
   - {fileID: 1444046670}
   - {fileID: 1094329337}
-  - {fileID: 456745330}
+  - {fileID: 654177779}
   - {fileID: 1325327628}
   - {fileID: 138101934}
   - {fileID: 1730906975}
@@ -9107,6 +10143,10 @@ PrefabInstance:
       propertyPath: m_silicondioxide
       value: 
       objectReference: {fileID: 2100000, guid: 9125acffc32cac844be1857f0b831b4a, type: 2}
+    - target: {fileID: 5269727024082750283, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
+      propertyPath: m_photoresist_comp
+      value: 
+      objectReference: {fileID: 2100000, guid: 03c728e3bc4fd7e4bb6b0f76a8e2c8b8, type: 2}
     - target: {fileID: 8137871936237008219, guid: 43de4d4f17648e44fbb30b30e55c8c92, type: 3}
       propertyPath: m_Name
       value: Control
@@ -9151,6 +10191,132 @@ RectTransform:
   m_AnchoredPosition: {x: -540, y: 374}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2091007267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 479801478}
+    m_Modifications:
+    - target: {fileID: 8490492670952815444, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d10fe75595c955948a0976622d3b3086, type: 2}
+    - target: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_Name
+      value: Photomask
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490492670952815450, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7985955490155072780, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}
+--- !u!1 &2136735011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136735012}
+  - component: {fileID: 2136735013}
+  m_Layer: 0
+  m_Name: EmptyRequirementText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136735012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136735011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00002575627, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1302498629}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136735013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136735011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d62b32684a79040a1f385532166316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  advanceRequirements: 1
 --- !u!1 &2139247531
 GameObject:
   m_ObjectHideFlags: 0
@@ -9409,6 +10575,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7470342146353921630, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470342146353921631, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
+      propertyPath: visible
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7470342146700950007, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}

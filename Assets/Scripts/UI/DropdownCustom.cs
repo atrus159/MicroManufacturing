@@ -26,6 +26,8 @@ public class DropdownCustom : MonoBehaviour
 
     public Sprite[] dropDownSprites = new Sprite[6];
 
+    public bool visible;
+
     bool toggled;
     int curElement;
     int numElements;
@@ -71,12 +73,16 @@ public class DropdownCustom : MonoBehaviour
         value = returnElements[curElement];
         GameObject.Find("LayerStack").GetComponent<LayerStackHolder>().onValueChange(value);
         blocker = GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>();
+        if (!visible)
+        {
+            gameObject.GetComponent<Image>().enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(blocker.blocksRaycasts)
+        if(blocker.blocksRaycasts || !visible)
         {
             return;
         }

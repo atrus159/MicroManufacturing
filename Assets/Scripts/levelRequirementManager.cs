@@ -68,6 +68,16 @@ public class levelRequirementManager : MonoBehaviour
         }
     }
 
+    public void hideDisplay()
+    {
+        display.SetActive(false);
+    }
+
+    public void startDisplay()
+    {
+        display.SetActive(true);
+    }
+
     void makePrefab(float height, string name, string description)
     {
         count++;
@@ -148,7 +158,7 @@ public class levelRequirementManager : MonoBehaviour
 
         if (allMet && anyMet)
         {
-            TextManager.instance.holdFlag = false;
+            TextManager.instance.endHold();
             TextManager.instance.GetTextBox().SetActive(true);
             requirements.Clear();
             updateDisplay();

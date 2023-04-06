@@ -42,6 +42,7 @@ public class control : MonoBehaviour
     public Material m_photoresist;
     public Material m_silicon;
     public Material m_silicondioxide;
+    public Material m_photoresist_comp;
 
     public enum materialType
     {
@@ -69,7 +70,7 @@ public class control : MonoBehaviour
         materialsList.Add(materialType.photoresist, new materialData(m_photoresist, 0));
         materialsList.Add(materialType.silicon, new materialData(m_silicon, 0));
         materialsList.Add(materialType.silicondioxide, new materialData(m_silicondioxide, 0));
-        materialsList.Add(materialType.photoresistComplement, new materialData(m_photoresist, 0));
+        materialsList.Add(materialType.photoresistComplement, new materialData(m_photoresist_comp, 0));
         hudVisible = false;
         showMeasureSticks = false;
         ms1 = GameObject.Find("measure stick 1");

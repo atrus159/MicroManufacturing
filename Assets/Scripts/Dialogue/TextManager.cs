@@ -7,10 +7,11 @@ public class TextManager : MonoBehaviour
 {
     //Singleton
     public static TextManager instance {get; private set;}
-    public bool holdFlag;
+    bool holdFlag;
     GameObject TextBox;
     bool goForward;
     GameObject placeCount;
+    bool skipFlag;
     private void Awake() {
         if (instance != null && instance != this)
         {
@@ -25,6 +26,7 @@ public class TextManager : MonoBehaviour
         goForward = true;
         placeCount = GameObject.Find("placeCount");
         placeCount.SetActive(false);
+        skipFlag = false;
     }
     private bool isPlayingText = false;
     private KeyCode advanceTextKeycode = KeyCode.Space;
@@ -40,6 +42,16 @@ public class TextManager : MonoBehaviour
         isPlayingText = false;
     }
 
+    public void startHold()
+    {
+        holdFlag = true;
+    }
+    public void endHold()
+    {
+        holdFlag = false;
+        skipFlag = true;
+    }
+
     private IEnumerator PlayText(TextParent[] _Text)
     {
         int currentInd = 0;
@@ -53,6 +65,15 @@ public class TextManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             yield return StartCoroutine(WaitForPlayerInput());
             yield return new WaitUntil(() => holdFlag == false);
+            if (skipFlag)
+            {
+                while (_Text[i].GetType() != typeof(FreeText))
+                {
+                    i++;
+                    currentInd++;
+                }
+                skipFlag = false;
+            }
             if (goForward)
             {
                 i++;
@@ -107,7 +128,7 @@ public class TextManager : MonoBehaviour
 
     private IEnumerator WaitForPlayerInput()
     {
-        while ((!Input.GetKeyDown(advanceTextKeycode) && !Input.GetKeyDown(backTextKeycode) && holdFlag == false) || control.isPaused() == control.pauseStates.menuPaused)
+        while ((!Input.GetKeyDown(advanceTextKeycode) && !Input.GetKeyDown(backTextKeycode) && holdFlag == false && skipFlag == false) || control.isPaused() == control.pauseStates.menuPaused)
         {
             yield return null;
         }

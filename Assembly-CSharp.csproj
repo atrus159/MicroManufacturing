@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\Checks\checkTwoRectangles.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkPhotoButtonPressed.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositOnPhotoResist.cs" />
+    <Compile Include="Assets\Scripts\altText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositButtonPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\Scripts\Checks\checkStructures\CheckStruct.cs" />
     <Compile Include="Assets\Scripts\Parents\levelRequirementParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 1\checkDonePressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\AmorphousStructure.cs" />
@@ -135,6 +137,7 @@
     <Compile Include="Assets\Scripts\UI\DropdownCustom.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\CheckStructComponent.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkCameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\LevelEndText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -152,7 +155,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\LevelEndText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

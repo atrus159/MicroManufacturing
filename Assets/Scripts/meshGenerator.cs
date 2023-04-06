@@ -31,13 +31,13 @@ public class meshGenerator : MonoBehaviour
         grid = new BitGrid();
     }
 
-    public void initialize()
+    public void initialize(bool skipTopBottom = false)
     {
-        createGrid();
+        createGrid(skipTopBottom);
         updateMesh();
     }
 
-    void createGrid()
+    void createGrid(bool skipTopBottom = false)
     {
         vertices = new List<Vector3>();
         triangles = new List<int>();
@@ -112,16 +112,146 @@ public class meshGenerator : MonoBehaviour
                     grid.setPoint(i,j,2);
                 }
             }
-             createFace(startI, startJ, endI, endJ, faces.Top);
-             createFace(startI, startJ, endI, endJ, faces.Bottom);
-             createFace(startI, startJ, endI, endJ, faces.North);
-             createFace(startI, startJ, endI, endJ, faces.South);
-             createFace(startI, startJ, endI, endJ, faces.East);
-             createFace(startI, startJ, endI, endJ, faces.West);
+            if (!skipTopBottom)
+            {
+                createFace(startI, startJ, endI, endJ, faces.Top);
+                createFace(startI, startJ, endI, endJ, faces.Bottom);
+            }
+             createSideFace(startI, startJ, endI, endJ, faces.North);
+             createSideFace(startI, startJ, endI, endJ, faces.South);
+             createSideFace(startI, startJ, endI, endJ, faces.East);
+             createSideFace(startI, startJ, endI, endJ, faces.West);
         }
 
     }
 
+    void createSideFace(int startI, int startJ, int endI, int endJ, faces face)
+    {
+        bool makingFace = false;
+        int curFaceStart = 0;
+        switch (face)
+        {
+            case faces.North:
+                if (endJ + 1 >= BitGrid.gridHeight)
+                {
+                    createFace(startI, startJ, endI, endJ, faces.North);
+                }
+                else
+                {
+                    for (int i = startI; i <= endI; i++)
+                    {
+                        if (!makingFace)
+                        {
+                            if (grid.getPoint(i, endJ + 1) == 0)
+                            {
+                                curFaceStart = i;
+                                makingFace = true;
+                            }
+                        }
+                        if (makingFace)
+                        {
+                            if (grid.getPoint(i, endJ + 1) != 0 || i == endI)
+                            {
+                                createFace(curFaceStart, startJ, i, endJ, faces.North);
+                                makingFace = false;
+                            }
+                        }
+                    }
+                }
+                
+                break;
+
+            case faces.South:
+                if (startJ - 1 <0)
+                {
+                    createFace(startI, startJ, endI, endJ, faces.South);
+                }
+                else
+                {
+                    for (int i = startI; i <= endI; i++)
+                    {
+                        if (!makingFace)
+                        {
+                            if (grid.getPoint(i, startJ - 1) == 0)
+                            {
+                                curFaceStart = i;
+                                makingFace = true;
+                            }
+                        }
+                        if (makingFace)
+                        {
+                            if (grid.getPoint(i, startJ - 1) != 0 || i == endI)
+                            {
+                                createFace(curFaceStart, startJ, i, endJ, faces.South);
+                                makingFace = false;
+                            }
+                        }
+                    }
+                }
+
+                break;
+
+            case faces.East:
+                if (endI + 1 >= BitGrid.gridWidth)
+                {
+                    createFace(startI, startJ, endI, endJ, faces.East);
+                }
+                else
+                {
+                    for (int j = startJ; j <= endJ; j++)
+                    {
+                        if (!makingFace)
+                        {
+                            if (grid.getPoint(endI + 1, j) == 0)
+                            {
+                                curFaceStart = j;
+                                makingFace = true;
+                            }
+                        }
+                        if (makingFace)
+                        {
+                            if (grid.getPoint(endI + 1, j) != 0 || j == endJ)
+                            {
+                                createFace(startI, curFaceStart, endI, j, faces.East);
+                                makingFace = false;
+                            }
+                        }
+                    }
+                }
+
+                break;
+
+            case faces.West:
+                if (startI - 1 < 0 )
+                {
+                    createFace(startI, startJ, endI, endJ, faces.West);
+                }
+                else
+                {
+                    for (int j = startJ; j <= endJ; j++)
+                    {
+                        if (!makingFace)
+                        {
+                            if (grid.getPoint(startI - 1, j) == 0)
+                            {
+                                curFaceStart = j;
+                                makingFace = true;
+                            }
+                        }
+                        if (makingFace)
+                        {
+                            if (grid.getPoint(startI - 1, j) != 0 || j == endJ)
+                            {
+                                createFace(startI, curFaceStart, endI, j, faces.West);
+                                makingFace = false;
+                            }
+                        }
+                    }
+                }
+
+                break;
+        }
+    }
 
     void createFace(int startI, int startJ, int endI, int endJ, faces face)
     {

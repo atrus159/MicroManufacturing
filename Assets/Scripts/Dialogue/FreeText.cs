@@ -5,22 +5,17 @@ using UnityEngine;
 
 public class FreeText : TextParent
 {
-    public bool advanceRequirements;
     override public void Initialize()
     {
         base.Initialize();
+        GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().startDisplay();
     }
     override public void Display()
     {
         base.Display();
-        TextManager.instance.holdFlag = true;
+        TextManager.instance.startHold();
         TextManager.instance.GetTextBox().SetActive(false);
-
-        if (advanceRequirements)
-        {
-            GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().addReserve();
-        }
-        control.setPaused(control.pauseStates.unPaused);
+        //control.setPaused(control.pauseStates.unPaused);
 
     }
 }
