@@ -524,4 +524,138 @@ public class LayerStackHolder : MonoBehaviour
     }
 
 
+/* Uses a depth-first-search approach to finding whether there is a connection between two cube spots on the wafer. 
+
+layer corresponds to the horizontal layer of the starting point, while pos.x * pos.y correspond to values in that plane.
+end.x corresponds to the horizontal layer of the ending point,
+while end.y & end.z correspond to the end.
+*/
+
+ bool connectionRecur(int layer, Vector2Int pos, Vector3Int end, bool[,,] explored, bool[,,] conductive)
+    {
+        try
+        {
+            explored[layer, pos.x, pos.y] = true;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(layer + " " + pos.x + " " + pos.y);
+            return false;
+        }
+
+        // Base case: cur is the end point OR cur is not conductive
+        // if curPos == end point      [assuming end point has conductive material]
+        // return true 
+        if ((pos.x == end.y) && (pos.y == end.z) && (end.x == layer))
+            return true;
+
+        // if curPos == not conductive material
+        // return false           [this is not part of a conductive path to the end point]
+        if (!conductive[layer, pos.x, pos.y])
+            return false;
+
+        // move down
+        if (layer > 0)
+        {
+            if (!explored[layer - 1, pos.x, pos.y] && connectionRecur(layer - 1, pos, end, explored, conductive))
+                return true;
+        }
+
+        // move up                    [make sure you're not returning to an explored point]
+        if (layer < topLayer)
+        {
+            if (!explored[layer + 1, pos.x, pos.y] && connectionRecur(layer + 1, pos, end, explored, conductive))
+                return true;
+        }
+
+        // move "north"               [make sure you're not returning to an explored point]
+        if (pos.x < 99)
+        {
+            if (!explored[layer, pos.x + 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(1, 0), end, explored, conductive))
+                return true;
+        }
+
+        // move "east"                [make sure you're not returning to an explored point]
+        if (pos.y < 99)
+        {
+            if (!explored[layer, pos.x, pos.y + 1] && connectionRecur(layer, pos + new Vector2Int(0, 1), end, explored, conductive))
+                return true;
+
+        }
+
+        // move "south"               [make sure you're not returning to an explored point]
+        if (pos.x > 0)
+        {
+            if (!explored[layer, pos.x - 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(-1, 0), end, explored, conductive))
+                return true;
+        }
+
+        // move "west"                [make sure you're not returning to an explored point]
+        if (pos.y > 0)
+        {
+            if (!explored[layer, pos.x, pos.y - 1] && connectionRecur(layer, pos + new Vector2Int(0, -1), end, explored, conductive))
+                return true;
+        }
+
+        return false;
+
+    }
+
+    /* This code often crashes, most likely due to improper
+    setup of the arrays due to numLayers miscalculation(?).
+    - Ghost layers? */
+    public bool getConnectionStatus(Vector3Int start, Vector3Int end)
+    {
+        int numLayers = topLayer;
+        Debug.Log("numLayers: " + numLayers);
+
+        return false;
+        if (topLayer < 1)
+        {
+            Debug.Log("No layers");
+            return false;
+        }
+
+        bool[,,] explored = new bool[numLayers, 100, 100];
+        bool[,,] conductive = new bool[numLayers, 100, 100];
+
+        // set default to false
+        for (int i = 0; i < numLayers; i++)
+            for (int j = 0; j < 100; j++)
+                for (int k = 0; k < 100; k++)
+                {
+                    conductive[i, j, k] = false;
+                    explored[i, j, k] = false;
+                }
+        int curLayer = 0;
+        foreach (List<GameObject> depLayer in depLayers)
+        {
+            for (int i = 0; i < depLayer.Count(); i++)
+            {
+                //check materials
+                control.materialType mat = depLayer[i].GetComponent<meshMaterial>().myMaterial;
+                if (mat != control.materialType.gold && mat != control.materialType.aluminum)
+                {
+                    continue;
+                }
+
+                BitGrid grid = depLayer[i].GetComponent<meshGenerator>().grid;
+                for (int j = 0; j < 100; j++)
+                {
+                    for (int k = 0; k < 100; k++)
+                    {
+                        if (grid.getPoint(j, k) != 0)
+                        {
+                            conductive[curLayer, j, k] = true;
+                        }
+                    }
+                }
+
+            }
+            curLayer++;
+        }
+        Debug.Log("Conductivity initialization complete.");
+        return connectionRecur(start.x, new Vector2Int(start.y, start.z), end, explored, conductive);
+    }
 }
+
