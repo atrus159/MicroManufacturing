@@ -73,7 +73,12 @@ public class LayerStackHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            bool result = getConnectionStatus(new Vector3Int(0,0,0), new Vector3Int(0,50,50));
+            Debug.Log(result);
 
+        }
     }
 
     //external functions called by buttons
@@ -531,8 +536,9 @@ end.x corresponds to the horizontal layer of the ending point,
 while end.y & end.z correspond to the end.
 */
 
- bool connectionRecur(int layer, Vector2Int pos, Vector3Int end, bool[,,] explored, bool[,,] conductive)
+ bool connectionRecur(int layer, Vector2Int pos, Vector3Int end, bool[,,] explored, bool[,,] conductive, int count)
     {
+        Debug.Log(count);
         try
         {
             explored[layer, pos.x, pos.y] = true;
@@ -557,28 +563,28 @@ while end.y & end.z correspond to the end.
         // move down
         if (layer > 0)
         {
-            if (!explored[layer - 1, pos.x, pos.y] && connectionRecur(layer - 1, pos, end, explored, conductive))
+            if (!explored[layer - 1, pos.x, pos.y] && connectionRecur(layer - 1, pos, end, explored, conductive, count + 1))
                 return true;
         }
 
         // move up                    [make sure you're not returning to an explored point]
         if (layer < topLayer)
         {
-            if (!explored[layer + 1, pos.x, pos.y] && connectionRecur(layer + 1, pos, end, explored, conductive))
+            if (!explored[layer + 1, pos.x, pos.y] && connectionRecur(layer + 1, pos, end, explored, conductive, count + 1))
                 return true;
         }
 
         // move "north"               [make sure you're not returning to an explored point]
         if (pos.x < 99)
         {
-            if (!explored[layer, pos.x + 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(1, 0), end, explored, conductive))
+            if (!explored[layer, pos.x + 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(1, 0), end, explored, conductive, count + 1))
                 return true;
         }
 
         // move "east"                [make sure you're not returning to an explored point]
         if (pos.y < 99)
         {
-            if (!explored[layer, pos.x, pos.y + 1] && connectionRecur(layer, pos + new Vector2Int(0, 1), end, explored, conductive))
+            if (!explored[layer, pos.x, pos.y + 1] && connectionRecur(layer, pos + new Vector2Int(0, 1), end, explored, conductive, count + 1))
                 return true;
 
         }
@@ -586,14 +592,14 @@ while end.y & end.z correspond to the end.
         // move "south"               [make sure you're not returning to an explored point]
         if (pos.x > 0)
         {
-            if (!explored[layer, pos.x - 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(-1, 0), end, explored, conductive))
+            if (!explored[layer, pos.x - 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(-1, 0), end, explored, conductive, count + 1))
                 return true;
         }
 
         // move "west"                [make sure you're not returning to an explored point]
         if (pos.y > 0)
         {
-            if (!explored[layer, pos.x, pos.y - 1] && connectionRecur(layer, pos + new Vector2Int(0, -1), end, explored, conductive))
+            if (!explored[layer, pos.x, pos.y - 1] && connectionRecur(layer, pos + new Vector2Int(0, -1), end, explored, conductive, count + 1))
                 return true;
         }
 
@@ -609,27 +615,30 @@ while end.y & end.z correspond to the end.
         int numLayers = topLayer;
         Debug.Log("numLayers: " + numLayers);
 
-        return false;
-        if (topLayer < 1)
+        if (topLayer < 0)
         {
             Debug.Log("No layers");
             return false;
         }
 
-        bool[,,] explored = new bool[numLayers, 100, 100];
-        bool[,,] conductive = new bool[numLayers, 100, 100];
+        bool[,,] explored = new bool[numLayers+1, 100, 100];
+        bool[,,] conductive = new bool[numLayers+1, 100, 100];
 
         // set default to false
         for (int i = 0; i < numLayers; i++)
+        {
             for (int j = 0; j < 100; j++)
+            {
                 for (int k = 0; k < 100; k++)
                 {
                     conductive[i, j, k] = false;
                     explored[i, j, k] = false;
                 }
-        int curLayer = 0;
-        foreach (List<GameObject> depLayer in depLayers)
+            }
+        }
+        for(int curLayer = 0; curLayer <= numLayers; curLayer++)
         {
+            List<GameObject> depLayer = depLayers[curLayer];
             for (int i = 0; i < depLayer.Count(); i++)
             {
                 //check materials
@@ -652,10 +661,9 @@ while end.y & end.z correspond to the end.
                 }
 
             }
-            curLayer++;
         }
         Debug.Log("Conductivity initialization complete.");
-        return connectionRecur(start.x, new Vector2Int(start.y, start.z), end, explored, conductive);
+        return connectionRecur(start.x, new Vector2Int(start.y, start.z), end, explored, conductive, 0);
     }
 }
 
