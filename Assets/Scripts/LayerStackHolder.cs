@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using System;
 //
 public class LayerStackHolder : MonoBehaviour
 {
@@ -73,7 +73,12 @@ public class LayerStackHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            bool result = getConnectionStatus(new Vector3Int(0,0,0), new Vector3Int(0,50,50));
+            Debug.Log(result);
 
+        }
     }
 
     //external functions called by buttons
@@ -537,6 +542,7 @@ public class LayerStackHolder : MonoBehaviour
     while end.y & end.z correspond to the end.
     */
 
+
     bool connectionLoop(Vector3Int start, Vector3Int end, bool[,,] explored, bool[,,] conductive)
     {
         // similar approach to BitGrid.fill
@@ -622,15 +628,19 @@ public class LayerStackHolder : MonoBehaviour
 
         // set default to false
         for (int i = 0; i < numLayers; i++)
+        {
             for (int j = 0; j < 100; j++)
+            {
                 for (int k = 0; k < 100; k++)
                 {
                     conductive[i, j, k] = false;
                     explored[i, j, k] = false;
                 }
-        int curLayer = 0;
-        foreach (List<GameObject> depLayer in depLayers)
+            }
+        }
+        for(int curLayer = 0; curLayer <= numLayers; curLayer++)
         {
+            List<GameObject> depLayer = depLayers[curLayer];
             for (int i = 0; i < depLayer.Count(); i++)
             {
                 //check materials
@@ -653,7 +663,6 @@ public class LayerStackHolder : MonoBehaviour
                 }
 
             }
-            curLayer++;
         }
         Debug.Log("Conductivity initialization complete.");
         return connectionLoop(start, end, explored, conductive);
