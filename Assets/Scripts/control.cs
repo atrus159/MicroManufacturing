@@ -359,4 +359,10 @@ public class control : MonoBehaviour
         }
     }
 
+    public void onConductivityCheck()
+    {
+        GameObject layer = GameObject.Find("LayerStack");
+        Debug.Log(layer.GetComponent<LayerStackHolder>().getConnectionStatus(new Vector3Int(0,0,0), new Vector3Int(3,3,3)));
+    }
+
 }
