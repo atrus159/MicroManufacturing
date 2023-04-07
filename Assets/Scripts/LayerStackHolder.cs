@@ -6,7 +6,7 @@ using UnityEngine;
 //
 public class LayerStackHolder : MonoBehaviour
 {
-    
+
     public static int layerCount;
 
     //an array of all of the layers. each index is a list of deposits at that layer
@@ -69,7 +69,7 @@ public class LayerStackHolder : MonoBehaviour
         }
     }
 
-  
+
     // Update is called once per frame
     void Update()
     {
@@ -91,7 +91,7 @@ public class LayerStackHolder : MonoBehaviour
 
     public void startEtchProcess()
     {
-        if(curMaterial == control.materialType.aluminum)
+        if (curMaterial == control.materialType.aluminum)
         {
             Instantiate(processAluminumEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
         }
@@ -108,12 +108,13 @@ public class LayerStackHolder : MonoBehaviour
     {
         clearDeletes();
     }
-    
-    public void clearDeletes(){
+
+    public void clearDeletes()
+    {
         if (deletedFlag)
         {
             bool topResetFlag = false;
-            foreach(int i in deletedLayers)
+            foreach (int i in deletedLayers)
             {
                 List<GameObject> curList = depLayers[i];
                 for (int j = 0; j < curList.Count; j++)
@@ -123,7 +124,7 @@ public class LayerStackHolder : MonoBehaviour
                         curList.RemoveAt(j);
                     }
                 }
-                if(i == topLayer)
+                if (i == topLayer)
                 {
                     topResetFlag = true;
                 }
@@ -165,16 +166,16 @@ public class LayerStackHolder : MonoBehaviour
     //insterts a deposit of a material into a particular layer
     bool addDeposit(int curlayer, BitGrid toDeposit, control.materialType layerMaterial, int newTimeOffset = 0)
     {
-        if(curlayer >= layerCount)
+        if (curlayer >= layerCount)
         {
             return false;
         }
-        if(curlayer > topLayer)
+        if (curlayer > topLayer)
         {
             curlayer = topLayer + 1;
             topLayer++;
         }
-        GameObject newMesh = Instantiate(meshGenPrefab ,transform.position + new Vector3(0, layerHeight * (float) curlayer,0) , transform.rotation);
+        GameObject newMesh = Instantiate(meshGenPrefab, transform.position + new Vector3(0, layerHeight * (float)curlayer, 0), transform.rotation);
         newMesh.GetComponent<meshGenerator>().layerHeight = layerHeight;
         newMesh.GetComponent<meshGenerator>().grid.set(toDeposit);
         newMesh.GetComponent<meshGenerator>().initialize();
@@ -214,7 +215,7 @@ public class LayerStackHolder : MonoBehaviour
         int curLayer = topLayer + 1;
 
         //keep going down the layers until you hit the bottom
-        while(curLayer > 0)
+        while (curLayer > 0)
         {
             //in each layer get the BitGrid of everything in the layer below
 
@@ -227,7 +228,7 @@ public class LayerStackHolder : MonoBehaviour
             tempDeposit.set(BitGrid.zeros());
 
             //go through each meshGenerator in the layer below, and add together all of their grids
-            foreach (GameObject curDeposit in depLayers[curLayer-1])
+            foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 tempDeposit.set(BitGrid.union(tempDeposit, curDeposit.GetComponent<meshGenerator>().grid));
             }
@@ -242,7 +243,7 @@ public class LayerStackHolder : MonoBehaviour
                 addDeposit(curLayer, thisDeposit, layerMaterial, newTimeOffset);
             }
 
-    
+
             //subtract the snow that just fell from the snow that's still falling
             grid.set(BitGrid.emptyIntersect(grid, thisDeposit));
 
@@ -314,7 +315,7 @@ public class LayerStackHolder : MonoBehaviour
     //removes the top-most layer of a particular material from the design
     public void etchLayer(control.materialType etchMaterial, int newTimeOffset = 0)
     {
-        BitGrid grid = new BitGrid() ;
+        BitGrid grid = new BitGrid();
         grid.set(BitGrid.ones());
         int curLayer = topLayer + 1;
         while (curLayer > 0)
@@ -325,28 +326,32 @@ public class LayerStackHolder : MonoBehaviour
             etchedSpots.set(BitGrid.zeros());
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
-                if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0 || (curDeposit.GetComponent<meshMaterial>().timeOffset < 0 && curDeposit.GetComponent<meshMaterial>().timeOffset >= newTimeOffset && curDeposit.GetComponent<meshMaterial>().myMaterial != etchMaterial)){
+                if (curDeposit.GetComponent<meshMaterial>().timeOffset >= 0 || (curDeposit.GetComponent<meshMaterial>().timeOffset < 0 && curDeposit.GetComponent<meshMaterial>().timeOffset >= newTimeOffset && curDeposit.GetComponent<meshMaterial>().myMaterial != etchMaterial))
+                {
                     emptySpots.set(BitGrid.union(emptySpots, curDeposit.GetComponent<meshGenerator>().grid));
                 }
             }
             bool anyFlag = false;
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
-                if(curDeposit.GetComponent<meshMaterial>().myMaterial == etchMaterial)
+                if (curDeposit.GetComponent<meshMaterial>().myMaterial == etchMaterial)
                 {
-                    if(curDeposit.GetComponent<meshMaterial>().timeOffset >= 0){
-                        if(newTimeOffset < 0){
-                            etchedSpots.set(BitGrid.union(BitGrid.intersect(curDeposit.GetComponent<meshGenerator>().grid,grid),etchedSpots));
+                    if (curDeposit.GetComponent<meshMaterial>().timeOffset >= 0)
+                    {
+                        if (newTimeOffset < 0)
+                        {
+                            etchedSpots.set(BitGrid.union(BitGrid.intersect(curDeposit.GetComponent<meshGenerator>().grid, grid), etchedSpots));
                             anyFlag = true;
                         }
-                        updateDeposit(BitGrid.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer-1);
+                        updateDeposit(BitGrid.emptyIntersect(curDeposit.GetComponent<meshGenerator>().grid, grid), curDeposit, curLayer - 1);
 
                     }
                 }
             }
 
-            if (anyFlag && !etchedSpots.isEmpty()){
-                addDeposit(curLayer -1 , etchedSpots, etchMaterial, newTimeOffset);
+            if (anyFlag && !etchedSpots.isEmpty())
+            {
+                addDeposit(curLayer - 1, etchedSpots, etchMaterial, newTimeOffset);
             }
             grid.set(BitGrid.emptyIntersect(grid, emptySpots));
             if (grid.isEmpty())
@@ -421,7 +426,7 @@ public class LayerStackHolder : MonoBehaviour
     {
         BitGrid grid = new BitGrid();
         grid.set(BitGrid.zeros()); ;
-        for (int i = 0; i<=topLayer; i++)
+        for (int i = 0; i <= topLayer; i++)
         {
             foreach (GameObject curDeposit in depLayers[i])
             {
@@ -432,7 +437,7 @@ public class LayerStackHolder : MonoBehaviour
             }
             foreach (GameObject curDeposit in depLayers[i])
             {
-                if(curDeposit.GetComponent<meshMaterial>().myMaterial == control.materialType.photoresist)
+                if (curDeposit.GetComponent<meshMaterial>().myMaterial == control.materialType.photoresist)
                 {
                     grid.set(BitGrid.union(grid, curDeposit.GetComponent<meshGenerator>().grid));
                     updateDeposit(BitGrid.zeros(), curDeposit, i);
@@ -455,7 +460,7 @@ public class LayerStackHolder : MonoBehaviour
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
             {
                 meshMaterial mat = curDeposit.GetComponent<meshMaterial>();
-                if(mat.timeOffset > 0)
+                if (mat.timeOffset > 0)
                 {
                     if (mat.timeOffset <= n)
                     {
@@ -466,9 +471,10 @@ public class LayerStackHolder : MonoBehaviour
                         curDeposit.SetActive(false);
                     }
 
-                } else if(mat.timeOffset <0)
+                }
+                else if (mat.timeOffset < 0)
                 {
-                    if(mat.timeOffset <= n)
+                    if (mat.timeOffset <= n)
                     {
                         curDeposit.SetActive(true);
                     }
@@ -502,7 +508,7 @@ public class LayerStackHolder : MonoBehaviour
                     }
                     else
                     {
-                        updateDeposit(BitGrid.zeros(), curDeposit, curLayer-1);
+                        updateDeposit(BitGrid.zeros(), curDeposit, curLayer - 1);
                     }
 
                 }
@@ -514,7 +520,7 @@ public class LayerStackHolder : MonoBehaviour
                     }
                     else
                     {
-                        updateDeposit(BitGrid.zeros(), curDeposit, curLayer-1);
+                        updateDeposit(BitGrid.zeros(), curDeposit, curLayer - 1);
                     }
                 }
             }
@@ -524,81 +530,73 @@ public class LayerStackHolder : MonoBehaviour
     }
 
 
-/* Uses a depth-first-search approach to finding whether there is a connection between two cube spots on the wafer. 
+    /* Uses a depth-first-search approach to finding whether there is a connection between two cube spots on the wafer. 
 
-layer corresponds to the horizontal layer of the starting point, while pos.x * pos.y correspond to values in that plane.
-end.x corresponds to the horizontal layer of the ending point,
-while end.y & end.z correspond to the end.
-*/
+    layer corresponds to the horizontal layer of the starting point, while pos.x * pos.y correspond to values in that plane.
+    end.x corresponds to the horizontal layer of the ending point,
+    while end.y & end.z correspond to the end.
+    */
 
- bool connectionRecur(int layer, Vector2Int pos, Vector3Int end, bool[,,] explored, bool[,,] conductive)
+    bool connectionLoop(Vector3Int start, Vector3Int end, bool[,,] explored, bool[,,] conductive)
     {
-        try
-        {
-            explored[layer, pos.x, pos.y] = true;
-        }
-        catch (Exception e)
-        {
-            Debug.Log(layer + " " + pos.x + " " + pos.y);
-            return false;
-        }
+        // similar approach to BitGrid.fill
+        Stack<Vector3Int> posQueue = new Stack<Vector3Int>();
+        conductive[end.x, end.y, end.z] = true;
+        posQueue.Push(new Vector3Int(start.x, start.y, start.z));
 
-        // Base case: cur is the end point OR cur is not conductive
-        // if curPos == end point      [assuming end point has conductive material]
-        // return true 
-        if ((pos.x == end.y) && (pos.y == end.z) && (end.x == layer))
-            return true;
-
-        // if curPos == not conductive material
-        // return false           [this is not part of a conductive path to the end point]
-        if (!conductive[layer, pos.x, pos.y])
-            return false;
-
-        // move down
-        if (layer > 0)
+        while (posQueue.Count > 0)
         {
-            if (!explored[layer - 1, pos.x, pos.y] && connectionRecur(layer - 1, pos, end, explored, conductive))
-                return true;
-        }
-
-        // move up                    [make sure you're not returning to an explored point]
-        if (layer < topLayer)
-        {
-            if (!explored[layer + 1, pos.x, pos.y] && connectionRecur(layer + 1, pos, end, explored, conductive))
-                return true;
-        }
-
-        // move "north"               [make sure you're not returning to an explored point]
-        if (pos.x < 99)
-        {
-            if (!explored[layer, pos.x + 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(1, 0), end, explored, conductive))
-                return true;
-        }
-
-        // move "east"                [make sure you're not returning to an explored point]
-        if (pos.y < 99)
-        {
-            if (!explored[layer, pos.x, pos.y + 1] && connectionRecur(layer, pos + new Vector2Int(0, 1), end, explored, conductive))
+            Vector3Int curPos = posQueue.Pop();
+            if ((curPos.x == end.x) && (curPos.y == end.y) && (curPos.z == end.z))
                 return true;
 
+            explored[curPos.x, curPos.y, curPos.z] = true;
+
+            // move down
+            if (curPos.x > 0 && !explored[curPos.x - 1, curPos.y, curPos.z])
+            {
+                explored[curPos.x - 1, curPos.y, curPos.z] = true;
+                posQueue.Push(curPos + new Vector3Int(-1, 0, 0));
+            }
+
+            // move up
+            if (curPos.x < topLayer && !explored[curPos.x + 1, curPos.y, curPos.z])
+            {
+                explored[curPos.x + 1, curPos.y, curPos.z] = true;
+                posQueue.Push(curPos + new Vector3Int(1, 0, 0));
+            }
+
+            // move "north"
+            if (curPos.z < 99 && !explored[curPos.x, curPos.y, curPos.z + 1])
+            {
+                explored[curPos.x, curPos.y, curPos.z + 1] = true;
+                posQueue.Push(curPos + new Vector3Int(0, 0, 1));
+            }
+
+            // move "east"
+            if (curPos.y < 99 && !explored[curPos.x, curPos.y + 1, curPos.z])
+            {
+                explored[curPos.x, curPos.y + 1, curPos.z] = true;
+                posQueue.Push(curPos + new Vector3Int(0, 1, 0));
+            }
+
+            // move "south"
+            if (curPos.z > 0 && !explored[curPos.x, curPos.y, curPos.z - 1])
+            {
+                explored[curPos.x, curPos.y, curPos.z - 1] = true;
+                posQueue.Push(curPos + new Vector3Int(0, 0, -1));
+            }
+
+            // move "west"
+            if (curPos.y > 0 && !explored[curPos.x, curPos.y - 1, curPos.z])
+            {
+                explored[curPos.x, curPos.y - 1, curPos.z] = true;
+                posQueue.Push(curPos + new Vector3Int(0, -1, 0));
+            }
         }
 
-        // move "south"               [make sure you're not returning to an explored point]
-        if (pos.x > 0)
-        {
-            if (!explored[layer, pos.x - 1, pos.y] && connectionRecur(layer, pos + new Vector2Int(-1, 0), end, explored, conductive))
-                return true;
-        }
-
-        // move "west"                [make sure you're not returning to an explored point]
-        if (pos.y > 0)
-        {
-            if (!explored[layer, pos.x, pos.y - 1] && connectionRecur(layer, pos + new Vector2Int(0, -1), end, explored, conductive))
-                return true;
-        }
-
+        // Never found a path from start to end with only conductive spots
         return false;
-
     }
 
     /* This code often crashes, most likely due to improper
@@ -606,15 +604,18 @@ while end.y & end.z correspond to the end.
     - Ghost layers? */
     public bool getConnectionStatus(Vector3Int start, Vector3Int end)
     {
-        int numLayers = topLayer;
+        int numLayers = topLayer + 1;
         Debug.Log("numLayers: " + numLayers);
 
-        return false;
         if (topLayer < 1)
         {
             Debug.Log("No layers");
             return false;
         }
+
+        if (start.x > topLayer || end.x > topLayer)
+            return false;
+
 
         bool[,,] explored = new bool[numLayers, 100, 100];
         bool[,,] conductive = new bool[numLayers, 100, 100];
@@ -655,7 +656,7 @@ while end.y & end.z correspond to the end.
             curLayer++;
         }
         Debug.Log("Conductivity initialization complete.");
-        return connectionRecur(start.x, new Vector2Int(start.y, start.z), end, explored, conductive);
+        return connectionLoop(start, end, explored, conductive);
     }
 }
 

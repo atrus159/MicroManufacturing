@@ -1,4 +1,5 @@
 ﻿
+#if UNITY_EDITOR_WIN
 using AnotherFileBrowser.Windows;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,3 +42,4 @@ public class FileBrowserUpdate : MonoBehaviour
         }
     }
 }
+#endif

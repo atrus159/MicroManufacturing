@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine.UI;
-using AnotherFileBrowser.Windows;
 using UnityEngine;
 using System.IO;
+
+
+/* Depending on platform, must implement different file browser. */
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+  using AnotherFileBrowser.Windows;
+#endif
+#if UNITY_EDITOR_OSX
+    using UnityEditor;
+#endif
+
 
 public class save_button : MonoBehaviour
 {
@@ -15,26 +24,28 @@ public class save_button : MonoBehaviour
     {
         Button loadButton = GetComponent<Button>();
         loadButton.onClick.AddListener(TaskOnClick);
-
         paintCanvas = GameObject.Find("drawing_panel").GetComponent<paint>();
-
     }
     void TaskOnClick()
     {
+        string path = "";
+
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         BrowserProperties bp = new BrowserProperties();
         bp.filter = "txt files (*.txt) | *.txt";
         bp.filterIndex = 0;
-
-        string path = "";
-
         new FileBrowser().OpenFileBrowser(bp, filePath => { path = filePath; });
+#endif
 
+#if UNITY_EDITOR_OSX
+        path = EditorUtility.SaveFilePanel("Save bitmap as .txt", "", "bitmap.txt", "txt");
+#endif
         if (path.Length == 0)
             return;
 
         string[] lines = new string[BitGrid.gridHeight];
 
-        for (int j = 0; j < BitGrid.gridHeight ; j++)
+        for (int j = 0; j < BitGrid.gridHeight; j++)
         {
             for (int i = BitGrid.gridWidth - 1; i >= 0; i--)
             {
