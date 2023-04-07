@@ -73,12 +73,7 @@ public class LayerStackHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            bool result = getConnectionStatus(new Vector3Int(0,0,0), new Vector3Int(0,50,50));
-            Debug.Log(result);
 
-        }
     }
 
     //external functions called by buttons
@@ -554,9 +549,16 @@ public class LayerStackHolder : MonoBehaviour
         {
             Vector3Int curPos = posQueue.Pop();
             if ((curPos.x == end.x) && (curPos.y == end.y) && (curPos.z == end.z))
+            {
                 return true;
+            }
 
             explored[curPos.x, curPos.y, curPos.z] = true;
+
+            if (!conductive[curPos.x, curPos.y, curPos.z])
+            {
+                continue;
+            }
 
             // move down
             if (curPos.x > 0 && !explored[curPos.x - 1, curPos.y, curPos.z])
@@ -613,7 +615,7 @@ public class LayerStackHolder : MonoBehaviour
         int numLayers = topLayer + 1;
         Debug.Log("numLayers: " + numLayers);
 
-        if (topLayer < 1)
+        if (topLayer < 0)
         {
             Debug.Log("No layers");
             return false;
@@ -666,6 +668,12 @@ public class LayerStackHolder : MonoBehaviour
         }
         Debug.Log("Conductivity initialization complete.");
         return connectionLoop(start, end, explored, conductive);
+    }
+
+    public void onConductivityButton()
+    {
+        bool result = getConnectionStatus(new Vector3Int(0, 0, 0), new Vector3Int(0, 50, 50));
+        Debug.Log(result);
     }
 }
 
