@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,5 +51,19 @@ public class MenuButtonManager : MonoBehaviour
     public void OnBackButtonPress()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnFullScreenToggle()
+    {
+        if (Screen.fullScreen)
+        {
+            Screen.fullScreen = false;
+            GameObject.Find("FullScreenButton").GetComponent<TextMeshProUGUI>().text = "Full Screen";
+        }
+        else
+        {
+            Screen.fullScreen = true;
+            GameObject.Find("FullScreenButton").GetComponent<TextMeshProUGUI>().text = "Windowed Mode";
+        }
     }
 }
