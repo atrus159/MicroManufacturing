@@ -10,7 +10,7 @@ public class TextParent : MonoBehaviour
     public RectTransform textBoxPosition;
     bool initialFlag = false;
     public List<GameObject> activates = new List<GameObject>();
-
+    public string skipOnObj;
     public bool advanceRequirements;
 
     // Start is called before the first frame update

@@ -41,7 +41,10 @@ public class MenuButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void OnFreePlayButton()
+    {
+        SceneManager.LoadScene("FreePlayLevel");
+    }
 
 
     public void OnBackButtonPress()
