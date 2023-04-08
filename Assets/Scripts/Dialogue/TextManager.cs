@@ -11,7 +11,8 @@ public class TextManager : MonoBehaviour
     GameObject TextBox;
     bool goForward;
     GameObject placeCount;
-    bool skipFlag;
+    public bool skipFlag;
+    string skipOnObjFlag;
     private void Awake() {
         if (instance != null && instance != this)
         {
@@ -27,6 +28,7 @@ public class TextManager : MonoBehaviour
         placeCount = GameObject.Find("placeCount");
         placeCount.SetActive(false);
         skipFlag = false;
+        skipOnObjFlag = "";
     }
     private bool isPlayingText = false;
     private KeyCode advanceTextKeycode = KeyCode.Space;
@@ -62,6 +64,7 @@ public class TextManager : MonoBehaviour
         {
             TextParent _text = _Text[i];
             _text.Display();
+            skipOnObjFlag = _text.skipOnObj;
             yield return new WaitForSeconds(0.1f);
             yield return StartCoroutine(WaitForPlayerInput());
             yield return new WaitUntil(() => holdFlag == false);
@@ -130,6 +133,10 @@ public class TextManager : MonoBehaviour
     {
         while ((!Input.GetKeyDown(advanceTextKeycode) && !Input.GetKeyDown(backTextKeycode) && holdFlag == false && skipFlag == false) || control.isPaused() == control.pauseStates.menuPaused)
         {
+            if(skipOnObjFlag != "" && GameObject.Find(skipOnObjFlag)){
+                skipOnObjFlag = "";
+                break;
+            }
             yield return null;
         }
         if (Input.GetKeyDown(advanceTextKeycode))

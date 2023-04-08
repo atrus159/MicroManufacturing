@@ -574,7 +574,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1696490429}
         m_TargetAssemblyTypeName: MenuButtonManager, Assembly-CSharp
-        m_MethodName: OnLevelSelectButtonPressed
+        m_MethodName: OnFreePlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level Select
+  m_text: Free Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b161ade9ab55ad438c6aab86d2faad6, type: 2}
   m_sharedMaterial: {fileID: 550402606676388538, guid: 0b161ade9ab55ad438c6aab86d2faad6, type: 2}
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Game
+  m_text: Tutorial
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b161ade9ab55ad438c6aab86d2faad6, type: 2}
   m_sharedMaterial: {fileID: 550402606676388538, guid: 0b161ade9ab55ad438c6aab86d2faad6, type: 2}

@@ -21,6 +21,9 @@ public class altText : MonoBehaviour
     // Update is called once per frame
     float hoverTime;
 
+
+    float timeTillShow = 1.5f;
+
     int firstRescaleFlag;
     private void Start()
     {
@@ -37,7 +40,7 @@ public class altText : MonoBehaviour
         if(mx > x + lowLeft.x && mx < x + upRight.x && my > y + lowLeft.y && my < y + upRight.y)
         {
             
-            if(hoverTime < 1.75f)
+            if(hoverTime < timeTillShow)
             {
                 hoverTime += Time.deltaTime;
             }

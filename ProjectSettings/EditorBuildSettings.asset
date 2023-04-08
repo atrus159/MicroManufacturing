@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: b6e386ceec4272342ac3d286e477ba2b
+  - enabled: 1
+    path: Assets/Scenes/FreePlayLevel.unity
+    guid: ad84aa33a6e76184da3bf8f492626353
   m_configObjects: {}

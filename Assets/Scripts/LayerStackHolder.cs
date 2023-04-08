@@ -672,7 +672,7 @@ public class LayerStackHolder : MonoBehaviour
 
     public void onConductivityButton()
     {
-        bool result = getConnectionStatus(new Vector3Int(0, 0, 0), new Vector3Int(0, 50, 50));
+        bool result = getConnectionStatus(new Vector3Int(1, 0, 0), new Vector3Int(50, 99, 99));
         Debug.Log(result);
     }
 }

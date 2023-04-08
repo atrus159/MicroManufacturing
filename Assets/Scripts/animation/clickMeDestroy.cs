@@ -13,7 +13,10 @@ public class clickMeDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("space") || TextManager.instance.skipFlag)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void destroyMe()
