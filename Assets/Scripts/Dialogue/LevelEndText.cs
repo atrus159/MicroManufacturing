@@ -13,6 +13,7 @@ public class LevelEndText : TextParent
     override public void Display()
     {
         base.Display();
+        Resources.UnloadUnusedAssets();
         SceneManager.LoadScene("Credits");
     }
 }

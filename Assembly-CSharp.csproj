@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\tools\lineTool.cs" />
     <Compile Include="Assets\Scripts\meshMaterial.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textDeactivateSLiderButtons.cs" />
     <Compile Include="Assets\Scripts\control.cs" />
     <Compile Include="Assets\Scripts\tools\rectangleTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -155,7 +156,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\customs\textDeactivateSLiderButtons.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
