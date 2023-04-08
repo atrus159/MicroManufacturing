@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class control : MonoBehaviour
 {
@@ -85,9 +86,15 @@ public class control : MonoBehaviour
         offset = 15;
     }
 
+    void OnDestroy()
+    {
+        materialsList.Clear();
+    }
+
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Tab) && paused == pauseStates.unPaused) // prevents overlapping tab menu and pause menu
         {
             onDrawMenuButton();
@@ -269,7 +276,13 @@ public class control : MonoBehaviour
         }
     }
 
-    public void onDrawMenuButton()
+    public void onMainMenuFromPause()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
+        public void onDrawMenuButton()
     {
         hudVisible = !hudVisible;
         if (!hudVisible)
