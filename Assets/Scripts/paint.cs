@@ -30,44 +30,37 @@ public class paint : MonoBehaviour
     {
         grid = new BitGrid();
         gridOld = new BitGrid();
-
         image = GetComponent<Image>();
         trans = GetComponent<RectTransform>();
+        clickCoords = new Vector2Int(-1, -1);
+
+        /* Fills canvas with white background */
         texture = new Texture2D((int) trans.sizeDelta.x, (int)trans.sizeDelta.y);
         oldTexture = new Texture2D((int)trans.sizeDelta.x, (int)trans.sizeDelta.y);
-        clickCoords = new Vector2Int(-1, -1);
-        image.material.mainTexture = texture;
         updateScale();
-        for(int i = 0; i < BitGrid.gridWidth; i++)
+        scaleFactor = 3;
+        for (int i = 0; i < BitGrid.gridWidth; i++)
         {
             for(int j = 0; j< BitGrid.gridHeight; j++)
             {
-                setPixel(i, j, 0);
+                this.setPixel(i, j, 0);
             }
         }
         texture.Apply();
+        image.material.mainTexture = texture;
+
         curColor = 1;
-        tools = new toolParent[5];
-        tools[0] = new brushTool();
-        tools[1] = new bucketTool();
-        tools[2] = new lineTool();
-        tools[3] = new rectangleTool();
-        tools[4] = new elipseTool();
+        tools = new toolParent[5] { new brushTool(), new bucketTool(), new lineTool(), new rectangleTool(), new elipseTool()};
         curTool = 0;
         fillMode = 0;
         successfulClick = false;
-        scaleFactor = 3;
         res = Screen.currentResolution;
     }
 
     public void setPixel(int i, int j, int val)
     {
         grid.setPoint(i,j,val);
-        Color toSet = Color.black;
-        if(val == 0)
-        {
-            toSet = Color.white;
-        }
+        Color toSet = (val == 0) ? Color.white : Color.black;
         for(int indI = 0; indI < scaleFactor; indI++)
         {
             for(int indJ = 0; indJ < scaleFactor; indJ++)
