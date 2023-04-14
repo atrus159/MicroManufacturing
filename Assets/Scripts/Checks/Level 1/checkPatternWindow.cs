@@ -11,7 +11,7 @@ public class checkPatternWindow : levelRequirementParent
     {
         base.onStart();
         name = "Head to the Photolithography Bench.";
-        description = "You can press TAB, or click on the Photomask button to switch to the Masking Table.";
+        description = "You can press TAB, or click on the button in the top left to switch to the Photolithography Bench.";
         checkOutsideEdits = true;
         cGroup = GameObject.Find("Canvas - HUD").GetComponent<CanvasGroup>();
     }

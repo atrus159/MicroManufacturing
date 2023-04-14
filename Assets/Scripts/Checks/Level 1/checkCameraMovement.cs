@@ -13,7 +13,7 @@ public class checkCameraMovement : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Take a look around the wafer";
+        name = "Take a look around the wafer, then click the “done” button.";
         description = "You can move the camera with the arrow keys.";
         Camera = GameObject.Find("Main Camera");
         startAngle = Camera.transform.rotation.eulerAngles.y;

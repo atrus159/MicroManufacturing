@@ -5130,7 +5130,7 @@ MonoBehaviour:
   activates:
   - {fileID: 1917572491}
   skipOnObj: 
-  advanceRequirements: 0
+  advanceRequirements: 1
   text: When you're finished drawing, press TAB to return to your workbench.
   location: {x: 0, y: -100}
   anchor: 4
@@ -10682,7 +10682,7 @@ MonoBehaviour:
   - {fileID: 29296835}
   - {fileID: 1444046670}
   - {fileID: 1094329337}
-  - {fileID: 654177779}
+  - {fileID: 456745330}
   - {fileID: 1325327628}
   - {fileID: 138101934}
   - {fileID: 1730906975}
