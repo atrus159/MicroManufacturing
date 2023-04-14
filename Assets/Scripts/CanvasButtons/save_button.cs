@@ -7,12 +7,12 @@ using System.IO;
 
 
 /* Depending on platform, must implement different file browser. */
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+/*#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
   using AnotherFileBrowser.Windows;
 #endif
 #if UNITY_EDITOR_OSX
     using UnityEditor;
-#endif
+#endif*/
 
 
 public class save_button : MonoBehaviour
@@ -30,7 +30,7 @@ public class save_button : MonoBehaviour
     {
         string path = "";
 
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+/*#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         BrowserProperties bp = new BrowserProperties();
         bp.filter = "txt files (*.txt) | *.txt";
         bp.filterIndex = 0;
@@ -39,7 +39,7 @@ public class save_button : MonoBehaviour
 
 #if UNITY_EDITOR_OSX
         path = EditorUtility.SaveFilePanel("Save bitmap as .txt", "", "bitmap.txt", "txt");
-#endif
+#endif*/
         if (path.Length == 0)
             return;
 

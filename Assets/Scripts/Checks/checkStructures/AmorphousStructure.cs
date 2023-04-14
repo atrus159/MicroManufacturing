@@ -122,7 +122,7 @@ public class AmorphousStructure : CheckStructComponent
                 foreach (GameObject curDeposit in layers.depLayers[layerIndex])
                 {
                     BitGrid intersection = BitGrid.intersect(curDeposit.GetComponent<meshGenerator>().grid, surounding);
-                    if (curDeposit.GetComponent<meshMaterial>().myMaterial == surroundingMaterial)
+                    if (curDeposit.GetComponent<meshMaterial>().myMaterial == surroundingMaterial || curDeposit.GetComponent<meshMaterial>().myMaterial == this.materialType)
                     {
                         suroundingFill = BitGrid.union(suroundingFill, intersection);
                         continue;

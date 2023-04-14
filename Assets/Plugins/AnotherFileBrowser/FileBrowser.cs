@@ -1,4 +1,4 @@
-﻿#if UNITY_STANDALONE_WIN
+﻿/*#if UNITY_STANDALONE_WIN
 using Ookii.Dialogs;
 using System;
 using System.Windows.Forms;
@@ -65,4 +65,4 @@ namespace AnotherFileBrowser.Windows
         private IntPtr _hwnd;
     }
 }
-#endif
+#endif*/
