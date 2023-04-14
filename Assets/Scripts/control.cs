@@ -333,6 +333,10 @@ public class control : MonoBehaviour
 
     public void onPhotoResistButton()
     {
+        if (GameObject.Find("drawing_panel").GetComponent<paint>().grid.isEmpty())
+        {
+            return;
+        }
         GameObject layer = GameObject.Find("Animation Creator");
         layer.GetComponent<AnimationCreator>().makeSpinCaster();
         GameObject holder = GameObject.Find("PhotoButtonToggleHolder");
