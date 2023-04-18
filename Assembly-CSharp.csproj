@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Parents\toolParent.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\color_button.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueCanvas.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 2\checkChromeFirst.cs" />
     <Compile Include="Assets\Scripts\Activatable.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\load_button.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\animation\SpinCastAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\fill_button.cs" />
     <Compile Include="Assets\Scripts\Dialogue\BasicText.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textActivateDropdown.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\RectangleStructure.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\elipse_button.cs" />
     <Compile Include="Assets\Scripts\tools\lineTool.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Assets\Scripts\tools\bucketTool.cs" />
     <Compile Include="Assets\Scripts\animation\AnimationCreator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\rect_button.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 2\checkGoldOnChrome.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\sceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkSiliconSlab.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="Assets\Scripts\UI\Blueprint.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkCameraMovement.cs" />
     <Compile Include="Assets\Scripts\Dialogue\LevelEndText.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 2\checkDepositGold.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
