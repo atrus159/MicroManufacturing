@@ -34,8 +34,8 @@ public class Blueprint : MonoBehaviour
     }
 
 
-    Vector2 closedScale = new Vector2(200,50);
-    Vector2 openScale = new Vector2(200,300);
+    Vector2 closedScale = new Vector2(250,48);
+    Vector2 openScale = new Vector2(250,400);
 
     dragStates dragState;
 
