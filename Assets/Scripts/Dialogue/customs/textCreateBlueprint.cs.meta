@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8e998e707bcf07640a64d730685deddc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - textBoxText: {instanceID: 0}
+  - textBoxPosition: {instanceID: 0}
+  - blueprintPrefab: {fileID: 1290433408156734916, guid: 27b2d363bce65b544bffa609c103cc3c, type: 3}
+  - blueprintImage: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
