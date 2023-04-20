@@ -64,11 +64,14 @@ public class AnimationCreator : MonoBehaviour
                 case states.effectBreak:
                     if (lightTime > 0.5f)
                     {
-                        GameObject.Find("LayerStack").GetComponent<LayerStackHolder>().etchLayer(control.materialType.photoresistComplement);
+                        LayerStackHolder layerStack = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
+                        layerStack.etchLayer(control.materialType.photoresistComplement);
+                        layerStack.postDeleteCheckFlag = true;
                         curLightBeamState = states.maskAcending;
                         lightTime = 0;
                         startMaskPosition = Photomask.transform.localPosition;
                         StartCoroutine(zoomIn(0.5f));
+
                     }
                     break;
                 case states.maskAcending:

@@ -10,7 +10,7 @@ public class checkLiftOff : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Once you put down the deposit, use lift-off to remove the coating on top to reveal your pattern.";
+        name = "Once you deposit the material, use lift-off to remove the coating on top to reveal your pattern.";
         description = "Note that the Photoresist button has been replaced with the Lift-Off button after you pressed it.";
         slab = new CheckStruct(0, 1);
         RectangleStructure slabStruct = new RectangleStructure(control.materialType.silicon, 1, new Vector3Int(99, 20, 99), new Vector3Int(99, 100, 99), 1, new[] { true, false, false });

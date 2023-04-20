@@ -568,7 +568,7 @@ MonoBehaviour:
   skipOnObj: 
   advanceRequirements: 0
   text: "Now it's time to transfer your pattern onto your wafer. To do this we\u2019ll
-    use something called a photoresist."
+    use something called a *photoresist*."
   location: {x: 0, y: 0}
   anchor: 4
 --- !u!1 &142799147
@@ -1309,7 +1309,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 40
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &380161356
 MonoBehaviour:
@@ -2891,7 +2891,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 37
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &654177779
 MonoBehaviour:
@@ -3269,7 +3269,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &682088981
 MonoBehaviour:
@@ -3590,8 +3590,8 @@ MonoBehaviour:
   - {fileID: 1897706265}
   skipOnObj: 
   advanceRequirements: 0
-  text: After you lay down a photoresist, you can perform this lift-off with the
-    "lift-off" button in the bottom right. Try making an inverse replica of your
+  text: After you lay down a photoresist, you can execute the lift-off process with
+    the "lift-off" button in the bottom right. Try making an inverse replica of your
     pattern!
   location: {x: 0, y: 0}
   anchor: 4
@@ -5216,7 +5216,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 35
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1122045749
 MonoBehaviour:
@@ -5235,6 +5235,7 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
+  destination: Level2
 --- !u!1 &1132620668
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,7 +5817,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 39
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1207402795
 MonoBehaviour:
@@ -6236,7 +6237,6 @@ Transform:
   - {fileID: 1664246144}
   - {fileID: 1371793666}
   - {fileID: 1263892658}
-  - {fileID: 1122045748}
   - {fileID: 2136735012}
   - {fileID: 654177778}
   - {fileID: 682088980}
@@ -6244,6 +6244,7 @@ Transform:
   - {fileID: 380161355}
   - {fileID: 1485647450}
   - {fileID: 1380206783}
+  - {fileID: 1122045748}
   m_Father: {fileID: 2053329037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6296,11 +6297,12 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: One way is called lift-off. If we deposit material on top of your photoresist
-    stencil, we can then use other chemicals to make photoresist peel away, lifting
-    off the coating sitting on top. This will only leave the coating on regions that
-    were not protected by the photoresist stencil. You can use this process, similar
-    to stencil printing, to create any shape you want!
+  text: "One method is called *lift-off*. If we deposit material on top of your photoresist
+    stencil, we can then use specific chemicals like acetone to dissolve photoresist,
+    simultaneously \u201Clifting off\u201D the coating deposited onto the photoresist.
+    This will only leave the coating on regions that were not protected by the photoresist
+    stencil. You can use this process, similar to stencil printing, to create any
+    shape you want!"
   location: {x: 0, y: 0}
   anchor: 4
 --- !u!1001 &1312003950
@@ -7182,7 +7184,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 42
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1380206784
 MonoBehaviour:
@@ -7394,7 +7396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 41
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1485647451
 MonoBehaviour:
@@ -8326,10 +8328,9 @@ MonoBehaviour:
   advanceRequirements: 0
   text: The white parts of your pattern will let the light through, exposing the
     photoresist and making it soluble. The black parts will block the light, leaving
-    the photoresist unaffected. Once the selectively exposed photoresist is immersed
-    in a solution (developer), the exposed regions will dissolve away. This will
-    leave us with a copy of your designed pattern made out of the photoresist. A
-    little microscopic stencil!
+    the photoresist unaffected. Once the selectively-exposed photoresist is immersed
+    in the developer, the exposed regions will dissolve away. This will leave us
+    with a photoresist replica of your photomask pattern. A little microscopic stencil!
   location: {x: 0, y: 0}
   anchor: 4
 --- !u!1 &1628140450
@@ -9361,11 +9362,12 @@ MonoBehaviour:
   skipOnObj: 
   advanceRequirements: 0
   text: "Photoresists are materials that react with light to become either more soluble
-    or less soluble. The one we\u2019re using is called positive photoresist, which
-    means it becomes more soluble when exposed to light. We can coat the wafer in
-    a thin layer of photoresist, then shine light through the photomask pattern you
-    just made to expose some of the photoresist in a particular shape. This is just
-    like photography, exposing chemicals that react to light to capture an image!"
+    or less soluble in a solution called *developer*. The one we\u2019re using is
+    called *positive photoresist*, which means it becomes more soluble when exposed
+    to light. We can coat the wafer with a thin layer of photoresist, then shine
+    light through the photomask pattern you just made to expose some of the photoresist
+    in a particular shape. This is just like photography, exposing chemicals that
+    react to light to capture an image!"
   location: {x: 0, y: 0}
   anchor: 4
 --- !u!1001 &1735975618
@@ -11006,7 +11008,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302498629}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2136735013
 MonoBehaviour:

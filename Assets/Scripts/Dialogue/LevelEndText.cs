@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelEndText : TextParent
 {
+
+    public string destination;
     override public void Initialize()
     {
         base.Initialize();
@@ -14,6 +16,6 @@ public class LevelEndText : TextParent
     {
         base.Display();
         Resources.UnloadUnusedAssets();
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene(destination);
     }
 }

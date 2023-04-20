@@ -1,4 +1,4 @@
-using CGTespy.UI;
+﻿using CGTespy.UI;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +17,12 @@ public class BasicText : TextParent
         int charCount = 0;
         foreach (char c in text)
         {
+            if (c == '■')
+            {
+                charCount = -1;
+                textWithLines += "\n";
+                continue;
+            }
             textWithLines += c;
             if (c == '*')
             {
