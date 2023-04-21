@@ -66,4 +66,9 @@ public class MenuButtonManager : MonoBehaviour
             GameObject.Find("FullScreenButton").GetComponent<TextMeshProUGUI>().text = "Windowed Mode";
         }
     }
+
+    public void onContinueButton()
+    {
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoFromMenu();
+    }
 }

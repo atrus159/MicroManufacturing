@@ -16,6 +16,6 @@ public class LevelEndText : TextParent
     {
         base.Display();
         Resources.UnloadUnusedAssets();
-        SceneManager.LoadScene(destination);
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoFromLevel(destination);
     }
 }

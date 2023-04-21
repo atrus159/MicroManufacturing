@@ -1883,7 +1883,8 @@ MonoBehaviour:
   skipOnObj: 
   advanceRequirements: 0
   text: The MEA will consist of four square contacts, one in each corner of the wafer.
-    You can refer to the blueprint on your screen for what it should look like.
+    You can refer to the blueprint on your screen for what it should look like. Click
+    on it to drag it around or minimize it.
   location: {x: 0, y: -140}
   anchor: 1
   blueprintPrefab: {fileID: 1290433408156734916, guid: 27b2d363bce65b544bffa609c103cc3c, type: 3}
@@ -7179,6 +7180,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f91a2bc40677e34cb65febc402b9d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1646487062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 550034952270315198, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_Name
+      value: SceneManagerSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 256.52344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 234.13593
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -515.9231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145275736648582098, guid: 301d3772fdccfa04d877855753d38168, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 301d3772fdccfa04d877855753d38168, type: 3}
 --- !u!1 &1700792201
 GameObject:
   m_ObjectHideFlags: 0

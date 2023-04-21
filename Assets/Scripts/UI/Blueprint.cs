@@ -43,19 +43,15 @@ public class Blueprint : MonoBehaviour
     void Start()
     {
         frameImage = gameObject.GetComponent<Image>();
-        frameImage.sprite = closedSprite;
         drawing = gameObject.transform.GetChild(0).gameObject;
         drawingImage = drawing.GetComponent<Image>();
-        drawingImage.sprite = drawingSprite;
-        drawing.SetActive(false);
         blocker = GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>();
         dragState = dragStates.waiting;
-        open = false;
         originalX = 0.0f;
         originalY = 0.0f;
         mouseRelX = 0.0f;
         mouseRelY= 0.0f;
-        gameObject.GetComponent<RectTransform>().sizeDelta = closedScale;
+        setOpen(true);
     }
 
     // Update is called once per frame
@@ -109,28 +105,40 @@ public class Blueprint : MonoBehaviour
                 {
                     if (open)
                     {
-                        frameImage.sprite = closedSprite;
-                        drawing.SetActive(false);
-                        open = false;
-                        trans.sizeDelta = closedScale;
-                        float offset = openScale.y / 2 - closedScale.y / 2;
-                        trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y + offset), Quaternion.identity);
+                        setOpen(false);
                     }
                     else
                     {
-                        frameImage.sprite = openSprite;
-                        drawing.SetActive(true);
-                        open = true;
-                        trans.sizeDelta = openScale;
-                        float offset = openScale.y / 2 - closedScale.y / 2;
-                        trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y - offset), Quaternion.identity);
+                        setOpen(true);
                     }
                 }
             }
 
         }
-
-
-
     }
+
+
+    void setOpen(bool toSet)
+    {
+        RectTransform trans = gameObject.GetComponent<RectTransform>();
+        if (toSet)
+        {
+            frameImage.sprite = openSprite;
+            drawing.SetActive(true);
+            open = true;
+            trans.sizeDelta = openScale;
+            float offset = openScale.y / 2 - closedScale.y / 2;
+            trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y - offset), Quaternion.identity);
+        }
+        else
+        {
+            frameImage.sprite = closedSprite;
+            drawing.SetActive(false);
+            open = false;
+            trans.sizeDelta = closedScale;
+            float offset = openScale.y / 2 - closedScale.y / 2;
+            trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y + offset), Quaternion.identity);
+        }
+    }
+
 }
