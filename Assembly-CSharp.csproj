@@ -66,10 +66,12 @@
     <Compile Include="Assets\Scripts\CanvasButtons\load_button.cs" />
     <Compile Include="Assets\Scripts\meshGenerator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textCreateBlueprint.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkLiftOff.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\substrateControl.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA3.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\swap_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\clear_button.cs" />
@@ -114,16 +116,18 @@
     <Compile Include="Assets\Scripts\animation\AnimationCreator.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\rect_button.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 2\checkGoldOnChrome.cs" />
-    <Compile Include="Assets\Scripts\SceneManagement\sceneManager.cs" />
+    <Compile Include="Assets\Scripts\SceneManagement\globalSceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkSiliconSlab.cs" />
     <Compile Include="Assets\FileBrowserUpdate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA2.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessIonEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Dialogue\TextManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\save_button.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\line_button.cs" />
     <Compile Include="Assets\Scripts\LayerStackHolder.cs" />
@@ -161,10 +165,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\customs\textCreateBlueprint.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA1.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA2.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA3.cs" />
+    <Compile Include="Assets\Scripts\SceneManagement\SceneManagerSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
