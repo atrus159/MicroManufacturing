@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositButtonPressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Checks\checkWPressed.cs" />
+    <Compile Include="Assets\Scripts\SceneManagement\SceneManagerSpawner.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessGen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\tools\bucketTool.cs" />
@@ -165,7 +166,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessAluminumEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\SceneManagement\SceneManagerSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
