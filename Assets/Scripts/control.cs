@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< Updated upstream
+=======
+using UnityEngine.SceneManagement;
+using TMPro;
+using static System.Net.Mime.MediaTypeNames;
+using UnityEditor.PackageManager;
+using System;
+>>>>>>> Stashed changes
 
 public class control : MonoBehaviour
 {
@@ -361,8 +369,47 @@ public class control : MonoBehaviour
 
     public void onConductivityCheck()
     {
+
         GameObject layer = GameObject.Find("LayerStack");
-        Debug.Log(layer.GetComponent<LayerStackHolder>().getConnectionStatus(new Vector3Int(0,0,0), new Vector3Int(3,3,3)));
+
+        // Parse input
+        string input = GameObject.Find("conductiveInput").GetComponent<TMP_InputField>().text;
+
+
+        // words[3] should be a blank b/c it's a space
+        string[] nums = input.Split(new char[] { ' ', '(', ')', ',' });
+
+        int[] converted = new int[6];
+        int cur = 0;
+        foreach (string element in nums)
+        {
+            try
+            {
+                Debug.Log(element);
+                int numVal = Int32.Parse(element);
+
+                converted[cur++] = numVal;
+            }
+            catch (FormatException e)
+            {
+                // fail
+            }
+
+            if (cur == 6)
+                break;
+        }
+
+        Debug.Log(String.Join(",", converted));
+
+        if (cur != 6) {
+            Debug.Log("Check point formatting!");
+            return;
+        }
+
+        Vector3Int ptA = new Vector3Int(converted[0], converted[1], converted[2]);
+        Vector3Int ptB = new Vector3Int(converted[3], converted[4], converted[5]);
+
+        Debug.Log(layer.GetComponent<LayerStackHolder>().getConnectionStatus(ptA, ptB));
     }
 
 }

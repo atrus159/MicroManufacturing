@@ -541,8 +541,6 @@ public class LayerStackHolder : MonoBehaviour
     end.x corresponds to the horizontal layer of the ending point,
     while end.y & end.z correspond to the end.
     */
-
-
     bool connectionLoop(Vector3Int start, Vector3Int end, bool[,,] explored, bool[,,] conductive)
     {
         // similar approach to BitGrid.fill
@@ -620,7 +618,22 @@ public class LayerStackHolder : MonoBehaviour
         }
 
         if (start.x > topLayer || end.x > topLayer)
+        {
+            Debug.Log("Out of bounds.");
             return false;
+        }
+
+        if (start.y > 99 | start.z > 99 | end.y > 99 | end.z > 99)
+        {
+            Debug.Log("Out of bounds.");
+            return false;
+        }
+
+        if (start.y < 0 | start.z < 0 | end.y < 0 | end.z < 0)
+        {
+            Debug.Log("Out of bounds.");
+            return false;
+        }
 
 
         bool[,,] explored = new bool[numLayers, 100, 100];
@@ -667,5 +680,52 @@ public class LayerStackHolder : MonoBehaviour
         Debug.Log("Conductivity initialization complete.");
         return connectionLoop(start, end, explored, conductive);
     }
+<<<<<<< Updated upstream
+=======
+
+
+    /* Why is this here?? (ask) */
+    public void onConductivityButton()
+    {
+        bool result = getConnectionStatus(new Vector3Int(1, 0, 0), new Vector3Int(50, 99, 99));
+        Debug.Log(result);
+    }
+
+    /* Air is black, Material is white */
+    public BitGrid crossSectionFromDepth(int depth) {
+        if (depth < 0 || depth > 99)
+            return null;
+
+        if (topLayer < 0)
+        {
+            return null;
+        }
+
+        BitGrid crossSection = BitGrid.zeros();
+
+        for (int curLayer = 0; curLayer <= topLayer + 1; curLayer++)
+        {
+            /* All of the deposits that have material on that layer */
+            List<GameObject> depLayer = depLayers[curLayer];
+            for (int i = 0; i < depLayer.Count(); i++)
+            {
+                BitGrid grid = depLayer[i].GetComponent<meshGenerator>().grid;
+                for (int j = 0; j < 100; j++)
+                {
+                        if (grid.getPoint(j, depth) != 0)
+                        {
+                            crossSection.setPoint(j, curLayer, 1);
+                        }
+                    
+                }
+
+            }
+        }
+
+        return crossSection;
+    }
+
+
+>>>>>>> Stashed changes
 }
 
