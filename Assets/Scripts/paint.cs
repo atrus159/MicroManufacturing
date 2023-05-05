@@ -8,7 +8,7 @@ public class paint : MonoBehaviour
 {
     public BitGrid grid;
     public BitGrid gridOld;
-    Image image;
+    public Image image;
     public Texture2D texture;
     public Texture2D oldTexture;
     public int scaleFactor;
