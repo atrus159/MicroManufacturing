@@ -675,5 +675,41 @@ public class LayerStackHolder : MonoBehaviour
         bool result = getConnectionStatus(new Vector3Int(1, 0, 0), new Vector3Int(50, 99, 99));
         Debug.Log(result);
     }
+
+    public BitGrid crossSectionFromDepth(int depth)
+    {
+        if (depth < 0 || depth > 99)
+            return null;
+
+        if (topLayer < 0)
+        {
+            return null;
+        }
+
+        BitGrid crossSection = BitGrid.zeros();
+
+        for (int curLayer = 0; curLayer <= topLayer + 1; curLayer++)
+        {
+            /* All of the deposits that have material on that layer */
+            List<GameObject> depLayer = depLayers[curLayer];
+            for (int i = 0; i < depLayer.Count(); i++)
+            {
+                BitGrid grid = depLayer[i].GetComponent<meshGenerator>().grid;
+                for (int j = 0; j < 100; j++)
+                {
+                    if (grid.getPoint(j, depth) != 0)
+                    {
+                        crossSection.setPoint(j, curLayer, 1);
+                    }
+
+                }
+
+            }
+        }
+
+        return crossSection;
+    }
+
+}
 }
 
