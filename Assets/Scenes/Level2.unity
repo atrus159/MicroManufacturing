@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4514023, g: 0.5008948, b: 0.57231796, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140284, g: 0.50089616, b: 0.5723196, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: df90d28e2265546ab8ed8b497314112d, type: 2}
   m_Color: {r: 0.16037738, g: 0.059763268, b: 0.059763268, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48464cd53bb3c604f999e7d3f15e8d09, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2449,7 +2449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: d39d39783b792504f86fe80cab5dcfe4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2487,6 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa9485b0867a564bb51b1dc73b0c87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
   texture: {fileID: 0}
   oldTexture: {fileID: 0}
   scaleFactor: 0
@@ -3192,7 +3193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 173fc66cf05114d4fb081aa6d29b47dd, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3200,7 +3201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fb1924644ef64492a95597dc14c7ffdf, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5304,6 +5305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafd776d793ed4aa58a26e6ffcda5392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask: {fileID: 0}
+  schematic: {fileID: 0}
 --- !u!1 &1220727947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8490492670952815446, guid: 7be8a5650e5a3884aa87acd779dda042, type: 3}

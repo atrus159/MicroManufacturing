@@ -711,5 +711,4 @@ public class LayerStackHolder : MonoBehaviour
     }
 
 }
-}
 

@@ -20,6 +20,8 @@ public class paint : MonoBehaviour
     public Vector2Int clickCoords;
     public int fillMode;
 
+    float alphaValue = 0.5f;
+
     RectTransform trans;
 
     bool successfulClick;
@@ -61,7 +63,8 @@ public class paint : MonoBehaviour
     {
         grid.setPoint(i,j,val);
         Color toSet = (val == 0) ? Color.white : Color.black;
-        for(int indI = 0; indI < scaleFactor; indI++)
+        //toSet.a = alphaValue;
+        for (int indI = 0; indI < scaleFactor; indI++)
         {
             for(int indJ = 0; indJ < scaleFactor; indJ++)
             {
