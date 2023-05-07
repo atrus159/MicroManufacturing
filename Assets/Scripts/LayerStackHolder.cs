@@ -683,7 +683,7 @@ public class LayerStackHolder : MonoBehaviour
 
         if (topLayer < 0)
         {
-            return null;
+            return BitGrid.zeros();
         }
 
         BitGrid crossSection = BitGrid.zeros();
@@ -701,9 +701,7 @@ public class LayerStackHolder : MonoBehaviour
                     {
                         crossSection.setPoint(j, curLayer, 1);
                     }
-
                 }
-
             }
         }
 

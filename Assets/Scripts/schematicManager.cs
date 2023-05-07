@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 
 public class schematicManager : MonoBehaviour
 {
@@ -27,39 +29,34 @@ public class schematicManager : MonoBehaviour
         schematic.material.mainTexture = schematicTexture;
     }
 
-    void updateMask()
+    public void updateMask()
     {
-        /*if (mask.material.mainTexture) {
-
-
-        }*/
-
-        //paintCanvas.image.material.mainTexture;
         Graphics.CopyTexture(paintCanvasTexture, maskTexture);
     }
 
-    void updateSchematic()
+    public void updateSchematic()
     {
+        GameObject layer = GameObject.Find("LayerStack");
+        BitGrid crossSection = layer.GetComponent<LayerStackHolder>().crossSectionFromDepth(50);
 
+        int width = schematicTexture.width;
+        int height = schematicTexture.height;
 
+        Texture2D newTexture = new Texture2D(schematicTexture.width, schematicTexture.height);
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++) {
+                Color toSet = (crossSection.getPoint(i / (width/ 100), j / (width / 100)) == 0) ? Color.white : Color.black;
+                newTexture.SetPixel(i, j, toSet);
+             }
+
+        newTexture.Apply();
+        Graphics.CopyTexture(newTexture, schematicTexture);
     }
-    // Update is called once per frame
-    void Update()
-    {
-         updateMask();
-    }
 
-    public void setPixel(int i, int j, int val)
-    {
-        /*int scaleFactor = 3;
-        Color toSet = (val == 0) ? Color.white : Color.black;
-        for (int indI = 0; indI < scaleFactor; indI++)
-        {
-            for (int indJ = 0; indJ < scaleFactor; indJ++)
-            {
-                texture.SetPixel(scaleFactor * i + indI, scaleFactor * j + indJ, toSet);
-            }
-        }*/
+    public void updateText(string tool) {
+
+        TextMeshProUGUI toolText = transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        toolText.text = "Last Tool: " + tool;
     }
 }
 
