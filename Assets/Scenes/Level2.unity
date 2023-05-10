@@ -7460,6 +7460,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 964424716}
     m_Modifications:
     - target: {fileID: 4590784200215446306, guid: 833f40f43b9da414eb53bd19e10dcc7b, type: 3}
+      propertyPath: processWetEtchPrefab
+      value: 
+      objectReference: {fileID: 8290430112663803850, guid: 8a46668c84be9884f8242d351f0b17b5, type: 3}
+    - target: {fileID: 4590784200215446306, guid: 833f40f43b9da414eb53bd19e10dcc7b, type: 3}
       propertyPath: processAluminumEtchPrefab
       value: 
       objectReference: {fileID: 8290430112663803850, guid: 8a46668c84be9884f8242d351f0b17b5, type: 3}

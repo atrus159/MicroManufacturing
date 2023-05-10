@@ -20,7 +20,7 @@ public class LayerStackHolder : MonoBehaviour
     public GameObject layerStackPrefab;
     public GameObject processGenPrefab;
     public GameObject processEtchPrefab;
-    public GameObject processAluminumEtchPrefab;
+    public GameObject processWetEtchPrefab;
     public GameObject processIonEtchPrefab;
 
     //constant, the height in pixels of a layer
@@ -34,6 +34,7 @@ public class LayerStackHolder : MonoBehaviour
     public List<int> deletedLayers;
 
     public bool postDeleteCheckFlag = false;
+    public bool wetEtch;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +45,10 @@ public class LayerStackHolder : MonoBehaviour
         layerHeight = 0.1f;
         deletedLayers = new List<int>();
         deletedFlag = false;
+        wetEtch = false;
     }
 
+ 
 
     public void onValueChange(int num) //Dropdown selection function
     {
@@ -73,7 +76,10 @@ public class LayerStackHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            wetEtch = !wetEtch;
+        }
     }
 
     //external functions called by buttons
@@ -91,9 +97,9 @@ public class LayerStackHolder : MonoBehaviour
 
     public void startEtchProcess()
     {
-        if (curMaterial == control.materialType.aluminum)
+        if (wetEtch)
         {
-            Instantiate(processAluminumEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+            Instantiate(processWetEtchPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
         }
         else
         {
