@@ -322,9 +322,13 @@ public class control : MonoBehaviour
         GameObject layer = GameObject.Find("LayerStack");
         layer.GetComponent<LayerStackHolder>().startEtchProcess();
 
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateSchematic();
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateText("Etch");
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
 
+        if (schematicManagerObject)
+        {
+            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateText("Etch");
+        }
     }
 
     public void onLiftoffButton()
@@ -335,10 +339,14 @@ public class control : MonoBehaviour
         holder.transform.Find("Liftoff Button").gameObject.SetActive(false);
         holder.transform.Find("Photoresist Button").gameObject.SetActive(true);
 
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateSchematic();
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateText("Lift-off");
 
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
 
+        if (schematicManagerObject)
+        {
+            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateText("Lift-off");
+        }
     }
 
     public void onPhotoResistButton()
@@ -353,19 +361,29 @@ public class control : MonoBehaviour
         holder.transform.Find("Liftoff Button").gameObject.SetActive(true);
         holder.transform.Find("Photoresist Button").gameObject.SetActive(false);
 
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateMask();
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateSchematic();
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateText("Photoresist");
 
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
 
+        if (schematicManagerObject)
+        {
+            schematicManagerObject.GetComponent<schematicManager>().updateMask();
+            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateText("Photoresist");
+        }
     }
 
     public void onFinishedButton()
     {
         GameObject proc = GameObject.Find("New Process");
         proc.GetComponent<ProcessParent>().onFinishedButton();
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateSchematic();
-        GameObject.Find("schematicManager").GetComponent<schematicManager>().updateText("Deposit");
+
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
+
+        if (schematicManagerObject)
+        {
+            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateText("Deposit");
+        }
     }
 
     public void onCancelButton()
