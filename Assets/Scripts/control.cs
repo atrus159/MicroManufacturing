@@ -353,6 +353,11 @@ public class control : MonoBehaviour
     {
         if (GameObject.Find("drawing_panel").GetComponent<paint>().grid.isEmpty())
         {
+            GameObject em = GameObject.Find("ErrorManager");
+            if(em)
+            {
+                em.GetComponent<errorManager>().createError("You don't have a photomask set yet!");
+            }
             return;
         }
         GameObject layer = GameObject.Find("Animation Creator");

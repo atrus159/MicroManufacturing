@@ -16,18 +16,26 @@ public class ToggleCustom : MonoBehaviour
 
     CanvasGroup blocker;
 
+    Image img;
+
+    public Sprite offToggleSprite;
+    public Sprite onToggleSprite;
+
+    LayerStackHolder layerStack;
 
     // Start is called before the first frame update
     void Start()
     {
         
         toggled = false;
-        
+        img = gameObject.GetComponent<Image>();
         blocker = GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>();
         if (!visible)
         {
-            gameObject.GetComponent<Image>().enabled = false;
+            img.enabled = false;
         }
+        img.sprite = offToggleSprite;
+        layerStack = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
     }
 
     // Update is called once per frame
@@ -59,23 +67,21 @@ public class ToggleCustom : MonoBehaviour
        
 
         bool mouseDown = UnityEngine.Input.GetMouseButtonDown(0);
-        if (toggled)
+
+
+        if (mouseDown && hoverOver)
         {
-  
-
-        }
-
-
-        if (mouseDown)
-        {
-            if(hoverOver && !toggled)
+            if (toggled)
             {
-                toggled = true;
+                toggled = false;
+                img.sprite = offToggleSprite;
             }
             else
             {
-                toggled = false;
+                toggled = true;
+                img.sprite = onToggleSprite;
             }
+            layerStack.wetEtch = toggled;
         }
 
     }

@@ -16,4 +16,9 @@ public class brushTool : toolParent
         paintCanvas.texture.Apply();
     }
 
+    public override void onRelease(int i, int j)
+    {
+        paintCanvas.addState();
+    }
+
 }

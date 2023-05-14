@@ -58,5 +58,6 @@ public class load_button : MonoBehaviour
             }
         }
         paintCanvas.texture.Apply();
+        paintCanvas.addState();
     }
 }

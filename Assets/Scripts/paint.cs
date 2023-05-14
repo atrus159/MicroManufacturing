@@ -1,6 +1,7 @@
 using CGTespy.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,14 @@ public class paint : MonoBehaviour
 
     Resolution res;
     // Start is called before the first frame update
+
+    List<BitGrid> prevStates;
+    List<BitGrid> nextStates;
+    BitGrid curState;
+
+    public int prevCount = 0;
+    public int nextCount = 0;
+
     void Start()
     {
         grid = new BitGrid();
@@ -57,6 +66,10 @@ public class paint : MonoBehaviour
         fillMode = 0;
         successfulClick = false;
         res = Screen.currentResolution;
+
+        prevStates = new List<BitGrid>();
+        nextStates = new List<BitGrid>();
+        curState = BitGrid.zeros();
     }
 
     public void setPixel(int i, int j, int val)
@@ -71,6 +84,64 @@ public class paint : MonoBehaviour
                 texture.SetPixel(xOffset + scaleFactor * i + indI, yOffset + scaleFactor * j + indJ, toSet);
             }
         }
+    }
+
+
+
+    public void addState()
+    {
+        BitGrid toAdd = new BitGrid();
+        toAdd.set(curState);
+        prevStates.Add(toAdd);
+        curState.set(grid);
+        nextStates.Clear();
+        prevCount = prevStates.Count; nextCount = nextStates.Count;
+    }
+
+    public void undoState()
+    {
+        if(prevStates.Count == 0)
+        {
+            return;
+        }
+        BitGrid toMove = prevStates.LastOrDefault<BitGrid>();
+        prevStates.Remove(toMove);
+        BitGrid ToAdd = new BitGrid();
+        ToAdd.set(curState);
+        nextStates.Add(ToAdd);
+        for (int i = 0; i < BitGrid.gridWidth; i++)
+        {
+            for (int j = 0; j < BitGrid.gridHeight; j++)
+            {
+                setPixel(i, j, toMove.getPoint(i,j));
+            }
+        }
+        curState.set(grid);
+        texture.Apply();
+        prevCount = prevStates.Count; nextCount = nextStates.Count;
+    }
+
+    public void redoState()
+    {
+        if(nextStates.Count == 0)
+        {
+            return;
+        }
+        BitGrid toAdd = new BitGrid();
+        toAdd.set(grid);
+        prevStates.Add(toAdd);
+        BitGrid toSet = nextStates.LastOrDefault<BitGrid>();
+        nextStates.Remove(toSet);
+        for (int i = 0; i < BitGrid.gridWidth; i++)
+        {
+            for (int j = 0; j < BitGrid.gridHeight; j++)
+            {
+                setPixel(i, j, toSet.getPoint(i, j));
+            }
+        }
+        curState.set(grid);
+        texture.Apply();
+        prevCount = prevStates.Count; nextCount = nextStates.Count;
     }
 
     Vector3 getMousePos()
@@ -172,6 +243,21 @@ public class paint : MonoBehaviour
             if (Input.GetMouseButton(0) && tools[curTool].callOffCanvasFlag)
             {
                 tools[curTool].onClick((int)mouseVec.x, (int)mouseVec.y);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                //if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                //{
+                undoState();
+                //}
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                //if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                //{
+                redoState();
+                //}
             }
 
         }

@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class swap_button : MonoBehaviour
 {
-    public paint paintCavas;
+    public paint paintCanvas;
     public Image img;
     public Button btn;
     // Start is called before the first frame update
     public void Start()
     {
-        paintCavas = GameObject.Find("drawing_panel").GetComponent<paint>();
+        paintCanvas = GameObject.Find("drawing_panel").GetComponent<paint>();
         btn = GetComponent<Button>();
         img = GetComponent<Image>();
         btn.onClick.AddListener(TaskOnClick);
@@ -23,9 +23,10 @@ public class swap_button : MonoBehaviour
         {
             for(int j = 0; j< BitGrid.gridHeight; j++)
             {
-                paintCavas.setPixel(i,j,1 - paintCavas.grid.getPoint(i,j));
+                paintCanvas.setPixel(i,j,1 - paintCanvas.grid.getPoint(i,j));
             }
         }
-        paintCavas.texture.Apply(); 
+        paintCanvas.texture.Apply();
+        paintCanvas.addState();
     }
 }
