@@ -25,6 +25,7 @@ public class bucketTool : toolParent
             fill(toCheck.x, toCheck.y + 1, color, queue);
         }
         paintCanvas.texture.Apply();
+        paintCanvas.addState();
     }
 
     private void fill(int i, int j, int color, Queue<Vector2Int> queue)

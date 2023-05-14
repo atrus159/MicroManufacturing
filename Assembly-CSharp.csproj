@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA3.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\swap_button.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\errorManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\clear_button.cs" />
     <Compile Include="Assets\Scripts\levelRequirementManager.cs" />
     <Compile Include="Assets\Scripts\animation\SpinCastAnimationHandler.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA2.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessIonEtch.cs" />
+    <Compile Include="Assets\Scripts\UI\ToggleCustom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Dialogue\TextManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\save_button.cs" />
@@ -167,7 +169,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessWetEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\UI\ToggleCustom.cs" />
+    <Compile Include="Assets\Scripts\animation\errorAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

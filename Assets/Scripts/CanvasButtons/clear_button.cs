@@ -27,5 +27,6 @@ public class clear_button : MonoBehaviour
             }
         }
         paintCanvas.texture.Apply();
+        paintCanvas.addState();
     }
 }

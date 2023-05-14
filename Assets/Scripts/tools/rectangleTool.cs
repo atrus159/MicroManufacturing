@@ -51,11 +51,14 @@ public class rectangleTool : toolParent
             }
             paintCanvas.texture.Apply();
         }
-
     }
 
     public override void onRelease(int i, int j)
     {
+        if (paintCanvas.clickCoords.x != -1)
+        {
+            paintCanvas.addState();
+        }
         paintCanvas.clickCoords.Set(-1, -1);
     }
 
