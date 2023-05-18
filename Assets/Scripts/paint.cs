@@ -259,7 +259,6 @@ public class paint : MonoBehaviour
                 redoState();
                 //}
             }
-
         }
 
         

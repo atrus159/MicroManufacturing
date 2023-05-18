@@ -159,7 +159,11 @@ public class LayerStackHolder : MonoBehaviour
         }
         if (postDeleteCheckFlag)
         {
-            GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().checkRequirements();
+            GameObject LRM = GameObject.Find("Level Requirement Manager");
+            if (LRM)
+            {
+                LRM.GetComponent<levelRequirementManager>().checkRequirements();
+            }
             postDeleteCheckFlag = false;
         }
     }

@@ -16,7 +16,7 @@ public class color_button : MonoBehaviour
     {
         paintCavas = GameObject.Find("drawing_panel").GetComponent<paint>();
         btn = GetComponent<Button>();
-        img = GetComponent<Image>();
+        img = transform.GetChild(0).GetComponent<Image>();
         btn.onClick.AddListener(TaskOnClick);
     }
     public void TaskOnClick()
