@@ -79,7 +79,11 @@
     <Compile Include="Assets/Scripts/animation/SpinCastAnimationHandler.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/fill_button.cs" />
     <Compile Include="Assets/Scripts/Dialogue/BasicText.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets/schematicManager.cs" />
+=======
+    <Compile Include="Assets/Scripts/schematicManager.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets/Scripts/Dialogue/customs/textActivateDropdown.cs" />
     <Compile Include="Assets/Scripts/Checks/checkStructures/RectangleStructure.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/elipse_button.cs" />
@@ -126,6 +130,11 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 2/checkMEA2.cs" />
     <Compile Include="Assets/Scripts/Processes/ProcessIonEtch.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets/Scripts/UI/ToggleCustom.cs" />
+    <Compile Include="Assets/Scripts/animation/errorAnimation.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/Scripts/Dialogue/TextManager.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/save_button.cs" />
@@ -156,6 +165,10 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets/Scenes/thesis/thesisMeshGen.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" />
@@ -165,7 +178,11 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets/Scripts/Processes/ProcessAluminumEtch.cs" />
+=======
+    <Compile Include="Assets/Scripts/Processes/ProcessWetEtch.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets/Scripts/tools/brushTool.cs" />
   </ItemGroup>
   <ItemGroup>
