@@ -74,6 +74,10 @@
     <Compile Include="Assets/Scripts/Checks/Level 2/checkMEA3.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/swap_button.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets/Scripts/errorManager.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets/Scripts/CanvasButtons/clear_button.cs" />
     <Compile Include="Assets/Scripts/levelRequirementManager.cs" />
     <Compile Include="Assets/Scripts/animation/SpinCastAnimationHandler.cs" />
