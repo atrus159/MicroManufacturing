@@ -426,6 +426,18 @@ public class LayerStackHolder : MonoBehaviour
     }
 
 
+    public void clear()
+    {
+        for(int i = 0; i < topLayer; i++)
+        {
+            foreach(GameObject curLayer in depLayers[i])
+            {
+                Destroy(curLayer);
+            }
+            depLayers[i].Clear();
+        }
+        topLayer = -1;
+    }
 
     //triggers a liftOff of the photomask, removing it and all deposits above it
     public void liftOff()
