@@ -6,16 +6,26 @@ public class ProcessGen : ProcessParent
 {
 
 
-    public override void CallStep(int i)
+    public override bool CallStep(int i)
     {
+        bool toReturn = false;
         if(layerStackHold.curMaterial == control.materialType.gold)
         {
-            layerStackHold.depositGoldLayer(layerStackHold.curMaterial, BitGrid.ones(), i + 1);
+            toReturn = layerStackHold.depositGoldLayer(layerStackHold.curMaterial, BitGrid.ones(), i + 1);
+            if (!toReturn)
+            {
+                ErrorMessage = "No chromium or gold to deposit on!";
+            }
         }
         else
         {
-            layerStackHold.depositLayer(layerStackHold.curMaterial, BitGrid.ones(), i + 1);
+            toReturn = layerStackHold.depositLayer(layerStackHold.curMaterial, BitGrid.ones(), i + 1);
+            if (!toReturn)
+            {
+                ErrorMessage = "No room to deposit material!";
+            }
         }
+        return toReturn;
     }
 
     public override void OnValueChanged(float newValue)

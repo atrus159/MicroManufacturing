@@ -6,7 +6,7 @@ public class ProcessIonEtch : ProcessParent
 {
 
 
-    public override void CallStep(int i)
+    public override bool CallStep(int i)
     {
         layerStackHold.etchLayer(control.materialType.aluminum, -3*i);
         layerStackHold.etchLayer(control.materialType.aluminum, -3*i+1);
@@ -17,6 +17,7 @@ public class ProcessIonEtch : ProcessParent
         //layerStackHold.etchLayer(control.materialType.aluminum, -i);
         //layerStackHold.etchLayer(control.materialType.chromium, -i);
         layerStackHold.clearDeletes();
+        return true;
     }
 
     public override void OnValueChanged(float newValue)

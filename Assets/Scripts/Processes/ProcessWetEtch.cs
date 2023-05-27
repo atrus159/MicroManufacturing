@@ -6,11 +6,17 @@ public class ProcessWetEtch : ProcessParent
 {
 
 
-    public override void CallStep(int i)
+    public override bool CallStep(int i)
     {
-        layerStackHold.etchLayer(layerStackHold.curMaterial, -i);
-        layerStackHold.etchLayerAround(layerStackHold.curMaterial, -i);
+        bool toReturn = false;
+        toReturn |= layerStackHold.etchLayer(layerStackHold.curMaterial, -i-1);
+        toReturn |= layerStackHold.etchLayerAround(layerStackHold.curMaterial, -i-1);
         layerStackHold.clearDeletes();
+        if (!toReturn)
+        {
+            ErrorMessage = "No accessable material to etch!";
+        }
+        return toReturn;
     }
 
     public override void OnValueChanged(float newValue)
