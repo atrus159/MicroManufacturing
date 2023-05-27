@@ -2067,7 +2067,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2286,7 +2286,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5185,7 +5185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6739,7 +6739,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11592,9 +11592,8 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 1
-  text: "Try to deposit at least twenty micrometers (\xB5m) of material on the wafer
-    (It's okay to overshoot!) When you think you're done, click the \"Finished\"
-    button."
+  text: "Try to deposit at least 2 micrometers (\xB5m) of material on the wafer (It's
+    okay to overshoot!) When you think you're done, click the \"Finished\" button."
   location: {x: 0, y: -150}
   anchor: 1
 --- !u!1 &2666522121073946346

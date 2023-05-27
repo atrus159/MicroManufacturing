@@ -138,6 +138,15 @@ public class levelRequirementManager : MonoBehaviour
         {
             if(outsideEdits == true && !curRequirement.checkOutsideEdits)
             {
+                if (curRequirement.met)
+                {
+                    anyMet = true;
+                }
+                else
+                {
+                    allMet = false;
+                }
+                index++;
                 continue;
             }
 

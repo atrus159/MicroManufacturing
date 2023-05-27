@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\errorManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\clear_button.cs" />
     <Compile Include="Assets\Scripts\levelRequirementManager.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 4\checkPulldown.cs" />
     <Compile Include="Assets\Scripts\animation\SpinCastAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\fill_button.cs" />
     <Compile Include="Assets\Scripts\Dialogue\BasicText.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\tools\lineTool.cs" />
     <Compile Include="Assets\Scripts\meshMaterial.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textActivateToggle.cs" />
     <Compile Include="Assets\Scripts\Dialogue\customs\textDeactivateSLiderButtons.cs" />
     <Compile Include="Assets\Scripts\control.cs" />
     <Compile Include="Assets\Scripts\tools\rectangleTool.cs" />
@@ -99,12 +101,13 @@
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Parents\ProcessParent.cs" />
     <Compile Include="Assets\Scripts\AnchorPresetTest\RectTransformPresetApplyUtils.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 4\checkWetEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\BitGrid.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkReturn.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\Scripts\Checks\checkTwoRectangles.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 4\checkCantileverScaffold.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkPhotoButtonPressed.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkDepositOnPhotoResist.cs" />
     <Compile Include="Assets\Scripts\altText.cs" />
@@ -142,7 +145,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkDonePressed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 4\checkCantileverFree.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 4\checkContact.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 4\checkBox.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\AmorphousStructure.cs" />
     <Compile Include="Assets\Scripts\animation\clickMeDestroy.cs" />
     <Compile Include="Assets\Scripts\Checks\checkQPressed.cs" />
@@ -155,6 +161,7 @@
     <Compile Include="Assets\Scripts\Checks\Level 2\checkDepositGold.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textResetLayerStack.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -171,9 +178,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessWetEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\customs\textActivateToggle.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 3\checkBox.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 3\checkWetEtch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

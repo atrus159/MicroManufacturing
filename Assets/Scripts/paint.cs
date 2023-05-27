@@ -46,8 +46,8 @@ public class paint : MonoBehaviour
         clickCoords = new Vector2Int(-1, -1);
 
         /* Fills canvas with white background */
-        texture = new Texture2D((int) trans.sizeDelta.x, (int)trans.sizeDelta.y);
-        oldTexture = new Texture2D((int)trans.sizeDelta.x, (int)trans.sizeDelta.y);
+        texture = new Texture2D((int) trans.sizeDelta.x, (int)trans.sizeDelta.y, TextureFormat.RGBA32, false);
+        oldTexture = new Texture2D((int)trans.sizeDelta.x, (int)trans.sizeDelta.y, TextureFormat.RGBA32, false);
         updateScale();
         scaleFactor = 3;
         for (int i = 0; i < BitGrid.gridWidth; i++)
@@ -76,7 +76,7 @@ public class paint : MonoBehaviour
     {
         grid.setPoint(i,j,val);
         Color toSet = (val == 0) ? Color.white : Color.black;
-        //toSet.a = alphaValue;
+        toSet.a = alphaValue;
         for (int indI = 0; indI < scaleFactor; indI++)
         {
             for(int indJ = 0; indJ < scaleFactor; indJ++)

@@ -2267,7 +2267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2543,7 +2543,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3029,7 +3029,7 @@ MonoBehaviour:
   skipOnObj: 
   advanceRequirements: 1
   text: "Instead of just depositing gold onto the wafer, try depositing a thin layer
-    of chromium first. Then deposit a 20 \xB5m-thick layer of gold on top."
+    of chromium first. Then deposit a 2 \xB5m-thick layer of gold on top."
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &655577719
@@ -3728,7 +3728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!225 &764429443
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4120,8 +4120,8 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: "With etching in your toolbox, you\u2019ve already learned your main suite
-    of tools. Head over to the *Free Play* mode from the main menu to try them out!"
+  text: "You\u2019re learning the ropes fast! Lets see if you\u2019re up for a real
+    challenge"
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &888194752
@@ -5963,7 +5963,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6214,7 +6214,7 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  destination: Credits
+  destination: Level3
 --- !u!1001 &1288519802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7832,7 +7832,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7131b534d9237e4eb7c61336a739ada, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01103d07ae529514ea37fb91c0d39ae6, type: 3}
   m_Color: {r: 0, g: 0.9194932, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

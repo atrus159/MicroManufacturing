@@ -428,7 +428,7 @@ public class LayerStackHolder : MonoBehaviour
 
     public void clear()
     {
-        for(int i = 0; i < topLayer; i++)
+        for(int i = 0; i < 100; i++)
         {
             foreach(GameObject curLayer in depLayers[i])
             {

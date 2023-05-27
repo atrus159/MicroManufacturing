@@ -15,7 +15,6 @@ public class Blueprint : MonoBehaviour
     bool open;
 
     Image frameImage;
-    Image drawingImage;
     GameObject drawing;
 
     CanvasGroup blocker;
@@ -44,7 +43,6 @@ public class Blueprint : MonoBehaviour
     {
         frameImage = gameObject.GetComponent<Image>();
         drawing = gameObject.transform.GetChild(0).gameObject;
-        drawingImage = drawing.GetComponent<Image>();
         blocker = GameObject.Find("Canvas - Tutorial Blocker").GetComponent<CanvasGroup>();
         dragState = dragStates.waiting;
         originalX = 0.0f;
