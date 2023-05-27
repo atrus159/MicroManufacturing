@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb069eab1b88364ab10e18b852ff05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nSteps: 50
+  nSteps: 10
   curStep: 1
   prevStep: 0
   layerStack: {fileID: 0}
@@ -55,3 +55,4 @@ MonoBehaviour:
   finishButtonPrefab: {fileID: 3677695250772991500, guid: f40bb3ae0567e5f408e56597422089f5, type: 3}
   cancelButton: {fileID: 0}
   cancelButtonPrefab: {fileID: 3677695250772991500, guid: d4a26b8b31725434c8a5918773ccaff2, type: 3}
+  ErrorMessage: 

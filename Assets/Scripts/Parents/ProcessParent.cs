@@ -22,6 +22,8 @@ public class ProcessParent : MonoBehaviour
     GameObject PhotoresistButton;
     GameObject LiftoffButton;
 
+    public string ErrorMessage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +32,25 @@ public class ProcessParent : MonoBehaviour
         layerStack = GameObject.Find("LayerStack");
         layerStackHold = layerStack.GetComponent<LayerStackHolder>();
         int i = 0;
+
+        bool any = false;
         while(i < nSteps)
         {
-            CallStep(i);
+            any |= CallStep(i);
             i++;
         }
+
+        if (!any)
+        {
+            GameObject em = GameObject.Find("ErrorManager");
+            if (em)
+            {
+                em.GetComponent<errorManager>().createError(ErrorMessage);
+            }
+            Destroy(gameObject);
+            return;
+        }
+
         layerStackHold.sliceDeposits(1);
         slider = Instantiate(sliderPrefab, transform.position, transform.rotation);
         Transform canvTrans = GameObject.Find("Canvas - Main").transform;
@@ -82,9 +98,9 @@ public class ProcessParent : MonoBehaviour
 
     }
 
-    virtual public void CallStep(int i)
+    virtual public bool CallStep(int i)
     {
-
+        return true;
     }
 
 
