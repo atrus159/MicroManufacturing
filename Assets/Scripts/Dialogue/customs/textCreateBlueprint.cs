@@ -18,7 +18,7 @@ public class textCreateBlueprint : BasicText
         GameObject newPrint = Instantiate(blueprintPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         newPrint.transform.parent = GameObject.Find("Canvas - Tutorial Text").transform;
         newPrint.GetComponentInChildren<TextMeshProUGUI>().text = blueprintName;
-        newPrint.GetComponentInChildren<Image>().sprite= blueprintImage;
+        newPrint.transform.GetChild(0).GetComponent<Image>().sprite = blueprintImage;
         newPrint.transform.position = new Vector3(UnityEngine.Screen.width/2, UnityEngine.Screen.height / 2, 0);
     }
     override public void Display()
