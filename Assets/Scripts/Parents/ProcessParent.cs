@@ -102,6 +102,8 @@ public class ProcessParent : MonoBehaviour
     {
         return true;
     }
+    
+    virtual public void updateSchematics() {}
 
 
     virtual public void OnValueChanged(float newValue)
@@ -151,6 +153,9 @@ public class ProcessParent : MonoBehaviour
         Destroy(slider);
         Destroy(finishButton);
         Destroy(cancelButton);
+
+        this.updateSchematics();
+
         if (Dropdown)
         {
             Dropdown.SetActive(true);

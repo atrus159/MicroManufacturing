@@ -123,113 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1917872
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1917873}
-  - component: {fileID: 1917874}
-  m_Layer: 0
-  m_Name: ThreeThingsText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1917873
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1917874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "To make the contacts you need to do three things:\u25A0-Make a photomask
-    that covers where you want the contacts to go\u25A0-Remove the gold around the
-    contacts with etch-back.\u25A0-Remove the chromium at the bottom."
-  location: {x: 0, y: 0}
-  anchor: 4
---- !u!1 &13375774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 13375775}
-  - component: {fileID: 13375776}
-  m_Layer: 0
-  m_Name: FreePlayText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &13375775
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13375774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &13375776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13375774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "With etching in your toolbox, you\u2019ve already learned your main suite
-    of tools. Head over to the *Free Play* mode from the main menu to try them out!"
-  location: {x: 0, y: -140}
-  anchor: 1
 --- !u!1 &24976529
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,54 +221,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24976529}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &36698337
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 36698339}
-  - component: {fileID: 36698338}
-  m_Layer: 0
-  m_Name: checkMEA3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &36698338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36698337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28f3232f180923146a65fc7b97908c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
---- !u!4 &36698339
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36698337}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 509125219}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38282003
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +308,7 @@ GameObject:
   - component: {fileID: 53243207}
   - component: {fileID: 53243208}
   m_Layer: 0
-  m_Name: ThisBecauseText
+  m_Name: ConnectedColoredEC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,9 +346,10 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: 'This is because gold on its own does not stick well to a silicon wafer (or
-    glass slide), it needs an intermediate adhesion layer. One commonly material
-    commonly used for this is *chromium*. '
+  text: 'Connect the colored electrical contacts together, so that each one connects
+    to *only* the other of the same color. You will need to use an insulator material
+    to keep the wires separate and not electrically-shorted. *Silicon Dioxide* would
+    be a good option for this. '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &75925962
@@ -517,7 +363,7 @@ GameObject:
   - component: {fileID: 75925963}
   - component: {fileID: 75925964}
   m_Layer: 0
-  m_Name: DeviceWillConsistText
+  m_Name: BestConductiveMaterials
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,12 +401,11 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: This device will consist of four separate gold traces, on which the researchers
-    will grow neurons. They will then detect small voltage fluctuations from the
-    neurons and analyze them with a computer.
+  text: 'The best conductive materials you have right now are *gold* and *aluminum*.
+    Use them to connect the two contacts! '
   location: {x: 0, y: -140}
   anchor: 1
---- !u!1 &86884282
+--- !u!1 &85923357
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -568,46 +413,95 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 86884284}
-  - component: {fileID: 86884283}
+  - component: {fileID: 85923358}
+  - component: {fileID: 85923361}
+  - component: {fileID: 85923360}
+  - component: {fileID: 85923359}
   m_Layer: 0
-  m_Name: checkChromeFirst
+  m_Name: red_cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &86884283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86884282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a98e1dfac239844491aa16371d5be91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
---- !u!4 &86884284
+--- !u!4 &85923358
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86884282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_GameObject: {fileID: 85923357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.06596446, y: 4.38, z: 0.043446373}
+  m_LocalScale: {x: 0.01, y: 0.725, z: 0.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 509125219}
-  m_RootOrder: 1
+  m_Father: {fileID: 1066024204}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &85923359
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85923357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &85923360
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85923357}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -6478536213147159724, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &85923361
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85923357}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &98908035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,29 +968,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listOfTexts:
+  - {fileID: 1183103750}
   - {fileID: 637110010}
   - {fileID: 1162603044}
   - {fileID: 1833019542}
   - {fileID: 75925964}
-  - {fileID: 1679855191}
-  - {fileID: 1124955637}
   - {fileID: 352424790}
+  - {fileID: 1124955637}
   - {fileID: 1301579587}
   - {fileID: 53243208}
+  - {fileID: 628165442}
   - {fileID: 1002674480}
-  - {fileID: 712285310}
-  - {fileID: 1695906928}
-  - {fileID: 678560950}
-  - {fileID: 706176556}
-  - {fileID: 557695588}
-  - {fileID: 1354607876}
-  - {fileID: 1910246633}
-  - {fileID: 1917874}
-  - {fileID: 1626972762}
-  - {fileID: 1325262771}
-  - {fileID: 1015658301}
-  - {fileID: 13375776}
-  - {fileID: 1763239506}
 --- !u!114 &113502053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,128 +2059,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228876636}
   m_CullTransparentMesh: 1
---- !u!1 &249850930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 249850932}
-  - component: {fileID: 249850931}
-  m_Layer: 0
-  m_Name: checkMEA1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &249850931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249850930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154acb69181b6ad41ad4b63b2f554a3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
---- !u!4 &249850932
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249850930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 509125219}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &250605562
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1548504975}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.06896551
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.06896551
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.34482753
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.95
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.34482753
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-      propertyPath: m_Name
-      value: better_probe 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
---- !u!4 &250605563 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24ffbc71d8637427dab3b2bbf748f6b5, type: 3}
-  m_PrefabInstance: {fileID: 250605562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &277697288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2471,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1969527913}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &352424790
 MonoBehaviour:
@@ -3293,54 +3053,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &466552557
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 466552559}
-  - component: {fileID: 466552558}
-  m_Layer: 0
-  m_Name: checkMEA2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &466552558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466552557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ba1df0285e1e543b89141696832db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
---- !u!4 &466552559
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466552557}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 509125219}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509125217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3373,12 +3085,12 @@ MonoBehaviour:
   requirementReserveBlocks: 010000000200000003000000
   requirements: []
   requirementReserves:
-  - {fileID: 1714829725}
-  - {fileID: 86884283}
-  - {fileID: 2016979117}
-  - {fileID: 249850931}
-  - {fileID: 466552558}
-  - {fileID: 36698338}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   display: {fileID: 1338298162}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
 --- !u!4 &509125219
@@ -3393,12 +3105,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1714829726}
-  - {fileID: 86884284}
-  - {fileID: 2016979118}
-  - {fileID: 249850932}
-  - {fileID: 466552559}
-  - {fileID: 36698339}
+  - {fileID: 1164311916}
+  - {fileID: 1212812590}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3801,61 +3509,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536698025}
   m_CullTransparentMesh: 1
---- !u!1 &557695586
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 557695587}
-  - component: {fileID: 557695588}
-  m_Layer: 0
-  m_Name: EtchBackText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &557695587
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557695586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &557695588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557695586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: 'We have used lift-off before to pattern the materials. Here, we will learn
-    an alternative technique. We can do this with something called *etch-back*. The
-    main principle is to use chemicals that selectively etch (remove) a material
-    while sparing the others on the substrate, for example the photoresist stencil. '
-  location: {x: 0, y: 0}
-  anchor: 4
 --- !u!1 &624372841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,6 +3649,55 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &628165440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628165441}
+  - component: {fileID: 628165442}
+  m_Layer: 0
+  m_Name: EmptyText (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628165441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628165440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00002575627, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1969527913}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628165442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628165440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d62b32684a79040a1f385532166316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  skipOnObj: 
+  advanceRequirements: 0
 --- !u!1 &637110008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,7 +3709,7 @@ GameObject:
   - component: {fileID: 637110009}
   - component: {fileID: 637110010}
   m_Layer: 0
-  m_Name: ReadyNowText
+  m_Name: BeforeWeCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4045,169 +3747,10 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: "Alright, I think you\u2019re ready to design your first microfabricated
-    device!"
+  text: "Before we can do that though, we\u2019ll need to show you how conductivity
+    works. "
   location: {x: 0, y: -140}
   anchor: 1
---- !u!1 &678560948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 678560949}
-  - component: {fileID: 678560950}
-  m_Layer: 0
-  m_Name: BluePrintText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &678560949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678560948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &678560950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678560948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e998e707bcf07640a64d730685deddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: The MEA will consist of four square contacts, one in each corner of the wafer.
-    You can refer to the blueprint on your screen for what it should look like. Click
-    on it to drag it around or minimize it.
-  location: {x: 0, y: -140}
-  anchor: 1
-  blueprintPrefab: {fileID: 1290433408156734916, guid: 27b2d363bce65b544bffa609c103cc3c, type: 3}
-  blueprintImage: {fileID: 21300000, guid: 2b9ddbcf9c4b1e344b4f0aa95aa08e57, type: 3}
-  blueprintName: Micro-Electrode Array
---- !u!1 &706176554
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 706176555}
-  - component: {fileID: 706176556}
-  m_Layer: 0
-  m_Name: SinceWeText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &706176555
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706176554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &706176556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706176554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "Since we\u2019ve already put down a layer of gold everywhere, we\u2019ll
-    need to remove some of the gold to make the contacts."
-  location: {x: 0, y: -140}
-  anchor: 1
---- !u!1 &712285308
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 712285309}
-  - component: {fileID: 712285310}
-  m_Layer: 0
-  m_Name: EmptyText (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &712285309
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712285308}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00002575627, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &712285310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712285308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d62b32684a79040a1f385532166316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
 --- !u!1 &713636273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,7 +4382,7 @@ RectTransform:
   m_GameObject: {fileID: 839389658}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 113502047}
@@ -4949,79 +4492,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839389658}
   m_CullTransparentMesh: 1
---- !u!1001 &901695516
+--- !u!1001 &909630653
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1548504975}
+    m_TransformParent: {fileID: 1066024204}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.06896551
+      value: 0.0689655
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.06896551
+      value: 0.0689655
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34482753
+      value: -0.34482747
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 7.27
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.34482753
+      value: -0.34482747
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
+    - target: {fileID: 919132149155446097, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
       propertyPath: m_Name
-      value: better_probe
+      value: red_probe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
---- !u!4 &901695517 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
+--- !u!4 &909630654 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4846f41cf27ee4ab09b01ceb6cd88a1f, type: 3}
-  m_PrefabInstance: {fileID: 901695516}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
+  m_PrefabInstance: {fileID: 909630653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &909630655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2dc03315f4a85450695034d3b1308ed2, type: 3}
+  m_PrefabInstance: {fileID: 909630653}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &948026142
 GameObject:
@@ -5426,7 +4974,7 @@ GameObject:
   - component: {fileID: 1002674479}
   - component: {fileID: 1002674480}
   m_Layer: 0
-  m_Name: TryThinText
+  m_Name: Excellent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5445,7 +4993,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1969527913}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1002674480
 MonoBehaviour:
@@ -5464,60 +5012,7 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 1
-  text: "Instead of just depositing gold onto the wafer, try depositing a thin layer
-    of chromium first. Then deposit a 20 \xB5m-thick layer of gold on top."
-  location: {x: 0, y: -140}
-  anchor: 1
---- !u!1 &1015658299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1015658300}
-  - component: {fileID: 1015658301}
-  m_Layer: 0
-  m_Name: WellDoneText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1015658300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015658299}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1015658301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015658299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: Well done!
+  text: 'Excellent! '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &1016950073
@@ -5889,6 +5384,56 @@ MonoBehaviour:
   paintCavas: {fileID: 0}
   img: {fileID: 0}
   btn: {fileID: 0}
+--- !u!1 &1066024203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066024204}
+  - component: {fileID: 1066024205}
+  m_Layer: 0
+  m_Name: probes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066024204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066024203}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 909630654}
+  - {fileID: 1947667817}
+  - {fileID: 85923358}
+  - {fileID: 1399025583}
+  m_Father: {fileID: 1548504975}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1066024205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066024203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25e38aeffe8c4378a924e365df9adab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  red_probe: {fileID: 909630655}
+  black_probe: {fileID: 1947667818}
 --- !u!1 &1079206403
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,7 +5830,7 @@ GameObject:
   - component: {fileID: 1124955636}
   - component: {fileID: 1124955637}
   m_Layer: 0
-  m_Name: NeedGoldText
+  m_Name: ExcellentLets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6323,9 +5868,7 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 1
-  text: "To make the electrodes we\u2019ll need a conductive material like *gold*.
-    However, we cannot just deposit gold on the wafer. Try to deposit gold directly
-    onto the wafer and see what happens."
+  text: 'Excellent! Let''s try something a little more complicated. '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &1126386521
@@ -6507,7 +6050,7 @@ GameObject:
   - component: {fileID: 1162603043}
   - component: {fileID: 1162603044}
   m_Layer: 0
-  m_Name: CollaboratorText
+  m_Name: ElectricalContacts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6545,9 +6088,9 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: A collaborator with our lab is studying the electrical activity of neurons,
-    and they need some electrodes to monitor changes in electrical potential around
-    the neurons.
+  text: 'These are electrical contacts. They are placed at the edges of your device,
+    and the lab team will use them to connect your device to other devices. Think
+    of them like inputs and outputs. '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1001 &1163406956
@@ -6700,6 +6243,107 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7470342146353921630, guid: ad922aafcaaa99c40a1d08743ec10d16, type: 3}
   m_PrefabInstance: {fileID: 1163406956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1164311915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1164311916}
+  - component: {fileID: 1164311917}
+  m_Layer: 0
+  m_Name: checkCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1164311916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164311915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 509125219}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164311917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164311915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42082b558775846868c40b5bf4d4481c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
+--- !u!1 &1183103748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183103749}
+  - component: {fileID: 1183103750}
+  m_Layer: 0
+  m_Name: WelcomeBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183103749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183103748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00003570105, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1969527913}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183103750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183103748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxText: {fileID: 0}
+  textBoxPosition: {fileID: 0}
+  activates: []
+  skipOnObj: 
+  advanceRequirements: 0
+  text: "Welcome back! The group that was collaborating with our lab needs another
+    device for their experiments, and we think you\u2019ll be able to help. "
+  location: {x: 0, y: -140}
+  anchor: 1
 --- !u!1 &1188073670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6881,6 +6525,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1212812589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212812590}
+  - component: {fileID: 1212812591}
+  m_Layer: 0
+  m_Name: checkContacts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1212812590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212812589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 509125219}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212812591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212812589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3369876decf65403a87048deda29e33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  met: 0
+  checkOutsideEdits: 0
 --- !u!1 &1232488680
 GameObject:
   m_ObjectHideFlags: 0
@@ -7205,7 +6897,7 @@ GameObject:
   - component: {fileID: 1301579586}
   - component: {fileID: 1301579587}
   m_Layer: 0
-  m_Name: OhNoText
+  m_Name: CollaborateTeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7243,7 +6935,8 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: "Oh no! The gold isn\u2019t adhering to the wafer and is not forming a coating!"
+  text: 'The collaborator team needs to connect the MEA you made to their computer.
+    To do this we need to ensure that each pad goes to the correct pin. '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &1318524861
@@ -7293,55 +6986,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318524861}
   m_CullTransparentMesh: 1
---- !u!1 &1325262769
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1325262770}
-  - component: {fileID: 1325262771}
-  m_Layer: 0
-  m_Name: EmptyText (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1325262770
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325262769}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00002575627, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1325262771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325262769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d62b32684a79040a1f385532166316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
 --- !u!1 &1338250822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7702,61 +7346,6 @@ MonoBehaviour:
   paintCanvas: {fileID: 0}
   img: {fileID: 0}
   btn: {fileID: 0}
---- !u!1 &1354607874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1354607875}
-  - component: {fileID: 1354607876}
-  m_Layer: 0
-  m_Name: DifferentEtchText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1354607875
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354607874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1354607876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354607874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates:
-  - {fileID: 2113617455}
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "Specific etchants will work on different materials. When you click the *Etch*
-    button, you\u2019ll start removing whatever material you\u2019ve selected from
-    the dropdown."
-  location: {x: 0, y: 0}
-  anchor: 4
 --- !u!1 &1376807851
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,6 +7537,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 30, y: -70, z: 0}
+--- !u!1 &1399025582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399025583}
+  - component: {fileID: 1399025586}
+  - component: {fileID: 1399025585}
+  - component: {fileID: 1399025584}
+  m_Layer: 0
+  m_Name: black_cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399025583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399025582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3306, y: 4.48, z: -0.3242}
+  m_LocalScale: {x: 0.01, y: 0.725, z: 0.01}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1066024204}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1399025584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399025582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1399025585
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399025582}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 393c7d2d033494896946f1e315ffcf62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1399025586
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399025582}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1420850342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8570,8 +8256,7 @@ Transform:
   - {fileID: 24976530}
   - {fileID: 1035445984}
   - {fileID: 1687638168}
-  - {fileID: 901695517}
-  - {fileID: 250605563}
+  - {fileID: 1066024204}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9326,58 +9011,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 301d3772fdccfa04d877855753d38168, type: 3}
---- !u!1 &1626972760
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1626972761}
-  - component: {fileID: 1626972762}
-  m_Layer: 0
-  m_Name: GoodLuckText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1626972761
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626972760}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1626972762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626972760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 1
-  text: Refer to the blueprint if you get confused. Good luck!
-  location: {x: 0, y: 0}
-  anchor: 4
 --- !u!1 &1656565099
 GameObject:
   m_ObjectHideFlags: 0
@@ -9492,60 +9125,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1679855189
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1679855190}
-  - component: {fileID: 1679855191}
-  m_Layer: 0
-  m_Name: ToConstructTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1679855190
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679855189}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1679855191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679855189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7854eb4eef141f94b8e7e35b76050ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "To construct an MEA, you\u2019ll need to deposit different kinds of materials.
-    You can use the dropdown menu of the left side of the screen to select different
-    materials. "
-  location: {x: 0, y: -140}
-  anchor: 1
 --- !u!1 &1687638167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9661,59 +9240,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687638167}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1695906926
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1695906927}
-  - component: {fileID: 1695906928}
-  m_Layer: 0
-  m_Name: ExcellentText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1695906927
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695906926}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1695906928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695906926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "Excellent! Now the gold has adhered to the wafer via the chromium adhesion
-    layer. We\u2019re ready to begin designing the device!"
-  location: {x: 0, y: -140}
-  anchor: 1
 --- !u!1 &1696763429
 GameObject:
   m_ObjectHideFlags: 0
@@ -9803,54 +9329,6 @@ RectTransform:
   m_AnchoredPosition: {x: 540, y: 607.99036}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1714829724
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1714829726}
-  - component: {fileID: 1714829725}
-  m_Layer: 0
-  m_Name: checkDepositGold
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1714829725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714829724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4416e2efc74e292428331138f2d8a1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
---- !u!4 &1714829726
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714829724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 509125219}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1748274747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10030,56 +9508,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadButton: {fileID: 193808863}
   paintCanvas: {fileID: 1656565100}
---- !u!1 &1763239504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1763239505}
-  - component: {fileID: 1763239506}
-  m_Layer: 0
-  m_Name: LevelEndText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1763239505
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763239504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1763239506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763239504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87e7e580026cc04d8482f30c9deacc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  destination: Credits
 --- !u!1 &1833019540
 GameObject:
   m_ObjectHideFlags: 0
@@ -10091,7 +9519,7 @@ GameObject:
   - component: {fileID: 1833019541}
   - component: {fileID: 1833019542}
   m_Layer: 0
-  m_Name: MEAText
+  m_Name: ForThisTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10129,7 +9557,9 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: We think you can help them by designing a microelectrode array (MEA)!
+  text: 'For this test, we want to send an electrical signal from contact A to contact
+    B. That means there needs to be a continuous path of conductive material between
+    them. '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &1877242396
@@ -10429,60 +9859,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909674687}
   m_CullTransparentMesh: 1
---- !u!1 &1910246631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1910246632}
-  - component: {fileID: 1910246633}
-  m_Layer: 0
-  m_Name: OnlyRemoveText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1910246632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910246631}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1969527913}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1910246633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910246631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bd8e5782c3eb45aeaf2dfdd8db7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxText: {fileID: 0}
-  textBoxPosition: {fileID: 0}
-  activates: []
-  skipOnObj: 
-  advanceRequirements: 0
-  text: "The etchant will only remove exposed material that is physically accessible
-    to it . You can use photoresist like you did last time to protect certain parts
-    of the wafer, only etching where the photoresist doesn\u2019t block."
-  location: {x: 0, y: 0}
-  anchor: 4
 --- !u!1 &1911338752
 GameObject:
   m_ObjectHideFlags: 0
@@ -10597,6 +9973,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911338752}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1947667816
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1066024204}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.06896551
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.06896551
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.21517235
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.97
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.34482753
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+      propertyPath: m_Name
+      value: black_probe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+--- !u!4 &1947667817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+  m_PrefabInstance: {fileID: 1947667816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1947667818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 10139996ffa984e9b9099200cfeb7bfa, type: 3}
+  m_PrefabInstance: {fileID: 1947667816}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1969527912
 GameObject:
   m_ObjectHideFlags: 0
@@ -10625,29 +10080,17 @@ Transform:
   m_LocalScale: {x: 0.42740446, y: 0.42740446, z: 0.42740446}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 352424789}
+  - {fileID: 1183103749}
   - {fileID: 637110009}
   - {fileID: 1162603043}
   - {fileID: 1833019541}
   - {fileID: 75925963}
-  - {fileID: 1679855190}
+  - {fileID: 352424789}
   - {fileID: 1124955636}
   - {fileID: 1301579586}
   - {fileID: 53243207}
+  - {fileID: 628165441}
   - {fileID: 1002674479}
-  - {fileID: 712285309}
-  - {fileID: 1695906927}
-  - {fileID: 678560949}
-  - {fileID: 706176555}
-  - {fileID: 557695587}
-  - {fileID: 1354607875}
-  - {fileID: 1910246632}
-  - {fileID: 1917873}
-  - {fileID: 1626972761}
-  - {fileID: 1325262770}
-  - {fileID: 1015658300}
-  - {fileID: 13375775}
-  - {fileID: 1763239505}
   m_Father: {fileID: 113502047}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11003,54 +10446,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005307625}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2016979116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2016979118}
-  - component: {fileID: 2016979117}
-  m_Layer: 0
-  m_Name: checkGoldOnChrome
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2016979117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016979116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b1573fa800ff744dad32b3732d342d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  met: 0
-  checkOutsideEdits: 0
---- !u!4 &2016979118
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016979116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 509125219}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022290221
 GameObject:
   m_ObjectHideFlags: 0

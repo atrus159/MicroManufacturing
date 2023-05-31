@@ -74,6 +74,11 @@ public class paint : MonoBehaviour
 
     public void setPixel(int i, int j, int val)
     {
+        if (i == 0 && j == 0 && val == 1)
+            Debug.Log("0,0");
+
+        if (i == 99 && j == 0 && val == 1)
+            Debug.Log("100,0");
         grid.setPoint(i,j,val);
         Color toSet = (val == 0) ? Color.white : Color.black;
         toSet.a = alphaValue;
