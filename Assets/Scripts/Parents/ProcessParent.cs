@@ -82,10 +82,9 @@ public class ProcessParent : MonoBehaviour
 
     }
 
-    virtual public void CallStep(int i)
-    {
+    virtual public void CallStep(int i) { }
 
-    }
+    virtual public void updateSchematics() {}
 
 
     virtual public void OnValueChanged(float newValue)
@@ -135,6 +134,9 @@ public class ProcessParent : MonoBehaviour
         Destroy(slider);
         Destroy(finishButton);
         Destroy(cancelButton);
+
+        this.updateSchematics();
+
         if (Dropdown)
         {
             Dropdown.SetActive(true);

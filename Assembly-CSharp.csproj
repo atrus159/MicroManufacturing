@@ -77,6 +77,7 @@
     <Compile Include="Assets/Scripts/errorManager.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/clear_button.cs" />
     <Compile Include="Assets/Scripts/levelRequirementManager.cs" />
+    <Compile Include="Assets/Scripts/Checks/Level 3/checkContacts.cs" />
     <Compile Include="Assets/Scripts/animation/SpinCastAnimationHandler.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/fill_button.cs" />
     <Compile Include="Assets/Scripts/Dialogue/BasicText.cs" />
@@ -104,11 +105,13 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" />
     <Compile Include="Assets/Scripts/BitGrid.cs" />
     <Compile Include="Assets/Scripts/tools/elipseTool.cs" />
+    <Compile Include="Assets/Scripts/SchematicGrid.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 1/checkReturn.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Scripts/Checks/checkTwoRectangles.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 1/checkPhotoButtonPressed.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 1/checkDepositOnPhotoResist.cs" />
+    <Compile Include="Assets/Scripts/Checks/Level 3/checkCenter.cs" />
     <Compile Include="Assets/Scripts/altText.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 1/checkDepositButtonPressed.cs" />
@@ -128,6 +131,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 2/checkMEA2.cs" />
+    <Compile Include="Assets/Scripts/ProbeScript.cs" />
     <Compile Include="Assets/Scripts/Processes/ProcessIonEtch.cs" />
     <Compile Include="Assets/Scripts/UI/ToggleCustom.cs" />
     <Compile Include="Assets/Scripts/animation/errorAnimation.cs" />
@@ -174,8 +178,6 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
     <Compile Include="Assets/Scripts/Processes/ProcessWetEtch.cs" />
     <Compile Include="Assets/Scripts/tools/brushTool.cs" />
-    <Compile Include="Assets/Scripts/Checks/Level 3/checkCenter.cs" />
-    <Compile Include="Assets/Scripts/Checks/Level 3/checkContacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

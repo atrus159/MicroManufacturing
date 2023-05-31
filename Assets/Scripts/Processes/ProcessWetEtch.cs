@@ -19,5 +19,16 @@ public class ProcessWetEtch : ProcessParent
         layerStackHold.sliceDeposits(curStep);
     }
 
+    public override void updateSchematics() {
+
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
+
+        if (schematicManagerObject) {
+            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateText("Wet Etch");
+        }
+
+    }
+
 
 }

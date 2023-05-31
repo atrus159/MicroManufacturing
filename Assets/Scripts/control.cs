@@ -321,14 +321,6 @@ public class control : MonoBehaviour
     {
         GameObject layer = GameObject.Find("LayerStack");
         layer.GetComponent<LayerStackHolder>().startEtchProcess();
-
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
-
-        if (schematicManagerObject)
-        {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
-            schematicManagerObject.GetComponent<schematicManager>().updateText("Etch");
-        }
     }
 
     public void onLiftoffButton()
@@ -342,11 +334,10 @@ public class control : MonoBehaviour
 
         GameObject schematicManagerObject = GameObject.Find("schematicManager");
 
-        if (schematicManagerObject)
-        {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+        if (schematicManagerObject) {
             schematicManagerObject.GetComponent<schematicManager>().updateText("Lift-off");
         }
+
     }
 
     public void onPhotoResistButton()
@@ -367,14 +358,6 @@ public class control : MonoBehaviour
         holder.transform.Find("Photoresist Button").gameObject.SetActive(false);
 
 
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
-
-        if (schematicManagerObject)
-        {
-            schematicManagerObject.GetComponent<schematicManager>().updateMask();
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
-            schematicManagerObject.GetComponent<schematicManager>().updateText("Photoresist");
-        }
     }
 
     public void onFinishedButton()
@@ -382,13 +365,6 @@ public class control : MonoBehaviour
         GameObject proc = GameObject.Find("New Process");
         proc.GetComponent<ProcessParent>().onFinishedButton();
 
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
-
-        if (schematicManagerObject)
-        {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
-            schematicManagerObject.GetComponent<schematicManager>().updateText("Deposit");
-        }
     }
 
     public void onCancelButton()
@@ -420,6 +396,7 @@ public class control : MonoBehaviour
     public void onConductivityCheck()
     {
         GameObject layer = GameObject.Find("LayerStack");
+        GameObject.Find("probes").GetComponent<ProbeScript>().updateHide(true);
         Debug.Log(layer.GetComponent<LayerStackHolder>().getConnectionStatus(new Vector3Int(0,0,0), new Vector3Int(3,3,3)));
     }
 

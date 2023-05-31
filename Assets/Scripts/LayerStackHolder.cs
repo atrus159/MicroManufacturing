@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System;
+using UnityEngine.UIElements;
 //
 public class LayerStackHolder : MonoBehaviour
 {
@@ -48,7 +49,6 @@ public class LayerStackHolder : MonoBehaviour
         wetEtch = false;
     }
 
- 
 
     public void onValueChange(int num) //Dropdown selection function
     {
@@ -83,12 +83,22 @@ public class LayerStackHolder : MonoBehaviour
     {
         depositLayer(control.materialType.photoresist, GameObject.Find("drawing_panel").GetComponent<paint>().grid);
         depositLayer(control.materialType.photoresistComplement, BitGrid.emptyIntersect(BitGrid.ones(), GameObject.Find("drawing_panel").GetComponent<paint>().grid));
+
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
+
+        if (schematicManagerObject)
+        {
+            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateText("Photoresist");
+            schematicManagerObject.GetComponent<schematicManager>().updateMask();
+        }
         //GameObject.Find("Control").GetComponent<control>().PhotoResistEdge.SetActive(true);
     }
 
     public void startDepositProcess()
     {
         Instantiate(processGenPrefab, transform.position, transform.rotation).gameObject.name = "New Process";
+
     }
 
     public void startEtchProcess()
@@ -691,20 +701,44 @@ public class LayerStackHolder : MonoBehaviour
     public void onConductivityButton()
     {
         bool result = getConnectionStatus(new Vector3Int(1, 0, 0), new Vector3Int(50, 99, 99));
+        GameObject probes = GameObject.Find("probes");
+        //  probes.GetComponent<ProbeScript>().updateHide(true);
+        // probes.GetComponent<ProbeScript>().realignRed(new Vector3Int(1, 0, 0));
         Debug.Log(result);
     }
 
-    public BitGrid crossSectionFromDepth(int depth)
+    public int matToColor(control.materialType mat) {
+
+        switch (mat)
+        {
+            case control.materialType.chromium:
+                return 1;
+            case control.materialType.gold:
+                return 2;
+            case control.materialType.aluminum:
+                return 3;
+            case control.materialType.silicon:
+                return 4;
+            case control.materialType.silicondioxide:
+                return 5;
+            default: // air/empty
+                return 0;
+        }
+
+    }
+
+    public SchematicGrid crossSectionFromDepth(int depth)
     {
+
         if (depth < 0 || depth > 99)
-            return null;
+            return SchematicGrid.zeros();
 
         if (topLayer < 0)
         {
-            return BitGrid.zeros();
+            return SchematicGrid.zeros();
         }
 
-        BitGrid crossSection = BitGrid.zeros();
+        SchematicGrid crossSection = SchematicGrid.zeros();
 
         for (int curLayer = 0; curLayer <= topLayer + 1; curLayer++)
         {
@@ -717,7 +751,7 @@ public class LayerStackHolder : MonoBehaviour
                 {
                     if (grid.getPoint(j, depth) != 0)
                     {
-                        crossSection.setPoint(j, curLayer, 1);
+                        crossSection.setPoint(j, curLayer, matToColor(depLayer[i].GetComponent<meshMaterial>().myMaterial));
                     }
                 }
             }
