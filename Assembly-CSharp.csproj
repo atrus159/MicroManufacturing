@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Parents\TextParent.cs" />
     <Compile Include="Assets\Scripts\Parents\toolParent.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 3\checkBlue.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\color_button.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueCanvas.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 2\checkChromeFirst.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\CanvasButtons\fill_button.cs" />
     <Compile Include="Assets\Scripts\Dialogue\BasicText.cs" />
     <Compile Include="Assets\Scripts\schematicManager.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 3\checkGreen.cs" />
     <Compile Include="Assets\Scripts\Dialogue\customs\textActivateDropdown.cs" />
     <Compile Include="Assets\Scripts\Checks\checkStructures\RectangleStructure.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\elipse_button.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="Assets\Scripts\Checks\Level 4\checkWetEtch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\BitGrid.cs" />
+    <Compile Include="Assets\Scripts\UI\requirementIcon.cs" />
     <Compile Include="Assets\Scripts\tools\elipseTool.cs" />
     <Compile Include="Assets\Scripts\SchematicGrid.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkReturn.cs" />
@@ -126,6 +129,7 @@
     <Compile Include="Assets\Scripts\Checks\Level 2\checkGoldOnChrome.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\globalSceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 3\checkRed.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 1\checkSiliconSlab.cs" />
     <Compile Include="Assets\FileBrowserUpdate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -137,6 +141,7 @@
     <Compile Include="Assets\Scripts\animation\errorAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Dialogue\TextManager.cs" />
+    <Compile Include="Assets\Scripts\Checks\Level 3\checkNoContact.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\save_button.cs" />
     <Compile Include="Assets\Scripts\Checks\Level 2\checkMEA1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -170,9 +175,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Scenes\thesis\thesisMeshGen.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textResetAndMoveProbes.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\customs\textSetupProbes.cs" />
     <Compile Include="Assets\Scripts\Checks\checkEPressed.cs" />
     <Compile Include="Assets\Scripts\MenuButtons\MenuButtonManager.cs" />
     <Compile Include="Assets\Scripts\CanvasButtons\draw_button.cs" />
@@ -181,13 +188,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Processes\ProcessWetEtch.cs" />
     <Compile Include="Assets\Scripts\tools\brushTool.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\customs\textSetupProbes.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\customs\textResetAndMoveProbes.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 3\checkRed.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 3\checkBlue.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 3\checkGreen.cs" />
-    <Compile Include="Assets\Scripts\Checks\Level 3\checkNoContact.cs" />
-    <Compile Include="Assets\Scripts\UI\requirementIcon.cs" />
+    <Compile Include="Assets\Scripts\animation\confettiAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
