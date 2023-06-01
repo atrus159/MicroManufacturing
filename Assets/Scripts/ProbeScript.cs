@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
@@ -20,41 +21,76 @@ public class ProbeScript : MonoBehaviour
 
     public GameObject red_cube;
     public GameObject black_cube;
+
+    Vector3Int redPos;
+    Vector3Int blackPos;
+
+    float cubeWidth;
+    float cubeHeight;
+
+    public bool visible;
+    Vector3 origin;
+
+    GameObject ls;
+
     // Start is called before the first frame update
     void Start()
     {
-      updateHide(false);
+        redPos = new Vector3Int(0, 0, 0);
+        blackPos = new Vector3Int(0, 0, 0);
+        cubeWidth = 0.1f;
+        ls = GameObject.Find("LayerStack");
+        cubeHeight = ls.GetComponent<LayerStackHolder>().layerHeight;
+        origin = ls.transform.position + new Vector3(cubeWidth/2, -cubeHeight/2, cubeWidth/2);
+        updateHide(visible);
+        //realignRed(50,2,0);
+        //realignBlack(50, 2, 99);
     }
 
     // Update is called once per frame
-    public void realignRed(Vector3 position, Vector3 rot) {
-        red_probe.transform.rotation = Quaternion.Euler(rot);
-        red_probe.transform.position = position;
+    public void realignRed(int x, int y, int z){
+        Vector3Int position = new Vector3Int(x, y, z);
+        red_probe.transform.position = origin + new Vector3(position.x * cubeWidth, position.y * cubeHeight, position.z * cubeWidth);
+        red_cube.transform.position = origin + new Vector3(position.x * cubeWidth, position.y * cubeHeight, position.z * cubeWidth);
+        red_probe.transform.localRotation = calcRotation(position);
+        redPos = position;
 
     }
 
-    public void realignBlack(Vector3 position, Vector3 rot)
+    public void realignBlack(int x, int y, int z)
     {
-        black_probe.transform.rotation = Quaternion.Euler(rot);
-        red_probe.transform.position = position;
+        Vector3Int position = new Vector3Int(x, y, z);
+        black_probe.transform.position = origin + new Vector3(position.x * cubeWidth, position.y * cubeHeight, position.z * cubeWidth);
+        black_cube.transform.position = origin + new Vector3(position.x * cubeWidth, position.y * cubeHeight, position.z * cubeWidth);
+        black_probe.transform.localRotation = calcRotation(position);
+        blackPos = position;
 
     }
 
 
-    public void reAligncube(GameObject cube, Vector3Int pos) {
+    Quaternion calcRotation(Vector3Int pos)
+    {
+        bool lx = pos.x < pos.z;
+        bool lhx = BitGrid.gridHeight - pos.x < pos.z;
+        float rot = 0.0f;
+        if(lx && lhx)
+        {
+            rot = 90.0f;
+        }
+        if(!lx && lhx)
+        {
+            rot = 180.0f;
+        }
+        if(lx && !lhx)
+        {
+            rot = 0.0f;
+        }
+        if(!lx && !lhx)
+        {
+            rot = -90;
+        }
 
-        float substrateLength = 0;
-        float cubeLength = substrateLength / 100;
-        float cubeHeight = 0f;
-
-        Vector3 zeroPos = new Vector3(0, 0, 0);
-
-        cube.transform.localScale = new Vector3(cubeLength, cube.transform.localScale.y, cubeLength);
-
-
-        cube.transform.position = new Vector3(zeroPos.x + cubeLength * pos.x, zeroPos.y + cubeHeight * pos.y, zeroPos.z + cubeLength * pos.z);
-
-
+        return Quaternion.Euler(0.0f, rot, 0.0f);
     }
 
     //        paintCavas = GameObject.Find("drawing_panel").GetComponent<paint>();
@@ -63,5 +99,27 @@ public class ProbeScript : MonoBehaviour
         // GetComponent()<Renderer>.enabled = true/false;
         red_probe.SetActive(visible);
         black_probe.SetActive(visible);
+        red_cube.SetActive(visible);
+        black_cube.SetActive(visible);
+        this.visible = visible;
     }
+
+    public bool getConectionStatus()
+    {
+        return ls.GetComponent<LayerStackHolder>().getConnectionStatus(rf(redPos),rf(blackPos));
+    }
+
+    public bool getCrossConectionStatus(ProbeScript ps)
+    {
+        bool reds = ls.GetComponent<LayerStackHolder>().getConnectionStatus(rf(redPos), rf(ps.redPos));
+        bool blacks = ls.GetComponent<LayerStackHolder>().getConnectionStatus(rf(blackPos), rf(ps.blackPos));
+        return reds || blacks;
+    }
+
+    Vector3Int rf(Vector3Int vector)
+    {
+        return new Vector3Int(vector.y, vector.x, vector.z);
+    }
+
+    //onConductivityButton()
 }

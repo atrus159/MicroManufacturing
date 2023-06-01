@@ -94,7 +94,7 @@ public class RectangleStructure : CheckStructComponent
  
         while (index >= 0 && (index <= this.layers.topLayer +1 || (materialType == control.materialType.empty && index < 100)) )
         {
-            if (Mathf.Abs(index - startingLayer) >= maxDims.y)
+            if (Mathf.Abs(index - startingLayer) > maxDims.y)
             {
                 break;
             }

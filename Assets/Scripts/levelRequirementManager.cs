@@ -1,3 +1,5 @@
+using CGTespy.UI;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +7,8 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 public class levelRequirementManager : MonoBehaviour
 {
@@ -26,7 +30,7 @@ public class levelRequirementManager : MonoBehaviour
     public GameObject requirementPrefab;
 
 
-    float displayOffset = 147.0f;
+    float displayOffset = 105.0f;
 
     int count;
 
@@ -85,11 +89,11 @@ public class levelRequirementManager : MonoBehaviour
         newDisplayObj.transform.SetParent(display.transform);
         newDisplayObj.transform.SetPositionAndRotation(display.transform.position + new Vector3(0, height, 0), Quaternion.identity);
         newDisplayObj.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-        newDisplayObj.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = description;
+        newDisplayObj.transform.GetComponent<requirementIcon>().description = description;
         newDisplayObj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = count.ToString();
         newDisplayObj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().color = Color.red;
         requirementDisplayInstances.Add(newDisplayObj);
-
+        newDisplayObj.transform.SetAsFirstSibling();
     }
 
 
@@ -122,6 +126,45 @@ public class levelRequirementManager : MonoBehaviour
     void Update()
     {
         checkRequirements(true);
+        if (display && Input.GetMouseButtonDown(0) && requirements.Count >0)
+        {
+            float mouseX = UnityEngine.Input.mousePosition.x;
+            float mouseY = UnityEngine.Input.mousePosition.y;
+            RectTransform trans = display.GetComponent<RectTransform>();
+
+
+
+
+            float width = requirementPrefab.GetComponent<RectTransform>().Width()/2;
+            float height = requirementPrefab.GetComponent<RectTransform>().Height()/2;
+
+            float x1 = trans.position.x;
+            float y1 = trans.position.y;
+            float x2 = x1 + width;
+            float y2 = y1 - displayOffset*(requirements.Count);
+
+            bool hoverOver = false;
+            if (mouseX > x1 && mouseX < x2 && mouseY < y1 && mouseY > y2)
+            {
+                hoverOver = true;
+            }
+            if (hoverOver)
+            {
+                int reqIndex = (int)MathF.Floor((y1 - mouseY) / displayOffset);
+                for(int i = 0; i < requirements.Count; i++)
+                {
+                    if(i == reqIndex)
+                    {
+
+                        requirementDisplayInstances[i].GetComponent<requirementIcon>().toggleOpen();
+                    }
+                    else
+                    {
+                        requirementDisplayInstances[i].GetComponent<requirementIcon>().setOpen(false);
+                    }
+                }
+            }
+        }
     }
 
     //checks all of the requirements for completion and updates the display accordingly. This should be called whenever a new change occures to the level
@@ -151,7 +194,7 @@ public class levelRequirementManager : MonoBehaviour
             }
 
             curRequirement.check();
-            GameObject curDisplayObj = display.transform.GetChild(index).gameObject;
+            GameObject curDisplayObj = display.transform.GetChild(display.transform.childCount - index - 1).gameObject;
             if (curRequirement.met)
             {
                 anyMet = true;
