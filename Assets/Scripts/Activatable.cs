@@ -21,20 +21,24 @@ public class Activatable : MonoBehaviour
         if (highlight)
         {
             Vector3 offset;
+            Transform pt;
             switch (buttonType)
             {
                 case buttonTypes.big:
                     offset = new Vector3(-3, 3, 0);
+                    pt = transform;
                     break;
                 case buttonTypes.small:
                     offset = new Vector3(0, 0, 0);
+                    pt = transform.parent.parent;
                     break;
                 default:
                     offset = new Vector3(0, 0, 0);
+                    pt = transform;
                     break;
 
             }
-            GameObject newObj = Instantiate(highlight, transform.position + offset, transform.rotation, transform.parent);
+            GameObject newObj = Instantiate(highlight, transform.position + offset, transform.rotation, pt.parent);
         }
     }
 }

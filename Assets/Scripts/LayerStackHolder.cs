@@ -593,7 +593,14 @@ public class LayerStackHolder : MonoBehaviour
         // similar approach to BitGrid.fill
         Stack<Vector3Int> posQueue = new Stack<Vector3Int>();
         conductive[end.x, end.y, end.z] = true;
+        conductive[start.x, start.y, start.z] = true;
         posQueue.Push(new Vector3Int(start.x, start.y, start.z));
+
+        int effectiveTop = topLayer + 1;
+        if (effectiveTop > 99)
+        {
+            effectiveTop = 99;
+        }
 
         while (posQueue.Count > 0)
         {
@@ -618,7 +625,7 @@ public class LayerStackHolder : MonoBehaviour
             }
 
             // move up
-            if (curPos.x < topLayer && !explored[curPos.x + 1, curPos.y, curPos.z])
+            if (curPos.x < effectiveTop && !explored[curPos.x + 1, curPos.y, curPos.z])
             {
                 explored[curPos.x + 1, curPos.y, curPos.z] = true;
                 posQueue.Push(curPos + new Vector3Int(1, 0, 0));
@@ -671,15 +678,22 @@ public class LayerStackHolder : MonoBehaviour
             return false;
         }
 
-        if (start.x > topLayer || end.x > topLayer)
+        if (start.x > topLayer+1 || end.x > topLayer + 1)
+        {
             return false;
+        }
 
+        int effectiveTop = numLayers + 1;
+        if(effectiveTop > 100)
+        {
+            effectiveTop = 100;
+        }
 
-        bool[,,] explored = new bool[numLayers, 100, 100];
-        bool[,,] conductive = new bool[numLayers, 100, 100];
+        bool[,,] explored = new bool[effectiveTop, 100, 100];
+        bool[,,] conductive = new bool[effectiveTop, 100, 100];
 
         // set default to false
-        for (int i = 0; i < numLayers; i++)
+        for (int i = 0; i < effectiveTop; i++)
         {
             for (int j = 0; j < 100; j++)
             {
@@ -690,14 +704,14 @@ public class LayerStackHolder : MonoBehaviour
                 }
             }
         }
-        for(int curLayer = 0; curLayer <= numLayers; curLayer++)
+        for(int curLayer = 0; curLayer < effectiveTop; curLayer++)
         {
             List<GameObject> depLayer = depLayers[curLayer];
             for (int i = 0; i < depLayer.Count(); i++)
             {
                 //check materials
                 control.materialType mat = depLayer[i].GetComponent<meshMaterial>().myMaterial;
-                if (mat != control.materialType.gold && mat != control.materialType.aluminum)
+                if (mat != control.materialType.gold)
                 {
                     continue;
                 }
@@ -722,10 +736,8 @@ public class LayerStackHolder : MonoBehaviour
 
     public void onConductivityButton()
     {
-        bool result = getConnectionStatus(new Vector3Int(1, 0, 0), new Vector3Int(50, 99, 99));
         GameObject probes = GameObject.Find("probes");
-        //  probes.GetComponent<ProbeScript>().updateHide(true);
-        // probes.GetComponent<ProbeScript>().realignRed(new Vector3Int(1, 0, 0));
+        bool result = probes.GetComponent<ProbeScript>().getConectionStatus();
         Debug.Log(result);
     }
 

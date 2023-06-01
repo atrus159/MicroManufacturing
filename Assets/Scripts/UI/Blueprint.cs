@@ -66,13 +66,13 @@ public class Blueprint : MonoBehaviour
         float height = trans.sizeDelta.y * trans.lossyScale.y;
 
 
-        float x1 = trans.position.x - width/2;
-        float y1 = trans.position.y - height/2;
+        float x1 = trans.position.x;
+        float y1 = trans.position.y;
         float x2 = x1 + width;
-        float y2 = y1 + height;
+        float y2 = y1 - height;
 
         bool hoverOver = false;
-        if(mouseX > x1 && mouseX < x2 && mouseY > y1 && mouseY < y2)
+        if(mouseX > x1 && mouseX < x2 && mouseY < y1 && mouseY > y2)
         {
             hoverOver = true;
         }
@@ -125,8 +125,8 @@ public class Blueprint : MonoBehaviour
             drawing.SetActive(true);
             open = true;
             trans.sizeDelta = openScale;
-            float offset = openScale.y / 2 - closedScale.y / 2;
-            trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y - offset), Quaternion.identity);
+            //float offset = openScale.y / 2 - closedScale.y / 2;
+            //trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y - offset), Quaternion.identity);
         }
         else
         {
@@ -134,8 +134,8 @@ public class Blueprint : MonoBehaviour
             drawing.SetActive(false);
             open = false;
             trans.sizeDelta = closedScale;
-            float offset = openScale.y / 2 - closedScale.y / 2;
-            trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y + offset), Quaternion.identity);
+            //float offset = openScale.y / 2 - closedScale.y / 2;
+            //trans.SetPositionAndRotation(new Vector2(trans.position.x, trans.position.y + offset), Quaternion.identity);
         }
     }
 

@@ -252,17 +252,17 @@ public class paint : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                //if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                //{
+                if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                {
                 undoState();
-                //}
+                }
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                //if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                //{
+                if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                {
                 redoState();
-                //}
+                }
             }
         }
 

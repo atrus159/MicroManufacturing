@@ -4,20 +4,21 @@ using Unity.Mathematics;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
-public class checkContacts : levelRequirementParent
+public class checkRed : levelRequirementParent
 {
+    ProbeScript ps;
     public override void onStart()
     {
         base.onStart();
-        name = "Use gold or aluminum to connect the two electrical contacts.";
-        description = "Connect the red, blue and green contacts together, without mixing colors.";
-        checkOutsideEdits = true;
+        name = "Connect the red contacts together.";
+        description = "Use gold to make the connection";
+        ps = GameObject.Find("probesRed").GetComponent<ProbeScript>();
     }
 
     public override void check()
     {
         // check
-        if (GameObject.Find("New Process") && GameObject.Find("LayerStack").GetComponent<LayerStackHolder>().wetEtch == true)
+        if (ps.getConectionStatus())
         {
             met = true;
         }

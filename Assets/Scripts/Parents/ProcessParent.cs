@@ -21,6 +21,7 @@ public class ProcessParent : MonoBehaviour
     GameObject EtchButton;
     GameObject PhotoresistButton;
     GameObject LiftoffButton;
+    GameObject wetEtchToggle;
 
     public string ErrorMessage;
 
@@ -72,6 +73,7 @@ public class ProcessParent : MonoBehaviour
         EtchButton = GameObject.Find("Etch Button");
         PhotoresistButton = GameObject.Find("Photoresist Button");
         LiftoffButton = GameObject.Find("Liftoff Button");
+        wetEtchToggle = GameObject.Find("WetEtchToggle");
 
 
         if (Dropdown)
@@ -93,6 +95,10 @@ public class ProcessParent : MonoBehaviour
         if (LiftoffButton)
         {
             LiftoffButton.SetActive(false);
+        }
+        if (wetEtchToggle)
+        {
+            wetEtchToggle.SetActive(false);
         }
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(true);
 
@@ -144,6 +150,10 @@ public class ProcessParent : MonoBehaviour
         {
             LiftoffButton.SetActive(true);
         }
+        if (wetEtchToggle)
+        {
+            wetEtchToggle.SetActive(true);
+        }
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
         Destroy(gameObject);
     }
@@ -175,6 +185,10 @@ public class ProcessParent : MonoBehaviour
         if (LiftoffButton)
         {
             LiftoffButton.SetActive(true);
+        }
+        if (wetEtchToggle)
+        {
+            wetEtchToggle.SetActive(true);
         }
         layerStackHold.postDeleteCheckFlag = true;
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
