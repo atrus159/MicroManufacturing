@@ -6513,15 +6513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafd776d793ed4aa58a26e6ffcda5392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask: {fileID: 0}
-  schematic: {fileID: 0}
-  placeholderPrefab: {fileID: 5292164299951143655, guid: d60672d2d33a14e63b7e0d64769b543e, type: 3}
   schematicView: {fileID: 577003351}
   showSchematicView: {fileID: 1993701644}
   hideSchematicView: {fileID: 43003021}
+  mask: {fileID: 0}
+  schematic: {fileID: 0}
+  placeholderPrefab: {fileID: 5292164299951143655, guid: d60672d2d33a14e63b7e0d64769b543e, type: 3}
   sliderValue: 0
-  schematicsList: []
-  masksList: []
   updateSchem: 0
 --- !u!1 &1220727947 stripped
 GameObject:
@@ -8194,7 +8192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 90038943961938758, guid: 981adb82e3651e447bbfcc4be7e48fa5, type: 3}
       propertyPath: m_Name
-      value: Slider
+      value: crossSlider
       objectReference: {fileID: 0}
     - target: {fileID: 90038944841252082, guid: 981adb82e3651e447bbfcc4be7e48fa5, type: 3}
       propertyPath: m_AnchorMax.x
