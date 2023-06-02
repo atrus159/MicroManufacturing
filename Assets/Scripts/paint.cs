@@ -37,8 +37,13 @@ public class paint : MonoBehaviour
     public int prevCount = 0;
     public int nextCount = 0;
 
+    GameObject redoButton;
+    GameObject undoButton;
+
     void Start()
     {
+        redoButton = GameObject.Find("RedoButton");
+        undoButton = GameObject.Find("UndoButton");
         grid = new BitGrid();
         gridOld = new BitGrid();
         image = GetComponent<Image>();
@@ -208,6 +213,8 @@ public class paint : MonoBehaviour
         GameObject.Find("camera_panel").GetComponent<RectTransform>().sizeDelta= trans.sizeDelta;
         //Debug.Log(scaleFactor);
 
+        redoButton.transform.SetLocalPositionAndRotation(transform.localPosition + new Vector3(trans.sizeDelta.x*0.45f, trans.sizeDelta.y*0.55f), Quaternion.identity);
+        undoButton.transform.SetLocalPositionAndRotation(transform.localPosition + new Vector3(trans.sizeDelta.x*0.25f, trans.sizeDelta.y*0.55f), Quaternion.identity);
     }
 
     public void saveGrid()

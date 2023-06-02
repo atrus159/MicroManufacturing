@@ -7,12 +7,12 @@ using System.IO;
 
 
 /* Depending on platform, must implement different file browser. */
-/*#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+#if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_WEBGL
   using AnotherFileBrowser.Windows;
 #endif
-#if UNITY_EDITOR_OSX
+#if (UNITY_EDITOR_OSX) && !UNITY_WEBGL
     using UnityEditor;
-#endif*/
+#endif
 
 
 public class save_button : MonoBehaviour
@@ -30,16 +30,16 @@ public class save_button : MonoBehaviour
     {
         string path = "";
 
-/*#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+#if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_WEBGL
         BrowserProperties bp = new BrowserProperties();
         bp.filter = "txt files (*.txt) | *.txt";
         bp.filterIndex = 0;
         new FileBrowser().OpenFileBrowser(bp, filePath => { path = filePath; });
 #endif
 
-#if UNITY_EDITOR_OSX
+#if (UNITY_EDITOR_OSX) && !UNITY_WEBGL
         path = EditorUtility.SaveFilePanel("Save bitmap as .txt", "", "bitmap.txt", "txt");
-#endif*/
+#endif
         if (path.Length == 0)
             return;
 
