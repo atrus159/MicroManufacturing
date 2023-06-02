@@ -6,129 +6,131 @@ using TMPro;
 
 public class schematicManager : MonoBehaviour
 {
-
-    public Image mask;
-    public Image schematic;
-
-    public GameObject placeholderPrefab;
-
     public GameObject schematicView;
     public GameObject showSchematicView;
     public GameObject hideSchematicView;
 
+    public Image mask;
+    public Image schematic;
     Texture maskTexture;
     Texture schematicTexture;
-    Texture paintCanvasTexture;
 
+    public GameObject placeholderPrefab;
+
+    // updated by other objects
     public int sliderValue;
+    public bool updateSchem;
 
 
-    // for dropdown
-    public List<Texture> schematicsList;
-    public List<Texture> masksList;
-
-    int gridWidth = 3; // 7 pictures max
+    // values for the schematic grid
+    int gridCount;
+    int gridWidth = 7; // 7 pictures max
     int gridStartX = 60;
     int gridStartY = 60;
     int schemWidth = 100;
-
-    public bool updateSchem;
+    bool prevMaskUsed;
     
     void Start()
     {
-        /*
-         mask - here is null
-         */
+        prevMaskUsed = false;
         updateSchem = false;
-        updateGrid();
+        gridCount = 0;
 
         schematicView.SetActive(false);
         hideSchematicView.SetActive(false);
 
-        paintCanvasTexture = GameObject.Find("drawing_panel").GetComponent<paint>().texture;
         mask = transform.GetChild(0).GetComponent<Image>();
-        maskTexture = new Texture2D(paintCanvasTexture.width, paintCanvasTexture.height);
-        mask.material.mainTexture = maskTexture;
         schematic = transform.GetChild(1).GetComponent<Image>();
-        schematicTexture = new Texture2D(paintCanvasTexture.width, paintCanvasTexture.height);
+
+        maskTexture = new Texture2D(100, 100);
+        schematicTexture = new Texture2D(100, 100);
+
+        mask.material.mainTexture = maskTexture;
         schematic.material.mainTexture = schematicTexture;
 
-        schematicsList = new List<Texture>();
-        masksList = new List<Texture>();
     }
 
-    public void updateMask()
-    {
+    public void toolUsed(bool maskUsed, bool sliderUpdate = false) {
+        if (!sliderUpdate)
+            updateGrid(prevMaskUsed);
 
-        BitGrid paintCanvasGrid = GameObject.Find("drawing_panel").GetComponent<paint>().grid;
+        updateMask(!maskUsed);
 
-        Texture2D newTexture = paintCanvasGrid.gridToTexture(schematicTexture.width, schematicTexture.height);
+        updateSchematic();
 
-        newTexture.Apply();
-        Graphics.CopyTexture(newTexture, maskTexture);
+        prevMaskUsed = maskUsed;
+
     }
 
-    public void updateSchematic(bool sliderUpdate = false)
+    public void updateMask(bool makeEmpty = false)
     {
-       // if (!sliderUpdate)
-            //updateSchematicsList();
+        if (!makeEmpty)
+        {
 
+            BitGrid paintCanvasGrid = GameObject.Find("drawing_panel").GetComponent<paint>().grid;
+
+            Texture2D newTexture = paintCanvasGrid.gridToTexture(100, 100);
+
+            newTexture.Apply();
+
+            Graphics.CopyTexture(newTexture, maskTexture);
+        }
+        else {
+            Texture2D maskTexture = new Texture2D(100, 100);
+        }
+    }
+
+    void updateSchematic(bool sliderUpdate = false)
+    {
         GameObject layer = GameObject.Find("LayerStack");
 
         SchematicGrid crossSection = layer.GetComponent<LayerStackHolder>().crossSectionFromDepth(sliderValue);
 
-        int width = schematicTexture.width;
-        int height = schematicTexture.height;
-
-        Texture2D newTexture = crossSection.gridToTexture(width, height);
+        Texture2D newTexture = crossSection.gridToTexture(100, 100);
 
         newTexture.Apply();
         Graphics.CopyTexture(newTexture, schematicTexture);
-        //updateDropdown();
     }
 
-    /*
-     * Only called when a new operation has been done!!!
-     */
-    public void updateSchematicsList() {
+    public void updateGrid(bool maskUsed) {
+        schematicView.SetActive(true);
 
-        Texture2D copy = new Texture2D(schematicTexture.width, schematicTexture.height);
-        Graphics.CopyTexture(schematicTexture, copy);
-        schematicsList.Add(copy);
-
-        if (schematicsList.Count > 3)
-            schematicsList.RemoveAt(0);
-
-        //updateDropdown();
-    }
-
-    public void updateMasksList()
-    {
-
-    }
-
-    public void updateGrid() {
         GameObject content = GameObject.Find("schemContent");
         GameObject placeholder = GameObject.Find("Placeholder");
 
-        /*foreach (Texture item in schematicsList) {
-            Debug.Log(schematicsList.IndexOf(item));
-            Transform schemItem = blueprintImage.transform.GetChild(schematicsList.IndexOf(item));
-            if (schemItem.gameObject.GetComponent<Image>() != null)
-            {
-                Graphics.CopyTexture(item, schemItem.gameObject.GetComponent<Image>().material.mainTexture);
-            }
+        addToGrid(schematicTexture);
 
-        }*/
+        if(maskUsed)
+            addToGrid(maskTexture);
+
+        schematicView.SetActive(false);
+    }
+
+    void addToGrid(Texture texture) {
+
+        GameObject content = GameObject.Find("schemContent");
+        GameObject placeholder = GameObject.Find("Placeholder");
 
         GameObject newObject = GameObject.Instantiate(placeholderPrefab);
-        newObject.transform.parent = content.transform;
-        newObject.transform.localPosition = placeholder.transform.localPosition + new Vector3(110, 0, 0);
+        newObject.transform.SetParent(content.transform);
+
+
+        Image newImage = newObject.GetComponent<Image>();
+
+        newImage.material = new Material(Shader.Find("UI/Default"));
+        newImage.material.mainTexture = new Texture2D(100, 100);
+        Graphics.CopyTexture(texture, newImage.material.mainTexture);
+
+        float posX = gridCount % 7 * 110;
+        float posY = -gridCount / 7 * 110;
+        Debug.Log(posX + " " + posY);
+        newObject.transform.localPosition = placeholder.transform.localPosition + new Vector3(posX, posY, 0);
         newObject.transform.localScale = new Vector3(1, 1, 1);
+
+        gridCount += 1;
 
     }
     public void onSliderUpdate() {
-
         GameObject crossSlider = GameObject.Find("crossSlider");
         sliderValue = (int)crossSlider.GetComponent<Slider>().value;
         updateSchematic(true);
@@ -139,7 +141,6 @@ public class schematicManager : MonoBehaviour
         showSchematicView.SetActive(false);
         hideSchematicView.SetActive(true);
     }
-
 
     public void onSchematicCloseButton() {
         showSchematicView.SetActive(true);
