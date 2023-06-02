@@ -37,6 +37,9 @@ public class LayerStackHolder : MonoBehaviour
     public bool postDeleteCheckFlag = false;
     public bool wetEtch;
 
+    schematicManager schematicManagerObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,7 @@ public class LayerStackHolder : MonoBehaviour
         deletedLayers = new List<int>();
         deletedFlag = false;
         wetEtch = false;
+        schematicManagerObject = GameObject.Find("schematicManager").GetComponent<schematicManager>();
     }
 
 
@@ -84,13 +88,10 @@ public class LayerStackHolder : MonoBehaviour
         depositLayer(control.materialType.photoresist, GameObject.Find("drawing_panel").GetComponent<paint>().grid);
         depositLayer(control.materialType.photoresistComplement, BitGrid.emptyIntersect(BitGrid.ones(), GameObject.Find("drawing_panel").GetComponent<paint>().grid));
 
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
-
         if (schematicManagerObject)
         {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
-            schematicManagerObject.GetComponent<schematicManager>().updateText("Photoresist");
-            schematicManagerObject.GetComponent<schematicManager>().updateMask();
+            schematicManagerObject.toolUsed(true);
+            schematicManagerObject.updateText("Photoresist");
         }
         //GameObject.Find("Control").GetComponent<control>().PhotoResistEdge.SetActive(true);
     }
@@ -119,11 +120,11 @@ public class LayerStackHolder : MonoBehaviour
     void LateUpdate()
     {
         clearDeletes();
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
-        if (schematicManagerObject.GetComponent<schematicManager>().updateSchem)
-                schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
 
-        schematicManagerObject.GetComponent<schematicManager>().updateSchem = false;
+        if (schematicManagerObject.updateSchem)
+                schematicManagerObject.toolUsed(false);
+
+        schematicManagerObject.updateSchem = false;
     }
 
     public void clearDeletes()
@@ -779,7 +780,7 @@ public class LayerStackHolder : MonoBehaviour
 
         SchematicGrid crossSection = SchematicGrid.zeros();
 
-        for (int curLayer = 0; curLayer <= topLayer + 1; curLayer++)
+        for (int curLayer = 0; curLayer <= topLayer; curLayer++)
         {
             /* All of the deposits that have material on that layer */
             List<GameObject> depLayer = depLayers[curLayer];

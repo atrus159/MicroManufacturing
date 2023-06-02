@@ -27,11 +27,11 @@ public class ProcessWetEtch : ProcessParent
 
     public override void updateSchematics() {
 
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
+        schematicManager schematicManagerObject = GameObject.Find("schematicManager").GetComponent<schematicManager>();
 
         if (schematicManagerObject) {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchem = true;
-            schematicManagerObject.GetComponent<schematicManager>().updateText("Wet Etch");
+            schematicManagerObject.updateSchem = true;
+            schematicManagerObject.updateText("Wet Etch");
         }
 
     }

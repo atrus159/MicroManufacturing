@@ -35,12 +35,13 @@ public class ProcessGen : ProcessParent
     }
 
     public override void updateSchematics() {
-        GameObject schematicManagerObject = GameObject.Find("schematicManager");
+
+        schematicManager schematicManagerObject = GameObject.Find("schematicManager").GetComponent<schematicManager>();
 
         if (schematicManagerObject)
         {
-            schematicManagerObject.GetComponent<schematicManager>().updateText("Deposit");
-            schematicManagerObject.GetComponent<schematicManager>().updateSchem = true;
+            schematicManagerObject.updateText("Deposit");
+            schematicManagerObject.updateSchem = true;
         }
     }
 
