@@ -105,7 +105,7 @@ public class schematicManager : MonoBehaviour
         float posX = gridCount % gridWidth * 300;
         float posY = - gridCount / gridWidth * 130;
 
-        if (lastText != "")
+        if (lastText.Length > 11)
             lastText = lastText.Substring(11);
 
         addToGrid(schematicTexture, new Vector2(posX, posY), lastText);
