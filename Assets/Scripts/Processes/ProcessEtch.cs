@@ -29,7 +29,7 @@ public class ProcessEtch : ProcessParent
 
         if (schematicManagerObject)
         {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateSchem = true;
             schematicManagerObject.GetComponent<schematicManager>().updateText("Etch");
         }
     }

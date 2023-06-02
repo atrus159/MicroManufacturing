@@ -39,8 +39,8 @@ public class ProcessGen : ProcessParent
 
         if (schematicManagerObject)
         {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
             schematicManagerObject.GetComponent<schematicManager>().updateText("Deposit");
+            schematicManagerObject.GetComponent<schematicManager>().updateSchem = true;
         }
     }
 

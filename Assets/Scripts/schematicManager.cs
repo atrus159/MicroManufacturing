@@ -9,6 +9,13 @@ public class schematicManager : MonoBehaviour
 
     public Image mask;
     public Image schematic;
+
+    public GameObject placeholderPrefab;
+
+    public GameObject schematicView;
+    public GameObject showSchematicView;
+    public GameObject hideSchematicView;
+
     Texture maskTexture;
     Texture schematicTexture;
     Texture paintCanvasTexture;
@@ -19,12 +26,24 @@ public class schematicManager : MonoBehaviour
     // for dropdown
     public List<Texture> schematicsList;
     public List<Texture> masksList;
+
+    int gridWidth = 3; // 7 pictures max
+    int gridStartX = 60;
+    int gridStartY = 60;
+    int schemWidth = 100;
+
+    public bool updateSchem;
     
     void Start()
     {
         /*
          mask - here is null
          */
+        updateSchem = false;
+        updateGrid();
+
+        schematicView.SetActive(false);
+        hideSchematicView.SetActive(false);
 
         paintCanvasTexture = GameObject.Find("drawing_panel").GetComponent<paint>().texture;
         mask = transform.GetChild(0).GetComponent<Image>();
@@ -40,13 +59,19 @@ public class schematicManager : MonoBehaviour
 
     public void updateMask()
     {
-        Graphics.CopyTexture(paintCanvasTexture, maskTexture);
+
+        BitGrid paintCanvasGrid = GameObject.Find("drawing_panel").GetComponent<paint>().grid;
+
+        Texture2D newTexture = paintCanvasGrid.gridToTexture(schematicTexture.width, schematicTexture.height);
+
+        newTexture.Apply();
+        Graphics.CopyTexture(newTexture, maskTexture);
     }
 
     public void updateSchematic(bool sliderUpdate = false)
     {
-        if (!sliderUpdate)
-            updateSchematicsList();
+       // if (!sliderUpdate)
+            //updateSchematicsList();
 
         GameObject layer = GameObject.Find("LayerStack");
 
@@ -82,10 +107,11 @@ public class schematicManager : MonoBehaviour
 
     }
 
-    public void updateDropdown() {
-        GameObject blueprintImage = GameObject.Find("schemList");
+    public void updateGrid() {
+        GameObject content = GameObject.Find("schemContent");
+        GameObject placeholder = GameObject.Find("Placeholder");
 
-        foreach (Texture item in schematicsList) {
+        /*foreach (Texture item in schematicsList) {
             Debug.Log(schematicsList.IndexOf(item));
             Transform schemItem = blueprintImage.transform.GetChild(schematicsList.IndexOf(item));
             if (schemItem.gameObject.GetComponent<Image>() != null)
@@ -93,7 +119,12 @@ public class schematicManager : MonoBehaviour
                 Graphics.CopyTexture(item, schemItem.gameObject.GetComponent<Image>().material.mainTexture);
             }
 
-        }
+        }*/
+
+        GameObject newObject = GameObject.Instantiate(placeholderPrefab);
+        newObject.transform.parent = content.transform;
+        newObject.transform.localPosition = placeholder.transform.localPosition + new Vector3(110, 0, 0);
+        newObject.transform.localScale = new Vector3(1, 1, 1);
 
     }
     public void onSliderUpdate() {
@@ -102,7 +133,19 @@ public class schematicManager : MonoBehaviour
         sliderValue = (int)crossSlider.GetComponent<Slider>().value;
         updateSchematic(true);
     }
-    
+
+    public void onSchematicGridButton() {
+        schematicView.SetActive(true);
+        showSchematicView.SetActive(false);
+        hideSchematicView.SetActive(true);
+    }
+
+
+    public void onSchematicCloseButton() {
+        showSchematicView.SetActive(true);
+        schematicView.SetActive(false);
+        hideSchematicView.SetActive(false);
+    }
     public void updateText(string tool) {
 
         TextMeshProUGUI toolText = transform.GetChild(2).GetComponent<TextMeshProUGUI>();

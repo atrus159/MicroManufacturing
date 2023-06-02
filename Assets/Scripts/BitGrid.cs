@@ -385,4 +385,21 @@ public class BitGrid
         }
         return output;
     }
+
+    public Texture2D gridToTexture(int textureWidth, int textureHeight)
+    {
+        Texture2D newTexture = new Texture2D(textureWidth, textureHeight);
+        // new Color(201, 110, 55, 1)
+
+        for (int i = 0; i < textureWidth; i++)
+            for (int j = 0; j < textureHeight; j++)
+            {
+                int pointVal = this.getPoint(i / (textureWidth / 100), j / (textureHeight / 100));
+
+                Color toSet = pointVal == 0 ? Color.white : Color.black;
+                newTexture.SetPixel(i, j, toSet);
+            }
+
+        return newTexture;
+    }
 }
