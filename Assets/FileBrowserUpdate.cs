@@ -1,5 +1,5 @@
 ﻿
-/*#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN && !UNITY_WEBGL
 using AnotherFileBrowser.Windows;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,4 +43,3 @@ public class FileBrowserUpdate : MonoBehaviour
     }
 }
 #endif
-*/

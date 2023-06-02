@@ -140,11 +140,11 @@ public class levelRequirementManager : MonoBehaviour
 
             float x1 = trans.position.x;
             float y1 = trans.position.y;
-            float x2 = x1 + width;
+            float x2 = x1 - width;
             float y2 = y1 - displayOffset*(requirements.Count);
 
             bool hoverOver = false;
-            if (mouseX > x1 && mouseX < x2 && mouseY < y1 && mouseY > y2)
+            if (mouseX < x1 && mouseX > x2 && mouseY < y1 && mouseY > y2)
             {
                 hoverOver = true;
             }
