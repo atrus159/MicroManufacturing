@@ -119,6 +119,11 @@ public class LayerStackHolder : MonoBehaviour
     void LateUpdate()
     {
         clearDeletes();
+        GameObject schematicManagerObject = GameObject.Find("schematicManager");
+        if (schematicManagerObject.GetComponent<schematicManager>().updateSchem)
+                schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+
+        schematicManagerObject.GetComponent<schematicManager>().updateSchem = false;
     }
 
     public void clearDeletes()

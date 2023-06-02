@@ -30,7 +30,7 @@ public class ProcessWetEtch : ProcessParent
         GameObject schematicManagerObject = GameObject.Find("schematicManager");
 
         if (schematicManagerObject) {
-            schematicManagerObject.GetComponent<schematicManager>().updateSchematic();
+            schematicManagerObject.GetComponent<schematicManager>().updateSchem = true;
             schematicManagerObject.GetComponent<schematicManager>().updateText("Wet Etch");
         }
 
