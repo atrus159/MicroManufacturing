@@ -90,8 +90,8 @@ public class LayerStackHolder : MonoBehaviour
 
         if (schematicManagerObject)
         {
-            schematicManagerObject.toolUsed(true);
             schematicManagerObject.updateText("Photoresist");
+            schematicManagerObject.toolUsed(true);
         }
         //GameObject.Find("Control").GetComponent<control>().PhotoResistEdge.SetActive(true);
     }
@@ -761,6 +761,8 @@ public class LayerStackHolder : MonoBehaviour
                 return 4;
             case control.materialType.silicondioxide:
                 return 5;
+            case control.materialType.photoresist:
+                return 6;
             default: // air/empty
                 return 0;
         }

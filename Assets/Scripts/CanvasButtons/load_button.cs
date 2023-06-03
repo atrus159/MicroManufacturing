@@ -25,6 +25,11 @@ public class load_button : MonoBehaviour
     }
     void TaskOnClick()
     {
+#if (UNITY_WEBGL)
+        paintCanvas.load();
+        return;
+#endif
+
         string path = "";
 
 #if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_WEBGL

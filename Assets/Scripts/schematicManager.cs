@@ -29,9 +29,11 @@ public class schematicManager : MonoBehaviour
     int gridCount;
     int gridWidth = 3; // 7 pictures max
     int gridStartX = 60;
-    int gridStartY = -210;
+    int gridStartY = -240;
     int schemWidth = 100;
     bool prevMaskUsed;
+
+    bool firstFlag;
     
     void Start()
     {
@@ -49,6 +51,7 @@ public class schematicManager : MonoBehaviour
         schematic.material.mainTexture = schematicTexture;
 
         lastText = null;
+        firstFlag = false;
 
     }
 
@@ -56,11 +59,21 @@ public class schematicManager : MonoBehaviour
         schematicView.SetActive(true);
 
         if (!sliderUpdate)
-            updateGrid(prevMaskUsed);
+        {
+            if (firstFlag)
+            {
+                updateGrid(prevMaskUsed);
+            }
+            else
+            {
+                firstFlag = true;
+            }
+        }
 
         updateMask(!maskUsed);
 
         updateSchematic();
+
 
         prevMaskUsed = maskUsed;
 

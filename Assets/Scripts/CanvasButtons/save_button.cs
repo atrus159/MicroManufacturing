@@ -28,6 +28,12 @@ public class save_button : MonoBehaviour
     }
     void TaskOnClick()
     {
+
+#if (UNITY_WEBGL)
+        paintCanvas.save();
+        return;
+#endif
+
         string path = "";
 
 #if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_WEBGL
