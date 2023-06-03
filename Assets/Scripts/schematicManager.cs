@@ -60,6 +60,7 @@ public class schematicManager : MonoBehaviour
     }
 
     public void toolUsed(bool maskUsed, bool sliderUpdate = false) {
+        bool alreadyActive = schematicView.activeSelf;
         schematicView.SetActive(true);
 
         if (!sliderUpdate)
@@ -81,9 +82,10 @@ public class schematicManager : MonoBehaviour
 
         prevMaskUsed = maskUsed;
 
-        schematicView.SetActive(false);
-
-
+        if (!alreadyActive)
+        {
+            schematicView.SetActive(false);
+        }
     }
 
     public void updateMask(bool makeEmpty = false)
@@ -117,6 +119,7 @@ public class schematicManager : MonoBehaviour
     }
 
     public void updateGrid(bool maskUsed) {
+        bool alreadyActive = schematicView.activeSelf;
         schematicView.SetActive(true);
 
         float posX = gridCount % gridWidth * 300;
@@ -138,8 +141,10 @@ public class schematicManager : MonoBehaviour
 
 
         gridCount += 1;
-
-        schematicView.SetActive(false);
+        if (!alreadyActive)
+        {
+            schematicView.SetActive(false);
+        }
     }
 
     public void onDeleteButton(int index)
@@ -235,16 +240,17 @@ public class schematicManager : MonoBehaviour
         hideSchematicView.SetActive(false);
     }
     public void updateText(string tool) {
-
+        bool alreadyActive = schematicView.activeSelf;
         schematicView.SetActive(true);
 
 
         TextMeshProUGUI toolText = GameObject.Find("lastTool").GetComponent<TextMeshProUGUI>();
         lastText = toolText.text;
         toolText.text = "Last Tool:" + "\n" + tool;
-
-        schematicView.SetActive(false);
-
+        if(!alreadyActive )
+        {
+            schematicView.SetActive(false);
+        }
     }
 }
 

@@ -13,6 +13,7 @@ public class textActivateDropdown : BasicText
         base.Initialize();
         GameObject.Find("Dropdown").GetComponent<DropdownCustom>().visible = true;
         GameObject.Find("Dropdown").GetComponent<Image>().enabled = true;
+        GameObject.Find("Dropdown").GetComponent<Activatable>().activate();
     }
     override public void Display()
     {

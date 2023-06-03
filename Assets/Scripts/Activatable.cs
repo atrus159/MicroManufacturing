@@ -25,7 +25,7 @@ public class Activatable : MonoBehaviour
             switch (buttonType)
             {
                 case buttonTypes.big:
-                    offset = new Vector3(-3, 3, 0);
+                    offset = new Vector3(0, 0, 0);
                     pt = transform;
                     break;
                 case buttonTypes.small:

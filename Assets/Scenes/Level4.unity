@@ -943,6 +943,7 @@ GameObject:
   - component: {fileID: 261557340}
   - component: {fileID: 261557339}
   - component: {fileID: 261557338}
+  - component: {fileID: 261557341}
   m_Layer: 5
   m_Name: WetEtchToggle
   m_TagString: Untagged
@@ -1023,6 +1024,20 @@ MonoBehaviour:
   visible: 0
   offToggleSprite: {fileID: 21300000, guid: 317795886d0a69f40a37d404e141ab3c, type: 3}
   onToggleSprite: {fileID: 21300000, guid: 9676b89c35b4990408a510768168230b, type: 3}
+--- !u!114 &261557341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261557336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3592975bc3c63544aec922104d6f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 0
+  highlight: {fileID: 3683048509625473267, guid: 5a8351c67e181cf408a155bcabf9bb39, type: 3}
 --- !u!1 &281034617
 GameObject:
   m_ObjectHideFlags: 0
@@ -11671,6 +11686,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6689852020812958812, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689852020834278161, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689852020834278161, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689852020834278161, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6766870674403019115, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
