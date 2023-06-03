@@ -161,6 +161,7 @@ public class schematicManager : MonoBehaviour
         GameObject content = GameObject.Find("schemContent");
 
         GameObject newContainer = new GameObject();
+        newContainer.AddComponent<RectTransform>();
         newContainer.transform.SetParent(content.transform);
 
         GameObject newSchematic = GameObject.Instantiate(placeholderPrefab);
@@ -211,6 +212,9 @@ public class schematicManager : MonoBehaviour
         db.transform.localScale = new Vector3(1, 1, 1);
         db.GetComponent<schematicDeleteButtonHandler>().count = gridCount;
         steps.Add(newContainer);
+        GameObject.Find("endSpacer_0").transform.SetAsLastSibling();
+        GameObject.Find("endSpacer_1").transform.SetAsLastSibling();
+        GameObject.Find("endSpacer_2").transform.SetAsLastSibling();
 
     }
     public void onSliderUpdate() {
