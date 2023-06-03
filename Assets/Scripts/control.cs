@@ -336,6 +336,7 @@ public class control : MonoBehaviour
 
         if (schematicManagerObject) {
             schematicManagerObject.GetComponent<schematicManager>().updateText("Lift-off");
+            schematicManagerObject.GetComponent<schematicManager>().updateSchem = true;
         }
 
     }

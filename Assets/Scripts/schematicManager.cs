@@ -10,23 +10,26 @@ public class schematicManager : MonoBehaviour
     public GameObject showSchematicView;
     public GameObject hideSchematicView;
 
+
     public Image mask;
     public Image schematic;
     Texture maskTexture;
     Texture schematicTexture;
 
     public GameObject placeholderPrefab;
+    public GameObject lastToolPrefab;
 
     // updated by other objects
     public int sliderValue;
     public bool updateSchem;
+    public string lastText;
 
 
     // values for the schematic grid
     int gridCount;
-    int gridWidth = 7; // 7 pictures max
+    int gridWidth = 3; // 7 pictures max
     int gridStartX = 60;
-    int gridStartY = 60;
+    int gridStartY = -210;
     int schemWidth = 100;
     bool prevMaskUsed;
     
@@ -39,18 +42,19 @@ public class schematicManager : MonoBehaviour
         schematicView.SetActive(false);
         hideSchematicView.SetActive(false);
 
-        mask = transform.GetChild(0).GetComponent<Image>();
-        schematic = transform.GetChild(1).GetComponent<Image>();
-
         maskTexture = new Texture2D(100, 100);
         schematicTexture = new Texture2D(100, 100);
 
         mask.material.mainTexture = maskTexture;
         schematic.material.mainTexture = schematicTexture;
 
+        lastText = null;
+
     }
 
     public void toolUsed(bool maskUsed, bool sliderUpdate = false) {
+        schematicView.SetActive(true);
+
         if (!sliderUpdate)
             updateGrid(prevMaskUsed);
 
@@ -59,6 +63,9 @@ public class schematicManager : MonoBehaviour
         updateSchematic();
 
         prevMaskUsed = maskUsed;
+
+        schematicView.SetActive(false);
+
 
     }
 
@@ -95,25 +102,27 @@ public class schematicManager : MonoBehaviour
     public void updateGrid(bool maskUsed) {
         schematicView.SetActive(true);
 
-        GameObject content = GameObject.Find("schemContent");
-        GameObject placeholder = GameObject.Find("Placeholder");
+        float posX = gridCount % gridWidth * 300;
+        float posY = - gridCount / gridWidth * 130;
 
-        addToGrid(schematicTexture);
+        if (lastText.Length > 11)
+            lastText = lastText.Substring(11);
+
+        addToGrid(schematicTexture, new Vector2(posX, posY), lastText);
 
         if(maskUsed)
-            addToGrid(maskTexture);
+            addToGrid(maskTexture, new Vector2(posX + 110, posY));
+
+        gridCount += 1;
 
         schematicView.SetActive(false);
     }
 
-    void addToGrid(Texture texture) {
+    void addToGrid(Texture texture, Vector2 offset, string text_add = null) {
 
         GameObject content = GameObject.Find("schemContent");
-        GameObject placeholder = GameObject.Find("Placeholder");
-
         GameObject newObject = GameObject.Instantiate(placeholderPrefab);
         newObject.transform.SetParent(content.transform);
-
 
         Image newImage = newObject.GetComponent<Image>();
 
@@ -121,13 +130,19 @@ public class schematicManager : MonoBehaviour
         newImage.material.mainTexture = new Texture2D(100, 100);
         Graphics.CopyTexture(texture, newImage.material.mainTexture);
 
-        float posX = gridCount % 7 * 110;
-        float posY = -gridCount / 7 * 110;
-        Debug.Log(posX + " " + posY);
-        newObject.transform.localPosition = placeholder.transform.localPosition + new Vector3(posX, posY, 0);
+        newObject.transform.localPosition = new Vector3(gridStartX, gridStartY, 0) + new Vector3(offset.x, offset.y, 0);
         newObject.transform.localScale = new Vector3(1, 1, 1);
 
-        gridCount += 1;
+
+        if (text_add != null) {
+            GameObject newText = GameObject.Instantiate(lastToolPrefab);
+            newText.transform.SetParent(content.transform);
+
+            newText.GetComponent<TextMeshProUGUI>().text = text_add;
+            newText.transform.localPosition = new Vector3(gridStartX, gridStartY, 0) + new Vector3(offset.x + 45, offset.y - 80, 0);
+            newText.transform.localScale = new Vector3(1, 1, 1);
+
+        }
 
     }
     public void onSliderUpdate() {
@@ -149,8 +164,15 @@ public class schematicManager : MonoBehaviour
     }
     public void updateText(string tool) {
 
-        TextMeshProUGUI toolText = transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-        toolText.text = "Last Tool: " + tool;
+        schematicView.SetActive(true);
+
+
+        TextMeshProUGUI toolText = GameObject.Find("lastTool").GetComponent<TextMeshProUGUI>();
+        lastText = toolText.text;
+        toolText.text = "Last Tool:" + "\n" + tool;
+
+        schematicView.SetActive(false);
+
     }
 }
 
