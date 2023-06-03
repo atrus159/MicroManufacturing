@@ -10,6 +10,7 @@ public class schematicManager : MonoBehaviour
     public GameObject showSchematicView;
     public GameObject hideSchematicView;
 
+    public GameObject deleteButton;
 
     public Image mask;
     public Image schematic;
@@ -34,25 +35,28 @@ public class schematicManager : MonoBehaviour
     bool prevMaskUsed;
 
     bool firstFlag;
+
+    List<GameObject> steps;
     
     void Start()
     {
+        maskTexture = new Texture2D(100, 100);
+        schematicTexture = new Texture2D(100, 100);
+
+
         prevMaskUsed = false;
         updateSchem = false;
         gridCount = 0;
-
+        onSliderUpdate();
         schematicView.SetActive(false);
         hideSchematicView.SetActive(false);
-
-        maskTexture = new Texture2D(100, 100);
-        schematicTexture = new Texture2D(100, 100);
 
         mask.material.mainTexture = maskTexture;
         schematic.material.mainTexture = schematicTexture;
 
         lastText = null;
         firstFlag = false;
-
+        steps = new List<GameObject>();
     }
 
     public void toolUsed(bool maskUsed, bool sliderUpdate = false) {
@@ -121,41 +125,92 @@ public class schematicManager : MonoBehaviour
         if (lastText.Length > 11)
             lastText = lastText.Substring(11);
 
-        addToGrid(schematicTexture, new Vector2(posX, posY), lastText);
 
-        if(maskUsed)
-            addToGrid(maskTexture, new Vector2(posX + 110, posY));
+
+        if (maskUsed)
+        {
+            addToGrid(schematicTexture, new Vector2(posX, posY), lastText, maskTexture);
+        }
+        else
+        {
+            addToGrid(schematicTexture, new Vector2(posX, posY), lastText);
+        }
+
 
         gridCount += 1;
 
         schematicView.SetActive(false);
     }
 
-    void addToGrid(Texture texture, Vector2 offset, string text_add = null) {
+    public void onDeleteButton(int index)
+    {
+        GameObject.Destroy(steps[index]);
+        steps.RemoveAt(index);
+        for(int i = index; i < steps.Count; i++)
+        {
+            float posX = i % gridWidth * 300;
+            float posY = -i / gridWidth * 130;
+            steps[i].transform.SetLocalPositionAndRotation(new Vector3(gridStartX, gridStartY, 0) + new Vector3(posX, posY, 0), Quaternion.identity);
+            steps[i].GetComponentInChildren<schematicDeleteButtonHandler>().count = i;
+        }
+        gridCount--;
+    }
+
+    void addToGrid(Texture schematicTr, Vector2 offset, string text_add = null, Texture maskTr = null) {
 
         GameObject content = GameObject.Find("schemContent");
-        GameObject newObject = GameObject.Instantiate(placeholderPrefab);
-        newObject.transform.SetParent(content.transform);
 
-        Image newImage = newObject.GetComponent<Image>();
+        GameObject newContainer = new GameObject();
+        newContainer.transform.SetParent(content.transform);
 
-        newImage.material = new Material(Shader.Find("UI/Default"));
-        newImage.material.mainTexture = new Texture2D(100, 100);
-        Graphics.CopyTexture(texture, newImage.material.mainTexture);
+        GameObject newSchematic = GameObject.Instantiate(placeholderPrefab);
+        newSchematic.transform.SetParent(newContainer.transform);
 
-        newObject.transform.localPosition = new Vector3(gridStartX, gridStartY, 0) + new Vector3(offset.x, offset.y, 0);
-        newObject.transform.localScale = new Vector3(1, 1, 1);
 
+        Image schematicImage = newSchematic.GetComponent<Image>();
+
+        schematicImage.material = new Material(Shader.Find("UI/Default"));
+        schematicImage.material.mainTexture = new Texture2D(100, 100);
+        Graphics.CopyTexture(schematicTr, schematicImage.material.mainTexture);
+
+
+        newContainer.transform.localPosition = new Vector3(gridStartX, gridStartY, 0) + new Vector3(offset.x, offset.y, 0);
+        newSchematic.transform.localPosition = new Vector3(0, 0, 0);
+        newSchematic.transform.localScale = new Vector3(1, 1, 1);
+
+        if(maskTr != null)
+        {
+            GameObject newMask = GameObject.Instantiate(placeholderPrefab);
+            newMask.transform.SetParent(newContainer.transform);
+
+
+            Image maskImage = newMask.GetComponent<Image>();
+
+            maskImage.material = new Material(Shader.Find("UI/Default"));
+            maskImage.material.mainTexture = new Texture2D(100, 100);
+            Graphics.CopyTexture(maskTr, maskImage.material.mainTexture);
+
+            newMask.transform.localPosition = new Vector3(110, 0, 0);
+            newMask.transform.localScale = new Vector3(1, 1, 1);
+
+        }
 
         if (text_add != null) {
             GameObject newText = GameObject.Instantiate(lastToolPrefab);
-            newText.transform.SetParent(content.transform);
+            newText.transform.SetParent(newContainer.transform);
 
             newText.GetComponent<TextMeshProUGUI>().text = text_add;
-            newText.transform.localPosition = new Vector3(gridStartX, gridStartY, 0) + new Vector3(offset.x + 45, offset.y - 80, 0);
+            newText.transform.localPosition = new Vector3( 45, - 80, 0);
             newText.transform.localScale = new Vector3(1, 1, 1);
 
         }
+
+        GameObject db = GameObject.Instantiate(deleteButton);
+        db.transform.SetParent(newContainer.transform);
+        db.transform.localPosition = new Vector3(190, 50, 0);
+        db.transform.localScale = new Vector3(1, 1, 1);
+        db.GetComponent<schematicDeleteButtonHandler>().count = gridCount;
+        steps.Add(newContainer);
 
     }
     public void onSliderUpdate() {
