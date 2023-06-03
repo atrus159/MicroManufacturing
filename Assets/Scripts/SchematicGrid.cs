@@ -64,8 +64,9 @@ public class SchematicGrid
         // new Color(201, 110, 55, 1)
         Color silicon = new Color(0.7f, 0.7f, 0.7f);
         Color silicondioxide = new Color(0.8f, 0.55f, 0.4f);
+        Color photoresist = new Color(1.0f, 0.5f, 0.0f);
 
-        Color[] colorArray = new Color[] { Color.white, Color.cyan, Color.yellow, Color.gray, silicon, silicondioxide };
+        Color[] colorArray = new Color[] { Color.white, Color.cyan, Color.yellow, Color.gray, silicon, silicondioxide, photoresist};
 
         for (int i = 0; i < textureWidth; i++)
             for (int j = 0; j < textureHeight; j++)

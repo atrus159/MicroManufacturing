@@ -40,8 +40,12 @@ public class paint : MonoBehaviour
     GameObject redoButton;
     GameObject undoButton;
 
+    BitGrid savedGrid;
+
     void Start()
     {
+        savedGrid = BitGrid.zeros();
+        savedGrid.setPoint(0, 0, -1);
         redoButton = GameObject.Find("RedoButton");
         undoButton = GameObject.Find("UndoButton");
         grid = new BitGrid();
@@ -147,6 +151,29 @@ public class paint : MonoBehaviour
         curState.set(grid);
         texture.Apply();
         prevCount = prevStates.Count; nextCount = nextStates.Count;
+    }
+
+    public void save()
+    {
+        savedGrid.set(grid);
+    }
+
+    public void load()
+    {
+        if (savedGrid.getPoint(0, 0) == -1)
+        {
+            GameObject.Find("ErrorManager").GetComponent<errorManager>().createError("No pattern saved");
+            return;
+        }
+        for (int i = 0; i < BitGrid.gridWidth; i++)
+        {
+            for (int j = 0; j < BitGrid.gridHeight; j++)
+            {
+                setPixel(i, j, savedGrid.getPoint(i, j));
+            }
+        }
+        texture.Apply();
+        addState();
     }
 
     Vector3 getMousePos()
