@@ -20,7 +20,7 @@ public class MenuButtonManager : MonoBehaviour
 
     public void OnStartButtonPress()
     {
-        SceneManager.LoadScene("Level1");
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().continueFromMenu();
     }
 
     public void OnLevelSelectButtonPressed()
@@ -50,7 +50,15 @@ public class MenuButtonManager : MonoBehaviour
 
     public void OnBackButtonPress()
     {
-        SceneManager.LoadScene("MainMenu");
+        if(GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().optionsMenuFlag)
+        {
+            GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().optionsMenuFlag = false;
+            GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().continueFromMenu();
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     public void OnFullScreenToggle()
@@ -66,6 +74,27 @@ public class MenuButtonManager : MonoBehaviour
             GameObject.Find("FullScreenButton").GetComponent<TextMeshProUGUI>().text = "Windowed Mode";
         }
     }
+
+    public void lv1Button()
+    {
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void lv2Button()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void lv3Button()
+    {
+        SceneManager.LoadScene("Level3");
+    }
+
+    public void lv4Button()
+    {
+        SceneManager.LoadScene("Level4");
+    }
+
 
     public void onContinueButton()
     {
