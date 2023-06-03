@@ -13,6 +13,7 @@ public class textActivateToggle : BasicText
         base.Initialize();
         GameObject.Find("WetEtchToggle").GetComponent<ToggleCustom>().visible = true;
         GameObject.Find("WetEtchToggle").GetComponent<Image>().enabled = true;
+        GameObject.Find("WetEtchToggle").GetComponent<Activatable>().activate();
     }
     override public void Display()
     {
