@@ -278,7 +278,26 @@ public class control : MonoBehaviour
 
     public void onMainMenuFromPause()
     {
-        SceneManager.LoadScene("MainMenu");
+        if(SceneManager.GetActiveScene().name != "FreePlayLevel")
+        {
+            GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoMenuFromLevel("MainMenu");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+    }
+
+    public void onOptionButton()
+    {
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().optionsMenuFlag = true;
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoMenuFromLevel("Options");
+    }
+
+    public void onRestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
