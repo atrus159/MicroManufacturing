@@ -11024,7 +11024,7 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: Ooh, that looks cool!
+  text: Ooh, your pattern looks cool!
   location: {x: 0, y: -100}
   anchor: 1
 --- !u!1 &2666522120573158556
@@ -12203,9 +12203,9 @@ MonoBehaviour:
   - {fileID: 2139247531}
   skipOnObj: 
   advanceRequirements: 1
-  text: "For this, we\u2019ll need to make a *photomask*. Press TAB or click the
-    button in the top left to head over to the Photolithography Bench. There we\u2019ll
-    see what photolithography is all about!"
+  text: "To make this pattern, we\u2019ll need to make a *photomask*. Press TAB or
+    click the button in the top left to head over to the Photolithography Bench.
+    There we\u2019ll see what photolithography is all about!"
   location: {x: 0, y: 0}
   anchor: 4
 --- !u!1 &2666522121265273979
@@ -12563,8 +12563,8 @@ MonoBehaviour:
   - {fileID: 1700792201}
   skipOnObj: Spinner Container(Clone)
   advanceRequirements: 1
-  text: "Fortunately for you, we\u2019ve made a single button to do this whole process
-    for you! Click the Photoresist button to create your stencil."
+  text: "Fortunately, we\u2019ve made a single button to do this whole process for
+    you! Click the Photoresist button to create your stencil."
   location: {x: 0, y: 100}
   anchor: 4
 --- !u!1 &2666522121795495766

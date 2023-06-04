@@ -7320,8 +7320,8 @@ MonoBehaviour:
   skipOnObj: 
   advanceRequirements: 0
   text: "To make the contacts you need to do three things:\u25A0-Make a photomask
-    that covers where you want the contacts to go\u25A0-Remove the gold around the
-    contacts with etch-back.\u25A0-Remove the chromium at the bottom."
+    that covers where you want the contacts\u25A0-Remove the gold around the contacts
+    with etch-back.\u25A0-Remove the chromium at the bottom."
   location: {x: 0, y: 0}
   anchor: 4
 --- !u!1 &1360582427
