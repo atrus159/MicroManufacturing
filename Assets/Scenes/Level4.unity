@@ -2827,7 +2827,7 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: "ar, and I think you\u2019re up for a challenge. you\u2019re up for a challenge."
+  text: "You\u2019ve come a long way so far, and I think you\u2019re up for a challenge."
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1001 &622036390
