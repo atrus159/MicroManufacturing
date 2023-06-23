@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.srejonkhan.another-file-browser": "https://github.com/SrejonKhan/AnotherFileBrowser.git",
     "com.unity.2d.animation": "7.0.8",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "1.17.6",

@@ -7,9 +7,9 @@ using UnityEngine.UI;
 #if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_WEBGL
     using AnotherFileBrowser.Windows;
 #endif
-#if (UNITY_EDITOR_OSX) && !UNITY_WEBGL
-    using UnityEditor;
-#endif
+//#if (UNITY_EDITOR_OSX) && !UNITY_WEBGL
+//    using UnityEditor;
+//#endif
 
 public class load_button : MonoBehaviour
 {
@@ -41,9 +41,9 @@ public class load_button : MonoBehaviour
         new FileBrowser().OpenFileBrowser(bp, filePath => { path = filePath; });
 #endif
 
-#if (UNITY_EDITOR_OSX) && !UNITY_WEBGL
-        path = EditorUtility.OpenFilePanel("Overwrite with .txt", "", ".txt");
-#endif
+//#if (UNITY_EDITOR_OSX) && !UNITY_WEBGL
+//        path = EditorUtility.OpenFilePanel("Overwrite with .txt", "", ".txt");
+//#endif
         if (path.Length == 0)
             return;
 
