@@ -13,6 +13,8 @@ public class TextManager : MonoBehaviour
     GameObject placeCount;
     public bool skipFlag;
     string skipOnObjFlag;
+    public int i;
+    public bool firstDisplayFlag;
     private void Awake() {
         if (instance != null && instance != this)
         {
@@ -57,13 +59,14 @@ public class TextManager : MonoBehaviour
     private IEnumerator PlayText(TextParent[] _Text)
     {
         int currentInd = 0;
-        int i = 0;
         int totalFreeTextCount = 0;
         int currentFreeTextCount = 0;
+        firstDisplayFlag = false;
         while( i< _Text.Length)
         {
             TextParent _text = _Text[i];
             _text.Display();
+            firstDisplayFlag = true;
             skipOnObjFlag = _text.skipOnObj;
             yield return new WaitForSeconds(0.1f);
             yield return StartCoroutine(WaitForPlayerInput());

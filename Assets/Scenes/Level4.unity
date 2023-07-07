@@ -442,6 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipFlag: 0
+  i: 0
+  firstDisplayFlag: 0
 --- !u!4 &127651683
 Transform:
   m_ObjectHideFlags: 0
@@ -1062,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &261557337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1133,7 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa0b6837de097c449c0f16b5f11ca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visible: 0
+  visible: 1
   offToggleSprite: {fileID: 21300000, guid: 317795886d0a69f40a37d404e141ab3c, type: 3}
   onToggleSprite: {fileID: 21300000, guid: 9676b89c35b4990408a510768168230b, type: 3}
 --- !u!114 &261557341
@@ -9779,6 +9781,8 @@ MonoBehaviour:
   - {fileID: 749340776}
   display: {fileID: 729504599}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
+  curIndex: 0
+  curClear: 0
 --- !u!4 &1762499994
 Transform:
   m_ObjectHideFlags: 0

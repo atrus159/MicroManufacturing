@@ -442,6 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipFlag: 0
+  i: 0
+  firstDisplayFlag: 0
 --- !u!4 &127651683
 Transform:
   m_ObjectHideFlags: 0
@@ -12938,6 +12940,8 @@ MonoBehaviour:
   - {fileID: 4365541846313222400}
   display: {fileID: 729504599}
   requirementPrefab: {fileID: 5061420674881237082, guid: e2e9681f8ab891b4ca6d8e1bf7e713f4, type: 3}
+  curIndex: 0
+  curClear: 0
 --- !u!1 &4365541844533972285
 GameObject:
   m_ObjectHideFlags: 0

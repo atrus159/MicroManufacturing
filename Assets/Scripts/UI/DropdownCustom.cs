@@ -36,14 +36,38 @@ public class DropdownCustom : MonoBehaviour
     CanvasGroup blocker;
     public int value;
 
+
+    public int getCurElement()
+    {
+        return curElement;
+    }
+
     // Start is called before the first frame update
     void Start()
+    {
+        initialize();
+    }
+
+    public void initialize()
     {
         tab = gameObject.transform.GetChild(0).gameObject;
         tab.SetActive(false);
         returnElements = new List<int>();
         toggled = false;
-        curElement = 3;
+        GameObject gsm = GameObject.Find("Global Scene Manager");
+        if (!gsm)
+        {
+            curElement = 3;
+        }
+        else
+        {
+            curElement = gsm.GetComponent<globalSceneManager>().curState.material;
+            if (curElement == -1)
+            {
+                curElement = 3;
+            }
+        }
+
         numElements = 0;
         if (hasAluminum)
         {

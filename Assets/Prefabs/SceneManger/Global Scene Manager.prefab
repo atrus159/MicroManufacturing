@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb7199fc7da948498537228d96b4513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneFromLevel: 
+  blueprintPrefab: {fileID: 1290433408156734916, guid: 27b2d363bce65b544bffa609c103cc3c, type: 3}
+  optionsMenuFlag: 0
