@@ -39,6 +39,7 @@ public class meshGenerator : MonoBehaviour
 
     void createGrid(bool skipTopBottom = false)
     {
+        grid.sanitize();
         vertices = new List<Vector3>();
         triangles = new List<int>();
 

@@ -23,6 +23,48 @@ public class ProcessParent : MonoBehaviour
     GameObject LiftoffButton;
     GameObject wetEtchToggle;
 
+    GameObject DropdownPreset;
+    GameObject DepositPreset;
+    GameObject EtchPreset;
+    GameObject PhotoresistPreset;
+    GameObject LiftoffPreset;
+    GameObject WetEtchPreset;
+
+    public bool[] getButtonsToReactivate()
+    {
+        return new bool[] { Dropdown, DepositButton, EtchButton, PhotoresistButton, LiftoffButton, wetEtchToggle };
+    }
+
+    public void setButtonsToReactivate(bool[] buttonsToReactivate)
+    {
+        GameObject canvasMain = GameObject.Find("Canvas - Main");
+        GameObject holder = GameObject.Find("PhotoButtonToggleHolder");
+        if (buttonsToReactivate[0])
+        {
+            DropdownPreset = canvasMain.transform.Find("Dropdown").gameObject;
+        }
+        if (buttonsToReactivate[1])
+        {
+            DepositPreset = canvasMain.transform.Find("Deposit Button").gameObject;
+        }
+        if (buttonsToReactivate[2])
+        {
+            EtchPreset = canvasMain.transform.Find("Etch Button").gameObject;
+        }
+        if (buttonsToReactivate[3])
+        {
+            PhotoresistPreset = holder.transform.Find("Photoresist Button").gameObject;
+        }
+        if (buttonsToReactivate[4])
+        {
+            LiftoffPreset = holder.transform.Find("Liftoff Button").gameObject;
+        }
+        if (buttonsToReactivate[5])
+        {
+            WetEtchPreset = canvasMain.transform.Find("WetEtchToggle").gameObject;
+        }
+    }
+
     public string ErrorMessage;
 
     // Start is called before the first frame update
@@ -67,13 +109,54 @@ public class ProcessParent : MonoBehaviour
         cancelButton.transform.SetParent(canvTrans, false);
         cancelButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-100, 50, 0);
 
-
-        Dropdown = GameObject.Find("Dropdown");
-        DepositButton = GameObject.Find("Deposit Button");
-        EtchButton = GameObject.Find("Etch Button");
-        PhotoresistButton = GameObject.Find("Photoresist Button");
-        LiftoffButton = GameObject.Find("Liftoff Button");
-        wetEtchToggle = GameObject.Find("WetEtchToggle");
+        if (DropdownPreset)
+        {
+            Dropdown = DropdownPreset;
+        }
+        else
+        {
+            Dropdown = GameObject.Find("Dropdown");
+        }
+        if(DepositPreset)
+        {
+            DepositButton = DepositPreset;
+        }
+        else
+        {
+            DepositButton = GameObject.Find("Deposit Button");
+        }
+        if (EtchPreset)
+        {
+            EtchButton = EtchPreset;
+        }
+        else
+        {
+            EtchButton = GameObject.Find("Etch Button");
+        }
+        if (PhotoresistPreset)
+        {
+            PhotoresistButton = PhotoresistPreset;
+        }
+        else
+        {
+            PhotoresistButton = GameObject.Find("Photoresist Button");
+        }
+        if (LiftoffPreset)
+        {
+            LiftoffButton = LiftoffPreset;
+        }
+        else
+        {
+            LiftoffButton = GameObject.Find("Liftoff Button");
+        }
+        if (WetEtchPreset)
+        {
+            wetEtchToggle= WetEtchPreset;
+        }
+        else
+        {
+            wetEtchToggle = GameObject.Find("WetEtchToggle");
+        }
 
 
         if (Dropdown)
@@ -118,10 +201,10 @@ public class ProcessParent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            onCancelButton();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    onCancelButton();
+        //}
     }
 
     public void onCancelButton()

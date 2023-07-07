@@ -260,6 +260,20 @@ public class BitGrid
         return toReturn;
     }
 
+    public void sanitize()
+    {
+        for (int i = 0; i < BitGrid.gridWidth; i++)
+        {
+            for (int j = 0; j < BitGrid.gridHeight; j++)
+            {
+                if (grid[i, j] == 2)
+                {
+                    grid[i, j] = 1;
+                }
+            }
+        }
+    }
+
     //returns a new BitGrid that is all ones
     public static BitGrid ones()
     {

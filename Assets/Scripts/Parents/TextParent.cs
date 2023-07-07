@@ -26,7 +26,10 @@ public class TextParent : MonoBehaviour
         if (advanceRequirements)
         {
             levelRequirementManager lr = GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>();
-            lr.addReserve();
+            if(TextManager.instance.firstDisplayFlag)
+            {
+                lr.addReserve();
+            }
             lr.hideDisplay();
         }
     }

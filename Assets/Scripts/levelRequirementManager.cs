@@ -34,6 +34,30 @@ public class levelRequirementManager : MonoBehaviour
 
     int count;
 
+    public int curIndex;
+    public bool curClear;
+
+    public void setToIndex(int index, bool clear)
+    {
+        int i;
+        for(i = 0; i<index; i++)
+        {
+            addReserve();
+            clearReqs();
+        }
+        if (i == index)
+        {
+            addReserve();
+        }
+        if (clear)
+        {
+            clearReqs();
+        }
+        curClear = clear;
+        curIndex = index;
+
+    }
+
     void Start()
     {
         requirementDisplayInstances = new List<GameObject>();
@@ -49,6 +73,8 @@ public class levelRequirementManager : MonoBehaviour
             requirements.Add((levelRequirementParent) newRequirement);
         }*/
         updateDisplay();
+        curIndex = -1;
+        curClear = false;
         
     }
 
@@ -99,6 +125,8 @@ public class levelRequirementManager : MonoBehaviour
 
     public void addReserve()
     {
+        curIndex++;
+        curClear = false;
         if(reserveIndex >= requirementReserveBlocks.Count)
         {
             return;
@@ -211,11 +239,16 @@ public class levelRequirementManager : MonoBehaviour
         if (allMet && anyMet)
         {
             TextManager.instance.endHold();
-            TextManager.instance.GetTextBox().SetActive(true);
-            requirements.Clear();
-            updateDisplay();
+            clearReqs();
         }
+    }
 
+    public void clearReqs()
+    {
+        TextManager.instance.GetTextBox().SetActive(true);
+        requirements.Clear();
+        updateDisplay();
+        curClear = true;
     }
 
 }
