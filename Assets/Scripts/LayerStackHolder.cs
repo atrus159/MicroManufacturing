@@ -122,8 +122,9 @@ public class LayerStackHolder : MonoBehaviour
         clearDeletes();
 
         if (schematicManagerObject.updateSchem)
-                schematicManagerObject.toolUsed(false);
-
+        {
+            schematicManagerObject.toolUsed(false);
+        }
         schematicManagerObject.updateSchem = false;
     }
 
@@ -181,6 +182,7 @@ public class LayerStackHolder : MonoBehaviour
                 LRM.GetComponent<levelRequirementManager>().checkRequirements();
             }
             postDeleteCheckFlag = false;
+            GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().saveState();
         }
     }
 
