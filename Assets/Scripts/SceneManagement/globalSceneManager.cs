@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using TMPro;
 using UnityEngine;
@@ -88,6 +89,10 @@ public class globalSceneManager : MonoBehaviour
 
     public levelState curState;
 
+    List<List<layerData>> undoStates;
+    List<List<layerData>> redoStates;
+    List<layerData> curUndoState; 
+
 
 
     private void Update()
@@ -97,7 +102,57 @@ public class globalSceneManager : MonoBehaviour
             loadSceneData();
             loadFlag = false;
         }
+
+        if (GameObject.Find("Control") && !GameObject.Find("Control").GetComponent<control>().hudVisible)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                //if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                //{
+                    undoState();
+                //}
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                //if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                //{
+                    redoState();
+                //}
+            }
+        }
     }
+
+    public void undoState()
+    {
+        if(undoStates.Count > 0)
+        {
+            redoStates.Add(curUndoState);
+            curUndoState = undoStates[undoStates.Count - 1];
+            undoStates.RemoveAt(undoStates.Count-1);
+            applyLayerData(curUndoState);
+            
+        }
+    }
+
+    public void saveState()
+    {
+        undoStates.Add(curUndoState);
+        curUndoState = new List<layerData>();
+        redoStates.Clear();
+        updateLayerData(curUndoState);
+    }
+
+    public void redoState()
+    {
+        if (redoStates.Count > 0)
+        {
+            undoStates.Add(curUndoState);
+            curUndoState = redoStates[redoStates.Count - 1];
+            redoStates.RemoveAt(redoStates.Count - 1);
+            applyLayerData(curUndoState);
+        }
+    }
+
 
     private void Start()
     {
@@ -106,6 +161,9 @@ public class globalSceneManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         continueScene = "Level1";
         curState = new levelState(-1, -1, false, new bool[9], levelState.processType.none, new bool[6],-1);
+        undoStates = new List<List<layerData>>();
+        redoStates = new List<List<layerData>>();
+        curUndoState = new List<layerData>();
     }
 
     public void gotoMenuFromLevel(string target)
@@ -127,13 +185,29 @@ public class globalSceneManager : MonoBehaviour
         targetSceneFromLevel = target;
         continueScene = target;
         SceneManager.LoadScene("PostLevel");
+        undoStates.Clear();
+        redoStates.Clear();
+        curUndoState = new List<layerData>();
+        curState = new levelState(-1, -1, false, new bool[9], levelState.processType.none, new bool[6], -1);
     }
 
-    public void gotoFromMenu()
+    public void gotoFromMenu(string targetScene = "_None_")
     {
-        SceneManager.LoadScene(targetSceneFromLevel);
+        undoStates.Clear();
+        redoStates.Clear();
+        curUndoState = new List<layerData>();
+        curState = new levelState(-1, -1, false, new bool[9], levelState.processType.none, new bool[6], -1);
+        if(targetScene == "_None_")
+        {
+            SceneManager.LoadScene(targetSceneFromLevel);
+        }
+        else
+        {
+            SceneManager.LoadScene(targetScene);
+        }
         continueScene = "Level1";
     }
+
 
     public void saveSceneData()
     {
@@ -190,27 +264,44 @@ public class globalSceneManager : MonoBehaviour
             curState.blueprintName = "";
         }
 
-        LayerStackHolder ls = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
-        for(int i = 0; i <= ls.topLayer; i++)
-        {
-            foreach(GameObject curDeposit in ls.depLayers[i])
-            {
-                if(curDeposit.GetComponent<meshMaterial>().timeOffset == 0)
-                {
-                    curState.layerDatas.Add(new layerData(curDeposit.GetComponent<meshGenerator>().grid, curDeposit.GetComponent<meshMaterial>().myMaterial));
-                }
+        updateLayerData(curState.layerDatas);
+    }
 
+
+    void updateLayerData(List<layerData> toUpdate)
+    {
+        toUpdate.Clear();
+        LayerStackHolder ls = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
+        for (int i = 0; i <= ls.topLayer; i++)
+        {
+            foreach (GameObject curDeposit in ls.depLayers[i])
+            {
+                if (curDeposit.GetComponent<meshMaterial>().timeOffset == 0)
+                {
+                    toUpdate.Add(new layerData(curDeposit.GetComponent<meshGenerator>().grid, curDeposit.GetComponent<meshMaterial>().myMaterial));
+                }
             }
+        }
+    }
+
+    void applyLayerData(List<layerData> toApply)
+    {
+        LayerStackHolder ls = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
+        GameObject process = GameObject.Find("New Process");
+        if (process)
+        {
+            process.GetComponent<ProcessParent>().onCancelButton();
+        }
+        ls.clear();
+        foreach (layerData newDeposit in toApply)
+        {
+            ls.depositLayer(newDeposit.materialType, newDeposit.grid);
         }
     }
 
     public void loadSceneData()
     {
-        LayerStackHolder ls = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
-        foreach(layerData newDeposit in curState.layerDatas)
-        {
-            ls.depositLayer(newDeposit.materialType, newDeposit.grid);
-        }
+        applyLayerData(curState.layerDatas);
         GameObject.Find("Level Requirement Manager").GetComponent<levelRequirementManager>().setToIndex(curState.requirementIndex, curState.requirementClear);
 
         GameObject MainCanvas = GameObject.Find("Canvas - Main");
@@ -239,7 +330,7 @@ public class globalSceneManager : MonoBehaviour
         GameObject.Find("Canvas - Main").transform.Find("Dropdown").gameObject.GetComponent<DropdownCustom>().initialize();
 
 
-
+        LayerStackHolder ls = GameObject.Find("LayerStack").GetComponent<LayerStackHolder>();
 
         switch (curState.curProcess)
         {

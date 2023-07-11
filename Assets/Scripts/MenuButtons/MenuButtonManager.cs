@@ -77,22 +77,22 @@ public class MenuButtonManager : MonoBehaviour
 
     public void lv1Button()
     {
-        SceneManager.LoadScene("Level1");
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoFromMenu("Level1");
     }
 
     public void lv2Button()
     {
-        SceneManager.LoadScene("Level2");
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoFromMenu("Level2");
     }
 
     public void lv3Button()
     {
-        SceneManager.LoadScene("Level3");
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoFromMenu("Level3");
     }
 
     public void lv4Button()
     {
-        SceneManager.LoadScene("Level4");
+        GameObject.Find("Global Scene Manager").GetComponent<globalSceneManager>().gotoFromMenu("Level4");
     }
 
 
