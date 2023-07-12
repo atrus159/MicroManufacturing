@@ -1,3 +1,4 @@
+using CGTespy.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -21,6 +22,9 @@ public class ProbeScript : MonoBehaviour
 
     public GameObject red_cube;
     public GameObject black_cube;
+
+    public GameObject red_probe_marker;
+    public GameObject black_probe_marker;
 
     Vector3Int redPos;
     Vector3Int blackPos;
@@ -54,7 +58,8 @@ public class ProbeScript : MonoBehaviour
         red_cube.transform.position = origin + new Vector3(position.x * cubeWidth, position.y * cubeHeight, position.z * cubeWidth);
         red_probe.transform.localRotation = calcRotation(position);
         redPos = position;
-
+        RectTransform dp = GameObject.Find("drawing_panel").GetComponent<RectTransform>();
+        red_probe_marker.GetComponent<RectTransform>().anchoredPosition = new Vector3(- dp.rect.width/2 + x* dp.rect.width / 100,  - dp.rect.height / 2 + z * dp.rect.height / 100);
     }
 
     public void realignBlack(int x, int y, int z)
@@ -64,7 +69,8 @@ public class ProbeScript : MonoBehaviour
         black_cube.transform.position = origin + new Vector3(position.x * cubeWidth, position.y * cubeHeight, position.z * cubeWidth);
         black_probe.transform.localRotation = calcRotation(position);
         blackPos = position;
-
+        RectTransform dp = GameObject.Find("drawing_panel").GetComponent<RectTransform>();
+        black_probe_marker.GetComponent<RectTransform>().anchoredPosition = new Vector3(- dp.rect.width/2 + x* dp.rect.width / 100,  - dp.rect.height / 2 + z * dp.rect.height / 100);
     }
 
 
