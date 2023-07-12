@@ -346,9 +346,9 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 1
-  text: 'Connect the colored electrical contacts together, so that each one connects
-    to *only* the other of the same color. You will need to use an insulator material
-    to keep the wires separate and not electrically-shorted. *Silicon Dioxide* would
+  text: 'Connect the A, B, and C electrical contacts together, so that each one connects
+    to *only* the other of its pair. You will need to use an insulator material to
+    keep the wires separate and not electrically-shorted. *Silicon Dioxide* would
     be a good option for this. '
   location: {x: 0, y: -140}
   anchor: 1
@@ -11691,9 +11691,9 @@ MonoBehaviour:
   activates: []
   skipOnObj: 
   advanceRequirements: 0
-  text: 'For this test, we want to send an electrical signal from contact A to contact
-    B. That means there needs to be a continuous path of conductive material between
-    them. '
+  text: 'For this test, we want to send an electrical signal from contact (A1) to
+    contact (A2). That means there needs to be a continuous path of conductive material
+    between them. '
   location: {x: 0, y: -140}
   anchor: 1
 --- !u!1 &1839112282
