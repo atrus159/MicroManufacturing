@@ -12,7 +12,7 @@ public class checkNoContact : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Make sure there's no connection between differently colored electrodes!";
+        name = "Make sure there's no connection between different electrode pairs!";
         description = "You can use silicon-dioxide to insulate your connections";
         red = GameObject.Find("probesRed").GetComponent<ProbeScript>();
         blue = GameObject.Find("probesBlue").GetComponent<ProbeScript>();

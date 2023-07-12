@@ -10,7 +10,7 @@ public class checkBlue : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Connect the blue contacts together.";
+        name = "Connect the (B1) and (B2) contacts together.";
         description = "Use gold to make the connection";
         ps = GameObject.Find("probesBlue").GetComponent<ProbeScript>();
     }
