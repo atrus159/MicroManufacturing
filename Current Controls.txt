@@ -1,4 +1,0 @@
-Controls:
-
--Space Bar: Photomask liftoff
--ESC: pause menu / cancel process
