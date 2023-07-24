@@ -413,6 +413,7 @@ public class LayerStackHolder : MonoBehaviour
         bool toReturn = false;
         while (curLayer > 0)
         {
+
             BitGrid emptySpots = new BitGrid();
             BitGrid etchedSpots = new BitGrid();
             emptySpots.set(BitGrid.zeros());
@@ -428,6 +429,17 @@ public class LayerStackHolder : MonoBehaviour
 
             BitGrid emptyContinuation = BitGrid.getIntersectedRegions(grid, BitGrid.invert(emptySpots));
             BitGrid emptyBorder = BitGrid.getBorderRegion(emptyContinuation);
+
+            for (int i = 0; i < BitGrid.gridWidth; i++)
+            {
+                for (int j = 0; j < BitGrid.gridHeight; j++)
+                {
+                    if (i == 0 || j == 0 || i == BitGrid.gridWidth - 1 || j == BitGrid.gridHeight - 1)
+                    {
+                        emptyBorder.setPoint(i, j, 1);
+                    }
+                }
+            }
 
             bool anyFlag = false;
             foreach (GameObject curDeposit in depLayers[curLayer - 1])
@@ -456,10 +468,19 @@ public class LayerStackHolder : MonoBehaviour
             }
 
             grid.set(BitGrid.emptyIntersect(grid, emptySpots));
-            if (grid.isEmpty())
+
+
+            for (int i = 0; i < BitGrid.gridWidth; i++)
             {
-                return toReturn;
+                for (int j = 0; j < BitGrid.gridHeight; j++)
+                {
+                    if (i == 0 || j == 0 || i == BitGrid.gridWidth - 1 || j == BitGrid.gridHeight - 1)
+                    {
+                        grid.setPoint(i, j, 1);
+                    }
+                }
             }
+
             curLayer--;
         }
         return toReturn;
