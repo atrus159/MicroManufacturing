@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using CGTespy.UI;
 public class ProcessParent : MonoBehaviour
 {
     public int nSteps = 50;
@@ -22,6 +19,7 @@ public class ProcessParent : MonoBehaviour
     GameObject PhotoresistButton;
     GameObject LiftoffButton;
     GameObject wetEtchToggle;
+    GameObject schematicToggle;
 
     GameObject DropdownPreset;
     GameObject DepositPreset;
@@ -29,10 +27,12 @@ public class ProcessParent : MonoBehaviour
     GameObject PhotoresistPreset;
     GameObject LiftoffPreset;
     GameObject WetEtchPreset;
+    GameObject SchematicPreset;
+
 
     public bool[] getButtonsToReactivate()
     {
-        return new bool[] { Dropdown, DepositButton, EtchButton, PhotoresistButton, LiftoffButton, wetEtchToggle };
+        return new bool[] { Dropdown, DepositButton, EtchButton, PhotoresistButton, LiftoffButton, wetEtchToggle, schematicToggle};
     }
 
     public void setButtonsToReactivate(bool[] buttonsToReactivate)
@@ -62,6 +62,10 @@ public class ProcessParent : MonoBehaviour
         if (buttonsToReactivate[5])
         {
             WetEtchPreset = canvasMain.transform.Find("WetEtchToggle").gameObject;
+        }
+        if (buttonsToReactivate[6])
+        {
+            SchematicPreset = canvasMain.transform.Find("showSchematicGrid").gameObject;
         }
     }
 
@@ -157,6 +161,13 @@ public class ProcessParent : MonoBehaviour
         {
             wetEtchToggle = GameObject.Find("WetEtchToggle");
         }
+        if (SchematicPreset)
+        {
+            schematicToggle = SchematicPreset;
+        }
+        else {
+            schematicToggle = GameObject.Find("showSchematicGrid");
+        }
 
 
         if (Dropdown)
@@ -183,6 +194,9 @@ public class ProcessParent : MonoBehaviour
         {
             wetEtchToggle.SetActive(false);
         }
+        if (schematicToggle) {
+            schematicToggle.SetActive(false);
+        }
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(true);
 
     }
@@ -192,19 +206,11 @@ public class ProcessParent : MonoBehaviour
         return true;
     }
     
-    virtual public void updateSchematics() {}
+    virtual public void UpdateSchematics() {}
 
 
     virtual public void OnValueChanged(float newValue)
     {
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    onCancelButton();
-        //}
     }
 
     public void onCancelButton()
@@ -237,6 +243,10 @@ public class ProcessParent : MonoBehaviour
         {
             wetEtchToggle.SetActive(true);
         }
+        if (schematicToggle)
+        {
+            schematicToggle.SetActive(true);
+        }
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
         Destroy(gameObject);
     }
@@ -247,7 +257,7 @@ public class ProcessParent : MonoBehaviour
         Destroy(finishButton);
         Destroy(cancelButton);
 
-        this.updateSchematics();
+        this.UpdateSchematics();
 
         if (Dropdown)
         {
@@ -272,6 +282,10 @@ public class ProcessParent : MonoBehaviour
         if (wetEtchToggle)
         {
             wetEtchToggle.SetActive(true);
+        }
+        if (schematicToggle)
+        {
+            schematicToggle.SetActive(true);
         }
         layerStackHold.postDeleteCheckFlag = true;
         GameObject.Find("Control").GetComponent<control>().setShowMeasureStick(false);
