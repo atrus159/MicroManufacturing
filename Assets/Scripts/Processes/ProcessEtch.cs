@@ -23,7 +23,7 @@ public class ProcessEtch : ProcessParent
         layerStackHold.sliceDeposits(curStep);
     }
 
-    public override void updateSchematics() {
+    public override void UpdateSchematics() {
 
         schematicManager schematicManagerObject = GameObject.Find("schematicManager").GetComponent<schematicManager>();
 
