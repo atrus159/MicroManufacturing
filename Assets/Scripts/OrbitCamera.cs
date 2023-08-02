@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Camera))]
 public class OrbitCamera : MonoBehaviour 
@@ -13,6 +14,10 @@ public class OrbitCamera : MonoBehaviour
 	float rotationSpeed = 90f;
 
 	Vector2 orbitAngles = new Vector2(45f, 0f);
+
+	private Vector3 previousPosition;
+
+	[SerializeField] private Camera cam;
 
 	void ManualRotation()
 	{
@@ -29,15 +34,50 @@ public class OrbitCamera : MonoBehaviour
 
 	void LateUpdate()
 	{
-        if (control.isPaused() != control.pauseStates.menuPaused)
-        {
-            ManualRotation();
-        }
-		Vector3 focusPoint = focus.position;
-		Quaternion lookRotation = Quaternion.Euler(orbitAngles);
-		Vector3 lookDirection = lookRotation * Vector3.forward;
-		Vector3 lookPosition = focusPoint - lookDirection * distance;
-		transform.SetPositionAndRotation(lookPosition, lookRotation);
-	}
+		// FOR MOUSE DRAG MOVEMENT
+		// https://github.com/EmmaPrats/Camera-Rotation-Tutorial
 
+		EventSystem eventSys = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+
+		if (Input.GetMouseButtonDown(0) || eventSys.IsPointerOverGameObject())
+		{
+			previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+			//orbitAngles = new Vector2(cam.transform.rotation.x, cam.transform.rotation.y);
+
+		}
+		else if (Input.GetMouseButton(0))
+		{
+			Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+			Vector3 direction = previousPosition - newPosition;
+
+			float rotationAroundYAxis = -direction.x * 180; // camera moves horizontally
+			float rotationAroundXAxis = direction.y * 180; // camera moves vertically
+
+			cam.transform.position = focus.position;
+
+			cam.transform.Rotate(new Vector3(1, 0, 0), rotationAroundXAxis);
+			cam.transform.Rotate(new Vector3(0, 1, 0), rotationAroundYAxis, Space.World); // <— This is what makes it work!
+
+			cam.transform.Translate(new Vector3(0, 0, -distance));
+
+			previousPosition = newPosition;
+
+			Vector3 pos = cam.transform.rotation.eulerAngles;
+
+			orbitAngles = new Vector2(pos.x, pos.y);
+		}
+		else {
+
+			// FOR ARROW/WASD CONTROLS
+			if (control.isPaused() != control.pauseStates.menuPaused)
+			{
+				ManualRotation();
+			}
+			Vector3 focusPoint = focus.position;
+			Quaternion lookRotation = Quaternion.Euler(orbitAngles);
+			Vector3 lookDirection = lookRotation * Vector3.forward;
+			Vector3 lookPosition = focusPoint - lookDirection * distance;
+			transform.SetPositionAndRotation(lookPosition, lookRotation);
+		}
+	}
 }
