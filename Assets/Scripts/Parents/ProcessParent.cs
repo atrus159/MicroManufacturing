@@ -95,6 +95,7 @@ public class ProcessParent : MonoBehaviour
                 em.GetComponent<errorManager>().createError(ErrorMessage);
             }
             Destroy(gameObject);
+            GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
             return;
         }
 
