@@ -144,7 +144,6 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/Scripts/Dialogue/TextManager.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 3/checkNoContact.cs" />
-    <Compile Include="Assets/Scripts/ClickAndDragCamera.cs" />
     <Compile Include="Assets/Scripts/CanvasButtons/save_button.cs" />
     <Compile Include="Assets/Scripts/Checks/Level 2/checkMEA1.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />

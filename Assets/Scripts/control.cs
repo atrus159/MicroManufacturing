@@ -331,15 +331,12 @@ public class control : MonoBehaviour
 
     public void onDepositButton()
     {
-        GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = true;
         GameObject layer = GameObject.Find("LayerStack");
         layer.GetComponent<LayerStackHolder>().startDepositProcess();
     }
 
     public void onEtchButton()
     {
-        OrbitCamera orbitCam = GameObject.Find("Main Camera").GetComponent<OrbitCamera>();
-        orbitCam.lockedOut = true;
         GameObject layer = GameObject.Find("LayerStack");
         layer.GetComponent<LayerStackHolder>().startEtchProcess();
     }
@@ -386,7 +383,6 @@ public class control : MonoBehaviour
     {
         GameObject proc = GameObject.Find("New Process");
         proc.GetComponent<ProcessParent>().onFinishedButton();
-        GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
 
     }
 
@@ -394,7 +390,6 @@ public class control : MonoBehaviour
     {
         GameObject proc = GameObject.Find("New Process");
         proc.GetComponent<ProcessParent>().onCancelButton();
-        GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
     }
 
     public static pauseStates isPaused()
