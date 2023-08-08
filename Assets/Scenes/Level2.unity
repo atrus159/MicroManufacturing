@@ -1582,6 +1582,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6689852019309915188, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
+      propertyPath: m_Name
+      value: backpanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689852019309915188, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6689852019441038735, guid: 38313a6759ccf7e478fe156442be37ff, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4741,7 +4749,6 @@ MonoBehaviour:
   focus: {fileID: 935613853}
   distance: 20
   rotationSpeed: 90
-  cam: {fileID: 963194227}
 --- !u!1 &964424715
 GameObject:
   m_ObjectHideFlags: 0
