@@ -4741,6 +4741,7 @@ MonoBehaviour:
   focus: {fileID: 935613853}
   distance: 20
   rotationSpeed: 90
+  cam: {fileID: 963194227}
 --- !u!1 &964424715
 GameObject:
   m_ObjectHideFlags: 0

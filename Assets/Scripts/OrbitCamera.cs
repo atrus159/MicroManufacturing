@@ -17,9 +17,14 @@ public class OrbitCamera : MonoBehaviour
 
 	private Vector3 previousPosition;
 
-	[SerializeField] private Camera cam;
+	private Camera cam;
 
-	void ManualRotation()
+	void Start()
+	{
+		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+	}
+
+    void ManualRotation()
 	{
 		Vector2 input = new Vector2(
 			Input.GetAxis("Vertical"),
