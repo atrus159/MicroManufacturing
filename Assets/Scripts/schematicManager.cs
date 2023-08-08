@@ -232,12 +232,14 @@ public class schematicManager : MonoBehaviour
         schematicView.SetActive(true);
         showSchematicView.SetActive(false);
         hideSchematicView.SetActive(true);
+        GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = true;
     }
 
     public void onSchematicCloseButton() {
         showSchematicView.SetActive(true);
         schematicView.SetActive(false);
         hideSchematicView.SetActive(false);
+        GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
     }
     public void updateText(string tool) {
         bool alreadyActive = schematicView.activeSelf;

@@ -19,9 +19,12 @@ public class OrbitCamera : MonoBehaviour
 
 	private Camera cam;
 
+	public bool lockedOut;
+
 	void Start()
 	{
 		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+		lockedOut = false;
 	}
 
     void ManualRotation()
@@ -39,6 +42,9 @@ public class OrbitCamera : MonoBehaviour
 
 	void LateUpdate()
 	{
+		if (lockedOut) {
+			return;
+		}
 		// FOR MOUSE DRAG MOVEMENT
 		// https://github.com/EmmaPrats/Camera-Rotation-Tutorial
 
