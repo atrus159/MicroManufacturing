@@ -12952,6 +12952,7 @@ MonoBehaviour:
   focus: {fileID: 1911338753}
   distance: 20
   rotationSpeed: 90
+  cam: {fileID: 2037031567}
 --- !u!81 &2037031566
 AudioListener:
   m_ObjectHideFlags: 0
