@@ -48,9 +48,8 @@ public class OrbitCamera : MonoBehaviour
 		// FOR MOUSE DRAG MOVEMENT
 		// https://github.com/EmmaPrats/Camera-Rotation-Tutorial
 
-		EventSystem eventSys = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
-		if (Input.GetMouseButtonDown(0) || eventSys.IsPointerOverGameObject())
+		if (Input.GetMouseButtonDown(0))
 		{
 			previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
 			//orbitAngles = new Vector2(cam.transform.rotation.x, cam.transform.rotation.y);
@@ -93,14 +92,13 @@ public class OrbitCamera : MonoBehaviour
 	}
 
 	public void LockOut() {
-		//Debug.Log("drag trigger");
+		
 		GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = true;
 	}
 
 
 	public void UnlockOut()
 	{
-		Debug.Log("drop trigger");
 		GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
 
 	}
