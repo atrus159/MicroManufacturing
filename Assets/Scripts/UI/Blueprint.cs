@@ -92,13 +92,14 @@ public class Blueprint : MonoBehaviour
             }
         }else if(dragState == dragStates.clicked)
         {
-            GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = true;
+            GameObject.Find("Main Camera").GetComponent<OrbitCamera>().LockOut();
             trans.SetPositionAndRotation(new Vector2(mouseRelX + mouseX, mouseRelY + mouseY), Quaternion.identity); 
 
             if (mouseUp)
             {
                 dragState = dragStates.waiting;
-                GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
+                GameObject.Find("Main Camera").GetComponent<OrbitCamera>().UnlockOut();
+                Debug.Log("bp trigger");
                 float dist = math.sqrt(math.pow(trans.position.y - originalY,2) - math.pow(trans.position.x - originalX,2));
                 if (dist <= 2.0f)
                 {

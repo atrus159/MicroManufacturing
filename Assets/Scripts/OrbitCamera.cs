@@ -19,7 +19,7 @@ public class OrbitCamera : MonoBehaviour
 
 	private Camera cam;
 
-	public bool lockedOut;
+	private bool lockedOut;
 
 	void Start()
 	{
@@ -90,5 +90,18 @@ public class OrbitCamera : MonoBehaviour
 			Vector3 lookPosition = focusPoint - lookDirection * distance;
 			transform.SetPositionAndRotation(lookPosition, lookRotation);
 		}
+	}
+
+	public void LockOut() {
+		//Debug.Log("drag trigger");
+		GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = true;
+	}
+
+
+	public void UnlockOut()
+	{
+		Debug.Log("drop trigger");
+		GameObject.Find("Main Camera").GetComponent<OrbitCamera>().lockedOut = false;
+
 	}
 }
