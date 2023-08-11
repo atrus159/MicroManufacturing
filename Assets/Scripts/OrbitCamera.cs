@@ -21,10 +21,13 @@ public class OrbitCamera : MonoBehaviour
 
 	private bool lockedOut;
 
+	bool succesfulClick;
+
 	void Start()
 	{
 		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
 		lockedOut = false;
+		succesfulClick = false;
 	}
 
     void ManualRotation()
@@ -42,21 +45,29 @@ public class OrbitCamera : MonoBehaviour
 
 	void LateUpdate()
 	{
-		if (lockedOut) {
-			return;
-		}
+        if (control.isPaused() != control.pauseStates.menuPaused)
+        {
+            ManualRotation();
+        }
+        Vector3 focusPoint = focus.position;
+        Quaternion lookRotation = Quaternion.Euler(orbitAngles);
+        Vector3 lookDirection = lookRotation * Vector3.forward;
+        Vector3 lookPosition = focusPoint - lookDirection * distance;
+        transform.SetPositionAndRotation(lookPosition, lookRotation);
+
 		// FOR MOUSE DRAG MOVEMENT
 		// https://github.com/EmmaPrats/Camera-Rotation-Tutorial
 
 		EventSystem eventSys = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
-		if (Input.GetMouseButtonDown(0) || eventSys.IsPointerOverGameObject())
+		if (Input.GetMouseButtonDown(0) && ! (eventSys.IsPointerOverGameObject() || lockedOut))
 		{
 			previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+			succesfulClick = true;
 			//orbitAngles = new Vector2(cam.transform.rotation.x, cam.transform.rotation.y);
 
 		}
-		else if (Input.GetMouseButton(0))
+		else if (Input.GetMouseButton(0) && succesfulClick)
 		{
 			Vector3 newPosition = cam.ScreenToViewportPoint(Input.mousePosition);
 			Vector3 direction = previousPosition - newPosition;
@@ -76,19 +87,9 @@ public class OrbitCamera : MonoBehaviour
 			Vector3 pos = cam.transform.rotation.eulerAngles;
 
 			orbitAngles = new Vector2(pos.x, pos.y);
-		}
-		else {
-
-			// FOR ARROW/WASD CONTROLS
-			if (control.isPaused() != control.pauseStates.menuPaused)
-			{
-				ManualRotation();
-			}
-			Vector3 focusPoint = focus.position;
-			Quaternion lookRotation = Quaternion.Euler(orbitAngles);
-			Vector3 lookDirection = lookRotation * Vector3.forward;
-			Vector3 lookPosition = focusPoint - lookDirection * distance;
-			transform.SetPositionAndRotation(lookPosition, lookRotation);
+		}else if (Input.GetMouseButtonUp(0))
+		{
+			succesfulClick = false;
 		}
 	}
 
