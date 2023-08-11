@@ -90,18 +90,18 @@ public class Blueprint : MonoBehaviour
                 originalX = trans.position.x;
                 originalY = trans.position.y;
             }
-        }else if(dragState == dragStates.clicked)
+        } else if (dragState == dragStates.clicked)
         {
             GameObject.Find("Main Camera").GetComponent<OrbitCamera>().LockOut();
-            trans.SetPositionAndRotation(new Vector2(mouseRelX + mouseX, mouseRelY + mouseY), Quaternion.identity); 
+            trans.SetPositionAndRotation(new Vector2(mouseRelX + mouseX, mouseRelY + mouseY), Quaternion.identity);
 
-            if (mouseUp)
+            if (mouseUp || !GameObject.Find("showSchematicGrid"))
             {
                 dragState = dragStates.waiting;
                 GameObject.Find("Main Camera").GetComponent<OrbitCamera>().UnlockOut();
                 Debug.Log("bp trigger");
                 float dist = math.sqrt(math.pow(trans.position.y - originalY,2) - math.pow(trans.position.x - originalX,2));
-                if (dist <= 2.0f)
+                if (dist <= 2.0f && GameObject.Find("showSchematicGrid"))
                 {
                     if (open)
                     {
