@@ -36,7 +36,7 @@ public class requirementIcon : MonoBehaviour
 
     public void setOpen(bool openStatus)
     {
-        if(openStatus)
+        if(openStatus && GameObject.Find("showSchematicGrid"))
         {
             open = true;
             GetComponent<Image>().sprite = openSprite;

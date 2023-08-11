@@ -7,9 +7,6 @@ using UnityEngine.Events;
 
 public class ToggleCustom : MonoBehaviour
 {
- 
-
-
     public bool visible;
 
     bool toggled;
@@ -63,13 +60,10 @@ public class ToggleCustom : MonoBehaviour
             hoverOver = true;
         }
 
-
-       
-
         bool mouseDown = UnityEngine.Input.GetMouseButtonDown(0);
 
 
-        if (mouseDown && hoverOver)
+        if (mouseDown && hoverOver && GameObject.Find("showSchematicGrid"))
         {
             if (toggled)
             {

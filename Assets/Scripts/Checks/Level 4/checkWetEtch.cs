@@ -8,8 +8,8 @@ public class checkWetEtch : levelRequirementParent
     public override void onStart()
     {
         base.onStart();
-        name = "Switch the etch toggle to “wet-etch” then etch the aluminum.";
-        description = "The etch toggle is in the top right";
+        name = "Switch the etch toggle to ?wet-etch? then etch the aluminum.";
+        description = "The etch toggle is in the bottom left";
         checkOutsideEdits = true;
     }
 
