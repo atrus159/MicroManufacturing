@@ -209,7 +209,7 @@ public class DropdownCustom : MonoBehaviour
         }
 
 
-        if (mouseDown)
+        if (mouseDown && GameObject.Find("showSchematicGrid"))
         {
             if(hoverOver && !toggled)
             {
